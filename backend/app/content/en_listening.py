@@ -7,6 +7,8 @@ connected speech. O cliente controla velocidade (0.75x–1.25x) e pode revelar a
 
 from __future__ import annotations
 
+from app.content.india import LISTENING_INDIA
+
 LISTENING_EN: list[dict] = [
     {
         "id": "lst-en-hotel-checkin", "title": "Check-in no hotel", "level": "A2", "domain": "travel", "phase": 1,
@@ -198,3 +200,6 @@ LISTENING_EN: list[dict] = [
         "key_phrases": ["takt time", "bottleneck", "run in parallel", "free up"],
     },
 ]
+
+# Diálogos com falantes indianos (preparação para a Índia)
+LISTENING_EN = LISTENING_EN + LISTENING_INDIA

@@ -10,6 +10,7 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.content.en_vocab import PRONUNCIATION_EN, VOCAB_EN
+from app.content.india import VOCAB_EN_INDIA
 from app.content.other_languages import VOCAB_BY_LANGUAGE
 from app.db import utcnow
 from app.models import LearnerProfile, ReviewLog, User, UserCard, VocabItem
@@ -21,7 +22,7 @@ scheduler = FSRSScheduler()
 
 def _seed_rows() -> list[dict]:
     rows = []
-    for term, kind, meaning, example, domain, cefr, rank in VOCAB_EN:
+    for term, kind, meaning, example, domain, cefr, rank in VOCAB_EN + VOCAB_EN_INDIA:
         rows.append({"language": "en", "term": term, "kind": kind, "meaning_pt": meaning, "examples": [{"text": example}],
                      "domain": domain, "cefr": cefr, "frequency_rank": rank, "pronunciation": PRONUNCIATION_EN.get(term, "")})
     for lang, items in VOCAB_BY_LANGUAGE.items():
@@ -71,6 +72,8 @@ def _priority(item: VocabItem, focus_domains: list[str]) -> int:
     p = 10_000 - item.frequency_rank
     if item.domain in focus_domains or (item.kind == "technical" and "engineering" in focus_domains):
         p += 300
+    if item.domain == "india" and "india" in focus_domains:
+        p += 600  # destino Índia: expressões do inglês indiano entram cedo
     if item.source in ("error", "tutor", "document"):
         p += 2_000  # o que o próprio usuário precisou/errou vem primeiro
     return p
@@ -91,6 +94,24 @@ async def enroll(db: AsyncSession, user: User, language: str, focus_domains: lis
         n += 1
     await db.flush()
     return n
+
+
+async def reprioritize(db: AsyncSession, user: User, language: str, focus_domains: list[str]) -> None:
+    """Recalcula a prioridade dos cartões ainda não introduzidos (ex.: após mudar o destino da viagem)."""
+    cards = (await db.execute(select(UserCard).where(UserCard.user_id == user.id, UserCard.language == language,
+                                                     UserCard.state == "new"))).scalars().all()
+    for c in cards:
+        await db.refresh(c, ["item"])
+        c.priority = _priority(c.item, focus_domains)
+    await db.flush()
+
+
+def priority_domains(profile) -> list[str]:
+    """Domínios que recebem prioridade: áreas profissionais + destino da viagem."""
+    domains = list(profile.focus_domains or [])
+    if getattr(profile, "trip_destination", None) == "IN":
+        domains.append("india")
+    return domains
 
 
 async def add_personal_item(

@@ -58,7 +58,8 @@ def profile_view(p: LearnerProfile) -> dict:
     return {"language": p.language, "cefr_estimate": p.cefr_estimate, "skill_scores": p.skill_scores,
             "daily_minutes": p.daily_minutes, "goals": p.goals, "focus_domains": p.focus_domains,
             "difficulties": p.difficulties, "trip_date": p.trip_date.isoformat() if p.trip_date else None,
-            "preferred_accents": p.preferred_accents, "new_cards_per_day": p.new_cards_per_day}
+            "preferred_accents": p.preferred_accents, "new_cards_per_day": p.new_cards_per_day,
+            "trip_destination": p.trip_destination}
 
 
 @router.get("", response_model=MeOut)
@@ -115,6 +116,11 @@ class ProfileIn(BaseModel):
     preferred_accents: list[str] = Field(default_factory=list, max_length=5)
     new_cards_per_day: int = Field(default=12, ge=0, le=50)
     self_level: str | None = Field(default=None, pattern="^(A1|A2|B1|B2|C1|C2)$")
+    trip_destination: str | None = Field(default=None, pattern="^[A-Z]{2}$")
+
+
+# Sotaques priorizados por destino (o primeiro vira o padrão do tutor e do listening)
+DESTINATION_ACCENTS = {"IN": ["IN", "UK", "US"], "US": ["US", "UK"], "GB": ["UK", "US"], "AU": ["AU", "UK", "US"]}
 
 
 @router.put("/profiles/{language}")
@@ -130,12 +136,18 @@ async def upsert_profile(language: str, body: ProfileIn, user: CurrentUser, db: 
     p.daily_minutes, p.goals, p.focus_domains = body.daily_minutes, [g[:120] for g in body.goals], body.focus_domains
     p.difficulties, p.trip_date, p.preferred_accents = [d[:120] for d in body.difficulties], body.trip_date, body.preferred_accents
     p.new_cards_per_day = body.new_cards_per_day
+    destination_changed = p.trip_destination != body.trip_destination
+    p.trip_destination = body.trip_destination
+    if body.trip_destination in DESTINATION_ACCENTS and (not body.preferred_accents or destination_changed):
+        p.preferred_accents = DESTINATION_ACCENTS[body.trip_destination]
     if body.self_level and not p.cefr_estimate:
         p.cefr_estimate = body.self_level  # autodeclarado até a primeira avaliação
     user.active_language = language
     await db.flush()
     if created:
-        await vocab_service.enroll(db, user, language, body.focus_domains)
+        await vocab_service.enroll(db, user, language, vocab_service.priority_domains(p))
+    elif destination_changed:
+        await vocab_service.reprioritize(db, user, language, vocab_service.priority_domains(p))
     await db.commit()
     return profile_view(p)
 

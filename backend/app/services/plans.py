@@ -17,23 +17,45 @@ async def _placement_done(db: AsyncSession, user: User, language: str) -> bool:
                                                          Assessment.completed_at.is_not(None)).limit(1))).first() is not None
 
 
+async def _adjustments(db: AsyncSession, user: User, profile: LearnerProfile) -> tuple[dict, list]:
+    """Ajustes do motor adaptativo + preparação para o destino da viagem."""
+    adj = adaptive.compute_adjustments(await adaptive.collect_signals(db, user, profile.language))
+    multipliers, insights = dict(adj.multipliers), list(adj.insights)
+    dest = planner.DESTINATIONS.get(profile.trip_destination or "") if profile.language == "en" else None
+    if dest:
+        for t, f in dest["multipliers"].items():
+            multipliers[t] = round(multipliers.get(t, 1.0) * f, 3)
+        insights.insert(0, dest["insight"])
+    return multipliers, insights
+
+
+def _phases_for(destination: str | None) -> dict:
+    dest = planner.DESTINATIONS.get(destination or "")
+    phases = {k: dict(v) for k, v in planner.PHASES.items()}
+    if dest:
+        for ph, goals in dest["goals_pt"].items():
+            phases[ph]["measurable_goals_pt"] = list(phases[ph]["measurable_goals_pt"]) + goals
+    return phases
+
+
 async def create_plan(db: AsyncSession, user: User, profile: LearnerProfile, *, start: date | None = None,
                       title: str | None = None) -> StudyPlan:
     start = start or utcnow().date()
     total = planner.plan_length(start, profile.trip_date)
-    signals = await adaptive.collect_signals(db, user, profile.language)
-    adj = adaptive.compute_adjustments(signals)
+    multipliers, insights = await _adjustments(db, user, profile)
     level = profile.cefr_estimate or "B1"
     days = planner.generate(start=start, total_days=total, daily_minutes=profile.daily_minutes, learner_level=level,
-                            multipliers=adj.multipliers, focus_domains=profile.focus_domains,
-                            placement_done=await _placement_done(db, user, profile.language))
+                            multipliers=multipliers, focus_domains=profile.focus_domains,
+                            placement_done=await _placement_done(db, user, profile.language),
+                            destination=profile.trip_destination)
     await db.execute(update(StudyPlan).where(StudyPlan.user_id == user.id, StudyPlan.language == profile.language,
                                              StudyPlan.status == "active").values(status="archived"))
     plan = StudyPlan(
         user_id=user.id, language=profile.language,
         title=title or f"Programa Intensivo de {'Inglês Profissional' if profile.language == 'en' else 'Idioma'} — {total} dias",
         start_date=start, end_date=days[-1].date, total_days=total, daily_minutes=profile.daily_minutes,
-        config={"phases": planner.PHASES, "multipliers": adj.multipliers, "insights": adj.insights,
+        config={"phases": _phases_for(profile.trip_destination), "multipliers": multipliers, "insights": insights,
+                "destination": profile.trip_destination,
                 "expected_outcomes": planner.expected_outcomes(total, profile.daily_minutes, profile.cefr_estimate),
                 "trip_date": profile.trip_date.isoformat() if profile.trip_date else None, "level_at_start": level},
     )
@@ -97,11 +119,11 @@ async def complete_activity(db: AsyncSession, plan: StudyPlan, day_index: int, a
 
 async def adapt(db: AsyncSession, user: User, plan: StudyPlan, profile: LearnerProfile) -> dict:
     """Recalcula a dosagem das atividades nos dias futuros ainda não iniciados, mantendo fases e objetivos."""
-    signals = await adaptive.collect_signals(db, user, plan.language)
-    adj = adaptive.compute_adjustments(signals)
+    multipliers, insights = await _adjustments(db, user, profile)
     regenerated = planner.generate(start=plan.start_date, total_days=plan.total_days, daily_minutes=profile.daily_minutes,
-                                   learner_level=profile.cefr_estimate or "B1", multipliers=adj.multipliers,
-                                   focus_domains=profile.focus_domains, placement_done=True)
+                                   learner_level=profile.cefr_estimate or "B1", multipliers=multipliers,
+                                   focus_domains=profile.focus_domains, placement_done=True,
+                                   destination=profile.trip_destination)
     by_idx = {d.day_index: d for d in regenerated}
     today = utcnow().date()
     changed = 0
@@ -112,7 +134,8 @@ async def adapt(db: AsyncSession, user: User, plan: StudyPlan, profile: LearnerP
         d.activities = new.activities
         d.is_assessment_day = new.is_assessment_day
         changed += 1
-    plan.config = {**plan.config, "multipliers": adj.multipliers, "insights": adj.insights}
+    plan.config = {**plan.config, "multipliers": multipliers, "insights": insights,
+                   "phases": _phases_for(profile.trip_destination), "destination": profile.trip_destination}
     plan.last_adapted_at = utcnow()
     await db.flush()
-    return {"changed_days": changed, "insights": adj.insights, "multipliers": adj.multipliers}
+    return {"changed_days": changed, "insights": insights, "multipliers": multipliers}

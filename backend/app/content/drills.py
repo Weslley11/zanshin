@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from app.content.india import SHADOWING_INDIA
+
 # Quick Response Training: perguntas curtas; `keywords` orientam a verificação de relevância no modo offline.
 QUICK_RESPONSE_EN: list[dict] = [
     {"id": "qr-a2-1", "level": "A2", "theme": "personal", "q": "What do you do for a living?", "keywords": ["engineer", "work", "job", "i am", "i'm", "developer", "manager", "analyst", "technician"], "model": "I'm a mechanical engineer. I work on product design."},
@@ -78,6 +80,8 @@ SHADOWING_EN: list[dict] = [
     {"id": "sh-14", "level": "B2", "accent": "UK", "text": "Just to make sure we're on the same page, the release is next Friday, right?", "focus_pt": "Tag question 'right?' com entonação ascendente (pedido de confirmação)."},
     {"id": "sh-15", "level": "C1", "accent": "US", "text": "Had we standardized those fasteners sooner, we'd be carrying far less inventory.", "focus_pt": "Inversão condicional; ritmo: HAD we STANdardized… FAR less INventory."},
 ]
+
+SHADOWING_EN = SHADOWING_EN + SHADOWING_INDIA
 
 # Tópicos para conversa livre (tutor offline e quebra-gelos do tutor com IA).
 CONVERSATION_TOPICS_EN: dict[str, list[str]] = {

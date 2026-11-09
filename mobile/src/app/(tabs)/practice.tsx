@@ -27,11 +27,17 @@ const tutor = (mode: string, extra: Record<string, string> = {}) => () =>
   router.push({ pathname: "/tutor/new", params: { mode, ...extra } });
 
 export default function Practice() {
-  const { language } = useApp();
+  const { language, profile } = useApp();
   const en = language === "en";
+  const india = profile?.trip_destination === "IN";
   return (
     <Screen>
       <Text variant="h2">Praticar</Text>
+      {en ? (
+        <Section title={india ? "Sua viagem" : "Variedades do inglês"} items={[
+          { icon: "🇮🇳", title: "Inglês da Índia", desc: "Sotaque, ritmo, expressões, números em lakh/crore e comunicação no trabalho.", go: () => router.push("/india") },
+        ]} />
+      ) : null}
       <Section title="Professor particular (IA)" items={[
         { icon: "💬", title: "Conversa natural", desc: "Sem interrupções; correções e vocabulário no relatório final.", go: tutor("natural") },
         { icon: "✏️", title: "Treino com correção imediata", desc: "Correção após cada mensagem, com explicação curta.", go: tutor("immediate") },

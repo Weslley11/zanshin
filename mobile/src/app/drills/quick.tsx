@@ -26,7 +26,7 @@ export default function QuickResponse() {
   const voice = useVoiceInput(!!caps?.stt.available, language);
 
   useEffect(() => {
-    api(`/drills/quick-response?language=${language}&level=${profile?.cefr_estimate ?? "B1"}&count=8`)
+    api(`/drills/quick-response?language=${language}&level=${profile?.cefr_estimate ?? "B1"}&count=8${profile?.trip_destination ? `&destination=${profile.trip_destination}` : ""}`)
       .then((s) => { setSet(s); setLimit(s.initial_time_limit_ms); })
       .catch((e) => setError(e.message));
     return () => { stopSpeaking(); };
@@ -40,7 +40,7 @@ export default function QuickResponse() {
     setAnswer("");
     setFb(null);
     firstAt.current = null;
-    speak(q.q, { language, onDone: () => {
+    speak(q.q, { language, accent: profile?.preferred_accents?.[0], onDone: () => {
       readyAt.current = Date.now();
       setRemaining(limit);
       setPhase("answer");

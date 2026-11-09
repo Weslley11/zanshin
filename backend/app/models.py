@@ -86,6 +86,7 @@ class LearnerProfile(Base):
     focus_domains: Mapped[list] = mapped_column(JSONType, default=list)
     difficulties: Mapped[list] = mapped_column(JSONType, default=list)
     trip_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    trip_destination: Mapped[str | None] = mapped_column(String(2), nullable=True)  # ISO 3166 (ex.: "IN")
     preferred_accents: Mapped[list] = mapped_column(JSONType, default=list)
     new_cards_per_day: Mapped[int] = mapped_column(Integer, default=12)
     created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)

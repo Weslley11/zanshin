@@ -9,7 +9,7 @@ import { useVoiceInput } from "../lib/voice";
 
 export default function Shadowing() {
   const { planDay, planActivity } = useLocalSearchParams<{ planDay?: string; planActivity?: string }>();
-  const { language, caps } = useApp();
+  const { language, caps, profile } = useApp();
   const { c } = useTheme();
   const [items, setItems] = useState<any[] | null>(null);
   const [i, setI] = useState(0);
@@ -21,7 +21,12 @@ export default function Shadowing() {
   const [attempts, setAttempts] = useState(0);
   const voice = useVoiceInput(!!caps?.stt.available || !!caps?.pronunciation_assessment.available, language);
 
-  useEffect(() => { api(`/shadowing?language=${language}`).then(setItems).catch((e) => setError(e.message)); }, [language]);
+  useEffect(() => {
+    const first = profile?.preferred_accents?.[0];
+    api(`/shadowing?language=${language}`)
+      .then((all: any[]) => setItems(first ? [...all.filter((x) => x.accent === first), ...all.filter((x) => x.accent !== first)] : all))
+      .catch((e) => setError(e.message));
+  }, [language, profile]);
   const it = items?.[i];
 
   const send = async (form: FormData) => {

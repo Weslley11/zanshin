@@ -16,6 +16,7 @@ const DOMAINS = [
   ["corporate", "Gestão de projetos"], ["travel", "Viagens"], ["networking", "Networking"],
 ];
 const DIFFICULTIES = ["Entender quem fala rápido", "Responder sem traduzir", "Pronúncia", "Vocabulário técnico", "Gramática ao falar", "Timidez / confiança"];
+const DESTINATIONS: [string | null, string][] = [["IN", "🇮🇳 Índia"], ["US", "EUA"], ["GB", "Reino Unido"], ["AU", "Austrália"], [null, "Outro / não sei"]];
 const LEVELS = [["A2", "Básico"], ["B1", "Intermediário"], ["B2", "Intermediário superior"], ["C1", "Avançado"]];
 
 function isoInDays(days: number) {
@@ -25,14 +26,15 @@ function isoInDays(days: number) {
 }
 
 export default function Onboarding() {
-  const { refreshMe, me } = useApp();
-  const [language, setLanguage] = useState("en");
-  const [minutes, setMinutes] = useState(45);
-  const [trip, setTrip] = useState(isoInDays(90));
-  const [domains, setDomains] = useState<string[]>(["engineering", "travel"]);
-  const [diffs, setDiffs] = useState<string[]>(["Entender quem fala rápido", "Responder sem traduzir"]);
-  const [level, setLevel] = useState("B1");
-  const [goal, setGoal] = useState("Viagem internacional a trabalho");
+  const { refreshMe, me, profile } = useApp();
+  const [language, setLanguage] = useState(profile?.language ?? "en");
+  const [minutes, setMinutes] = useState(profile?.daily_minutes ?? 45);
+  const [trip, setTrip] = useState(profile?.trip_date ?? isoInDays(90));
+  const [destination, setDestination] = useState<string | null>(profile?.trip_destination ?? null);
+  const [domains, setDomains] = useState<string[]>(profile?.focus_domains ?? ["engineering", "travel"]);
+  const [diffs, setDiffs] = useState<string[]>(profile?.difficulties ?? ["Entender quem fala rápido", "Responder sem traduzir"]);
+  const [level, setLevel] = useState(profile?.cefr_estimate ?? "B1");
+  const [goal, setGoal] = useState(profile?.goals?.[0] ?? "Viagem internacional a trabalho");
   const [loading, setLoading] = useState<"assess" | "plan" | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,7 +49,8 @@ export default function Onboarding() {
       await api(`/me/profiles/${language}`, {
         method: "PUT",
         body: { daily_minutes: minutes, goals: [goal], focus_domains: domains, difficulties: diffs, trip_date: trip,
-                self_level: level, preferred_accents: ["US", "UK"] },
+                self_level: level, trip_destination: language === "en" ? destination : null,
+                preferred_accents: destination ? [] : ["US", "UK"] },
       });
       await refreshMe();
       if (next === "assess" && language === "en") {
@@ -86,6 +89,16 @@ export default function Onboarding() {
         <Row wrap>{[60, 75, 90, 120].map((d) => <Chip key={d} label={`em ${d} dias`} selected={trip === isoInDays(d)} onPress={() => setTrip(isoInDays(d))} />)}</Row>
         <Field value={trip} onChangeText={setTrip} placeholder="AAAA-MM-DD" />
       </Stack>
+
+      {language === "en" ? (
+        <Stack gap={8}>
+          <Text variant="label" muted>Para onde você vai?</Text>
+          <Row wrap>{DESTINATIONS.map(([k, l]) => <Chip key={l} label={l} selected={destination === k} onPress={() => setDestination(k)} />)}</Row>
+          {destination === "IN" ? (
+            <Text variant="small" muted>O plano vai priorizar entender o inglês indiano: sotaque, ritmo, expressões e números em lakh/crore.</Text>
+          ) : null}
+        </Stack>
+      ) : null}
 
       <Stack gap={8}>
         <Text variant="label" muted>Áreas profissionais</Text>

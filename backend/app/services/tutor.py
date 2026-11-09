@@ -57,7 +57,8 @@ async def _memory(db: AsyncSession, user: User, language: str) -> dict:
 def _system_prompt(session: ConversationSession, profile: LearnerProfile | None, memory: dict) -> str:
     scenario = get_scenario(session.scenario_id) if session.scenario_id else None
     p = {"skill_scores": profile.skill_scores if profile else {}, "goals": profile.goals if profile else [],
-         "focus_domains": profile.focus_domains if profile else [], "difficulties": profile.difficulties if profile else []}
+         "focus_domains": profile.focus_domains if profile else [], "difficulties": profile.difficulties if profile else [],
+         "trip_destination": profile.trip_destination if profile else None}
     level = session.settings.get("level") or (profile.cefr_estimate if profile and profile.cefr_estimate else "B1")
     return build_system_prompt(language=session.language, mode=session.mode, level=level, profile=p, memory=memory,
                                scenario=scenario, settings=session.settings)
@@ -102,6 +103,8 @@ async def start_session(db: AsyncSession, user: User, providers: Providers, *, l
     profile = await _profile(db, user, language)
     level = settings.get("level") or (profile.cefr_estimate if profile and profile.cefr_estimate else "B1")
     settings = {**settings, "level": level}
+    if not settings.get("accent") and profile and profile.preferred_accents and language == "en" and not scenario:
+        settings["accent"] = profile.preferred_accents[0]  # ex.: destino Índia → tutor com inglês indiano
     if scenario:
         settings.setdefault("event_index", int(utcnow().timestamp()) % max(1, len(scenario["unexpected_events"])))
 

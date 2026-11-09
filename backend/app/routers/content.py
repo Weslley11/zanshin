@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field
 from app.config import get_settings
 from app.content.drills import QUICK_RESPONSE_EN, SENTENCE_BUILDING_EN, SHADOWING_EN, THINK_IN_ENGLISH_EN
 from app.content.en_listening import LISTENING_EN
+from app.content.india import QUICK_RESPONSE_INDIA, variety_guide
 from app.content.languages import CEFR_LEVELS, LANGUAGES, public_language
 from app.content.other_languages import (
     HIRAGANA_BASIC,
@@ -52,12 +53,22 @@ async def language_detail(language: str) -> dict:
     return public_language(language) | {"starter": extra}
 
 
+@router.get("/varieties/{code}")
+async def variety(code: str) -> dict:
+    """Guia de uma variedade do idioma (ex.: inglês indiano): pronúncia, expressões, números, cultura."""
+    guide = variety_guide(code)
+    if guide is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Variedade não disponível.")
+    return guide
+
+
 # ------------------------------- Cenários -------------------------------
 @router.get("/scenarios")
-async def scenarios(category: str | None = None) -> list[dict]:
+async def scenarios(category: str | None = None, country: str | None = None) -> list[dict]:
     keys = ("id", "category", "title_pt", "level", "phase", "domain", "minutes", "learner_role")
-    return [{k: s[k] for k in keys} | {"goals": s["goals"], "characters": s["characters"]}
-            for s in SCENARIOS if category is None or s["category"] == category]
+    return [{k: s[k] for k in keys} | {"goals": s["goals"], "characters": s["characters"], "country": s.get("country")}
+            for s in SCENARIOS
+            if (category is None or s["category"] == category) and (country is None or s.get("country") == country)]
 
 
 @router.get("/scenarios/{scenario_id}")
@@ -70,7 +81,7 @@ async def scenario(scenario_id: str) -> dict:
 
 # ------------------------------- Listening -------------------------------
 def _listening_public(x: dict, with_text: bool = True) -> dict:
-    out = {k: x[k] for k in ("id", "title", "level", "domain", "phase", "accents")}
+    out = {k: x[k] for k in ("id", "title", "level", "domain", "phase", "accents")} | {"country": x.get("country")}
     if with_text:
         # As falas vão ao cliente para síntese de voz; a interface só mostra a transcrição após a resposta.
         out["lines"] = x["lines"]
@@ -117,17 +128,25 @@ async def listening_submit(exercise_id: str, body: ListeningSubmit, user: Curren
 
 
 # ------------------------------- Destravar a Fala -------------------------------
-def _qr_pool(language: str) -> list[dict]:
-    return QUICK_RESPONSE_EN if language == "en" else QUICK_RESPONSE_OTHER.get(language, [])
+def _qr_pool(language: str, destination: str | None = "ALL") -> list[dict]:
+    if language != "en":
+        return QUICK_RESPONSE_OTHER.get(language, [])
+    if destination == "ALL":  # busca por id (avaliação)
+        return QUICK_RESPONSE_EN + QUICK_RESPONSE_INDIA
+    return QUICK_RESPONSE_EN + (QUICK_RESPONSE_INDIA if destination == "IN" else [])
 
 
 @router.get("/drills/quick-response")
-async def quick_response_set(language: str = "en", level: str = "B1", count: int = 8) -> dict:
+async def quick_response_set(language: str = "en", level: str = "B1", count: int = 8, destination: str | None = None) -> dict:
     _lang_or_404(language)
-    pool = _qr_pool(language)
+    pool = _qr_pool(language, destination)
     lvl_idx = CEFR_LEVELS.index(level) if level in CEFR_LEVELS else 2
     near = [q for q in pool if abs(CEFR_LEVELS.index(q["level"]) - lvl_idx) <= 1] or pool
     picks = random.sample(near, k=min(count, len(near)))
+    if destination == "IN" and language == "en":  # garante perguntas no contexto da Índia
+        india = [q for q in QUICK_RESPONSE_INDIA if q not in picks]
+        picks = (random.sample(india, k=min(3, len(india))) + picks)[:count]
+        random.shuffle(picks)
     start_ms = {0: 10000, 1: 9000, 2: 8000, 3: 6500, 4: 5500, 5: 5000}[lvl_idx]
     return {"questions": [{k: q[k] for k in ("id", "level", "theme", "q")} for q in picks], "initial_time_limit_ms": start_ms,
             "instructions_pt": "Ouça a pergunta e comece a responder antes do tempo acabar. Frases curtas valem!"}

@@ -9,7 +9,7 @@ import { useTheme } from "../../lib/theme";
 import type { PlanDay } from "../../lib/types";
 
 export default function Home() {
-  const { me, caps, language } = useApp();
+  const { me, caps, language, profile } = useApp();
   const { c } = useTheme();
   const [dash, setDash] = useState<any>(null);
   const [today, setToday] = useState<PlanDay | null>(null);
@@ -53,6 +53,13 @@ export default function Home() {
           Conversa com o tutor{caps?.stt.available ? " por voz" : ""} · sem interrupções para pequenos erros · relatório no final
         </Text>
       </Pressable>
+
+      {profile?.trip_destination === "IN" ? (
+        <Card tone="accent" onPress={() => router.push("/india")} style={{ gap: 4 }}>
+          <Text weight="700">🇮🇳 Preparação para a Índia</Text>
+          <Text variant="small">Entenda o inglês indiano: sotaque e ritmo, expressões (do the needful, revert, prepone) e valores em lakh/crore.</Text>
+        </Card>
+      ) : null}
 
       {caps && !caps.llm.generative ? (
         <Banner tone="warning" title="Modo offline (sem IA generativa)">

@@ -2,7 +2,14 @@
 
 from __future__ import annotations
 
+from app.content.india import TUTOR_NOTES_INDIA
 from app.content.languages import LANGUAGES
+
+ACCENT_DESC = {
+    "US": "American", "UK": "British", "AU": "Australian", "IN": "Indian", "DE-EN": "German-accented", "IT-EN": "Italian-accented",
+    "ES": "Spain", "MX": "Mexican", "AR": "Argentinian",
+}
+DESTINATION_DESC = {"IN": "India", "US": "the United States", "GB": "the United Kingdom", "AU": "Australia", "DE": "Germany"}
 
 CATEGORIES = ["grammar", "vocabulary", "word_choice", "false_friend", "pronunciation", "register"]
 SEVERITIES = ["minor", "may_confuse", "blocks_understanding"]
@@ -99,7 +106,7 @@ def mode_instructions(mode: str, language_name: str, scenario: dict | None, sett
                 "The learner must answer fast; short answers are fine. `reply` = a very brief reaction (max 6 words) + the next "
                 "question. Corrections are saved silently.")
     if mode == "scenario" and scenario:
-        chars = "; ".join(f"{c['name']} ({c['role']}, {c['accent']} English, speaks {c['speed']}, style: {c['style']})"
+        chars = "; ".join(f"{c['name']} ({c['role']}, {ACCENT_DESC.get(c['accent'], c['accent'])} English, speaks {c['speed']}, style: {c['style']})"
                           for c in scenario["characters"])
         goals = "; ".join(f"[{g['id']}] {g['en']}" for g in scenario["goals"])
         event = scenario["unexpected_events"][settings.get("event_index", 0) % len(scenario["unexpected_events"])]
@@ -139,10 +146,16 @@ def build_system_prompt(*, language: str, mode: str, level: str, profile: dict, 
     ]
     if memory.get("recurring_errors"):
         learner.append("- Recurring errors to watch (don't lecture about them; just notice): " + "; ".join(memory["recurring_errors"]))
+    destination = profile.get("trip_destination")
+    if destination:
+        learner.append(f"- Upcoming business trip to {DESTINATION_DESC.get(destination, destination)}: prepare them for the people "
+                       "and situations they will meet there.")
     if memory.get("previous_topics"):
         learner.append("- Topics from previous sessions (you may naturally refer back to them): " + "; ".join(memory["previous_topics"]))
-    accent_line = (f"- You represent a speaker of {accent} {lname}: prefer vocabulary and expressions typical of that variety.\n"
-                   if accent and mode != "scenario" else "")
+    accent_line = (f"- You represent a speaker of {ACCENT_DESC.get(accent, accent)} {lname}: prefer vocabulary and expressions "
+                   "typical of that variety.\n" if accent and mode != "scenario" else "")
+    india = destination == "IN" or accent == "IN" or (scenario and scenario.get("country") == "IN")
+    notes = lang["tutor_notes"] + ("\n" + TUTOR_NOTES_INDIA if india and language == "en" else "")
     speed_line = {"slow": "- The learner asked for SLOW speech: use shorter sentences and simpler structures.\n",
                   "fast": "- The learner asked for FAST, native-like speech: use natural reductions and idioms.\n"}.get(speed, "")
     return f"""You are {name}, a friendly, patient {lname} conversation partner and private tutor for a Brazilian adult professional (native language: Brazilian Portuguese).
@@ -152,7 +165,7 @@ LEARNER
 {chr(10).join(learner)}
 
 LANGUAGE-SPECIFIC NOTES
-{lang['tutor_notes']}
+{notes}
 
 HOW TO TALK
 - `reply` must be in {lname} only. Keep it short (1-3 sentences, about 45 words max) so the learner talks more than you. End most replies with a question or prompt that invites a longer answer.

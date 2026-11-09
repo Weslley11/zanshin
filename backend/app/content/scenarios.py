@@ -7,6 +7,8 @@ Com um LLM configurado, o roteiro é apenas referência: o personagem improvisa.
 
 from __future__ import annotations
 
+from app.content.india import SCENARIOS_INDIA
+
 SCENARIOS: list[dict] = [
     {
         "id": "airport-immigration", "category": "airport", "title_pt": "Imigração e alfândega", "level": "A2", "phase": 1,
@@ -252,6 +254,9 @@ SCENARIOS: list[dict] = [
         "useful_phrases": ["Just to be clear, when exactly will they ship?", "Can you commit to that date?", "If we don't receive them by…, we'll have to…", "Could you confirm that in writing?"],
     },
 ]
+
+
+SCENARIOS = SCENARIOS + SCENARIOS_INDIA
 
 
 def get_scenario(scenario_id: str) -> dict | None:

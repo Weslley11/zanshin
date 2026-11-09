@@ -263,7 +263,7 @@ async def test_tutor_with_llm_report_and_memory(app_factory):
                                headers=h)).json()
         assert m["visible_corrections"] == [] and m["hidden_corrections_count"] >= 1  # natural: correção silenciosa
         system = llm.calls[-1]["system"]
-        assert "MODE: natural conversation" in system and "UK English" in system
+        assert "MODE: natural conversation" in system and "British English" in system
         assert llm.calls[-1]["messages"][0].role == "user"  # API exige começar com usuário
         rep = (await client.post(f"{API}/tutor/sessions/{s['id']}/end", headers=h)).json()
         assert rep["engine"] == "fake" and rep["main_errors"][0]["count"] == 2

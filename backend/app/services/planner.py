@@ -78,6 +78,25 @@ WEEK_THEMES_PT = [
 ]
 
 
+# Preparação por destino: sotaque priorizado e metas adicionais mensuráveis
+DESTINATIONS: dict[str, dict] = {
+    "IN": {
+        "name_pt": "Índia",
+        "accent": "IN",
+        "multipliers": {"listening": 1.2, "shadowing": 1.1},
+        "insight": {"signal": "destination_india",
+                    "finding_pt": "Destino: Índia. Entender o inglês indiano (ritmo, sotaque, expressões e números em lakh/crore) é prioridade.",
+                    "action_pt": "2 de cada 3 listenings usam falantes indianos; as simulações passam a se passar na Índia "
+                                 "progressivamente; o tutor usa sotaque e expressões do inglês indiano."},
+        "goals_pt": {
+            1: ["Entender números em lakh/crore e 15 expressões do inglês indiano (do the needful, revert, prepone…)"],
+            2: ["≥ 65% de acerto em listening com falantes indianos em velocidade normal"],
+            3: ["Concluir a visita técnica simulada à planta na Índia obtendo um 'sim/não' claro sobre prazos"],
+        },
+    },
+}
+
+
 @dataclass
 class DayPlan:
     day_index: int
@@ -141,8 +160,11 @@ def generate(
     multipliers: dict[str, float] | None = None,
     focus_domains: list[str] | None = None,
     placement_done: bool = False,
+    destination: str | None = None,
 ) -> list[DayPlan]:
     multipliers = multipliers or {}
+    dest = DESTINATIONS.get(destination or "")
+    dest_accent = dest["accent"] if dest else None
     focus_domains = focus_domains or []
     learner_level = learner_level if learner_level in CEFR_LEVELS else "B1"
     credits = dict.fromkeys(ACTIVITY_INFO, 0.0)
@@ -232,22 +254,38 @@ def generate(
             title = info["title_pt"]
             if t == "conversation":
                 params["challenge_minutes"] = minutes
+                if dest_accent:
+                    params["accent"] = dest_accent
                 params["mode"] = "no_native" if phase >= 2 and day % 2 == 0 else "natural"
                 title = f"Conversation Challenge — {minutes} min" + (" (No Portuguese)" if params["mode"] == "no_native" else "")
             elif t == "scenario":
                 pool = [s for s in SCENARIOS if s["phase"] <= phase and _level_ok(s["level"], learner_level)]
                 pool.sort(key=lambda s: (s["phase"] != phase, s["domain"] not in focus_domains and s["category"] != "work", s["id"]))
-                sc = _pick_rotating(pool, rotation, f"scenario{phase}")
+                dest_pool = [s for s in pool if destination and s.get("country") == destination]
+                general = [s for s in pool if not s.get("country")]
+                k = rotation.get("scenario_count", 0)
+                rotation["scenario_count"] = k + 1
+                # proporção crescente de cenários no país de destino: 1/2 → 2/3 → 3/4 (fases 1 → 3)
+                use_dest = bool(dest_pool) and k % (phase + 1) != phase
+                sc = _pick_rotating(dest_pool if use_dest else (general or pool), rotation,
+                                    f"scenario{phase}{'d' if use_dest else ''}")
                 if sc:
                     params["scenario_id"] = sc["id"]
                     title = f"Simulação: {sc['title_pt']}"
             elif t == "listening":
                 pool = [x for x in LISTENING_EN if x["phase"] <= phase and _level_ok(x["level"], learner_level)]
                 pool.sort(key=lambda x: (x["phase"] != phase, x["id"]))
-                ls = _pick_rotating(pool, rotation, f"listening{phase}")
+                dest_pool = [x for x in pool if dest_accent and dest_accent in x["accents"]]
+                k = rotation.get("listening_count", 0)
+                rotation["listening_count"] = k + 1
+                use_dest = bool(dest_pool) and k % 3 != 2  # 2 de cada 3 com o sotaque do destino
+                ls = _pick_rotating(dest_pool if use_dest else pool, rotation, f"listening{phase}{'d' if use_dest else ''}")
                 if ls:
                     params["listening_id"] = ls["id"]
                     title = f"Listening: {ls['title']}"
+            elif t in ("shadowing", "quick_response") and dest_accent:
+                params["accent"] = dest_accent
+                params["destination"] = destination
             elif t == "assessment":
                 params["kind"] = "placement" if (day == 1 and not placement_done) else "checkpoint"
                 title = "Avaliação inicial" if params["kind"] == "placement" else f"Avaliação de progresso (dia {day})"
