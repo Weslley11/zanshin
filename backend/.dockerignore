@@ -1,0 +1,10 @@
+.venv
+__pycache__
+.pytest_cache
+.ruff_cache
+*.db
+storage
+.env
+tests
+evals/data/stt/*.m4a
+evals/data/stt/*.wav

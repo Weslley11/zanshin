@@ -1,0 +1,36 @@
+# Ambiente local completo: PostgreSQL + API. O app mobile roda com `npm start` em mobile/.
+# Uso: cp backend/.env.example backend/.env (defina JWT_SECRET) && docker compose up --build
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: fluent
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fluent-dev-only}
+      POSTGRES_DB: fluent
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fluent -d fluent"]
+      interval: 5s
+      retries: 10
+    ports:
+      - "127.0.0.1:5432:5432"
+
+  api:
+    build: ./backend
+    env_file: ./backend/.env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://fluent:${POSTGRES_PASSWORD:-fluent-dev-only}@db:5432/fluent
+      ENV: ${ENV:-production}
+      CORS_ORIGINS: '["http://localhost:8081","http://localhost:19006"]'
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - storage:/app/storage
+    ports:
+      - "127.0.0.1:8000:8000"
+
+volumes:
+  pgdata:
+  storage:

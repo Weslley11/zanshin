@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "weslley/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: fluent_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 10
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen
+      - name: Lint
+        run: uv run ruff check app tests evals
+      - name: Tests (SQLite)
+        run: uv run pytest -q
+      - name: Tests (PostgreSQL)
+        env:
+          TEST_DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5432/fluent_test
+        run: uv run pytest -q tests/test_api.py
+      - name: Migrations apply cleanly and match the models
+        env:
+          DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5432/fluent_test
+          JWT_SECRET: ci-only-secret-ci-only-secret-ci-only-secret
+        run: |
+          psql postgresql://postgres:postgres@localhost:5432/fluent_test -c "drop schema public cascade; create schema public;"
+          uv run alembic upgrade head
+          uv run alembic check
+      - name: Feedback quality baseline (rules)
+        run: uv run python -m evals.feedback_eval --engine rules --only-rule-covered
+
+  mobile:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm test
+      - run: npx expo export --platform web --output-dir dist
+        env:
+          EXPO_PUBLIC_API_URL: https://api.example.com
