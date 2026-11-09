@@ -221,18 +221,19 @@ def _apply_rule(rule: Rule, sentence: str) -> tuple[str, bool]:
 def analyze_english(text: str) -> list[Correction]:
     """Aplica as regras sentença a sentença.
 
-    Cada correção traz a frase original e a frase com aquela correção aplicada; use
-    `correct_text` para obter o texto com todas as correções.
+    Cada correção traz a frase original, a frase com todas as correções aplicadas e a
+    explicação específica da regra que a detectou.
     """
     corrections: list[Correction] = []
     for sentence in _split_sentences(text):
-        for rule in RULES:
-            corrected, changed = _apply_rule(rule, sentence)
-            if changed:
-                corrections.append(
-                    Correction(sentence, corrected, rule.explanation_pt, rule.category, rule.subtype,
-                               rule.severity, rule.id)
-                )
+        found = [rule for rule in RULES if _apply_rule(rule, sentence)[1]]
+        if not found:
+            continue
+        full = correct_text(sentence)  # a frase mostrada ao aprendiz traz TODAS as correções aplicadas
+        for rule in found:
+            corrections.append(
+                Correction(sentence, full, rule.explanation_pt, rule.category, rule.subtype, rule.severity, rule.id)
+            )
     return corrections
 
 

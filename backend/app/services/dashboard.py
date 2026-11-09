@@ -84,7 +84,9 @@ async def build(db: AsyncSession, user: User, language: str) -> dict:
     return {
         "language": public_language(language),
         "level_estimate": profile.cefr_estimate if profile else None,
-        "level_note_pt": "Estimativa interna (descritores CEFR) — não é certificação.",
+        "level_source": "assessment" if assessments else "self_reported",
+        "level_note_pt": ("Estimativa interna (descritores CEFR) — não é certificação." if assessments else
+                          "Nível autodeclarado. Faça a avaliação para medir suas competências."),
         "skills": [{"skill": k, "label_pt": SKILL_LABELS_PT[k], "score": scores.get(k)} for k in SKILL_LABELS_PT],
         "effort": {
             "total_minutes": round(sum(minutes_by_day.values()), 1),

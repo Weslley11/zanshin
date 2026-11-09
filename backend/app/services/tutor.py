@@ -330,7 +330,7 @@ async def end_session(db: AsyncSession, user: User, providers: Providers, sessio
     for e in (report.get("main_errors") or [])[:3]:
         if await vocab_service.add_personal_item(
             db, user, language=session.language, term=e["corrected"][:200],
-            meaning_pt=f"Forma correta de: “{e['original'][:150]}”. {e.get('explanation_pt', '')}"[:500],
+            meaning_pt=f"Diga de forma correta: “{e['original'][:200]}”", definition=e.get("explanation_pt", ""),
             example=e["corrected"], kind="correction", source="error",
         ):
             added += 1

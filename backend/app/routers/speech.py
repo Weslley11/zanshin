@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, File, HTTPException, Request, Response, UploadFile, status
+from fastapi import APIRouter, Depends, File, HTTPException, Query, Request, Response, UploadFile, status
 from pydantic import BaseModel, Field
 
 from app.config import get_settings
@@ -66,3 +66,11 @@ async def tts(body: TTSIn, user: CurrentUser, db: DB, providers: ProvidersDep) -
     await usage.record_tts(db, user.id, providers.tts.name, len(body.text), "tts")
     await db.commit()
     return Response(content=audio, media_type=mime, headers={"Cache-Control": "private, max-age=86400"})
+
+
+@router.get("/speech/tts", dependencies=[Depends(ai_rate_limit)])
+async def tts_get(user: CurrentUser, db: DB, providers: ProvidersDep, text: str = Query(min_length=1, max_length=500),
+                  language: str = "en", accent: str | None = Query(default=None, max_length=10),
+                  speed: float = Query(default=1.0, ge=0.5, le=1.5)) -> Response:
+    """Variante GET (usada diretamente como fonte de áudio pelo player do app, com cabeçalho Authorization)."""
+    return await tts(TTSIn(text=text, language=language, accent=accent, speed=speed), user, db, providers)

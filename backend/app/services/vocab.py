@@ -95,7 +95,7 @@ async def enroll(db: AsyncSession, user: User, language: str, focus_domains: lis
 
 async def add_personal_item(
     db: AsyncSession, user: User, *, language: str, term: str, meaning_pt: str, example: str = "",
-    kind: str = "phrase", source: str = "user", domain: str = "general",
+    kind: str = "phrase", source: str = "user", domain: str = "general", definition: str = "",
 ) -> UserCard | None:
     """Cria item pessoal (do tutor, de erro, de documento ou manual) e o cartão FSRS correspondente."""
     term = term.strip()[:200]
@@ -107,7 +107,7 @@ async def add_personal_item(
     )).scalar_one_or_none()
     if dup is not None:
         return None
-    item = VocabItem(language=language, term=term, kind=kind, meaning_pt=meaning_pt[:500],
+    item = VocabItem(language=language, term=term, kind=kind, meaning_pt=meaning_pt[:500], definition=definition[:500],
                      examples=[{"text": example[:300]}] if example else [], domain=domain, source=source,
                      owner_user_id=user.id, frequency_rank=100)
     db.add(item)
@@ -135,8 +135,9 @@ def card_view(card: UserCard, now: datetime | None = None) -> dict:
         "reps": card.reps,
         "item": {"id": str(item.id), "term": item.term, "kind": item.kind, "meaning_pt": item.meaning_pt,
                  "example": example, "pronunciation": item.pronunciation, "domain": item.domain, "cefr": item.cefr,
-                 "source": item.source},
-        "prompt": {"meaning_pt": item.meaning_pt, "cloze": cloze(example, item.term) if example else ""},
+                 "source": item.source, "definition": item.definition},
+        "prompt": {"meaning_pt": item.meaning_pt,
+                   "cloze": cloze(example, item.term) if example and item.kind != "correction" else ""},
         "intervals_days": preview,
     }
 
