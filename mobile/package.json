@@ -41,7 +41,9 @@
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
     "export:web": "expo export --platform web",
-    "test": "tsx --test src/lib/__tests__/*.test.ts src/lib/local/__tests__/*.test.ts"
+    "test": "tsx --test src/lib/__tests__/*.test.ts src/lib/local/__tests__/*.test.ts",
+    "build:pwa": "expo export --platform web && node scripts/build-pwa.mjs",
+    "icons": "node scripts/make-icons.cjs"
   },
   "private": true
 }

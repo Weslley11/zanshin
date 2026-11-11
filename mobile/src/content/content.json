@@ -8623,6 +8623,17 @@
    "Interesting.",
    "Right.",
    "Nice!"
+  ],
+  "elaborate": [
+   "Can you say a bit more? Try a full sentence with \"because\".",
+   "Tell me more: what, where, or when?",
+   "Could you add one detail or an example?"
+  ],
+  "transitions": [
+   "Let's switch topics.",
+   "Here's another question for you.",
+   "Let's talk about something different.",
+   "OK, new topic."
   ]
  },
  "starter": {

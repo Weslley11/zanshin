@@ -28,7 +28,9 @@ jobs:
       - uses: astral-sh/setup-uv@v6
       - run: uv sync --frozen
       - name: Lint
-        run: uv run ruff check app tests evals
+        run: uv run ruff check app tests evals scripts
+      - name: Conteúdo do modo local está sincronizado com o backend
+        run: uv run python scripts/export_content.py --check
       - name: Tests (SQLite)
         run: uv run pytest -q
       - name: Tests (PostgreSQL)
@@ -61,6 +63,11 @@ jobs:
       - run: npm ci
       - run: npx tsc --noEmit
       - run: npm test
-      - run: npx expo export --platform web --output-dir dist
+      - name: Build web conectado a um servidor
+        run: npx expo export --platform web --output-dir dist
         env:
           EXPO_PUBLIC_API_URL: https://api.example.com
+      - name: Build do PWA em modo local (o que vai para o GitHub Pages)
+        run: rm -rf dist && npm run build:pwa
+        env:
+          FLUENT_BASE_URL: /zanshin

@@ -101,4 +101,14 @@ FOLLOW_UPS_EN = [
     "And how does that compare with Brazil?",
 ]
 
+# Respostas muito curtas: pedir mais detalhe antes de mudar de assunto.
+ELABORATE_EN = [
+    "Can you say a bit more? Try a full sentence with \"because\".",
+    "Tell me more: what, where, or when?",
+    "Could you add one detail or an example?",
+]
+
+# Transições variadas para trocar de assunto depois de aprofundar o tema atual.
+TOPIC_TRANSITIONS_EN = ["Let's switch topics.", "Here's another question for you.", "Let's talk about something different.", "OK, new topic."]
+
 BACKCHANNELS_EN = ["I see.", "Got it.", "Oh, really?", "That makes sense.", "Interesting.", "Right.", "Nice!"]

@@ -6,6 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import globeAnim from "../assets/lottie/globe.json";
 import successAnim from "../assets/lottie/success.json";
 import talkAnim from "../assets/lottie/talk.json";
+import { InstallHint } from "../components/InstallHint";
 import Lottie from "../components/Lottie";
 import { Float } from "../components/motion";
 import { Button, ErrorText, Field, Gradient, Row, Text } from "../components/ui";
@@ -75,6 +76,7 @@ export default function Welcome() {
             </Text>
             <Field label="Como quer ser chamado?" value={name} onChangeText={setName} autoCapitalize="sentences" onSubmitEditing={start} />
             <ErrorText error={error} />
+            <InstallHint variant="welcome" />
           </Animated.View>
         )}
 

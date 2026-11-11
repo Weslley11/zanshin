@@ -227,3 +227,24 @@ def test_document_terms_and_exercises():
 def test_postfilter_strips_urls_and_emails():
     out = postfilter({"glossary": [{"term": "x", "example": "visit http://a.b/c or mail x@y.com now"}]})
     assert "http" not in out["glossary"][0]["example"] and "@" not in out["glossary"][0]["example"]
+
+
+def test_offline_tutor_deepens_topic_before_switching():
+    from app.content.drills import ELABORATE_EN, TOPIC_TRANSITIONS_EN
+    from app.services import offline_tutor
+
+    state: dict = {}
+    long = "I work as a mechanical engineer and I design parts for industrial machines."
+    replies = []
+    for i in range(3):
+        state["user_turns"] = i
+        replies.append(offline_tutor.reply(language="en", mode="natural", level="B1", scenario=None, state=state,
+                                           user_text=long, corrections=[])["reply"])
+    # Duas perguntas de continuação no mesmo tema; só então troca de assunto.
+    assert not any(t in replies[0] or t in replies[1] for t in TOPIC_TRANSITIONS_EN)
+    assert any(t in replies[2] for t in TOPIC_TRANSITIONS_EN)
+
+    state = {"user_turns": 0}
+    short = offline_tutor.reply(language="en", mode="natural", level="B1", scenario=None, state=state,
+                                user_text="Yes.", corrections=[])["reply"]
+    assert any(e in short for e in ELABORATE_EN)

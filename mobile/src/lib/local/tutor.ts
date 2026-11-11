@@ -81,15 +81,22 @@ function reply(o: { language: string; mode: string; level: string; scenario?: Ro
     const ups = SIMPLE_FOLLOWUPS[language] ?? ["?"];
     return ups[turn % ups.length];
   }
+  // Aprofunda o tema (até 2 perguntas de continuação; respostas muito curtas pedem mais detalhe)
+  // antes de trocar de assunto, como numa conversa real.
   let next: string;
-  if (countWords(text) < 8 && (state.followups_on_topic ?? 0) < 2) {
-    state.followups_on_topic = (state.followups_on_topic ?? 0) + 1;
+  const words = countWords(text);
+  const onTopic = state.followups_on_topic ?? 0;
+  if (words < 4 && onTopic < 3) {
+    state.followups_on_topic = onTopic + 1;
+    next = D.elaborate[turn % D.elaborate.length];
+  } else if (onTopic < 2) {
+    state.followups_on_topic = onTopic + 1;
     next = D.follow_ups[turn % D.follow_ups.length];
   } else {
     state.followups_on_topic = 0;
     const t = topics(level, o.destination);
     state.topic_index = ((state.topic_index ?? 0) + 1) % t.length;
-    next = "Let's talk about something else. " + t[state.topic_index];
+    next = D.transitions[state.topic_index % D.transitions.length] + " " + t[state.topic_index];
   }
   return `${recast}${bc} ${next}`.trim();
 }
@@ -186,7 +193,7 @@ function report(language: string, scenario: Row | undefined, texts: string[], co
                                                    answer: language === "en" ? correctText(e.original) : e.corrected }));
   if (language === "en") exercises.push({ type: "quick_answer", instruction_pt: "Responda em até 5 segundos, em voz alta.", prompt: qr.q, answer: qr.model });
   return {
-    summary_pt: `Você fez ${m.user_turns} intervenções com média de ${wpt.toFixed(1)} palavras. Foram detectados ${corrections.length} pontos de atenção por regras automáticas.`,
+    summary_pt: `Você fez ${m.user_turns} ${m.user_turns === 1 ? "intervenção" : "intervenções"} com média de ${wpt.toFixed(1)} palavras. ${corrections.length === 0 ? "Nenhum ponto de atenção detectado" : corrections.length === 1 ? "Foi detectado 1 ponto de atenção" : `Foram detectados ${corrections.length} pontos de atenção`} por regras automáticas.`,
     strengths_pt: [...(!m.portuguese_turns ? ["Você manteve a conversa em inglês durante toda a sessão."] : []), ...(wpt >= 12 ? ["Boa extensão das respostas."] : [])],
     main_errors: main.slice(0, 6), corrected_sentences: corrected.slice(0, 8), natural_expressions: [], new_vocabulary: vocab.slice(0, 6),
     recommendations_pt: recs, exercises, topics: scenario ? [scenario.title_pt] : [],

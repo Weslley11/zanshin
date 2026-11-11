@@ -8,7 +8,7 @@ export type Module = {
 
 /** Módulos do app (cada um com identidade visual própria). */
 export const MODULES: Module[] = [
-  { id: "tutor", title: "Conversa com IA", subtitle: "Fale sem medo: correções só no final", icon: "chatbubbles", gradient: "tutor", href: { pathname: "/tutor/new", params: { mode: "natural" } } },
+  { id: "tutor", title: "Conversa com o tutor", subtitle: "Fale sem medo: correções só no final", icon: "chatbubbles", gradient: "tutor", href: { pathname: "/tutor/new", params: { mode: "natural" } } },
   { id: "unlock", title: "Destravar a Fala", subtitle: "Respostas rápidas sem traduzir", icon: "flash", gradient: "unlock", href: "/unlock" },
   { id: "listening", title: "Listening", subtitle: "Sotaques e velocidades reais", icon: "headset", gradient: "listening", href: "/listening", enOnly: true },
   { id: "vocab", title: "Vocabulário", subtitle: "Revisão espaçada (FSRS)", icon: "albums", gradient: "vocab", href: "/(tabs)/vocab" },

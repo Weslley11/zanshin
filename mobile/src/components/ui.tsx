@@ -279,7 +279,7 @@ export function ModuleTile({ title, subtitle, icon, gradient, progress, onPress,
   index?: number; badge?: string; wide?: boolean;
 }) {
   return (
-    <Enter index={index} style={{ flexBasis: wide ? "100%" : "47%", flexGrow: 1 }}>
+    <Enter index={index} style={wide ? { width: "100%" } : { flexBasis: "47%", flexGrow: 1 }}>
       <PressableScale onPress={onPress} accessibilityLabel={`${title}${subtitle ? `: ${subtitle}` : ""}`}>
         <Gradient name={gradient} style={[styles.tile, wide && { minHeight: 120 }]}>
           <View style={styles.tileBlob} />

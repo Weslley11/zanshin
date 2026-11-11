@@ -9,7 +9,14 @@ from __future__ import annotations
 
 from collections import Counter
 
-from app.content.drills import BACKCHANNELS_EN, CONVERSATION_TOPICS_EN, FOLLOW_UPS_EN, QUICK_RESPONSE_EN
+from app.content.drills import (
+    BACKCHANNELS_EN,
+    CONVERSATION_TOPICS_EN,
+    ELABORATE_EN,
+    FOLLOW_UPS_EN,
+    QUICK_RESPONSE_EN,
+    TOPIC_TRANSITIONS_EN,
+)
 from app.content.other_languages import QUICK_RESPONSE_OTHER
 from app.services.error_analyzer import Correction, correct_text
 from app.services.text_utils import count_words, looks_portuguese, normalize
@@ -87,16 +94,34 @@ def reply(*, language: str, mode: str, level: str, scenario: dict | None, state:
         ups = _SIMPLE_FOLLOWUPS.get(language, ["?"])
         return {"reply": ups[turn % len(ups)], "comprehension_issue": False}
 
+    # Aprofunda o tema (até 2 perguntas de continuação; respostas muito curtas pedem mais detalhe)
+    # antes de trocar de assunto, como numa conversa real.
     words = count_words(user_text)
-    if words < 8 and state.get("followups_on_topic", 0) < 2:
-        state["followups_on_topic"] = state.get("followups_on_topic", 0) + 1
+    on_topic = state.get("followups_on_topic", 0)
+    if words < 4 and on_topic < 3:
+        state["followups_on_topic"] = on_topic + 1
+        nxt = ELABORATE_EN[turn % len(ELABORATE_EN)]
+    elif on_topic < 2:
+        state["followups_on_topic"] = on_topic + 1
         nxt = FOLLOW_UPS_EN[turn % len(FOLLOW_UPS_EN)]
     else:
         state["followups_on_topic"] = 0
         topics = _topics(level)
         state["topic_index"] = (state.get("topic_index", 0) + 1) % len(topics)
-        nxt = "Let's talk about something else. " + topics[state["topic_index"]]
+        transition = TOPIC_TRANSITIONS_EN[state["topic_index"] % len(TOPIC_TRANSITIONS_EN)]
+        nxt = transition + " " + topics[state["topic_index"]]
     return {"reply": (recast + bc + " " + nxt).strip(), "comprehension_issue": False}
+
+
+def _summary_pt(turns: int, wpt: float, n_corrections: int) -> str:
+    turns_pt = "intervenção" if turns == 1 else "intervenções"
+    if n_corrections == 0:
+        found = "Nenhum ponto de atenção detectado"
+    elif n_corrections == 1:
+        found = "Foi detectado 1 ponto de atenção"
+    else:
+        found = f"Foram detectados {n_corrections} pontos de atenção"
+    return f"Você fez {turns} {turns_pt} com média de {wpt:.1f} palavras. {found} por regras automáticas."
 
 
 def report(*, language: str, scenario: dict | None, user_texts: list[str], corrections: list[dict], metrics: dict) -> dict:
@@ -145,8 +170,7 @@ def report(*, language: str, scenario: dict | None, user_texts: list[str], corre
                           "answer": QUICK_RESPONSE_EN[len(user_texts) % len(QUICK_RESPONSE_EN)]["model"]})
 
     return {
-        "summary_pt": (f"Você fez {metrics.get('user_turns', 0)} intervenções com média de {wpt:.1f} palavras. "
-                       f"Foram detectados {len(corrections)} pontos de atenção por regras automáticas."),
+        "summary_pt": _summary_pt(metrics.get("user_turns", 0), wpt, len(corrections)),
         "strengths_pt": (["Você manteve a conversa em inglês durante toda a sessão."] if not metrics.get("portuguese_turns") else [])
                         + (["Boa extensão das respostas."] if wpt >= 12 else []),
         "main_errors": main_errors[:6],

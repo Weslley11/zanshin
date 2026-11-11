@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "backend"))
 
-from app.content import drills, en_assessment, en_listening, en_vocab, india, languages, other_languages, scenarios  # noqa: E402
+from app.content import drills, en_assessment, en_listening, india, languages, other_languages, scenarios  # noqa: E402
 from app.services import planner  # noqa: E402
 from app.services.assessment import estimate_level, score_item  # noqa: E402
 from app.services.error_analyzer import analyze_english, correct_text  # noqa: E402
@@ -49,6 +49,7 @@ def build_content() -> dict:
             "sentence_building": drills.SENTENCE_BUILDING_EN, "think_in_english": drills.THINK_IN_ENGLISH_EN,
             "shadowing": drills.SHADOWING_EN, "shadowing_other": other_languages.SHADOWING_OTHER,
             "topics": drills.CONVERSATION_TOPICS_EN, "follow_ups": drills.FOLLOW_UPS_EN, "backchannels": drills.BACKCHANNELS_EN,
+            "elaborate": drills.ELABORATE_EN, "transitions": drills.TOPIC_TRANSITIONS_EN,
         },
         "starter": {"hiragana": other_languages.HIRAGANA_BASIC, "katakana": other_languages.KATAKANA_BASIC,
                     "tone_pairs": other_languages.ZH_TONE_PAIRS},

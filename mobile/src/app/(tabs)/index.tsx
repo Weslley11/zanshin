@@ -4,6 +4,7 @@ import { View } from "react-native";
 import flameAnim from "../../assets/lottie/flame.json";
 import globeAnim from "../../assets/lottie/globe.json";
 import { ActivityRow } from "../../components/ActivityRow";
+import { InstallHint } from "../../components/InstallHint";
 import Lottie from "../../components/Lottie";
 import { AnimatedNumber, Enter, Float, PressableScale, ProgressRing, PulseRings } from "../../components/motion";
 import { Banner, Card, ErrorText, Gradient, Icon, Loading, ModuleTile, Pill, Row, Screen, SectionHeader, Stack, Text } from "../../components/ui";
@@ -95,6 +96,7 @@ export default function Home() {
         </PressableScale>
       </Enter>
 
+      <InstallHint />
       <ErrorText error={error} />
       {!dash && !error ? <Loading /> : null}
 
