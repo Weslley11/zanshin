@@ -39,6 +39,8 @@ function RootStack() {
         <Stack.Screen name="documents" options={{ title: "Documentos técnicos" }} />
         <Stack.Screen name="privacy" options={{ title: "Privacidade e dados" }} />
         <Stack.Screen name="india" options={{ title: "Inglês da Índia" }} />
+        <Stack.Screen name="unlock" options={{ title: "Destravar a Fala" }} />
+        <Stack.Screen name="welcome" options={{ headerShown: false }} />
       </Stack>
     </>
   );

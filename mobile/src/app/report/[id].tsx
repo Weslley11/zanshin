@@ -1,17 +1,19 @@
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Pressable } from "react-native";
-import { Banner, Button, Card, ErrorText, Loading, Row, Screen, Stack, Text } from "../../components/ui";
+import { Pressable, View } from "react-native";
+import { AnimatedNumber, Celebration, Enter } from "../../components/motion";
+import { Banner, Button, Card, ErrorText, Gradient, Icon, Loading, Row, Screen, Stack, Text, type IconName } from "../../components/ui";
 import { api } from "../../lib/api";
 import { speak } from "../../lib/speech";
 import { useTheme } from "../../lib/theme";
 import type { Report } from "../../lib/types";
 
-function Metric({ label, value }: { label: string; value: string }) {
+function Metric({ label, value, decimals = 0, suffix = "", icon }: { label: string; value: number; decimals?: number; suffix?: string; icon: IconName }) {
   return (
-    <Stack gap={0} style={{ minWidth: 92 }}>
-      <Text variant="h3">{value}</Text>
-      <Text variant="tiny" muted>{label}</Text>
+    <Stack gap={2} style={{ minWidth: 120, flexGrow: 1, flexBasis: "45%" }}>
+      <Icon name={icon} size={18} color="rgba(255,255,255,0.9)" />
+      <AnimatedNumber value={value} decimals={decimals} suffix={suffix} render={(s) => <Text variant="h2" color="#fff">{s}</Text>} />
+      <Text variant="tiny" color="rgba(255,255,255,0.88)">{label}</Text>
     </Stack>
   );
 }
@@ -35,27 +37,32 @@ export default function ReportScreen() {
   const { c } = useTheme();
   const [s, setS] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+  const [celebrate, setCelebrate] = useState(false);
 
-  useEffect(() => { api(`/tutor/sessions/${id}`).then(setS).catch((e) => setError(e.message)); }, [id]);
+  useEffect(() => {
+    api(`/tutor/sessions/${id}`).then((r) => { setS(r); setCelebrate(true); }).catch((e) => setError(e.message));
+  }, [id]);
 
   if (!s) return <Screen><ErrorText error={error} />{!error ? <Loading label="Gerando relatório…" /> : null}</Screen>;
   const r: Report = s.report;
   const m = r.metrics ?? {};
   return (
-    <Screen>
-      <Text variant="h2">{s.title}</Text>
-      <Text>{r.summary_pt}</Text>
-      {r.limitations_pt ? <Banner tone="warning">{r.limitations_pt}</Banner> : null}
-
-      <Card style={{ gap: 10 }}>
-        <Row wrap gap={18}>
-          <Metric label="falas suas" value={String(m.user_turns ?? 0)} />
-          <Metric label="palavras por fala" value={String(m.avg_words_per_turn ?? 0)} />
-          <Metric label="duração" value={`${Math.round((m.duration_seconds ?? 0) / 60)} min`} />
-          {m.avg_response_latency_ms ? <Metric label="para começar a responder" value={`${((m.avg_response_latency_ms as number) / 1000).toFixed(1)} s`} /> : null}
-          {m.speech_rate_wpm ? <Metric label="palavras/min (fala)" value={String(m.speech_rate_wpm)} /> : null}
-        </Row>
-      </Card>
+    <Screen overlay={<Celebration show={celebrate} onDone={() => setCelebrate(false)} />}>
+      <Enter>
+        <Gradient name="tutor" style={{ borderRadius: 28, padding: 22, gap: 14, overflow: "hidden" }}>
+          <View style={{ position: "absolute", width: 220, height: 220, borderRadius: 110, right: -70, top: -80, backgroundColor: "rgba(255,255,255,0.13)" }} />
+          <Text variant="label" color="rgba(255,255,255,0.85)">Sessão concluída</Text>
+          <Text variant="h1" color="#fff">{s.title}</Text>
+          <Text variant="small" color="rgba(255,255,255,0.92)">{r.summary_pt}</Text>
+          <Row wrap gap={12}>
+            <Metric icon="chatbubble-ellipses" label="falas suas" value={Number(m.user_turns ?? 0)} />
+            <Metric icon="text" label="palavras por fala" value={Number(m.avg_words_per_turn ?? 0)} decimals={1} />
+            <Metric icon="time" label="minutos" value={Math.round(Number(m.duration_seconds ?? 0) / 60)} />
+            {m.avg_response_latency_ms ? <Metric icon="flash" label="para começar a responder" value={Number(m.avg_response_latency_ms) / 1000} decimals={1} suffix=" s" /> : null}
+          </Row>
+        </Gradient>
+      </Enter>
+      {r.limitations_pt ? <Banner tone="accent" icon="phone-portrait">{r.limitations_pt}</Banner> : null}
 
       {r.goals?.length ? (
         <Card style={{ gap: 6 }}>

@@ -2,8 +2,8 @@ import * as DocumentPicker from "expo-document-picker";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { Platform, Pressable, View } from "react-native";
-import { Banner, Button, Card, Collapsible, ErrorText, Screen, Stack, Text } from "../components/ui";
-import { api } from "../lib/api";
+import { Banner, Button, Card, Collapsible, ErrorText, ModuleHero, Screen, Stack, Text } from "../components/ui";
+import { api, LOCAL_MODE } from "../lib/api";
 import { useApp } from "../lib/app";
 import { useTheme } from "../lib/theme";
 
@@ -54,8 +54,9 @@ export default function Documents() {
   const g = doc?.generated;
   return (
     <Screen>
-      <Text variant="h2">Documentos técnicos</Text>
-      <Text variant="small" muted>Transforme procedimentos, especificações ou apresentações em vocabulário, exercícios e simulações.</Text>
+      <ModuleHero title="Documentos técnicos" icon="document-text" gradient="documents"
+        subtitle="Transforme procedimentos, especificações ou apresentações em vocabulário, exercícios e simulações." />
+      {LOCAL_MODE ? <Banner tone="warning" icon="server" title="Requer servidor">Este módulo processa documentos com proteção de dados no backend. No modo local (grátis), ele fica indisponível; todos os outros módulos funcionam no aparelho.</Banner> : null}
       {!me?.consents.document_processing ? (
         <Banner tone="warning" title="Consentimento necessário">Ative “Documentos técnicos” em Perfil → Privacidade para usar este recurso.</Banner>
       ) : null}

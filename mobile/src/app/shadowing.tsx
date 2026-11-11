@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Banner, Button, Card, Chip, ErrorText, Field, Loading, Row, Screen, Stack, Text } from "../components/ui";
+import { Banner, Button, Card, Chip, ErrorText, Field, Loading, ModuleHero, Row, Screen, Stack, Text } from "../components/ui";
 import { api } from "../lib/api";
 import { useApp } from "../lib/app";
 import { ACCENT_LABELS, speak } from "../lib/speech";
@@ -68,6 +68,8 @@ export default function Shadowing() {
   if (!it) return <Screen><Banner tone="success" title="Fim da lista">Volte amanhã: repetição espaçada vale para a pronúncia também.</Banner></Screen>;
   return (
     <Screen>
+      <ModuleHero title="Shadowing" icon="repeat" gradient="shadowing"
+        subtitle="Ouça, imite o ritmo e a entonação e receba feedback de inteligibilidade. Imitar ajuda a perceber — não é preciso adotar o sotaque." />
       <Text variant="label" muted>{it.level} · {ACCENT_LABELS[it.accent] ?? it.accent} · {i + 1}/{items.length}</Text>
       <Card style={{ gap: 10 }}>
         <Text variant="h2">{it.text}</Text>

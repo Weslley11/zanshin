@@ -2,7 +2,9 @@ import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { useWindowDimensions } from "react-native";
 import { LineChart, SkillBars, WeekBars } from "../../components/charts";
-import { Button, Card, ErrorText, Loading, ProgressBar, Row, Screen, Stack, Text } from "../../components/ui";
+import { AnimatedNumber, Enter, ProgressRing } from "../../components/motion";
+import { Button, Card, ErrorText, Gradient, Loading, ProgressBar, Row, Screen, Stack, Text } from "../../components/ui";
+import { gradients } from "../../lib/theme";
 import { formatMinutes } from "../../lib/activities";
 import { api } from "../../lib/api";
 import { useApp } from "../../lib/app";
@@ -44,21 +46,41 @@ export default function Progress() {
   const conv = d.conversation.history as any[];
   return (
     <Screen>
-      <Row style={{ justifyContent: "space-between" }}>
-        <Text variant="h2">Progresso</Text>
-        <Button title="Exportar" size="sm" variant="ghost" onPress={() => shareText("fluent-ai-progresso.txt", reportText(d))} />
-      </Row>
+      <Enter>
+        <Row style={{ justifyContent: "space-between" }}>
+          <Text variant="display">Progresso</Text>
+          <Button title="Exportar" size="sm" variant="ghost" icon="share-outline" onPress={() => shareText("fluent-ai-progresso.txt", reportText(d))} />
+        </Row>
+      </Enter>
 
-      <Card tone="accent" style={{ gap: 4 }}>
-        <Text variant="label" muted>{d.level_source === "assessment" ? "Nível estimado" : "Nível autodeclarado"} · {d.language.name_pt}</Text>
-        <Text variant="h1">{d.level_estimate ?? "—"}</Text>
-        <Text variant="small" muted>{d.level_note_pt}</Text>
-        {d.level_source !== "assessment" ? (
-          <Button title="Fazer avaliação" size="sm" onPress={() => router.push({ pathname: "/assessment", params: { kind: "placement" } })} />
-        ) : null}
-      </Card>
+      <Enter index={1}>
+        <Gradient name="progress" style={{ borderRadius: 28, padding: 22, gap: 6, overflow: "hidden" }}>
+          <Text variant="label" color="rgba(255,255,255,0.85)">{d.level_source === "assessment" ? "Nível estimado" : "Nível autodeclarado"} · {d.language.name_pt}</Text>
+          <Text variant="display" color="#fff">{d.level_estimate ?? "—"}</Text>
+          <Text variant="small" color="rgba(255,255,255,0.9)">{d.level_note_pt}</Text>
+          {d.level_source !== "assessment" ? (
+            <Button title="Fazer avaliação" size="sm" variant="secondary" icon="ribbon" style={{ alignSelf: "flex-start", marginTop: 6 }}
+              onPress={() => router.push({ pathname: "/assessment", params: { kind: "placement" } })} />
+          ) : null}
+        </Gradient>
+      </Enter>
 
-      <Card style={{ gap: 12 }}>
+      <Enter index={2}>
+        <Row style={{ justifyContent: "space-around" }}>
+          {[
+            { label: "Jornada", value: (d.plan?.percent_activities_done ?? 0) / 100, text: `${Math.round(d.plan?.percent_activities_done ?? 0)}%`, colors: gradients.plan },
+            { label: "Vocabulário", value: d.vocabulary.total ? d.vocabulary.learned / d.vocabulary.total : 0, text: String(d.vocabulary.learned), colors: gradients.vocab },
+            { label: "Meta de hoje", value: d.effort.today_minutes / d.effort.daily_goal_minutes, text: `${Math.round(d.effort.today_minutes)}′`, colors: gradients.speak },
+          ].map((r) => (
+            <Stack key={r.label} gap={6} style={{ alignItems: "center" }}>
+              <ProgressRing value={r.value} size={88} stroke={9} colors={r.colors}><Text variant="h3">{r.text}</Text></ProgressRing>
+              <Text variant="tiny" muted>{r.label}</Text>
+            </Stack>
+          ))}
+        </Row>
+      </Enter>
+
+      <Card index={3} style={{ gap: 12 }}>
         <Text variant="h3">Desempenho por competência</Text>
         <SkillBars skills={d.skills.map((s: any) => ({ label: s.label_pt, score: s.score }))} />
         <Text variant="tiny" muted>Medido nas avaliações e nas atividades. Pronúncia e interação são medidas no shadowing e nas conversas.</Text>
@@ -68,7 +90,7 @@ export default function Progress() {
         <Text variant="h3">Esforço da semana</Text>
         <WeekBars data={d.effort.week} goal={d.effort.daily_goal_minutes} width={chartW} />
         <Row wrap gap={16}>
-          <Text variant="small">Total: <Text variant="small" weight="700">{formatMinutes(d.effort.total_minutes)}</Text></Text>
+          <Text variant="small">Total: <AnimatedNumber value={d.effort.total_minutes} render={(v) => <Text variant="small" weight="700">{formatMinutes(Number(v))}</Text>} /></Text>
           <Text variant="small">Sequência: <Text variant="small" weight="700">{d.effort.streak_days} dias</Text></Text>
         </Row>
         <Text variant="tiny" muted>{d.effort.note_pt}</Text>

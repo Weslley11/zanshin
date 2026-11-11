@@ -8,7 +8,7 @@ export default function Index() {
   const { ready, signedIn, profile } = useApp();
   const { c } = useTheme();
   if (!ready) return <View style={{ flex: 1, backgroundColor: c.bg, justifyContent: "center" }}><Loading /></View>;
-  if (!signedIn) return <Redirect href="/login" />;
+  if (!signedIn) return <Redirect href="/welcome" />;
   if (!profile) return <Redirect href="/onboarding" />;
   return <Redirect href="/(tabs)" />;
 }

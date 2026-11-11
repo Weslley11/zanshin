@@ -5,6 +5,15 @@ export const ACTIVITY_ICONS: Record<string, string> = {
   think_in_english: "💭", conversation: "💬", scenario: "🎭", error_review: "🩹", assessment: "📊",
 };
 
+/** Ícone (Ionicons) e gradiente de cada tipo de atividade. */
+export const ACTIVITY_STYLE: Record<string, { icon: string; gradient: string }> = {
+  vocab_review: { icon: "albums", gradient: "vocab" }, listening: { icon: "headset", gradient: "listening" },
+  shadowing: { icon: "repeat", gradient: "shadowing" }, quick_response: { icon: "flash", gradient: "unlock" },
+  sentence_building: { icon: "extension-puzzle", gradient: "unlock" }, think_in_english: { icon: "bulb", gradient: "unlock" },
+  conversation: { icon: "chatbubbles", gradient: "tutor" }, scenario: { icon: "airplane", gradient: "scenarios" },
+  error_review: { icon: "construct", gradient: "errors" }, assessment: { icon: "ribbon", gradient: "assessment" },
+};
+
 /** Rota do app para cada tipo de atividade do plano (com parâmetros para marcar como concluída). */
 export function activityHref(a: Activity, day: number): { pathname: string; params: Record<string, string> } {
   const base = { planDay: String(day), planActivity: a.id };

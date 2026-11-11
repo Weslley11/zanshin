@@ -1,6 +1,6 @@
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import { Banner, Button, Card, ErrorText, Loading, ProgressBar, Screen, Stack, Text } from "../../components/ui";
+import { Banner, Button, Card, ErrorText, Loading, ModuleHero, ProgressBar, Screen, Stack, Text } from "../../components/ui";
 import { api } from "../../lib/api";
 import { useApp } from "../../lib/app";
 import { useTheme } from "../../lib/theme";
@@ -56,6 +56,7 @@ export default function ThinkInEnglish() {
   }
   return (
     <Screen>
+      <ModuleHero title="Think in English" icon="bulb" gradient="assessment" subtitle="Fale em voz alta, sem parar e sem traduzir." />
       <Text variant="label" muted>{TYPE_PT[it.type] ?? it.type} · {i + 1}/{items.length}</Text>
       <Card style={{ gap: 10 }}>
         <Text variant="h3">{it.prompt}</Text>

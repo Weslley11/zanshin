@@ -1,21 +1,17 @@
+import { ApiError } from "./apiError";
 import { getItem, removeItem, setItem } from "./storage";
 
-export const API_URL = (process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:8000").replace(/\/$/, "");
+export { ApiError };
+
+/**
+ * Modo local (padrão quando EXPO_PUBLIC_API_URL não está definido): tudo roda no aparelho, sem servidor e sem custo.
+ * Modo servidor: defina EXPO_PUBLIC_API_URL (ou configure no app) para usar o backend com IA generativa e voz no servidor.
+ */
+export const API_URL = (process.env.EXPO_PUBLIC_API_URL ?? "").replace(/\/$/, "");
+export const LOCAL_MODE = !API_URL;
 const BASE = `${API_URL}/api/v1`;
 const ACCESS = "fluent.access";
 const REFRESH = "fluent.refresh";
-
-export class ApiError extends Error {
-  status: number;
-  code?: string;
-  detail: unknown;
-  constructor(status: number, message: string, detail: unknown, code?: string) {
-    super(message);
-    this.status = status;
-    this.detail = detail;
-    this.code = code;
-  }
-}
 
 type Tokens = { access_token: string; refresh_token: string };
 
@@ -83,6 +79,10 @@ export async function api<T = any>(
   path: string,
   opts: { method?: string; body?: unknown; form?: FormData; auth?: boolean; raw?: boolean } = {},
 ): Promise<T> {
+  if (LOCAL_MODE) {
+    const { localApi } = await import("./local/localApi");
+    return localApi(path, opts) as Promise<T>;
+  }
   const doFetch = () => {
     const headers: Record<string, string> = { ...(opts.auth === false ? {} : authHeader()) };
     let body: BodyInit | undefined;

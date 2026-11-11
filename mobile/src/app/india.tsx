@@ -1,7 +1,9 @@
 import { router } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { Pressable } from "react-native";
-import { Banner, Button, Card, Chip, Collapsible, ErrorText, Field, Loading, Row, Screen, Stack, Text } from "../components/ui";
+import globeAnim from "../assets/lottie/globe.json";
+import Lottie from "../components/Lottie";
+import { Banner, Button, Card, Chip, Collapsible, ErrorText, Field, Loading, ModuleHero, ModuleTile, Row, Screen, Stack, Text } from "../components/ui";
 import { api } from "../lib/api";
 import { indianFormat, indianWords, internationalFormat, parseAmount, randomAmount } from "../lib/indianNumbers";
 import { speak } from "../lib/speech";
@@ -59,19 +61,16 @@ export default function IndiaGuide() {
 
   return (
     <Screen>
-      <Text variant="h2">🇮🇳 {g.title_pt}</Text>
-      <Text>{g.intro_pt}</Text>
+      <ModuleHero title={g.title_pt} icon="earth" gradient="india" subtitle={g.intro_pt}
+        right={<Lottie source={globeAnim} style={{ width: 70, height: 70 }} />} />
 
-      <Row gap={10} wrap>
-        <Card style={{ flexGrow: 1, flexBasis: 150 }} onPress={() => router.push({ pathname: "/listening", params: { accent: "IN" } })}>
-          <Text variant="h3">🎧</Text><Text weight="700">Listening</Text><Text variant="tiny" muted>falantes indianos</Text>
-        </Card>
-        <Card style={{ flexGrow: 1, flexBasis: 150 }} onPress={() => router.push({ pathname: "/scenarios", params: { country: "IN" } })}>
-          <Text variant="h3">🎭</Text><Text weight="700">Simulações</Text><Text variant="tiny" muted>aeroporto, planta, fornecedor</Text>
-        </Card>
-        <Card style={{ flexGrow: 1, flexBasis: 150 }} onPress={() => router.push({ pathname: "/tutor/new", params: { mode: "natural" } })}>
-          <Text variant="h3">💬</Text><Text weight="700">Conversar</Text><Text variant="tiny" muted>tutor com inglês indiano</Text>
-        </Card>
+      <Row gap={12} wrap>
+        <ModuleTile title="Listening" subtitle="Falantes indianos, ritmo real" icon="headset" gradient="listening" index={1}
+          onPress={() => router.push({ pathname: "/listening", params: { accent: "IN" } })} />
+        <ModuleTile title="Simulações" subtitle="Aeroporto, planta, fornecedor" icon="airplane" gradient="scenarios" index={2}
+          onPress={() => router.push({ pathname: "/scenarios", params: { country: "IN" } })} />
+        <ModuleTile title="Conversar com o tutor" subtitle="Sotaque indiano · relatório no final" icon="chatbubbles" gradient="tutor" index={3} wide
+          onPress={() => router.push({ pathname: "/tutor/new", params: { mode: "natural" } })} />
       </Row>
 
       <Stack gap={10}>

@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Banner, Button, Card, Chip, ErrorText, Field, Loading, Row, Screen, Stack, Text } from "../../components/ui";
+import { Banner, Button, Card, Chip, ErrorText, Field, Loading, ModuleHero, Row, Screen, Stack, Text } from "../../components/ui";
 import { api } from "../../lib/api";
 import { speak } from "../../lib/speech";
 
@@ -35,6 +35,7 @@ export default function SentenceBuilding() {
   if (!it) return <Screen><Banner tone="success" title="Concluído!">Agora use essas estruturas em uma conversa com o tutor.</Banner></Screen>;
   return (
     <Screen>
+      <ModuleHero title="Construção de frases" icon="extension-puzzle" gradient="plan" subtitle="Do bloco simples à resposta completa." />
       <Text variant="label" muted>{STAGE_PT[it.stage]} · {it.level} · {i + 1}/{items.length}</Text>
       <Text variant="h3">{it.situation_pt}</Text>
       {it.stage === "order" ? (

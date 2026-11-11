@@ -2,7 +2,7 @@ import { router, useFocusEffect } from "expo-router";
 import { useCallback, useContext, useState } from "react";
 import { Switch } from "react-native";
 import { Button, Card, Chip, Divider, ErrorText, Row, Screen, Segmented, Stack, Text } from "../../components/ui";
-import { api } from "../../lib/api";
+import { api, LOCAL_MODE } from "../../lib/api";
 import { useApp } from "../../lib/app";
 import { ThemeModeContext, useTheme, type ThemeMode } from "../../lib/theme";
 
@@ -30,7 +30,7 @@ export default function Profile() {
   return (
     <Screen>
       <Text variant="h2">{me?.display_name || "Perfil"}</Text>
-      <Text muted variant="small">{me?.email}</Text>
+      {!LOCAL_MODE ? <Text muted variant="small">{me?.email}</Text> : <Text muted variant="small">Dados salvos neste aparelho</Text>}
 
       <Card style={{ gap: 10 }}>
         <Text variant="label" muted>Idioma ativo</Text>
@@ -50,7 +50,7 @@ export default function Profile() {
       </Card>
 
       <Card style={{ gap: 8 }}>
-        <Text variant="label" muted>O que está ativo neste servidor</Text>
+        <Text variant="label" muted>{LOCAL_MODE ? "Modo local (grátis, offline)" : "O que está ativo neste servidor"}</Text>
         <Text variant="small">Tutor: {caps?.llm.generative ? `IA generativa (${caps.llm.provider})` : "modo offline (roteiros e regras)"}</Text>
         <Text variant="small">Voz → texto: {caps?.stt.available ? `servidor (${caps.stt.provider})` : "reconhecimento do navegador/teclado"}</Text>
         <Text variant="small">Texto → voz: {caps?.tts.server_available ? `vozes neurais (${caps.tts.provider})` : "voz do dispositivo"}</Text>
@@ -73,10 +73,10 @@ export default function Profile() {
       </Card>
 
       <Stack gap={10}>
-        <Button title="Privacidade e dados" variant="secondary" onPress={() => router.push("/privacy")} />
-        <Button title="Programa de 90 dias" variant="secondary" onPress={() => router.push("/plan")} />
+        <Button title={LOCAL_MODE ? "Backup, privacidade e dados" : "Privacidade e dados"} icon="shield-checkmark" variant="secondary" onPress={() => router.push("/privacy")} />
+        <Button title="Jornada de 90 dias" icon="map" variant="secondary" onPress={() => router.push("/plan")} />
         <ErrorText error={error} />
-        <Button title="Sair" variant="ghost" onPress={async () => { await signOut(); router.replace("/login"); }} />
+        {!LOCAL_MODE ? <Button title="Sair" variant="ghost" icon="log-out" onPress={async () => { await signOut(); router.replace("/"); }} /> : null}
       </Stack>
     </Screen>
   );

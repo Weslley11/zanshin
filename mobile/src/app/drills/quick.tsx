@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import { Banner, Button, Card, ErrorText, Field, Loading, ProgressBar, Row, Screen, Stack, Text } from "../../components/ui";
+import { Banner, Button, Card, ErrorText, Field, Loading, ModuleHero, ProgressBar, Row, Screen, Stack, Text } from "../../components/ui";
 import { api } from "../../lib/api";
 import { useApp } from "../../lib/app";
 import { speak, stopSpeaking } from "../../lib/speech";
@@ -115,7 +115,7 @@ export default function QuickResponse() {
 
   return (
     <Screen>
-      <Text variant="small" muted>{set.instructions_pt}</Text>
+      <ModuleHero title="Quick Response" icon="flash" gradient="unlock" subtitle={set.instructions_pt} />
       <ProgressBar value={i / set.questions.length} />
       <Card style={{ gap: 10, alignItems: "center" }}>
         <Text variant="label" muted>Pergunta {i + 1}/{set.questions.length}</Text>

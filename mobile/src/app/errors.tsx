@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Banner, Button, Card, ErrorText, Field, Loading, Screen, Stack, Text } from "../components/ui";
+import { Banner, Button, Card, ErrorText, Field, Loading, ModuleHero, Screen, Stack, Text } from "../components/ui";
 import { api } from "../lib/api";
 import { useApp } from "../lib/app";
 import { speak } from "../lib/speech";
@@ -36,8 +36,8 @@ export default function Errors() {
   if (!items) return <Screen><ErrorText error={error} />{!error ? <Loading /> : null}</Screen>;
   return (
     <Screen>
-      <Text variant="h2">Revisão dos seus erros</Text>
-      <Text variant="small" muted>Erros das suas conversas voltam aqui até você acertar 3 vezes seguidas.</Text>
+      <ModuleHero title="Seus erros" icon="construct" gradient="errors"
+        subtitle="Erros das suas conversas voltam aqui até você acertar 3 vezes seguidas." />
       {items.length === 0 ? <Banner tone="success" title="Nada pendente">Converse com o tutor — os erros recorrentes aparecerão aqui para revisão.</Banner> : null}
       {it ? (
         <Stack>
