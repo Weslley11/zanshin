@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import date, datetime, timedelta, timezone
+from datetime import UTC, date, datetime, timedelta
 
 from app.content.course import LESSON_SIZE, LESSONS, ORDER, UNITS, xp_for
 from app.content.india_missions import personalize
@@ -39,7 +39,7 @@ def test_streak_and_unlock_summary():
     today = date(2026, 11, 17)
 
     def log(day: date, lid: str, xp: int) -> ActivityLog:
-        return ActivityLog(activity_type="lesson", started_at=datetime(day.year, day.month, day.day, 12, tzinfo=timezone.utc),
+        return ActivityLog(activity_type="lesson", started_at=datetime(day.year, day.month, day.day, 12, tzinfo=UTC),
                            score=1.0, details={"lesson_id": lid, "xp": xp})
 
     s = summarize([log(today - timedelta(days=2), ORDER[0], 20), log(today - timedelta(days=1), ORDER[1], 15),
