@@ -4,6 +4,7 @@ import { Pressable, StyleSheet, View, type StyleProp, type ViewStyle } from "rea
 import Animated, {
   Easing,
   FadeInDown,
+  FadeOut,
   interpolate,
   useAnimatedStyle,
   useSharedValue,
@@ -21,14 +22,27 @@ import { useTheme } from "../lib/theme";
 import Lottie from "./Lottie";
 
 /** Botão/cartão que "afunda" com mola ao toque, com retorno tátil. */
+const OUTER_KEYS = new Set([
+  "flex", "flexGrow", "flexShrink", "flexBasis", "width", "minWidth", "maxWidth", "alignSelf",
+  "margin", "marginTop", "marginBottom", "marginLeft", "marginRight", "marginHorizontal", "marginVertical",
+  "position", "top", "left", "right", "bottom", "zIndex",
+]);
+
 export function PressableScale({ children, onPress, style, disabled, accessibilityLabel, accessibilityRole = "button", scaleTo = 0.965 }: {
   children: ReactNode; onPress?: () => void; style?: StyleProp<ViewStyle>; disabled?: boolean; accessibilityLabel?: string;
   accessibilityRole?: "button" | "link" | "tab" | "radio" | "checkbox"; scaleTo?: number;
 }) {
   const s = useSharedValue(1);
   const anim = useAnimatedStyle(() => ({ transform: [{ scale: s.value }] }));
+  // Propriedades de layout valem para o Pressable (quem ocupa espaço na linha/coluna); o resto, para a camada animada.
+  const flat = (StyleSheet.flatten(style) ?? {}) as Record<string, any>;
+  const outer: Record<string, any> = {};
+  const inner: Record<string, any> = {};
+  for (const [k, v] of Object.entries(flat)) (OUTER_KEYS.has(k) ? outer : inner)[k] = v;
+  if (outer.flex != null || outer.flexGrow != null) inner.flexGrow = 1;
   return (
     <Pressable
+      style={outer}
       disabled={disabled}
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
@@ -39,7 +53,7 @@ export function PressableScale({ children, onPress, style, disabled, accessibili
         onPress?.();
       }}
     >
-      <Animated.View style={[style, anim, disabled && { opacity: 0.5 }]}>{children}</Animated.View>
+      <Animated.View style={[inner, anim, disabled && { opacity: 0.5 }]}>{children}</Animated.View>
     </Pressable>
   );
 }
@@ -194,16 +208,25 @@ export function FlipCard({ flipped, front, back, style }: { flipped: boolean; fr
 }
 
 /** Celebração (confete + troféu em Lottie) que toca uma vez sobre a tela. */
-export function Celebration({ show, trophy = true, onDone }: { show: boolean; trophy?: boolean; onDone?: () => void }) {
+export function Celebration({ show, trophy = true, onDone, duration = 2600 }: { show: boolean; trophy?: boolean; onDone?: () => void; duration?: number }) {
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
-    if (show) tap("success");
+    if (!show) {
+      setVisible(false);
+      return;
+    }
+    tap("success");
+    setVisible(true);
+    // some sozinha depois da animação, para não cobrir o conteúdo
+    const t = setTimeout(() => setVisible(false), duration);
+    return () => clearTimeout(t);
   }, [show]);
-  if (!show) return null;
+  if (!visible) return null;
   return (
-    <View pointerEvents="none" style={[StyleSheet.absoluteFill, { alignItems: "center", justifyContent: "center", zIndex: 50 }]}>
+    <Animated.View exiting={FadeOut.duration(300)} pointerEvents="none" style={[StyleSheet.absoluteFill, { alignItems: "center", justifyContent: "center", zIndex: 50 }]}>
       <Lottie source={confettiAnim} loop={false} style={{ width: 420, height: 420, position: "absolute" }} onFinish={onDone} />
       {trophy ? <Lottie source={trophyAnim} loop={false} style={{ width: 180, height: 180 }} /> : null}
-    </View>
+    </Animated.View>
   );
 }
 

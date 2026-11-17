@@ -67,3 +67,44 @@ test("jornada completa no aparelho", async () => {
   setMemoryDB(null);
   await assert.rejects(localApi("/me"), /perfil/);
 });
+
+test("Missão Índia no aparelho: lista, missão personalizada, conclusão → revisão e plano", async () => {
+  setMemoryDB(null);
+  mem.clear();
+  await localApi("/auth/register", { body: { display_name: "Ana Souza" } });
+  await localApi("/me/profiles/en", { method: "PUT", body: { daily_minutes: 45, self_level: "B1", trip_destination: "IN" } });
+  const ov: any = await localApi("/india/missions");
+  assert.equal(ov.completed, 0);
+  assert.equal(ov.next_mission_id, "m01");
+  assert.ok(ov.total >= 12);
+
+  const m: any = await localApi("/india/missions/m01");
+  assert.match(m.chunks[0].en, /I'm Ana, from Brazil/);
+  await assert.rejects(localApi("/india/missions/zz"), /não encontrada/);
+
+  await localApi("/plans", { body: { language: "en" } });
+  let planDay = 0;
+  let act: any = null;
+  for (let i = 1; i <= 7 && !act; i++) {
+    const d: any = await localApi(`/plans/current/days/${i}?language=en`);
+    act = d.activities.find((a: any) => a.type === "india_mission");
+    if (act) planDay = i;
+  }
+  assert.equal(act?.params.mission_id, "m01");
+
+  const statsBefore: any = await localApi("/vocab/stats?language=en");
+  const results = m.chunks.map((c: any, i: number) => ({ chunk_id: c.id, rating: i % 3 ? 3 : 1 }));
+  const done: any = await localApi("/india/missions/m01/complete", { body: { results, score: 0.8, duration_seconds: 600,
+    details: { listen_correct: 3, nested: { x: 1 } }, plan_day: planDay, plan_activity_id: act.id } });
+  assert.equal(done.reviewed, results.length);
+  assert.ok(done.added >= 1);
+  assert.equal(done.overview.completed, 1);
+  assert.equal(done.overview.next_mission_id, "m02");
+  assert.ok(done.plan_day.activities.find((a: any) => a.id === act.id).done);
+  const statsAfter: any = await localApi("/vocab/stats?language=en");
+  assert.notDeepEqual(statsAfter, statsBefore);
+
+  const again: any = await localApi("/india/missions/m01/complete", { body: { results, score: 1, duration_seconds: 300 } });
+  assert.equal(again.added, 0);
+  await assert.rejects(localApi("/india/missions/m01/complete", { body: { results: [{ chunk_id: "m01-c01", rating: 9 }], score: 1 } }), /inválida/);
+});

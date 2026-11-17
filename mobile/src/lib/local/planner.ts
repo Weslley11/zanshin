@@ -77,7 +77,10 @@ export function generate(opts: {
 
   for (let day = 1; day <= total; day++) {
     const phase = phaseFor(day, total);
-    const raw = Object.fromEntries(Object.entries(PHASE_WEIGHTS[String(phase)]).map(([t, w]) => [t, w * (multipliers[t] ?? 1)]));
+    const raw: Record<string, number> = Object.fromEntries(Object.entries(PHASE_WEIGHTS[String(phase)]).map(([t, w]) => [t, w * (multipliers[t] ?? 1)]));
+    if (dest) {
+      for (const [t, w] of Object.entries((dest.extra_weights?.[String(phase)] ?? {}) as Record<string, number>)) raw[t] = w * (multipliers[t] ?? 1);
+    }
     const tot = Object.values(raw).reduce((a, b) => a + b, 0);
     const weights = Object.fromEntries(Object.entries(raw).map(([t, w]) => [t, w / tot]));
     const week = Math.min(Math.floor(((day - 1) * 13) / total), 12);
@@ -187,6 +190,13 @@ export function generate(opts: {
       } else if ((t === "shadowing" || t === "quick_response") && destAccent) {
         params.accent = destAccent;
         params.destination = destination;
+      } else if (t === "india_mission") {
+        const missions = CONTENT.india_missions as any[];
+        const k = rotation.mission_count ?? 0;
+        rotation.mission_count = k + 1;
+        const m = missions[k % missions.length];
+        params.mission_id = m.id;
+        title = k < missions.length ? `Missão Índia ${m.order}: ${m.title_pt}` : `Revisar missão ${m.order}: ${m.title_pt}`;
       } else if (t === "assessment") {
         params.kind = day === 1 && !opts.placement_done ? "placement" : "checkpoint";
         title = params.kind === "placement" ? "Avaliação inicial" : `Avaliação de progresso (dia ${day})`;

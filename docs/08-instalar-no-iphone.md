@@ -43,6 +43,7 @@ Tudo roda no próprio iPhone, e os dados ficam só nele:
 | Funciona offline | Como |
 |---|---|
 | Plano de 90 dias, jornada, metas e adaptação | mesmas regras do backend (portadas e testadas contra o Python) |
+| Missão Índia (13 missões, 130 frases) e importação das suas frases | tudo no aparelho; frases vão para a revisão espaçada |
 | Revisão espaçada (FSRS-5) e vocabulário | idem; seus erros viram cartões |
 | Tutor de conversa, simulações, Conversation Challenge, Quick Response | **roteiros + correção por regras** (33 regras de interferência português→inglês), relatório no final |
 | Listening com sotaques (inclusive indiano), shadowing, Think in English, construção de frases | voz do próprio iPhone para ouvir; inteligibilidade calculada pela transcrição |

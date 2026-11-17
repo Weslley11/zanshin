@@ -7,7 +7,7 @@ import { useApp } from "../../lib/app";
 import { MODULES } from "../../lib/modules";
 
 const GROUPS: { title: string; ids: string[] }[] = [
-  { title: "Falar", ids: ["tutor", "unlock", "scenarios"] },
+  { title: "Falar", ids: ["missions", "tutor", "unlock", "scenarios"] },
   { title: "Ouvir e pronunciar", ids: ["listening", "shadowing", "india"] },
   { title: "Memorizar e medir", ids: ["vocab", "errors", "plan", "assessment", "documents"] },
 ];
@@ -23,11 +23,12 @@ export default function ModulesHub() {
         <Text muted>Escolha o que treinar agora. Cada módulo foca em uma habilidade — o seu plano já mistura todos.</Text>
       </Enter>
       {profile?.trip_destination === "IN" && language === "en" ? (
-        <ModuleTile wide index={index++} title="Sua viagem: Índia" subtitle="Entenda o inglês indiano antes de embarcar" icon="earth" gradient="india"
-          onPress={() => router.push("/india")} />
+        <ModuleTile wide index={index++} title="Missão Índia" subtitle="Frases para falar e entender indianos — 12 min por missão" icon="flag" gradient="india"
+          onPress={() => router.push("/missao")} />
       ) : null}
       {GROUPS.map((g) => {
-        const mods = g.ids.map((id) => visible.find((m) => m.id === id)).filter(Boolean) as typeof MODULES;
+        const tripIN = profile?.trip_destination === "IN" && language === "en";
+        const mods = g.ids.filter((id) => !(tripIN && id === "missions")).map((id) => visible.find((m) => m.id === id)).filter(Boolean) as typeof MODULES;
         if (!mods.length) return null;
         return (
           <View key={g.title} style={{ gap: 12 }}>

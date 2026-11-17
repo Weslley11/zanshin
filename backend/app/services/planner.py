@@ -12,6 +12,7 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 
 from app.content.en_listening import LISTENING_EN
+from app.content.india_missions import MISSIONS
 from app.content.languages import CEFR_LEVELS
 from app.content.scenarios import SCENARIOS
 
@@ -26,6 +27,8 @@ ACTIVITY_INFO: dict[str, dict] = {
     "scenario": {"title_pt": "Simulação (viagem/trabalho)", "min": 8, "max": 15, "skills": ["interaction", "speaking", "listening"], "mode": "output"},
     "error_review": {"title_pt": "Revisão dos seus erros", "min": 5, "max": 6, "skills": ["grammar"], "mode": "output"},
     "assessment": {"title_pt": "Avaliação de progresso", "min": 20, "max": 25, "skills": ["listening", "speaking", "vocabulary", "grammar"], "mode": "eval"},
+    # Só entra no plano via DESTINATIONS[...]["extra_weights"] (ex.: destino Índia).
+    "india_mission": {"title_pt": "Missão Índia", "min": 10, "max": 15, "skills": ["vocabulary", "speaking", "listening"], "mode": "output"},
 }
 
 PHASE_WEIGHTS: dict[int, dict[str, float]] = {
@@ -84,12 +87,15 @@ DESTINATIONS: dict[str, dict] = {
         "name_pt": "Índia",
         "accent": "IN",
         "multipliers": {"listening": 1.2, "shadowing": 1.1},
+        # Missões curtas de frases para falar com indianos: concentradas no início (fase 1) e revisadas depois.
+        "extra_weights": {1: {"india_mission": 0.25}, 2: {"india_mission": 0.08}, 3: {"india_mission": 0.04}},
         "insight": {"signal": "destination_india",
                     "finding_pt": "Destino: Índia. Entender o inglês indiano (ritmo, sotaque, expressões e números em lakh/crore) é prioridade.",
                     "action_pt": "2 de cada 3 listenings usam falantes indianos; as simulações passam a se passar na Índia "
                                  "progressivamente; o tutor usa sotaque e expressões do inglês indiano."},
         "goals_pt": {
-            1: ["Entender números em lakh/crore e 15 expressões do inglês indiano (do the needful, revert, prepone…)"],
+            1: ["Entender números em lakh/crore e 15 expressões do inglês indiano (do the needful, revert, prepone…)",
+                f"Concluir as {len(MISSIONS)} missões da Missão Índia (≈130 frases para falar e entender)"],
             2: ["≥ 65% de acerto em listening com falantes indianos em velocidade normal"],
             3: ["Concluir a visita técnica simulada à planta na Índia obtendo um 'sim/não' claro sobre prazos"],
         },
@@ -175,6 +181,9 @@ def generate(
     for day in range(1, total_days + 1):
         phase = phase_for(day, total_days)
         raw = {t: w * multipliers.get(t, 1.0) for t, w in PHASE_WEIGHTS[phase].items()}
+        if dest:
+            for t, w in dest.get("extra_weights", {}).get(phase, {}).items():
+                raw[t] = w * multipliers.get(t, 1.0)
         tot = sum(raw.values())
         weights = {t: w / tot for t, w in raw.items()}
 
@@ -286,6 +295,13 @@ def generate(
             elif t in ("shadowing", "quick_response") and dest_accent:
                 params["accent"] = dest_accent
                 params["destination"] = destination
+            elif t == "india_mission":
+                k = rotation.get("mission_count", 0)
+                rotation["mission_count"] = k + 1
+                m = MISSIONS[k % len(MISSIONS)]
+                params["mission_id"] = m["id"]
+                title = (f"Missão Índia {m['order']}: {m['title_pt']}" if k < len(MISSIONS)
+                         else f"Revisar missão {m['order']}: {m['title_pt']}")
             elif t == "assessment":
                 params["kind"] = "placement" if (day == 1 and not placement_done) else "checkpoint"
                 title = "Avaliação inicial" if params["kind"] == "placement" else f"Avaliação de progresso (dia {day})"

@@ -1,6 +1,6 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { LinearGradient } from "expo-linear-gradient";
-import { useState, type ComponentProps, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ComponentProps, type ReactNode } from "react";
 import {
   ActivityIndicator,
   Pressable,
@@ -9,6 +9,7 @@ import {
   Text as RNText,
   TextInput,
   View,
+  type ScrollViewInstance,
   type StyleProp,
   type TextStyle,
   type ViewStyle,
@@ -25,13 +26,21 @@ export function Icon({ name, size = 22, color }: { name: IconName; size?: number
   return <Ionicons name={name} size={size} color={color ?? c.text} accessibilityElementsHidden importantForAccessibility="no" />;
 }
 
-export function Screen({ children, scroll = true, padded = true, overlay }: { children: ReactNode; scroll?: boolean; padded?: boolean; overlay?: ReactNode }) {
+export function Screen({ children, scroll = true, padded = true, overlay, scrollKey }: {
+  children: ReactNode; scroll?: boolean; padded?: boolean; overlay?: ReactNode;
+  /** Quando muda (ex.: próxima etapa de um exercício), a tela volta ao topo. */
+  scrollKey?: string | number;
+}) {
   const { c } = useTheme();
+  const ref = useRef<ScrollViewInstance>(null);
+  useEffect(() => {
+    if (scrollKey !== undefined) ref.current?.scrollTo({ y: 0, animated: false });
+  }, [scrollKey]);
   const inner = <View style={[styles.inner, padded && { padding: spacing.lg }]}>{children}</View>;
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: c.bg }} edges={["top", "left", "right"]}>
       {scroll ? (
-        <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 48 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
+        <ScrollView ref={ref} contentContainerStyle={{ flexGrow: 1, paddingBottom: 48 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
           {inner}
         </ScrollView>
       ) : inner}

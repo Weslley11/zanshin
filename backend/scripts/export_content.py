@@ -19,7 +19,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "backend"))
 
-from app.content import drills, en_assessment, en_listening, india, languages, other_languages, scenarios  # noqa: E402
+from app.content import (  # noqa: E402
+    drills,
+    en_assessment,
+    en_listening,
+    india,
+    india_missions,
+    languages,
+    other_languages,
+    scenarios,
+)
 from app.services import planner  # noqa: E402
 from app.services.assessment import estimate_level, score_item  # noqa: E402
 from app.services.error_analyzer import analyze_english, correct_text  # noqa: E402
@@ -54,6 +63,7 @@ def build_content() -> dict:
         "starter": {"hiragana": other_languages.HIRAGANA_BASIC, "katakana": other_languages.KATAKANA_BASIC,
                     "tone_pairs": other_languages.ZH_TONE_PAIRS},
         "india_guide": india.variety_guide("IN"),
+        "india_missions": india_missions.MISSIONS,
         "planner": {"activity_info": planner.ACTIVITY_INFO, "phase_weights": planner.PHASE_WEIGHTS,
                     "phases": planner.PHASES, "week_themes": planner.WEEK_THEMES_PT, "destinations": planner.DESTINATIONS},
     }

@@ -2,7 +2,7 @@ import type { Activity } from "./types";
 
 export const ACTIVITY_ICONS: Record<string, string> = {
   vocab_review: "🗂️", listening: "🎧", shadowing: "🔁", quick_response: "⚡", sentence_building: "🧩",
-  think_in_english: "💭", conversation: "💬", scenario: "🎭", error_review: "🩹", assessment: "📊",
+  think_in_english: "💭", india_mission: "🧭", conversation: "💬", scenario: "🎭", error_review: "🩹", assessment: "📊",
 };
 
 /** Ícone (Ionicons) e gradiente de cada tipo de atividade. */
@@ -10,6 +10,7 @@ export const ACTIVITY_STYLE: Record<string, { icon: string; gradient: string }> 
   vocab_review: { icon: "albums", gradient: "vocab" }, listening: { icon: "headset", gradient: "listening" },
   shadowing: { icon: "repeat", gradient: "shadowing" }, quick_response: { icon: "flash", gradient: "unlock" },
   sentence_building: { icon: "extension-puzzle", gradient: "unlock" }, think_in_english: { icon: "bulb", gradient: "unlock" },
+  india_mission: { icon: "flag", gradient: "india" },
   conversation: { icon: "chatbubbles", gradient: "tutor" }, scenario: { icon: "airplane", gradient: "scenarios" },
   error_review: { icon: "construct", gradient: "errors" }, assessment: { icon: "ribbon", gradient: "assessment" },
 };
@@ -34,6 +35,8 @@ export function activityHref(a: Activity, day: number): { pathname: string; para
       return { pathname: "/drills/think", params: base };
     case "error_review":
       return { pathname: "/errors", params: base };
+    case "india_mission":
+      return { pathname: "/missao/[id]", params: { ...base, id: a.params.mission_id ?? "next" } };
     case "assessment":
       return { pathname: "/assessment", params: { ...base, kind: a.params.kind ?? "checkpoint" } };
     case "scenario":

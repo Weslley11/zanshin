@@ -8678,11 +8678,10 @@
        }
       ],
       [
-       "quick_response",
-       8,
+       "india_mission",
+       15,
        {
-        "accent": "IN",
-        "destination": "IN"
+        "mission_id": "m01"
        }
       ],
       [
@@ -8694,8 +8693,16 @@
        }
       ],
       [
-       "sentence_building",
+       "quick_response",
        8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       6,
        {}
       ],
       [
@@ -8709,18 +8716,13 @@
       ],
       [
        "scenario",
-       15,
+       8,
        {
         "scenario_id": "india-airport-arrival"
        }
       ],
       [
        "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "error_review",
        5,
        {}
       ]
@@ -8734,14 +8736,29 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
        "listening",
-       28,
+       15,
        {
         "listening_id": "lst-in-airport-arrival"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m02"
+       }
+      ],
+      [
+       "shadowing",
+       10,
+       {
+        "accent": "IN",
+        "destination": "IN"
        }
       ],
       [
@@ -8751,14 +8768,6 @@
         "challenge_minutes": 3,
         "accent": "IN",
         "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
        }
       ],
       [
@@ -8781,10 +8790,15 @@
       ],
       [
        "scenario",
-       15,
+       14,
        {
         "scenario_id": "work-intro-meeting"
        }
+      ],
+      [
+       "error_review",
+       6,
+       {}
       ]
      ]
     },
@@ -8807,12 +8821,10 @@
        }
       ],
       [
-       "conversation",
-       3,
+       "india_mission",
+       15,
        {
-        "challenge_minutes": 3,
-        "accent": "IN",
-        "mode": "natural"
+        "mission_id": "m03"
        }
       ],
       [
@@ -8821,6 +8833,15 @@
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "conversation",
+       3,
+       {
+        "challenge_minutes": 3,
+        "accent": "IN",
+        "mode": "natural"
        }
       ],
       [
@@ -8842,13 +8863,6 @@
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-auto-cab"
-       }
-      ],
-      [
        "error_review",
        6,
        {}
@@ -8863,14 +8877,29 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       10,
        {}
       ],
       [
        "listening",
-       43,
+       15,
        {
         "listening_id": "lst-in-auto"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m04"
+       }
+      ],
+      [
+       "shadowing",
+       10,
+       {
+        "accent": "IN",
+        "destination": "IN"
        }
       ],
       [
@@ -8880,14 +8909,6 @@
         "challenge_minutes": 3,
         "accent": "IN",
         "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
        }
       ],
       [
@@ -8902,6 +8923,13 @@
        "sentence_building",
        8,
        {}
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "india-auto-cab"
+       }
       ],
       [
        "think_in_english",
@@ -8923,7 +8951,7 @@
       ],
       [
        "listening",
-       22,
+       34,
        {
         "listening_id": "lst-in-plant-standup"
        }
@@ -8946,6 +8974,13 @@
        }
       ],
       [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m05"
+       }
+      ],
+      [
        "quick_response",
        8,
        {
@@ -8956,23 +8991,6 @@
       [
        "sentence_building",
        8,
-       {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "airport-immigration"
-       }
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "error_review",
-       6,
        {}
       ]
      ]
@@ -8985,12 +9003,12 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
        "listening",
-       28,
+       15,
        {
         "listening_id": "lst-en-hotel-checkin"
        }
@@ -9010,6 +9028,87 @@
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m06"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "think_in_english",
+       6,
+       {}
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "airport-immigration"
+       }
+      ],
+      [
+       "error_review",
+       5,
+       {}
+      ]
+     ]
+    },
+    {
+     "day": 7,
+     "phase": 1,
+     "focus": "Apresentações pessoais e rotina de trabalho · revisão semanal",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       9,
+       {}
+      ],
+      [
+       "listening",
+       15,
+       {
+        "listening_id": "lst-en-standup"
+       }
+      ],
+      [
+       "conversation",
+       3,
+       {
+        "challenge_minutes": 3,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
+       "shadowing",
+       5,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m07"
        }
       ],
       [
@@ -9036,68 +9135,6 @@
        {
         "scenario_id": "india-airport-arrival"
        }
-      ]
-     ]
-    },
-    {
-     "day": 7,
-     "phase": 1,
-     "focus": "Apresentações pessoais e rotina de trabalho · revisão semanal",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       12,
-       {}
-      ],
-      [
-       "listening",
-       22,
-       {
-        "listening_id": "lst-en-standup"
-       }
-      ],
-      [
-       "conversation",
-       3,
-       {
-        "challenge_minutes": 3,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "hotel-checkin-problem"
-       }
       ],
       [
        "error_review",
@@ -9119,7 +9156,7 @@
       ],
       [
        "listening",
-       37,
+       22,
        {
         "listening_id": "lst-in-airport-arrival"
        }
@@ -9139,6 +9176,13 @@
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m08"
        }
       ],
       [
@@ -9179,7 +9223,7 @@
       ],
       [
        "listening",
-       22,
+       15,
        {
         "listening_id": "lst-en-restaurant"
        }
@@ -9195,10 +9239,86 @@
       ],
       [
        "shadowing",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m09"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "hotel-checkin-problem"
+       }
+      ],
+      [
+       "think_in_english",
+       6,
+       {}
+      ]
+     ]
+    },
+    {
+     "day": 10,
+     "phase": 1,
+     "focus": "Viagem: aeroporto, imigração e hotel",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       12,
+       {}
+      ],
+      [
+       "listening",
+       20,
+       {
+        "listening_id": "lst-in-auto"
+       }
+      ],
+      [
+       "conversation",
+       5,
+       {
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
+       "shadowing",
        10,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m10"
        }
       ],
       [
@@ -9220,13 +9340,6 @@
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-auto-cab"
-       }
-      ],
-      [
        "error_review",
        6,
        {}
@@ -9234,7 +9347,7 @@
      ]
     },
     {
-     "day": 10,
+     "day": 11,
      "phase": 1,
      "focus": "Viagem: aeroporto, imigração e hotel",
      "assessment": false,
@@ -9246,9 +9359,9 @@
       ],
       [
        "listening",
-       26,
+       17,
        {
-        "listening_id": "lst-in-auto"
+        "listening_id": "lst-in-plant-standup"
        }
       ],
       [
@@ -9266,6 +9379,77 @@
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m11"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "india-auto-cab"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 12,
+     "phase": 1,
+     "focus": "Viagem: aeroporto, imigração e hotel",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       8,
+       {}
+      ],
+      [
+       "listening",
+       15,
+       {
+        "listening_id": "lst-en-standup"
+       }
+      ],
+      [
+       "conversation",
+       5,
+       {
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
+       "shadowing",
+       10,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m12"
        }
       ],
       [
@@ -9296,133 +9480,6 @@
      ]
     },
     {
-     "day": 11,
-     "phase": 1,
-     "focus": "Viagem: aeroporto, imigração e hotel",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       12,
-       {}
-      ],
-      [
-       "listening",
-       20,
-       {
-        "listening_id": "lst-in-plant-standup"
-       }
-      ],
-      [
-       "conversation",
-       5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-airport-arrival"
-       }
-      ],
-      [
-       "error_review",
-       6,
-       {}
-      ]
-     ]
-    },
-    {
-     "day": 12,
-     "phase": 1,
-     "focus": "Viagem: aeroporto, imigração e hotel",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       12,
-       {}
-      ],
-      [
-       "listening",
-       35,
-       {
-        "listening_id": "lst-en-standup"
-       }
-      ],
-      [
-       "conversation",
-       5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "error_review",
-       6,
-       {}
-      ]
-     ]
-    },
-    {
      "day": 13,
      "phase": 1,
      "focus": "Viagem: aeroporto, imigração e hotel",
@@ -9435,7 +9492,7 @@
       ],
       [
        "listening",
-       26,
+       20,
        {
         "listening_id": "lst-en-standup"
        }
@@ -9458,6 +9515,13 @@
        }
       ],
       [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m13"
+       }
+      ],
+      [
        "quick_response",
        8,
        {
@@ -9476,11 +9540,9 @@
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "taxi-rideshare"
-       }
+       "error_review",
+       6,
+       {}
       ]
      ]
     },
@@ -9492,12 +9554,12 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
        "listening",
-       20,
+       15,
        {
         "listening_id": "lst-in-airport-arrival"
        }
@@ -9520,6 +9582,13 @@
        }
       ],
       [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m01"
+       }
+      ],
+      [
        "quick_response",
        8,
        {
@@ -9533,16 +9602,16 @@
        {}
       ],
       [
-       "think_in_english",
-       6,
-       {}
+       "scenario",
+       13,
+       {
+        "scenario_id": "india-airport-arrival"
+       }
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-auto-cab"
-       }
+       "think_in_english",
+       5,
+       {}
       ],
       [
        "error_review",
@@ -9566,7 +9635,7 @@
       ],
       [
        "vocab_review",
-       12,
+       8,
        {}
       ],
       [
@@ -9587,10 +9656,17 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m02"
        }
       ],
       [
@@ -9610,11 +9686,6 @@
        "think_in_english",
        6,
        {}
-      ],
-      [
-       "error_review",
-       6,
-       {}
       ]
      ]
     },
@@ -9626,12 +9697,12 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       8,
        {}
       ],
       [
        "listening",
-       26,
+       15,
        {
         "listening_id": "lst-in-auto"
        }
@@ -9654,6 +9725,13 @@
        }
       ],
       [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m03"
+       }
+      ],
+      [
        "quick_response",
        8,
        {
@@ -9670,11 +9748,11 @@
        "scenario",
        15,
        {
-        "scenario_id": "work-intro-meeting"
+        "scenario_id": "taxi-rideshare"
        }
       ],
       [
-       "think_in_english",
+       "error_review",
        6,
        {}
       ]
@@ -9693,7 +9771,7 @@
       ],
       [
        "listening",
-       20,
+       26,
        {
         "listening_id": "lst-in-plant-standup"
        }
@@ -9716,6 +9794,149 @@
        }
       ],
       [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m04"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "think_in_english",
+       6,
+       {}
+      ]
+     ]
+    },
+    {
+     "day": 18,
+     "phase": 1,
+     "focus": "Restaurante, transporte e small talk",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "listening",
+       15,
+       {
+        "listening_id": "lst-in-auto"
+       }
+      ],
+      [
+       "conversation",
+       5,
+       {
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
+       "shadowing",
+       10,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m05"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "scenario",
+       14,
+       {
+        "scenario_id": "india-auto-cab"
+       }
+      ],
+      [
+       "think_in_english",
+       5,
+       {}
+      ],
+      [
+       "error_review",
+       5,
+       {}
+      ]
+     ]
+    },
+    {
+     "day": 19,
+     "phase": 1,
+     "focus": "Restaurante, transporte e small talk",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       12,
+       {}
+      ],
+      [
+       "listening",
+       15,
+       {
+        "listening_id": "lst-en-standup"
+       }
+      ],
+      [
+       "conversation",
+       5,
+       {
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
+       "shadowing",
+       6,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m06"
+       }
+      ],
+      [
        "quick_response",
        8,
        {
@@ -9737,6 +9958,137 @@
        "scenario",
        15,
        {
+        "scenario_id": "work-intro-meeting"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 20,
+     "phase": 1,
+     "focus": "Restaurante, transporte e small talk",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       12,
+       {}
+      ],
+      [
+       "listening",
+       20,
+       {
+        "listening_id": "lst-in-airport-arrival"
+       }
+      ],
+      [
+       "conversation",
+       5,
+       {
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
+       "shadowing",
+       10,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m07"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "think_in_english",
+       6,
+       {}
+      ],
+      [
+       "error_review",
+       6,
+       {}
+      ]
+     ]
+    },
+    {
+     "day": 21,
+     "phase": 1,
+     "focus": "Restaurante, transporte e small talk · revisão semanal",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       12,
+       {}
+      ],
+      [
+       "listening",
+       15,
+       {
+        "listening_id": "lst-in-plant-standup"
+       }
+      ],
+      [
+       "conversation",
+       5,
+       {
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
+       "shadowing",
+       6,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m08"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "scenario",
+       15,
+       {
         "scenario_id": "india-airport-arrival"
        }
       ],
@@ -9748,9 +10100,9 @@
      ]
     },
     {
-     "day": 18,
+     "day": 22,
      "phase": 1,
-     "focus": "Restaurante, transporte e small talk",
+     "focus": "Descrever seu trabalho, equipe e projetos",
      "assessment": false,
      "activities": [
       [
@@ -9783,6 +10135,13 @@
        }
       ],
       [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m09"
+       }
+      ],
+      [
        "quick_response",
        8,
        {
@@ -9799,32 +10158,25 @@
        "think_in_english",
        6,
        {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "airport-immigration"
-       }
       ]
      ]
     },
     {
-     "day": 19,
+     "day": 23,
      "phase": 1,
-     "focus": "Restaurante, transporte e small talk",
+     "focus": "Descrever seu trabalho, equipe e projetos",
      "assessment": false,
      "activities": [
       [
        "vocab_review",
-       12,
+       7,
        {}
       ],
       [
        "listening",
-       35,
+       15,
        {
-        "listening_id": "lst-en-standup"
+        "listening_id": "lst-in-plant-standup"
        }
       ],
       [
@@ -9838,10 +10190,17 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m10"
        }
       ],
       [
@@ -9856,6 +10215,13 @@
        "sentence_building",
        8,
        {}
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "airport-immigration"
+       }
       ],
       [
        "think_in_english",
@@ -9870,21 +10236,21 @@
      ]
     },
     {
-     "day": 20,
+     "day": 24,
      "phase": 1,
-     "focus": "Restaurante, transporte e small talk",
+     "focus": "Descrever seu trabalho, equipe e projetos",
      "assessment": false,
      "activities": [
       [
        "vocab_review",
-       12,
+       8,
        {}
       ],
       [
        "listening",
-       26,
+       15,
        {
-        "listening_id": "lst-in-airport-arrival"
+        "listening_id": "lst-en-airport-immigration"
        }
       ],
       [
@@ -9902,6 +10268,13 @@
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m11"
        }
       ],
       [
@@ -9932,9 +10305,9 @@
      ]
     },
     {
-     "day": 21,
+     "day": 25,
      "phase": 1,
-     "focus": "Restaurante, transporte e small talk · revisão semanal",
+     "focus": "Descrever seu trabalho, equipe e projetos",
      "assessment": false,
      "activities": [
       [
@@ -9946,7 +10319,7 @@
        "listening",
        20,
        {
-        "listening_id": "lst-in-plant-standup"
+        "listening_id": "lst-en-standup"
        }
       ],
       [
@@ -9964,6 +10337,13 @@
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m12"
        }
       ],
       [
@@ -9985,13 +10365,6 @@
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "hotel-checkin-problem"
-       }
-      ],
-      [
        "error_review",
        6,
        {}
@@ -9999,7 +10372,76 @@
      ]
     },
     {
-     "day": 22,
+     "day": 26,
+     "phase": 1,
+     "focus": "Descrever seu trabalho, equipe e projetos",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       8,
+       {}
+      ],
+      [
+       "listening",
+       15,
+       {
+        "listening_id": "lst-in-airport-arrival"
+       }
+      ],
+      [
+       "conversation",
+       5,
+       {
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
+       "shadowing",
+       10,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m13"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "hotel-checkin-problem"
+       }
+      ],
+      [
+       "think_in_english",
+       6,
+       {}
+      ]
+     ]
+    },
+    {
+     "day": 27,
      "phase": 1,
      "focus": "Descrever seu trabalho, equipe e projetos",
      "assessment": false,
@@ -10011,7 +10453,64 @@
       ],
       [
        "listening",
-       20,
+       32,
+       {
+        "listening_id": "lst-en-hotel-checkin"
+       }
+      ],
+      [
+       "conversation",
+       5,
+       {
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
+       "shadowing",
+       10,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m01"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ]
+     ]
+    },
+    {
+     "day": 28,
+     "phase": 1,
+     "focus": "Descrever seu trabalho, equipe e projetos · revisão semanal",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "listening",
+       15,
        {
         "listening_id": "lst-in-auto"
        }
@@ -10034,6 +10533,13 @@
        }
       ],
       [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m02"
+       }
+      ],
+      [
        "quick_response",
        8,
        {
@@ -10047,16 +10553,16 @@
        {}
       ],
       [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
        "scenario",
-       15,
+       13,
        {
         "scenario_id": "india-airport-arrival"
        }
+      ],
+      [
+       "think_in_english",
+       5,
+       {}
       ],
       [
        "error_review",
@@ -10066,19 +10572,19 @@
      ]
     },
     {
-     "day": 23,
+     "day": 29,
      "phase": 1,
-     "focus": "Descrever seu trabalho, equipe e projetos",
+     "focus": "Reuniões e status updates",
      "assessment": false,
      "activities": [
       [
        "vocab_review",
-       12,
+       7,
        {}
       ],
       [
        "listening",
-       35,
+       15,
        {
         "listening_id": "lst-in-plant-standup"
        }
@@ -10094,70 +10600,17 @@
       ],
       [
        "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "error_review",
-       6,
-       {}
-      ]
-     ]
-    },
-    {
-     "day": 24,
-     "phase": 1,
-     "focus": "Descrever seu trabalho, equipe e projetos",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       12,
-       {}
-      ],
-      [
-       "listening",
-       20,
-       {
-        "listening_id": "lst-en-airport-immigration"
-       }
-      ],
-      [
-       "conversation",
        5,
        {
-        "challenge_minutes": 5,
         "accent": "IN",
-        "mode": "natural"
+        "destination": "IN"
        }
       ],
       [
-       "shadowing",
-       10,
+       "india_mission",
+       15,
        {
-        "accent": "IN",
-        "destination": "IN"
+        "mission_id": "m03"
        }
       ],
       [
@@ -10193,324 +10646,6 @@
      ]
     },
     {
-     "day": 25,
-     "phase": 1,
-     "focus": "Descrever seu trabalho, equipe e projetos",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       12,
-       {}
-      ],
-      [
-       "listening",
-       26,
-       {
-        "listening_id": "lst-en-standup"
-       }
-      ],
-      [
-       "conversation",
-       5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-auto-cab"
-       }
-      ]
-     ]
-    },
-    {
-     "day": 26,
-     "phase": 1,
-     "focus": "Descrever seu trabalho, equipe e projetos",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       12,
-       {}
-      ],
-      [
-       "listening",
-       20,
-       {
-        "listening_id": "lst-in-airport-arrival"
-       }
-      ],
-      [
-       "conversation",
-       5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "taxi-rideshare"
-       }
-      ],
-      [
-       "error_review",
-       6,
-       {}
-      ]
-     ]
-    },
-    {
-     "day": 27,
-     "phase": 1,
-     "focus": "Descrever seu trabalho, equipe e projetos",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       12,
-       {}
-      ],
-      [
-       "listening",
-       41,
-       {
-        "listening_id": "lst-en-hotel-checkin"
-       }
-      ],
-      [
-       "conversation",
-       5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ]
-     ]
-    },
-    {
-     "day": 28,
-     "phase": 1,
-     "focus": "Descrever seu trabalho, equipe e projetos · revisão semanal",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       12,
-       {}
-      ],
-      [
-       "listening",
-       20,
-       {
-        "listening_id": "lst-in-auto"
-       }
-      ],
-      [
-       "conversation",
-       5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-airport-arrival"
-       }
-      ],
-      [
-       "error_review",
-       6,
-       {}
-      ]
-     ]
-    },
-    {
-     "day": 29,
-     "phase": 1,
-     "focus": "Reuniões e status updates",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       12,
-       {}
-      ],
-      [
-       "listening",
-       20,
-       {
-        "listening_id": "lst-in-plant-standup"
-       }
-      ],
-      [
-       "conversation",
-       5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "work-intro-meeting"
-       }
-      ],
-      [
-       "error_review",
-       6,
-       {}
-      ]
-     ]
-    },
-    {
      "day": 30,
      "phase": 1,
      "focus": "Reuniões e status updates",
@@ -10518,14 +10653,14 @@
      "activities": [
       [
        "assessment",
-       21,
+       20,
        {
         "kind": "checkpoint"
        }
       ],
       [
        "vocab_review",
-       12,
+       9,
        {}
       ],
       [
@@ -10546,10 +10681,17 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m04"
        }
       ],
       [
@@ -10564,11 +10706,6 @@
        "sentence_building",
        8,
        {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
       ]
      ]
     },
@@ -10580,7 +10717,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       9,
        {}
       ],
       [
@@ -10608,6 +10745,20 @@
        }
       ],
       [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m05"
+       }
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "india-plant-visit"
+       }
+      ],
+      [
        "quick_response",
        8,
        {
@@ -10618,23 +10769,6 @@
       [
        "sentence_building",
        8,
-       {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-plant-visit"
-       }
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "error_review",
-       6,
        {}
       ]
      ]
@@ -10647,7 +10781,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -10668,10 +10802,24 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m06"
+       }
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "india-team-lunch"
        }
       ],
       [
@@ -10683,20 +10831,13 @@
        }
       ],
       [
-       "sentence_building",
-       8,
+       "think_in_english",
+       6,
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "work-deadline-negotiation"
-       }
-      ],
-      [
-       "think_in_english",
-       6,
+       "sentence_building",
+       5,
        {}
       ],
       [
@@ -10714,7 +10855,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -10735,10 +10876,24 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m07"
+       }
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "work-deadline-negotiation"
        }
       ],
       [
@@ -10750,20 +10905,13 @@
        }
       ],
       [
-       "sentence_building",
-       8,
+       "think_in_english",
+       6,
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-team-lunch"
-       }
-      ],
-      [
-       "think_in_english",
-       6,
+       "sentence_building",
+       5,
        {}
       ],
       [
@@ -10781,7 +10929,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -10802,10 +10950,24 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m08"
+       }
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "india-airport-arrival"
        }
       ],
       [
@@ -10817,20 +10979,13 @@
        }
       ],
       [
-       "sentence_building",
-       8,
+       "think_in_english",
+       6,
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-airport-arrival"
-       }
-      ],
-      [
-       "think_in_english",
-       6,
+       "sentence_building",
+       5,
        {}
       ],
       [
@@ -10848,7 +11003,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -10876,23 +11031,25 @@
        }
       ],
       [
-       "quick_response",
-       8,
+       "india_mission",
+       15,
        {
-        "accent": "IN",
-        "destination": "IN"
+        "mission_id": "m09"
        }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
       ],
       [
        "scenario",
        15,
        {
-        "scenario_id": "work-supplier-call"
+        "scenario_id": "india-auto-cab"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
        }
       ],
       [
@@ -10915,7 +11072,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -10936,10 +11093,24 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "work-supplier-call"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m10"
        }
       ],
       [
@@ -10952,19 +11123,12 @@
       ],
       [
        "sentence_building",
-       8,
+       6,
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-auto-cab"
-       }
-      ],
-      [
        "think_in_english",
-       6,
+       5,
        {}
       ],
       [
@@ -10982,12 +11146,12 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
        "listening",
-       21,
+       15,
        {
         "listening_id": "lst-in-airport-arrival"
        }
@@ -11003,10 +11167,24 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "india-plant-visit"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m11"
        }
       ],
       [
@@ -11019,15 +11197,13 @@
       ],
       [
        "sentence_building",
-       8,
+       6,
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-plant-visit"
-       }
+       "think_in_english",
+       5,
+       {}
       ],
       [
        "error_review",
@@ -11044,7 +11220,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -11065,10 +11241,17 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "india-team-lunch"
        }
       ],
       [
@@ -11080,20 +11263,20 @@
        }
       ],
       [
-       "scenario",
+       "india_mission",
        15,
        {
-        "scenario_id": "work-technical-problem"
+        "mission_id": "m12"
        }
       ],
       [
        "sentence_building",
-       8,
+       6,
        {}
       ],
       [
        "think_in_english",
-       6,
+       5,
        {}
       ],
       [
@@ -11111,7 +11294,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -11132,10 +11315,17 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "work-technical-problem"
        }
       ],
       [
@@ -11147,20 +11337,20 @@
        }
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-team-lunch"
-       }
-      ],
-      [
        "sentence_building",
        8,
        {}
       ],
       [
+       "india_mission",
+       13,
+       {
+        "mission_id": "m13"
+       }
+      ],
+      [
        "think_in_english",
-       6,
+       5,
        {}
       ],
       [
@@ -11206,18 +11396,18 @@
        }
       ],
       [
+       "scenario",
+       15,
+       {
+        "scenario_id": "india-airport-arrival"
+       }
+      ],
+      [
        "quick_response",
        8,
        {
         "accent": "IN",
         "destination": "IN"
-       }
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-airport-arrival"
        }
       ],
       [
@@ -11245,7 +11435,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       8,
        {}
       ],
       [
@@ -11266,74 +11456,7 @@
       ],
       [
        "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "hotel-room-issue"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "error_review",
-       6,
-       {}
-      ]
-     ]
-    },
-    {
-     "day": 42,
-     "phase": 2,
-     "focus": "Explicar problemas técnicos · revisão semanal",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       12,
-       {}
-      ],
-      [
-       "listening",
-       15,
-       {
-        "listening_id": "lst-in-supplier-call"
-       }
-      ],
-      [
-       "conversation",
-       10,
-       {
-        "challenge_minutes": 10,
-        "accent": "IN",
-        "mode": "no_native"
-       }
-      ],
-      [
-       "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -11355,13 +11478,89 @@
        }
       ],
       [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m01"
+       }
+      ],
+      [
        "sentence_building",
        8,
        {}
       ],
       [
+       "error_review",
+       6,
+       {}
+      ]
+     ]
+    },
+    {
+     "day": 42,
+     "phase": 2,
+     "focus": "Explicar problemas técnicos · revisão semanal",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "listening",
+       15,
+       {
+        "listening_id": "lst-in-supplier-call"
+       }
+      ],
+      [
+       "conversation",
+       10,
+       {
+        "challenge_minutes": 10,
+        "accent": "IN",
+        "mode": "no_native"
+       }
+      ],
+      [
+       "shadowing",
+       5,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "hotel-room-issue"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
        "think_in_english",
        6,
+       {}
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m02"
+       }
+      ],
+      [
+       "sentence_building",
+       5,
        {}
       ],
       [
@@ -11384,7 +11583,7 @@
       ],
       [
        "listening",
-       15,
+       23,
        {
         "listening_id": "lst-in-supplier-call"
        }
@@ -11422,11 +11621,6 @@
        }
       ],
       [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
        "think_in_english",
        6,
        {}
@@ -11446,7 +11640,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -11477,7 +11671,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "networking-colleague-lunch"
+        "scenario_id": "india-team-lunch"
        }
       ],
       [
@@ -11489,13 +11683,20 @@
        }
       ],
       [
+       "india_mission",
+       11,
+       {
+        "mission_id": "m03"
+       }
+      ],
+      [
        "sentence_building",
-       8,
+       5,
        {}
       ],
       [
        "think_in_english",
-       6,
+       5,
        {}
       ],
       [
@@ -11520,7 +11721,7 @@
       ],
       [
        "vocab_review",
-       8,
+       5,
        {}
       ],
       [
@@ -11540,10 +11741,18 @@
        }
       ],
       [
+       "shadowing",
+       5,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
        "scenario",
        15,
        {
-        "scenario_id": "india-team-lunch"
+        "scenario_id": "networking-colleague-lunch"
        }
       ],
       [
@@ -11556,7 +11765,7 @@
       ],
       [
        "sentence_building",
-       8,
+       6,
        {}
       ],
       [
@@ -11574,7 +11783,7 @@
      "activities": [
       [
        "vocab_review",
-       7,
+       5,
        {}
       ],
       [
@@ -11595,7 +11804,7 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -11617,13 +11826,20 @@
        }
       ],
       [
-       "sentence_building",
-       8,
-       {}
+       "india_mission",
+       11,
+       {
+        "mission_id": "m04"
+       }
       ],
       [
        "think_in_english",
-       6,
+       5,
+       {}
+      ],
+      [
+       "sentence_building",
+       5,
        {}
       ],
       [
@@ -11641,7 +11857,7 @@
      "activities": [
       [
        "vocab_review",
-       7,
+       5,
        {}
       ],
       [
@@ -11662,7 +11878,7 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -11672,7 +11888,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "networking-smalltalk"
+        "scenario_id": "india-auto-cab"
        }
       ],
       [
@@ -11684,14 +11900,16 @@
        }
       ],
       [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
        "think_in_english",
        6,
        {}
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m05"
+       }
       ],
       [
        "error_review",
@@ -11739,7 +11957,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "india-auto-cab"
+        "scenario_id": "networking-smalltalk"
        }
       ],
       [
@@ -11775,7 +11993,7 @@
      "activities": [
       [
        "vocab_review",
-       7,
+       5,
        {}
       ],
       [
@@ -11818,13 +12036,15 @@
        }
       ],
       [
-       "sentence_building",
-       8,
-       {}
+       "india_mission",
+       11,
+       {
+        "mission_id": "m06"
+       }
       ],
       [
-       "think_in_english",
-       6,
+       "sentence_building",
+       5,
        {}
       ],
       [
@@ -11842,12 +12062,12 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
        "listening",
-       16,
+       15,
        {
         "listening_id": "lst-in-plant-standup"
        }
@@ -11863,7 +12083,7 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -11873,7 +12093,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "work-intro-meeting"
+        "scenario_id": "india-team-lunch"
        }
       ],
       [
@@ -11885,9 +12105,21 @@
        }
       ],
       [
-       "sentence_building",
-       8,
+       "think_in_english",
+       6,
        {}
+      ],
+      [
+       "sentence_building",
+       5,
+       {}
+      ],
+      [
+       "india_mission",
+       10,
+       {
+        "mission_id": "m07"
+       }
       ],
       [
        "error_review",
@@ -11935,7 +12167,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "india-team-lunch"
+        "scenario_id": "work-intro-meeting"
        }
       ],
       [
@@ -11971,7 +12203,7 @@
      "activities": [
       [
        "vocab_review",
-       7,
+       5,
        {}
       ],
       [
@@ -11992,7 +12224,7 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -12014,13 +12246,15 @@
        }
       ],
       [
-       "think_in_english",
-       6,
-       {}
+       "india_mission",
+       15,
+       {
+        "mission_id": "m08"
+       }
       ],
       [
-       "sentence_building",
-       8,
+       "think_in_english",
+       6,
        {}
       ],
       [
@@ -12038,7 +12272,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -12069,7 +12303,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "airport-immigration"
+        "scenario_id": "india-auto-cab"
        }
       ],
       [
@@ -12081,14 +12315,21 @@
        }
       ],
       [
-       "think_in_english",
+       "sentence_building",
        6,
        {}
       ],
       [
-       "sentence_building",
-       8,
+       "think_in_english",
+       5,
        {}
+      ],
+      [
+       "india_mission",
+       10,
+       {
+        "mission_id": "m09"
+       }
       ],
       [
        "error_review",
@@ -12105,7 +12346,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       7,
        {}
       ],
       [
@@ -12126,7 +12367,7 @@
       ],
       [
        "shadowing",
-       5,
+       10,
        {
         "accent": "IN",
         "destination": "IN"
@@ -12136,7 +12377,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "india-auto-cab"
+        "scenario_id": "airport-immigration"
        }
       ],
       [
@@ -12148,13 +12389,13 @@
        }
       ],
       [
-       "think_in_english",
-       6,
+       "sentence_building",
+       8,
        {}
       ],
       [
-       "sentence_building",
-       8,
+       "think_in_english",
+       6,
        {}
       ],
       [
@@ -12172,7 +12413,7 @@
      "activities": [
       [
        "vocab_review",
-       7,
+       5,
        {}
       ],
       [
@@ -12193,7 +12434,7 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -12215,13 +12456,15 @@
        }
       ],
       [
-       "think_in_english",
-       6,
-       {}
+       "india_mission",
+       15,
+       {
+        "mission_id": "m10"
+       }
       ],
       [
        "sentence_building",
-       8,
+       6,
        {}
       ],
       [
@@ -12270,7 +12513,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "hotel-checkin-problem"
+        "scenario_id": "india-team-lunch"
        }
       ],
       [
@@ -12306,12 +12549,12 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
        "listening",
-       18,
+       15,
        {
         "listening_id": "lst-en-standup"
        }
@@ -12327,7 +12570,7 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -12337,7 +12580,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "india-team-lunch"
+        "scenario_id": "hotel-checkin-problem"
        }
       ],
       [
@@ -12346,6 +12589,13 @@
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m11"
        }
       ],
       [
@@ -12368,12 +12618,12 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
        "listening",
-       16,
+       15,
        {
         "listening_id": "lst-in-airport-arrival"
        }
@@ -12412,8 +12662,15 @@
       ],
       [
        "sentence_building",
-       8,
+       6,
        {}
+      ],
+      [
+       "india_mission",
+       10,
+       {
+        "mission_id": "m12"
+       }
       ],
       [
        "error_review",
@@ -12461,7 +12718,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "restaurant-dinner"
+        "scenario_id": "india-auto-cab"
        }
       ],
       [
@@ -12504,7 +12761,7 @@
       ],
       [
        "vocab_review",
-       6,
+       5,
        {}
       ],
       [
@@ -12535,20 +12792,25 @@
        "scenario",
        15,
        {
-        "scenario_id": "india-auto-cab"
+        "scenario_id": "restaurant-dinner"
        }
       ],
       [
        "quick_response",
-       8,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
        }
       ],
       [
+       "think_in_english",
+       5,
+       {}
+      ],
+      [
        "error_review",
-       6,
+       5,
        {}
       ]
      ]
@@ -12561,7 +12823,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -12604,18 +12866,25 @@
        }
       ],
       [
+       "india_mission",
+       12,
+       {
+        "mission_id": "m13"
+       }
+      ],
+      [
        "think_in_english",
-       6,
+       5,
        {}
       ],
       [
        "sentence_building",
-       8,
+       5,
        {}
       ],
       [
        "error_review",
-       6,
+       5,
        {}
       ]
      ]
@@ -12628,7 +12897,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -12676,9 +12945,11 @@
        {}
       ],
       [
-       "sentence_building",
-       8,
-       {}
+       "india_mission",
+       15,
+       {
+        "mission_id": "m01"
+       }
       ],
       [
        "error_review",
@@ -12700,7 +12971,7 @@
       ],
       [
        "listening",
-       18,
+       15,
        {
         "listening_id": "lst-en-factory-visit"
        }
@@ -12716,7 +12987,7 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -12740,6 +13011,11 @@
       [
        "think_in_english",
        6,
+       {}
+      ],
+      [
+       "sentence_building",
+       8,
        {}
       ],
       [
@@ -12819,7 +13095,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       11,
        {}
       ],
       [
@@ -12862,14 +13138,11 @@
        }
       ],
       [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
+       "india_mission",
+       15,
+       {
+        "mission_id": "m02"
+       }
       ],
       [
        "error_review",
@@ -12891,7 +13164,7 @@
       ],
       [
        "listening",
-       18,
+       15,
        {
         "listening_id": "lst-en-presentation-qa"
        }
@@ -12907,7 +13180,7 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -12931,6 +13204,11 @@
       [
        "think_in_english",
        6,
+       {}
+      ],
+      [
+       "sentence_building",
+       8,
        {}
       ],
       [
@@ -13010,7 +13288,7 @@
      "activities": [
       [
        "vocab_review",
-       12,
+       5,
        {}
       ],
       [
@@ -13058,9 +13336,11 @@
        {}
       ],
       [
-       "sentence_building",
-       8,
-       {}
+       "india_mission",
+       15,
+       {
+        "mission_id": "m03"
+       }
       ],
       [
        "error_review",
@@ -13082,7 +13362,7 @@
       ],
       [
        "listening",
-       18,
+       15,
        {
         "listening_id": "lst-en-unexpected-flight"
        }
@@ -13098,7 +13378,7 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -13125,6 +13405,11 @@
        {}
       ],
       [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
        "error_review",
        6,
        {}
@@ -13144,16 +13429,16 @@
       ],
       [
        "listening",
-       18,
+       15,
        {
         "listening_id": "lst-in-supplier-call"
        }
       ],
       [
        "conversation",
-       15,
+       18,
        {
-        "challenge_minutes": 15,
+        "challenge_minutes": 18,
         "accent": "IN",
         "mode": "no_native"
        }
@@ -13206,26 +13491,18 @@
       ],
       [
        "listening",
-       16,
+       15,
        {
         "listening_id": "lst-in-team-lunch"
        }
       ],
       [
        "conversation",
-       15,
+       19,
        {
-        "challenge_minutes": 15,
+        "challenge_minutes": 19,
         "accent": "IN",
         "mode": "natural"
-       }
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
        }
       ],
       [
@@ -13244,9 +13521,11 @@
        }
       ],
       [
-       "sentence_building",
-       8,
-       {}
+       "india_mission",
+       15,
+       {
+        "mission_id": "m04"
+       }
       ],
       [
        "error_review",
@@ -13268,7 +13547,7 @@
       ],
       [
        "listening",
-       18,
+       15,
        {
         "listening_id": "lst-in-client-meeting"
        }
@@ -13284,7 +13563,7 @@
       ],
       [
        "shadowing",
-       10,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -13308,6 +13587,11 @@
       [
        "think_in_english",
        6,
+       {}
+      ],
+      [
+       "sentence_building",
+       8,
        {}
       ],
       [
@@ -13423,7 +13707,7 @@
       ],
       [
        "quick_response",
-       5,
+       8,
        {
         "accent": "IN",
         "destination": "IN"
@@ -13431,17 +13715,12 @@
       ],
       [
        "think_in_english",
-       5,
-       {}
-      ],
-      [
-       "sentence_building",
-       5,
+       6,
        {}
       ],
       [
        "error_review",
-       5,
+       6,
        {}
       ]
      ]
@@ -13540,21 +13819,20 @@
        }
       ],
       [
-       "quick_response",
-       8,
+       "india_mission",
+       10,
        {
-        "accent": "IN",
-        "destination": "IN"
+        "mission_id": "m05"
        }
       ],
       [
        "think_in_english",
-       6,
+       5,
        {}
       ],
       [
        "error_review",
-       6,
+       5,
        {}
       ]
      ]
@@ -13578,12 +13856,10 @@
        }
       ],
       [
-       "conversation",
-       30,
+       "scenario",
+       15,
        {
-        "challenge_minutes": 30,
-        "accent": "IN",
-        "mode": "natural"
+        "scenario_id": "india-airport-arrival"
        }
       ],
       [
@@ -13595,10 +13871,12 @@
        }
       ],
       [
-       "scenario",
-       15,
+       "conversation",
+       30,
        {
-        "scenario_id": "india-airport-arrival"
+        "challenge_minutes": 30,
+        "accent": "IN",
+        "mode": "natural"
        }
       ],
       [
@@ -13640,12 +13918,10 @@
        }
       ],
       [
-       "conversation",
-       30,
+       "scenario",
+       15,
        {
-        "challenge_minutes": 30,
-        "accent": "IN",
-        "mode": "no_native"
+        "scenario_id": "india-auto-cab"
        }
       ],
       [
@@ -13657,10 +13933,12 @@
        }
       ],
       [
-       "scenario",
-       15,
+       "conversation",
+       30,
        {
-        "scenario_id": "india-auto-cab"
+        "challenge_minutes": 30,
+        "accent": "IN",
+        "mode": "no_native"
        }
       ],
       [
@@ -13672,7 +13950,7 @@
        }
       ],
       [
-       "think_in_english",
+       "sentence_building",
        6,
        {}
       ],
@@ -13702,6 +13980,13 @@
        }
       ],
       [
+       "scenario",
+       15,
+       {
+        "scenario_id": "india-team-lunch"
+       }
+      ],
+      [
        "conversation",
        30,
        {
@@ -13711,7 +13996,19 @@
        }
       ],
       [
-       "shadowing",
+       "think_in_english",
+       5,
+       {}
+      ],
+      [
+       "india_mission",
+       10,
+       {
+        "mission_id": "m06"
+       }
+      ],
+      [
+       "quick_response",
        5,
        {
         "accent": "IN",
@@ -13719,28 +14016,8 @@
        }
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-team-lunch"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "sentence_building",
-       6,
-       {}
-      ],
-      [
        "error_review",
-       6,
+       5,
        {}
       ]
      ]
@@ -13772,7 +14049,7 @@
       ],
       [
        "shadowing",
-       5,
+       10,
        {
         "accent": "IN",
         "destination": "IN"
@@ -13789,12 +14066,12 @@
       ],
       [
        "think_in_english",
-       6,
+       5,
        {}
       ],
       [
        "quick_response",
-       8,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -13802,7 +14079,7 @@
       ],
       [
        "error_review",
-       6,
+       5,
        {}
       ]
      ]
@@ -13851,7 +14128,7 @@
       ],
       [
        "quick_response",
-       8,
+       5,
        {
         "accent": "IN",
         "destination": "IN"
@@ -13859,12 +14136,17 @@
       ],
       [
        "think_in_english",
-       6,
+       5,
+       {}
+      ],
+      [
+       "sentence_building",
+       5,
        {}
       ],
       [
        "error_review",
-       6,
+       5,
        {}
       ]
      ]
@@ -13912,9 +14194,11 @@
        }
       ],
       [
-       "think_in_english",
-       5,
-       {}
+       "india_mission",
+       10,
+       {
+        "mission_id": "m07"
+       }
       ],
       [
        "quick_response",
@@ -13925,12 +14209,7 @@
        }
       ],
       [
-       "sentence_building",
-       5,
-       {}
-      ],
-      [
-       "error_review",
+       "think_in_english",
        5,
        {}
       ]
@@ -13979,26 +14258,21 @@
        }
       ],
       [
-       "think_in_english",
-       5,
-       {}
-      ],
-      [
        "quick_response",
-       5,
+       8,
        {
         "accent": "IN",
         "destination": "IN"
        }
       ],
       [
-       "sentence_building",
-       5,
+       "think_in_english",
+       6,
        {}
       ],
       [
        "error_review",
-       5,
+       6,
        {}
       ]
      ]
@@ -14054,7 +14328,7 @@
        }
       ],
       [
-       "think_in_english",
+       "sentence_building",
        6,
        {}
       ],
@@ -14091,14 +14365,6 @@
        }
       ],
       [
-       "shadowing",
-       5,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
        "conversation",
        30,
        {
@@ -14108,17 +14374,16 @@
        }
       ],
       [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
        "think_in_english",
        6,
        {}
+      ],
+      [
+       "india_mission",
+       13,
+       {
+        "mission_id": "m08"
+       }
       ],
       [
        "error_review",
@@ -14135,7 +14400,7 @@
      "activities": [
       [
        "vocab_review",
-       5,
+       6,
        {}
       ],
       [
@@ -14154,7 +14419,7 @@
       ],
       [
        "shadowing",
-       5,
+       10,
        {
         "accent": "IN",
         "destination": "IN"
@@ -14171,25 +14436,15 @@
       ],
       [
        "quick_response",
-       5,
+       8,
        {
         "accent": "IN",
         "destination": "IN"
        }
       ],
       [
-       "think_in_english",
-       5,
-       {}
-      ],
-      [
-       "sentence_building",
-       5,
-       {}
-      ],
-      [
        "error_review",
-       5,
+       6,
        {}
       ]
      ]
@@ -14220,14 +14475,6 @@
        }
       ],
       [
-       "shadowing",
-       5,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
        "conversation",
        30,
        {
@@ -14235,6 +14482,11 @@
         "accent": "IN",
         "mode": "natural"
        }
+      ],
+      [
+       "think_in_english",
+       6,
+       {}
       ],
       [
        "quick_response",
@@ -14245,8 +14497,8 @@
        }
       ],
       [
-       "think_in_english",
-       6,
+       "sentence_building",
+       5,
        {}
       ],
       [
@@ -14299,27 +14551,16 @@
        }
       ],
       [
-       "quick_response",
-       5,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
        "think_in_english",
-       5,
+       6,
        {}
       ],
       [
-       "sentence_building",
-       5,
-       {}
-      ],
-      [
-       "error_review",
-       5,
-       {}
+       "india_mission",
+       14,
+       {
+        "mission_id": "m09"
+       }
       ]
      ]
     },
@@ -14427,12 +14668,9 @@
        }
       ],
       [
-       "quick_response",
+       "error_review",
        5,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
+       {}
       ]
      ]
     }
@@ -14463,19 +14701,10 @@
        }
       ],
       [
-       "listening",
-       7,
+       "india_mission",
+       10,
        {
-        "listening_id": "lst-en-standup"
-       }
-      ],
-      [
-       "conversation",
-       3,
-       {
-        "challenge_minutes": 3,
-        "accent": "IN",
-        "mode": "natural"
+        "mission_id": "m01"
        }
       ]
      ]
@@ -14492,26 +14721,18 @@
        {}
       ],
       [
-       "shadowing",
-       5,
+       "listening",
+       10,
        {
-        "accent": "IN",
-        "destination": "IN"
+        "listening_id": "lst-en-standup"
        }
       ],
       [
        "quick_response",
-       6,
+       7,
        {
         "accent": "IN",
         "destination": "IN"
-       }
-      ],
-      [
-       "listening",
-       6,
-       {
-        "listening_id": "lst-in-airport-arrival"
        }
       ],
       [
@@ -14542,30 +14763,25 @@
        {}
       ],
       [
-       "listening",
-       6,
-       {
-        "listening_id": "lst-en-airport-immigration"
-       }
-      ],
-      [
-       "scenario",
-       9,
-       {
-        "scenario_id": "india-airport-arrival"
-       }
-      ],
-      [
-       "think_in_english",
-       5,
-       {}
-      ],
-      [
-       "quick_response",
+       "shadowing",
        5,
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       12,
+       {
+        "mission_id": "m02"
+       }
+      ],
+      [
+       "scenario",
+       8,
+       {
+        "scenario_id": "india-airport-arrival"
        }
       ]
      ]
@@ -14583,22 +14799,9 @@
       ],
       [
        "listening",
-       6,
+       10,
        {
-        "listening_id": "lst-in-auto"
-       }
-      ],
-      [
-       "sentence_building",
-       6,
-       {}
-      ],
-      [
-       "shadowing",
-       5,
-       {
-        "accent": "IN",
-        "destination": "IN"
+        "listening_id": "lst-in-airport-arrival"
        }
       ],
       [
@@ -14611,9 +14814,17 @@
        }
       ],
       [
-       "error_review",
-       5,
+       "think_in_english",
+       6,
        {}
+      ],
+      [
+       "quick_response",
+       6,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
       ]
      ]
     },
@@ -14629,21 +14840,6 @@
        {}
       ],
       [
-       "listening",
-       6,
-       {
-        "listening_id": "lst-in-plant-standup"
-       }
-      ],
-      [
-       "quick_response",
-       6,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
        "shadowing",
        5,
        {
@@ -14653,8 +14849,15 @@
       ],
       [
        "sentence_building",
-       5,
+       7,
        {}
+      ],
+      [
+       "india_mission",
+       10,
+       {
+        "mission_id": "m03"
+       }
       ],
       [
        "conversation",
@@ -14682,8 +14885,21 @@
        "listening",
        10,
        {
-        "listening_id": "lst-en-hotel-checkin"
+        "listening_id": "lst-en-airport-immigration"
        }
+      ],
+      [
+       "quick_response",
+       7,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "sentence_building",
+       5,
+       {}
       ],
       [
        "conversation",
@@ -14692,19 +14908,6 @@
         "challenge_minutes": 3,
         "accent": "IN",
         "mode": "natural"
-       }
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "quick_response",
-       6,
-       {
-        "accent": "IN",
-        "destination": "IN"
        }
       ]
      ]
@@ -14717,14 +14920,14 @@
      "activities": [
       [
        "vocab_review",
-       7,
+       5,
        {}
       ],
       [
        "listening",
        6,
        {
-        "listening_id": "lst-en-standup"
+        "listening_id": "lst-in-auto"
        }
       ],
       [
@@ -14737,9 +14940,11 @@
        }
       ],
       [
-       "sentence_building",
-       8,
-       {}
+       "india_mission",
+       10,
+       {
+        "mission_id": "m04"
+       }
       ],
       [
        "error_review",
@@ -14761,7 +14966,7 @@
       ],
       [
        "shadowing",
-       5,
+       10,
        {
         "accent": "IN",
         "destination": "IN"
@@ -14780,14 +14985,15 @@
        "listening",
        6,
        {
-        "listening_id": "lst-in-airport-arrival"
+        "listening_id": "lst-in-plant-standup"
        }
       ],
       [
-       "scenario",
-       11,
+       "quick_response",
+       6,
        {
-        "scenario_id": "work-intro-meeting"
+        "accent": "IN",
+        "destination": "IN"
        }
       ]
      ]
@@ -14800,52 +15006,14 @@
      "activities": [
       [
        "vocab_review",
-       7,
-       {}
-      ],
-      [
-       "listening",
-       10,
-       {
-        "listening_id": "lst-en-restaurant"
-       }
-      ],
-      [
-       "conversation",
        5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ]
-     ]
-    },
-    {
-     "day": 10,
-     "phase": 1,
-     "focus": "Viagem: aeroporto, imigração e hotel",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       7,
        {}
       ],
       [
-       "shadowing",
-       10,
+       "india_mission",
+       12,
        {
-        "accent": "IN",
-        "destination": "IN"
+        "mission_id": "m05"
        }
       ],
       [
@@ -14865,6 +15033,38 @@
      ]
     },
     {
+     "day": 10,
+     "phase": 1,
+     "focus": "Viagem: aeroporto, imigração e hotel",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "listening",
+       10,
+       {
+        "listening_id": "lst-en-hotel-checkin"
+       }
+      ],
+      [
+       "think_in_english",
+       6,
+       {}
+      ],
+      [
+       "scenario",
+       9,
+       {
+        "scenario_id": "work-intro-meeting"
+       }
+      ]
+     ]
+    },
+    {
      "day": 11,
      "phase": 1,
      "focus": "Viagem: aeroporto, imigração e hotel",
@@ -14872,14 +15072,14 @@
      "activities": [
       [
        "vocab_review",
-       6,
+       5,
        {}
       ],
       [
-       "listening",
-       10,
+       "india_mission",
+       12,
        {
-        "listening_id": "lst-in-auto"
+        "mission_id": "m06"
        }
       ],
       [
@@ -14891,9 +15091,13 @@
        }
       ],
       [
-       "think_in_english",
-       6,
-       {}
+       "conversation",
+       5,
+       {
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
+       }
       ]
      ]
     },
@@ -14910,18 +15114,9 @@
       ],
       [
        "listening",
-       10,
+       15,
        {
-        "listening_id": "lst-in-plant-standup"
-       }
-      ],
-      [
-       "conversation",
-       5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
+        "listening_id": "lst-en-standup"
        }
       ],
       [
@@ -14943,10 +15138,38 @@
        {}
       ],
       [
-       "scenario",
-       12,
+       "shadowing",
+       10,
        {
-        "scenario_id": "india-auto-cab"
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       15,
+       {
+        "mission_id": "m07"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 14,
+     "phase": 1,
+     "focus": "Restaurante, transporte e small talk · revisão semanal",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "listening",
+       6,
+       {
+        "listening_id": "lst-in-airport-arrival"
        }
       ],
       [
@@ -14965,39 +15188,10 @@
         "accent": "IN",
         "destination": "IN"
        }
-      ]
-     ]
-    },
-    {
-     "day": 14,
-     "phase": 1,
-     "focus": "Restaurante, transporte e small talk · revisão semanal",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       5,
-       {}
-      ],
-      [
-       "listening",
-       15,
-       {
-        "listening_id": "lst-en-standup"
-       }
-      ],
-      [
-       "conversation",
-       5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
-       }
       ],
       [
        "error_review",
-       5,
+       6,
        {}
       ]
      ]
@@ -15016,12 +15210,18 @@
        }
       ],
       [
-       "shadowing",
-       10,
+       "conversation",
+       5,
        {
+        "challenge_minutes": 5,
         "accent": "IN",
-        "destination": "IN"
+        "mode": "natural"
        }
+      ],
+      [
+       "think_in_english",
+       5,
+       {}
       ]
      ]
     },
@@ -15037,30 +15237,17 @@
        {}
       ],
       [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
-       "conversation",
-       5,
+       "listening",
+       10,
        {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
+        "listening_id": "lst-en-restaurant"
        }
       ],
       [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "quick_response",
-       6,
+       "india_mission",
+       15,
        {
-        "accent": "IN",
-        "destination": "IN"
+        "mission_id": "m08"
        }
       ]
      ]
@@ -15077,11 +15264,9 @@
        {}
       ],
       [
-       "listening",
-       15,
-       {
-        "listening_id": "lst-en-standup"
-       }
+       "sentence_building",
+       8,
+       {}
       ],
       [
        "conversation",
@@ -15093,9 +15278,11 @@
        }
       ],
       [
-       "sentence_building",
-       5,
-       {}
+       "scenario",
+       12,
+       {
+        "scenario_id": "india-auto-cab"
+       }
       ]
      ]
     },
@@ -15107,15 +15294,14 @@
      "activities": [
       [
        "vocab_review",
-       6,
+       7,
        {}
       ],
       [
-       "shadowing",
-       10,
+       "listening",
+       15,
        {
-        "accent": "IN",
-        "destination": "IN"
+        "listening_id": "lst-in-auto"
        }
       ],
       [
@@ -15125,11 +15311,6 @@
         "accent": "IN",
         "destination": "IN"
        }
-      ],
-      [
-       "error_review",
-       6,
-       {}
       ]
      ]
     },
@@ -15145,10 +15326,18 @@
        {}
       ],
       [
-       "listening",
+       "shadowing",
+       5,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
        15,
        {
-        "listening_id": "lst-in-airport-arrival"
+        "mission_id": "m09"
        }
       ],
       [
@@ -15159,11 +15348,6 @@
         "accent": "IN",
         "mode": "natural"
        }
-      ],
-      [
-       "sentence_building",
-       5,
-       {}
       ]
      ]
     },
@@ -15179,10 +15363,17 @@
        {}
       ],
       [
-       "scenario",
-       15,
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "conversation",
+       5,
        {
-        "scenario_id": "airport-immigration"
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
        }
       ],
       [
@@ -15191,13 +15382,9 @@
        {}
       ],
       [
-       "conversation",
-       4,
-       {
-        "challenge_minutes": 4,
-        "accent": "IN",
-        "mode": "natural"
-       }
+       "error_review",
+       6,
+       {}
       ]
      ]
     },
@@ -15216,7 +15403,7 @@
        "listening",
        15,
        {
-        "listening_id": "lst-in-airport-arrival"
+        "listening_id": "lst-in-plant-standup"
        }
       ],
       [
@@ -15229,54 +15416,17 @@
        }
       ],
       [
-       "sentence_building",
+       "quick_response",
        5,
-       {}
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
       ]
      ]
     },
     {
      "day": 22,
-     "phase": 1,
-     "focus": "Descrever seu trabalho, equipe e projetos",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       5,
-       {}
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "conversation",
-       5,
-       {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "sentence_building",
-       6,
-       {}
-      ],
-      [
-       "error_review",
-       6,
-       {}
-      ]
-     ]
-    },
-    {
-     "day": 23,
      "phase": 1,
      "focus": "Descrever seu trabalho, equipe e projetos",
      "assessment": false,
@@ -15295,10 +15445,45 @@
        }
       ],
       [
-       "listening",
+       "india_mission",
        15,
        {
-        "listening_id": "lst-in-auto"
+        "mission_id": "m10"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 23,
+     "phase": 1,
+     "focus": "Descrever seu trabalho, equipe e projetos",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       9,
+       {}
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "conversation",
+       5,
+       {
+        "challenge_minutes": 5,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
        }
       ]
      ]
@@ -15311,30 +15496,22 @@
      "activities": [
       [
        "vocab_review",
-       9,
-       {}
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "conversation",
        5,
+       {}
+      ],
+      [
+       "listening",
+       15,
        {
-        "challenge_minutes": 5,
-        "accent": "IN",
-        "mode": "natural"
+        "listening_id": "lst-en-standup"
        }
       ],
       [
-       "sentence_building",
-       8,
-       {}
+       "india_mission",
+       10,
+       {
+        "mission_id": "m11"
+       }
       ]
      ]
     },
@@ -15346,29 +15523,27 @@
      "activities": [
       [
        "vocab_review",
-       5,
-       {}
-      ],
-      [
-       "listening",
-       15,
-       {
-        "listening_id": "lst-in-plant-standup"
-       }
-      ],
-      [
-       "think_in_english",
        6,
        {}
       ],
       [
        "conversation",
-       4,
+       10,
        {
-        "challenge_minutes": 4,
+        "challenge_minutes": 10,
         "accent": "IN",
         "mode": "natural"
        }
+      ],
+      [
+       "sentence_building",
+       8,
+       {}
+      ],
+      [
+       "error_review",
+       6,
+       {}
       ]
      ]
     },
@@ -15391,12 +15566,10 @@
        }
       ],
       [
-       "conversation",
+       "india_mission",
        10,
        {
-        "challenge_minutes": 10,
-        "accent": "IN",
-        "mode": "no_native"
+        "mission_id": "m12"
        }
       ]
      ]
@@ -15409,8 +15582,15 @@
      "activities": [
       [
        "vocab_review",
-       6,
+       5,
        {}
+      ],
+      [
+       "listening",
+       15,
+       {
+        "listening_id": "lst-en-networking"
+       }
       ],
       [
        "shadowing",
@@ -15418,6 +15598,28 @@
        {
         "accent": "IN",
         "destination": "IN"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 28,
+     "phase": 2,
+     "focus": "Reuniões e status updates · revisão semanal",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       6,
+       {}
+      ],
+      [
+       "conversation",
+       10,
+       {
+        "challenge_minutes": 10,
+        "accent": "IN",
+        "mode": "no_native"
        }
       ],
       [
@@ -15436,35 +15638,6 @@
      ]
     },
     {
-     "day": 28,
-     "phase": 2,
-     "focus": "Reuniões e status updates · revisão semanal",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       5,
-       {}
-      ],
-      [
-       "listening",
-       15,
-       {
-        "listening_id": "lst-en-deadline-negotiation"
-       }
-      ],
-      [
-       "conversation",
-       10,
-       {
-        "challenge_minutes": 10,
-        "accent": "IN",
-        "mode": "no_native"
-       }
-      ]
-     ]
-    },
-    {
      "day": 29,
      "phase": 2,
      "focus": "Reuniões e status updates",
@@ -15479,7 +15652,65 @@
        "scenario",
        15,
        {
-        "scenario_id": "work-deadline-negotiation"
+        "scenario_id": "india-team-lunch"
+       }
+      ],
+      [
+       "conversation",
+       10,
+       {
+        "challenge_minutes": 10,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 30,
+     "phase": 2,
+     "focus": "Explicar problemas técnicos",
+     "assessment": true,
+     "activities": [
+      [
+       "assessment",
+       20,
+       {
+        "kind": "checkpoint"
+       }
+      ],
+      [
+       "think_in_english",
+       6,
+       {}
+      ],
+      [
+       "conversation",
+       4,
+       {
+        "challenge_minutes": 4,
+        "accent": "IN",
+        "mode": "no_native"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 31,
+     "phase": 2,
+     "focus": "Explicar problemas técnicos",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "listening",
+       15,
+       {
+        "listening_id": "lst-in-supplier-call"
        }
       ],
       [
@@ -15499,61 +15730,6 @@
      ]
     },
     {
-     "day": 30,
-     "phase": 2,
-     "focus": "Explicar problemas técnicos",
-     "assessment": true,
-     "activities": [
-      [
-       "assessment",
-       22,
-       {
-        "kind": "checkpoint"
-       }
-      ],
-      [
-       "sentence_building",
-       8,
-       {}
-      ]
-     ]
-    },
-    {
-     "day": 31,
-     "phase": 2,
-     "focus": "Explicar problemas técnicos",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       6,
-       {}
-      ],
-      [
-       "conversation",
-       10,
-       {
-        "challenge_minutes": 10,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ]
-     ]
-    },
-    {
      "day": 32,
      "phase": 2,
      "focus": "Explicar problemas técnicos",
@@ -15561,21 +15737,22 @@
      "activities": [
       [
        "vocab_review",
-       5,
+       7,
        {}
-      ],
-      [
-       "listening",
-       10,
-       {
-        "listening_id": "lst-en-networking"
-       }
       ],
       [
        "scenario",
        15,
        {
-        "scenario_id": "india-team-lunch"
+        "scenario_id": "work-deadline-negotiation"
+       }
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
        }
       ]
      ]
@@ -15592,26 +15769,18 @@
        {}
       ],
       [
-       "shadowing",
+       "listening",
        10,
        {
-        "accent": "IN",
-        "destination": "IN"
+        "listening_id": "lst-en-deadline-negotiation"
        }
       ],
       [
-       "conversation",
-       10,
+       "india_mission",
+       15,
        {
-        "challenge_minutes": 10,
-        "accent": "IN",
-        "mode": "natural"
+        "mission_id": "m13"
        }
-      ],
-      [
-       "error_review",
-       5,
-       {}
       ]
      ]
     },
@@ -15627,15 +15796,17 @@
        {}
       ],
       [
-       "listening",
-       15,
+       "conversation",
+       10,
        {
-        "listening_id": "lst-in-supplier-call"
+        "challenge_minutes": 10,
+        "accent": "IN",
+        "mode": "no_native"
        }
       ],
       [
        "scenario",
-       10,
+       15,
        {
         "scenario_id": "india-airport-arrival"
        }
@@ -15650,8 +15821,16 @@
      "activities": [
       [
        "vocab_review",
-       6,
+       5,
        {}
+      ],
+      [
+       "shadowing",
+       9,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
       ],
       [
        "conversation",
@@ -15660,14 +15839,6 @@
         "challenge_minutes": 10,
         "accent": "IN",
         "mode": "natural"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
        }
       ],
       [
@@ -15689,10 +15860,10 @@
        {}
       ],
       [
-       "scenario",
+       "listening",
        15,
        {
-        "scenario_id": "work-supplier-call"
+        "listening_id": "lst-in-team-lunch"
        }
       ],
       [
@@ -15719,35 +15890,6 @@
      "activities": [
       [
        "vocab_review",
-       5,
-       {}
-      ],
-      [
-       "listening",
-       15,
-       {
-        "listening_id": "lst-en-networking"
-       }
-      ],
-      [
-       "conversation",
-       10,
-       {
-        "challenge_minutes": 10,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ]
-     ]
-    },
-    {
-     "day": 38,
-     "phase": 2,
-     "focus": "Negociar prazos e falar com fornecedores",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
        7,
        {}
       ],
@@ -15766,6 +15908,36 @@
      ]
     },
     {
+     "day": 38,
+     "phase": 2,
+     "focus": "Negociar prazos e falar com fornecedores",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       7,
+       {}
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "conversation",
+       15,
+       {
+        "challenge_minutes": 15,
+        "accent": "IN",
+        "mode": "no_native"
+       }
+      ]
+     ]
+    },
+    {
      "day": 39,
      "phase": 2,
      "focus": "Negociar prazos e falar com fornecedores",
@@ -15780,7 +15952,7 @@
        "listening",
        15,
        {
-        "listening_id": "lst-in-team-lunch"
+        "listening_id": "lst-en-standup"
        }
       ],
       [
@@ -15819,20 +15991,10 @@
        }
       ],
       [
-       "quick_response",
-       8,
+       "scenario",
+       15,
        {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "conversation",
-       7,
-       {
-        "challenge_minutes": 7,
-        "accent": "IN",
-        "mode": "no_native"
+        "scenario_id": "work-supplier-call"
        }
       ]
      ]
@@ -15849,24 +16011,23 @@
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-plant-visit"
-       }
-      ],
-      [
        "think_in_english",
        6,
        {}
       ],
       [
-       "conversation",
-       4,
+       "quick_response",
+       8,
        {
-        "challenge_minutes": 4,
         "accent": "IN",
-        "mode": "natural"
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       11,
+       {
+        "mission_id": "m01"
        }
       ]
      ]
@@ -15913,14 +16074,14 @@
        "listening",
        15,
        {
-        "listening_id": "lst-en-standup"
+        "listening_id": "lst-en-networking"
        }
       ],
       [
        "scenario",
        10,
        {
-        "scenario_id": "work-technical-problem"
+        "scenario_id": "india-plant-visit"
        }
       ]
      ]
@@ -15937,23 +16098,17 @@
        {}
       ],
       [
-       "quick_response",
-       8,
+       "scenario",
+       15,
        {
-        "accent": "IN",
-        "destination": "IN"
+        "scenario_id": "india-team-lunch"
        }
       ],
       [
-       "sentence_building",
-       8,
-       {}
-      ],
-      [
        "conversation",
-       3,
+       4,
        {
-        "challenge_minutes": 3,
+        "challenge_minutes": 4,
         "accent": "IN",
         "mode": "no_native"
        }
@@ -15973,17 +16128,15 @@
      "activities": [
       [
        "assessment",
-       20,
+       22,
        {
         "kind": "checkpoint"
        }
       ],
       [
-       "scenario",
-       10,
-       {
-        "scenario_id": "india-team-lunch"
-       }
+       "sentence_building",
+       8,
+       {}
       ]
      ]
     },
@@ -15995,23 +16148,22 @@
      "activities": [
       [
        "vocab_review",
-       5,
+       7,
        {}
       ],
       [
        "listening",
        15,
        {
-        "listening_id": "lst-en-tech-problem"
+        "listening_id": "lst-in-airport-arrival"
        }
       ],
       [
-       "conversation",
-       10,
+       "quick_response",
+       8,
        {
-        "challenge_minutes": 10,
         "accent": "IN",
-        "mode": "no_native"
+        "destination": "IN"
        }
       ]
      ]
@@ -16028,18 +16180,19 @@
        {}
       ],
       [
-       "shadowing",
-       10,
+       "conversation",
+       15,
        {
+        "challenge_minutes": 15,
         "accent": "IN",
-        "destination": "IN"
+        "mode": "natural"
        }
       ],
       [
        "scenario",
-       15,
+       10,
        {
-        "scenario_id": "india-airport-arrival"
+        "scenario_id": "work-technical-problem"
        }
       ]
      ]
@@ -16052,25 +16205,35 @@
      "activities": [
       [
        "vocab_review",
-       7,
+       5,
+       {}
+      ],
+      [
+       "shadowing",
+       10,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "think_in_english",
+       6,
        {}
       ],
       [
        "conversation",
-       15,
+       3,
        {
-        "challenge_minutes": 15,
+        "challenge_minutes": 3,
         "accent": "IN",
         "mode": "no_native"
        }
       ],
       [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
+       "error_review",
+       6,
+       {}
       ]
      ]
     },
@@ -16089,22 +16252,15 @@
        "listening",
        15,
        {
-        "listening_id": "lst-in-airport-arrival"
+        "listening_id": "lst-in-auto"
        }
       ],
       [
-       "conversation",
-       4,
+       "india_mission",
+       10,
        {
-        "challenge_minutes": 4,
-        "accent": "IN",
-        "mode": "natural"
+        "mission_id": "m02"
        }
-      ],
-      [
-       "error_review",
-       6,
-       {}
       ]
      ]
     },
@@ -16123,19 +16279,14 @@
        "scenario",
        15,
        {
-        "scenario_id": "hotel-room-issue"
+        "scenario_id": "india-airport-arrival"
        }
       ],
       [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
        "conversation",
-       4,
+       10,
        {
-        "challenge_minutes": 4,
+        "challenge_minutes": 10,
         "accent": "IN",
         "mode": "no_native"
        }
@@ -16150,14 +16301,21 @@
      "activities": [
       [
        "vocab_review",
-       9,
+       5,
        {}
       ],
       [
-       "conversation",
+       "scenario",
        15,
        {
-        "challenge_minutes": 15,
+        "scenario_id": "india-supplier-negotiation"
+       }
+      ],
+      [
+       "conversation",
+       4,
+       {
+        "challenge_minutes": 4,
         "accent": "IN",
         "mode": "natural"
        }
@@ -16177,41 +16335,16 @@
      "activities": [
       [
        "vocab_review",
-       5,
-       {}
-      ],
-      [
-       "listening",
-       10,
-       {
-        "listening_id": "lst-in-client-meeting"
-       }
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "work-project-presentation"
-       }
-      ]
-     ]
-    },
-    {
-     "day": 53,
-     "phase": 3,
-     "focus": "Treinamentos e discussões técnicas",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
        7,
        {}
       ],
       [
-       "scenario",
+       "conversation",
        15,
        {
-        "scenario_id": "india-supplier-negotiation"
+        "challenge_minutes": 15,
+        "accent": "IN",
+        "mode": "no_native"
        }
       ],
       [
@@ -16225,37 +16358,7 @@
      ]
     },
     {
-     "day": 54,
-     "phase": 3,
-     "focus": "Treinamentos e discussões técnicas",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       5,
-       {}
-      ],
-      [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
-       "conversation",
-       15,
-       {
-        "challenge_minutes": 15,
-        "accent": "IN",
-        "mode": "no_native"
-       }
-      ]
-     ]
-    },
-    {
-     "day": 55,
+     "day": 53,
      "phase": 3,
      "focus": "Treinamentos e discussões técnicas",
      "assessment": false,
@@ -16282,9 +16385,9 @@
      ]
     },
     {
-     "day": 56,
+     "day": 54,
      "phase": 3,
-     "focus": "Treinamentos e discussões técnicas · revisão semanal",
+     "focus": "Treinamentos e discussões técnicas",
      "assessment": false,
      "activities": [
       [
@@ -16302,9 +16405,72 @@
        }
       ],
       [
+       "think_in_english",
+       6,
+       {}
+      ]
+     ]
+    },
+    {
+     "day": 55,
+     "phase": 3,
+     "focus": "Treinamentos e discussões técnicas",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "work-project-presentation"
+       }
+      ],
+      [
+       "conversation",
+       4,
+       {
+        "challenge_minutes": 4,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ],
+      [
        "error_review",
        6,
        {}
+      ]
+     ]
+    },
+    {
+     "day": 56,
+     "phase": 3,
+     "focus": "Treinamentos e discussões técnicas · revisão semanal",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "conversation",
+       15,
+       {
+        "challenge_minutes": 15,
+        "accent": "IN",
+        "mode": "no_native"
+       }
+      ],
+      [
+       "scenario",
+       10,
+       {
+        "scenario_id": "india-airport-arrival"
+       }
       ]
      ]
     },
@@ -16320,24 +16486,18 @@
        {}
       ],
       [
-       "scenario",
+       "listening",
        15,
        {
-        "scenario_id": "india-airport-arrival"
+        "listening_id": "lst-in-client-meeting"
        }
       ],
       [
-       "think_in_english",
-       6,
-       {}
-      ],
-      [
-       "conversation",
-       4,
+       "shadowing",
+       10,
        {
-        "challenge_minutes": 4,
         "accent": "IN",
-        "mode": "natural"
+        "destination": "IN"
        }
       ]
      ]
@@ -16350,16 +16510,51 @@
      "activities": [
       [
        "vocab_review",
-       9,
+       5,
        {}
       ],
       [
-       "conversation",
+       "scenario",
        15,
        {
-        "challenge_minutes": 15,
+        "scenario_id": "india-auto-cab"
+       }
+      ],
+      [
+       "conversation",
+       10,
+       {
+        "challenge_minutes": 10,
         "accent": "IN",
         "mode": "no_native"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 59,
+     "phase": 3,
+     "focus": "Situações inesperadas",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "quick_response",
+       8,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "india_mission",
+       11,
+       {
+        "mission_id": "m03"
        }
       ],
       [
@@ -16370,7 +16565,51 @@
      ]
     },
     {
-     "day": 59,
+     "day": 60,
+     "phase": 3,
+     "focus": "Situações inesperadas",
+     "assessment": true,
+     "activities": [
+      [
+       "assessment",
+       20,
+       {
+        "kind": "checkpoint"
+       }
+      ],
+      [
+       "scenario",
+       10,
+       {
+        "scenario_id": "india-team-lunch"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 61,
+     "phase": 3,
+     "focus": "Situações inesperadas",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "conversation",
+       25,
+       {
+        "challenge_minutes": 25,
+        "accent": "IN",
+        "mode": "natural"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 62,
      "phase": 3,
      "focus": "Situações inesperadas",
      "assessment": false,
@@ -16397,80 +16636,6 @@
      ]
     },
     {
-     "day": 60,
-     "phase": 3,
-     "focus": "Situações inesperadas",
-     "assessment": true,
-     "activities": [
-      [
-       "assessment",
-       20,
-       {
-        "kind": "checkpoint"
-       }
-      ],
-      [
-       "conversation",
-       10,
-       {
-        "challenge_minutes": 10,
-        "accent": "IN",
-        "mode": "no_native"
-       }
-      ]
-     ]
-    },
-    {
-     "day": 61,
-     "phase": 3,
-     "focus": "Situações inesperadas",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       7,
-       {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-auto-cab"
-       }
-      ],
-      [
-       "quick_response",
-       8,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ]
-     ]
-    },
-    {
-     "day": 62,
-     "phase": 3,
-     "focus": "Situações inesperadas",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       5,
-       {}
-      ],
-      [
-       "conversation",
-       25,
-       {
-        "challenge_minutes": 25,
-        "accent": "IN",
-        "mode": "no_native"
-       }
-      ]
-     ]
-    },
-    {
      "day": 63,
      "phase": 3,
      "focus": "Situações inesperadas · revisão semanal",
@@ -16482,17 +16647,10 @@
        {}
       ],
       [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-team-lunch"
-       }
-      ],
-      [
        "conversation",
-       4,
+       19,
        {
-        "challenge_minutes": 4,
+        "challenge_minutes": 19,
         "accent": "IN",
         "mode": "natural"
        }
@@ -16516,10 +16674,10 @@
        {}
       ],
       [
-       "listening",
+       "scenario",
        15,
        {
-        "listening_id": "lst-en-standup"
+        "scenario_id": "india-supplier-negotiation"
        }
       ],
       [
@@ -16546,29 +16704,23 @@
      "activities": [
       [
        "vocab_review",
-       5,
+       7,
        {}
       ],
       [
-       "scenario",
+       "listening",
        15,
        {
-        "scenario_id": "india-supplier-negotiation"
+        "listening_id": "lst-en-unexpected-flight"
        }
       ],
       [
-       "conversation",
-       4,
+       "quick_response",
+       8,
        {
-        "challenge_minutes": 4,
         "accent": "IN",
-        "mode": "natural"
+        "destination": "IN"
        }
-      ],
-      [
-       "error_review",
-       6,
-       {}
       ]
      ]
     },
@@ -16584,13 +16736,25 @@
        {}
       ],
       [
-       "conversation",
-       25,
+       "scenario",
+       15,
        {
-        "challenge_minutes": 25,
+        "scenario_id": "india-plant-visit"
+       }
+      ],
+      [
+       "conversation",
+       4,
+       {
+        "challenge_minutes": 4,
         "accent": "IN",
         "mode": "no_native"
        }
+      ],
+      [
+       "error_review",
+       6,
+       {}
       ]
      ]
     },
@@ -16606,17 +16770,12 @@
        {}
       ],
       [
-       "listening",
-       10,
+       "conversation",
+       25,
        {
-        "listening_id": "lst-en-unexpected-flight"
-       }
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "airport-missed-connection"
+        "challenge_minutes": 25,
+        "accent": "IN",
+        "mode": "natural"
        }
       ]
      ]
@@ -16633,18 +16792,24 @@
        {}
       ],
       [
-       "shadowing",
-       10,
-       {
-        "accent": "IN",
-        "destination": "IN"
-       }
-      ],
-      [
        "scenario",
        15,
        {
-        "scenario_id": "india-plant-visit"
+        "scenario_id": "india-airport-arrival"
+       }
+      ],
+      [
+       "think_in_english",
+       6,
+       {}
+      ],
+      [
+       "conversation",
+       4,
+       {
+        "challenge_minutes": 4,
+        "accent": "IN",
+        "mode": "no_native"
        }
       ]
      ]
@@ -16662,9 +16827,71 @@
       ],
       [
        "listening",
-       11,
+       15,
        {
-        "listening_id": "lst-in-airport-arrival"
+        "listening_id": "lst-en-standup"
+       }
+      ],
+      [
+       "scenario",
+       10,
+       {
+        "scenario_id": "airport-missed-connection"
+       }
+      ]
+     ]
+    },
+    {
+     "day": 70,
+     "phase": 3,
+     "focus": "Conversas sem roteiro · revisão semanal",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       5,
+       {}
+      ],
+      [
+       "shadowing",
+       10,
+       {
+        "accent": "IN",
+        "destination": "IN"
+       }
+      ],
+      [
+       "conversation",
+       9,
+       {
+        "challenge_minutes": 9,
+        "accent": "IN",
+        "mode": "no_native"
+       }
+      ],
+      [
+       "error_review",
+       6,
+       {}
+      ]
+     ]
+    },
+    {
+     "day": 71,
+     "phase": 3,
+     "focus": "Ensaio geral da viagem",
+     "assessment": false,
+     "activities": [
+      [
+       "vocab_review",
+       7,
+       {}
+      ],
+      [
+       "scenario",
+       15,
+       {
+        "scenario_id": "india-auto-cab"
        }
       ],
       [
@@ -16674,18 +16901,13 @@
         "accent": "IN",
         "destination": "IN"
        }
-      ],
-      [
-       "think_in_english",
-       6,
-       {}
       ]
      ]
     },
     {
-     "day": 70,
+     "day": 72,
      "phase": 3,
-     "focus": "Conversas sem roteiro · revisão semanal",
+     "focus": "Ensaio geral da viagem",
      "assessment": false,
      "activities": [
       [
@@ -16705,41 +16927,7 @@
      ]
     },
     {
-     "day": 71,
-     "phase": 3,
-     "focus": "Ensaio geral da viagem",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       5,
-       {}
-      ],
-      [
-       "scenario",
-       15,
-       {
-        "scenario_id": "india-airport-arrival"
-       }
-      ],
-      [
-       "conversation",
-       4,
-       {
-        "challenge_minutes": 4,
-        "accent": "IN",
-        "mode": "natural"
-       }
-      ],
-      [
-       "error_review",
-       6,
-       {}
-      ]
-     ]
-    },
-    {
-     "day": 72,
+     "day": 73,
      "phase": 3,
      "focus": "Ensaio geral da viagem",
      "assessment": false,
@@ -16753,36 +16941,14 @@
        "listening",
        10,
        {
-        "listening_id": "lst-in-auto"
+        "listening_id": "lst-in-airport-arrival"
        }
       ],
       [
        "scenario",
        15,
        {
-        "scenario_id": "india-auto-cab"
-       }
-      ]
-     ]
-    },
-    {
-     "day": 73,
-     "phase": 3,
-     "focus": "Ensaio geral da viagem",
-     "assessment": false,
-     "activities": [
-      [
-       "vocab_review",
-       5,
-       {}
-      ],
-      [
-       "conversation",
-       25,
-       {
-        "challenge_minutes": 25,
-        "accent": "IN",
-        "mode": "natural"
+        "scenario_id": "india-team-lunch"
        }
       ]
      ]
@@ -16802,7 +16968,7 @@
        "scenario",
        15,
        {
-        "scenario_id": "work-deadline-negotiation"
+        "scenario_id": "india-supplier-negotiation"
        }
       ],
       [
@@ -16829,17 +16995,23 @@
      "activities": [
       [
        "assessment",
-       22,
+       20,
        {
         "kind": "checkpoint"
        }
       ],
       [
-       "quick_response",
-       8,
+       "think_in_english",
+       6,
+       {}
+      ],
+      [
+       "conversation",
+       4,
        {
+        "challenge_minutes": 4,
         "accent": "IN",
-        "destination": "IN"
+        "mode": "natural"
        }
       ]
      ]

@@ -7,7 +7,7 @@ import { ActivityRow } from "../../components/ActivityRow";
 import { InstallHint } from "../../components/InstallHint";
 import Lottie from "../../components/Lottie";
 import { AnimatedNumber, Enter, Float, PressableScale, ProgressRing, PulseRings } from "../../components/motion";
-import { Banner, Card, ErrorText, Gradient, Icon, Loading, ModuleTile, Pill, Row, Screen, SectionHeader, Stack, Text } from "../../components/ui";
+import { Banner, Card, ErrorText, Gradient, Icon, Loading, ModuleTile, Pill, ProgressBar, Row, Screen, SectionHeader, Stack, Text } from "../../components/ui";
 import { activityHref } from "../../lib/activities";
 import { api, LOCAL_MODE } from "../../lib/api";
 import { useApp } from "../../lib/app";
@@ -25,6 +25,7 @@ export default function Home() {
   const { c } = useTheme();
   const [dash, setDash] = useState<any>(null);
   const [today, setToday] = useState<PlanDay | null>(null);
+  const [missions, setMissions] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
   useFocusEffect(useCallback(() => {
@@ -35,12 +36,13 @@ export default function Home() {
         if (!alive) return;
         setDash(d);
         if (d.plan) setToday(await api(`/plans/current/days/${d.plan.day}?language=${language}`));
+        if (language === "en" && profile?.trip_destination === "IN") api("/india/missions").then((m) => alive && setMissions(m)).catch(() => {});
       } catch (e: any) {
         if (alive) setError(e.message);
       }
     })();
     return () => { alive = false; };
-  }, [language]));
+  }, [language, profile?.trip_destination]));
 
   const startTalking = () => {
     const conv = today?.activities.find((a) => a.type === "conversation" && !a.done);
@@ -53,7 +55,7 @@ export default function Home() {
   const india = profile?.trip_destination === "IN";
   const done = today?.activities.filter((a) => a.done).length ?? 0;
   const next = today?.activities.find((a) => !a.done);
-  const modules = MODULES.filter((m) => (language === "en" || !m.enOnly) && m.id !== "documents").slice(0, 6);
+  const modules = MODULES.filter((m) => (language === "en" || !m.enOnly) && m.id !== "documents" && m.id !== "missions").slice(0, 6);
 
   return (
     <Screen>
@@ -96,6 +98,24 @@ export default function Home() {
         </PressableScale>
       </Enter>
 
+      {india ? (
+        <Card index={2} onPress={() => router.push(missions ? { pathname: "/missao/[id]", params: { id: missions.next_mission_id } } : "/missao")}
+          style={{ gap: 10, padding: 14 }} accessibilityLabel="Missão Índia">
+          <Row gap={12}>
+            <Lottie source={globeAnim} style={{ width: 60, height: 60 }} />
+            <View style={{ flex: 1 }}>
+              <Text variant="label" color={c.primary}>Missão Índia{missions ? ` · ${missions.completed}/${missions.total}` : ""}</Text>
+              <Text weight="800">
+                {missions ? `Missão ${missions.missions.find((m: any) => m.id === missions.next_mission_id)?.order}: ${missions.missions.find((m: any) => m.id === missions.next_mission_id)?.title_pt}` : "Falar e entender indianos"}
+              </Text>
+              <Text variant="small" muted>{missions ? `${missions.phrases_learned} frases aprendidas · 12 min` : "Frases prontas para o trabalho e a viagem."}</Text>
+            </View>
+            <Icon name="play-circle" size={34} color={c.primary} />
+          </Row>
+          {missions ? <ProgressBar value={missions.completed / missions.total} gradient="india" /> : null}
+        </Card>
+      ) : null}
+
       <InstallHint />
       <ErrorText error={error} />
       {!dash && !error ? <Loading /> : null}
@@ -118,16 +138,7 @@ export default function Home() {
         </Card>
       ) : null}
 
-      {india ? (
-        <Card index={3} onPress={() => router.push("/india")} style={{ flexDirection: "row", alignItems: "center", gap: 12, padding: 12 }}>
-          <Lottie source={globeAnim} style={{ width: 64, height: 64 }} />
-          <View style={{ flex: 1 }}>
-            <Text weight="800">Preparação para a Índia</Text>
-            <Text variant="small" muted>Sotaque, expressões e valores em lakh/crore.</Text>
-          </View>
-          <Icon name="chevron-forward" size={18} color={c.textMuted} />
-        </Card>
-      ) : null}
+
 
       {today ? (
         <Card index={4} style={{ gap: 4 }}>

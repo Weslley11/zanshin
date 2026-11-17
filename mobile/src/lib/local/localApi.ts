@@ -9,6 +9,7 @@ import {
   adaptPlan, assessmentPayload, completeActivity, createPlan, currentPlan, dashboard, dayView, evaluateQuickResponse,
   evaluateSentenceBuilding, planView, scoreListening, startAssessment, submitAssessment,
 } from "./learning";
+import { completeMission, missionFor, overview as missionOverview } from "./missions";
 import { shadowingFeedback } from "./speech";
 import { endSession, getScenario, postMessage, sessionView, startSession } from "./tutor";
 import { addPersonalItem, cardView, checkAnswer, enroll, priorityDomains, reprioritize, reviewCard, sessionCards, stats } from "./vocab";
@@ -252,6 +253,21 @@ async function route(db: DB, method: string, path: string, q: URLSearchParams, b
         return dayView(updated);
       }
       return { ...dayView(d), phase_info: plan.config.phases[String(d.phase)] };
+    }
+  }
+
+  // ------------------------------- Missão Índia -------------------------------
+  if (seg[0] === "india" && seg[1] === "missions") {
+    if (!seg[2]) return missionOverview(db);
+    const m = missionFor(db, seg[2]);
+    if (!m) throw notFound("Missão não encontrada.");
+    if (!seg[3]) return m;
+    if (seg[3] === "complete" && method === "POST") {
+      try {
+        return completeMission(db, m, body ?? {});
+      } catch (e: any) {
+        throw new ApiError(422, e.message);
+      }
     }
   }
 
