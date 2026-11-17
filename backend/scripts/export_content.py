@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "backend"))
 
 from app.content import (  # noqa: E402
+    course,
     drills,
     en_assessment,
     en_listening,
@@ -64,6 +65,8 @@ def build_content() -> dict:
                     "tone_pairs": other_languages.ZH_TONE_PAIRS},
         "india_guide": india.variety_guide("IN"),
         "india_missions": india_missions.MISSIONS,
+        "course": {"units": course.UNITS, "lesson_size": course.LESSON_SIZE, "xp_base": course.XP_BASE,
+                   "xp_perfect_bonus": course.XP_PERFECT_BONUS, "daily_goal_options": course.DAILY_GOAL_OPTIONS},
         "planner": {"activity_info": planner.ACTIVITY_INFO, "phase_weights": planner.PHASE_WEIGHTS,
                     "phases": planner.PHASES, "week_themes": planner.WEEK_THEMES_PT, "destinations": planner.DESTINATIONS},
     }

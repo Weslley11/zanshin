@@ -50,7 +50,7 @@ def mission_for(user: User, mission_id: str) -> dict | None:
     return personalize(m, first_name(user.display_name)) if m else None
 
 
-async def _card_for(db: AsyncSession, user: User, chunk: dict) -> tuple[UserCard, bool]:
+async def card_for_phrase(db: AsyncSession, user: User, chunk: dict) -> tuple[UserCard, bool]:
     """Reaproveita o cartão se a frase já existir (conteúdo base ou pessoal); senão cria um item pessoal."""
     card = (await db.execute(
         select(UserCard).join(VocabItem, UserCard.vocab_item_id == VocabItem.id)
@@ -74,7 +74,7 @@ async def complete(db: AsyncSession, user: User, mission: dict, *, results: list
         chunk = chunks.get(r["chunk_id"])
         if chunk is None:
             continue
-        card, created = await _card_for(db, user, chunk)
+        card, created = await card_for_phrase(db, user, chunk)
         added += int(created)
         await vocab_service.review(db, user, card, r["rating"], None, "mission")
         reviewed += 1

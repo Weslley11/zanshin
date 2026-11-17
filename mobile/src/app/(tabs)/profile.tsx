@@ -74,6 +74,7 @@ export default function Profile() {
 
       <Stack gap={10}>
         <Button title={LOCAL_MODE ? "Backup, privacidade e dados" : "Privacidade e dados"} icon="shield-checkmark" variant="secondary" onPress={() => router.push("/privacy")} />
+        <Button title="Seu progresso" icon="stats-chart" variant="secondary" onPress={() => router.push("/progress")} />
         <Button title="Jornada de 90 dias" icon="map" variant="secondary" onPress={() => router.push("/plan")} />
         <ErrorText error={error} />
         {!LOCAL_MODE ? <Button title="Sair" variant="ghost" icon="log-out" onPress={async () => { await signOut(); router.replace("/"); }} /> : null}

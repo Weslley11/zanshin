@@ -35,9 +35,11 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen name="index" options={{ title: "Início", tabBarIcon: icon("home") }} />
+      <Tabs.Screen name="learn" options={{ title: "Trilha", tabBarIcon: icon("footsteps") }} />
       <Tabs.Screen name="practice" options={{ title: "Módulos", tabBarIcon: icon("grid") }} />
       <Tabs.Screen name="vocab" options={{ title: "Revisão", tabBarIcon: icon("albums") }} />
-      <Tabs.Screen name="progress" options={{ title: "Progresso", tabBarIcon: icon("stats-chart") }} />
+      {/* Progresso continua acessível pelo Perfil e pela Início (fora da barra para manter 5 abas) */}
+      <Tabs.Screen name="progress" options={{ title: "Progresso", tabBarButton: () => null, tabBarItemStyle: { display: "none" } }} />
       <Tabs.Screen name="profile" options={{ title: "Perfil", tabBarIcon: icon("person-circle") }} />
     </Tabs>
   );

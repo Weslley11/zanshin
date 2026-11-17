@@ -36,7 +36,9 @@ async def build(db: AsyncSession, user: User, language: str) -> dict:
     for log in logs:
         d = log.started_at.date()
         minutes_by_day[d] = minutes_by_day.get(d, 0) + log.duration_seconds / 60
-    active_days = {d for d, m in minutes_by_day.items() if m >= 1}
+    # dia ativo: ≥ 1 min de estudo ou uma lição/missão concluída (lições curtas também mantêm a sequência)
+    completed_days = {log.started_at.date() for log in logs if log.activity_type in ("lesson", "india_mission")}
+    active_days = {d for d, m in minutes_by_day.items() if m >= 1} | completed_days
     daily_goal = profile.daily_minutes if profile else 45
     week = [{"date": (today - timedelta(days=i)).isoformat(),
              "minutes": round(minutes_by_day.get(today - timedelta(days=i), 0), 1)} for i in range(6, -1, -1)]

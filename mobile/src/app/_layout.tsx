@@ -42,6 +42,7 @@ function RootStack() {
         <Stack.Screen name="missao/index" options={{ title: "Missão Índia" }} />
         <Stack.Screen name="missao/[id]" options={{ title: "Missão" }} />
         <Stack.Screen name="frases" options={{ title: "Minhas frases" }} />
+        <Stack.Screen name="licao/[id]" options={{ headerShown: false, gestureEnabled: false }} />
         <Stack.Screen name="unlock" options={{ title: "Destravar a Fala" }} />
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
       </Stack>

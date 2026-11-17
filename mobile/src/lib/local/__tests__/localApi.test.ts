@@ -108,3 +108,32 @@ test("Missão Índia no aparelho: lista, missão personalizada, conclusão → r
   assert.equal(again.added, 0);
   await assert.rejects(localApi("/india/missions/m01/complete", { body: { results: [{ chunk_id: "m01-c01", rating: 9 }], score: 1 } }), /inválida/);
 });
+
+test("Trilha no aparelho: XP, desbloqueio, sequência e revisão", async () => {
+  setMemoryDB(null);
+  mem.clear();
+  await localApi("/auth/register", { body: { display_name: "Ana" } });
+  await localApi("/me/profiles/en", { method: "PUT", body: { daily_minutes: 30, self_level: "B1" } });
+  const ov: any = await localApi("/course");
+  assert.equal(ov.xp_total, 0);
+  const first = ov.current_lesson_id;
+  assert.equal(ov.units[0].lessons[0].status, "current");
+  assert.equal(ov.units[0].lessons[1].status, "locked");
+
+  const lesson: any = await localApi(`/course/lessons/${first}`);
+  assert.ok(lesson.items.length >= 3 && lesson.pool.length >= 10);
+  const u2: any = await localApi("/course/lessons/u02-l1");
+  assert.ok(!JSON.stringify(u2).includes("{name}"));
+
+  const r: any = await localApi(`/course/lessons/${first}/complete`, { body: {
+    results: lesson.items.map((i: any) => ({ item_id: i.id, rating: 3 })), correct_first: 9, total: 11, duration_seconds: 200 } });
+  assert.equal(r.xp, 19);
+  assert.equal(r.xp_today, 19);
+  assert.equal(r.streak_days, 1);
+  assert.equal(r.reviewed, lesson.items.length);
+  const ov2: any = await localApi("/course");
+  assert.equal(ov2.units[0].lessons[0].status, "done");
+  assert.equal(ov2.units[0].lessons[1].status, "current");
+  await assert.rejects(localApi(`/course/lessons/${first}/complete`, { body: { results: [{ item_id: "x", rating: 0 }], total: 1 } }), /inválida/);
+  await assert.rejects(localApi("/course/lessons/nope"), /não encontrada/);
+});

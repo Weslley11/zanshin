@@ -9,6 +9,7 @@ import {
   adaptPlan, assessmentPayload, completeActivity, createPlan, currentPlan, dashboard, dayView, evaluateQuickResponse,
   evaluateSentenceBuilding, planView, scoreListening, startAssessment, submitAssessment,
 } from "./learning";
+import { completeLesson, lessonFor, overview as courseOverview } from "./course";
 import { completeMission, missionFor, overview as missionOverview } from "./missions";
 import { shadowingFeedback } from "./speech";
 import { endSession, getScenario, postMessage, sessionView, startSession } from "./tutor";
@@ -253,6 +254,23 @@ async function route(db: DB, method: string, path: string, q: URLSearchParams, b
         return dayView(updated);
       }
       return { ...dayView(d), phase_info: plan.config.phases[String(d.phase)] };
+    }
+  }
+
+  // ------------------------------- Trilha (curso gamificado) -------------------------------
+  if (seg[0] === "course") {
+    if (!seg[1]) return courseOverview(db);
+    if (seg[1] === "lessons" && seg[2]) {
+      const lesson = lessonFor(db, seg[2]);
+      if (!lesson) throw notFound("Lição não encontrada.");
+      if (!seg[3]) return lesson;
+      if (seg[3] === "complete" && method === "POST") {
+        try {
+          return completeLesson(db, lesson, body ?? {});
+        } catch (e: any) {
+          throw new ApiError(422, e.message);
+        }
+      }
     }
   }
 

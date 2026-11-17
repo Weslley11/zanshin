@@ -11781,6 +11781,4921 @@
    }
   }
  ],
+ "course": {
+  "units": [
+   {
+    "id": "u01",
+    "order": 1,
+    "title_pt": "Frases para destravar a conversa",
+    "icon": "chatbubbles",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "v-could-you-say-that-again",
+      "en": "Could you say that again?",
+      "pt": "Pode repetir?",
+      "example": "Sorry, could you say that again? The line was bad.",
+      "alts": [
+       "Could you say that again"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-that-makes-sense",
+      "en": "That makes sense.",
+      "pt": "Faz sentido.",
+      "example": "OK, that makes sense. Let's do it that way.",
+      "alts": [
+       "That makes sense"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-what-i-mean-is",
+      "en": "What I mean is…",
+      "pt": "O que eu quero dizer é…",
+      "example": "What I mean is, we need more time for testing.",
+      "alts": [
+       "What I mean is"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-just-to-clarify",
+      "en": "Just to clarify…",
+      "pt": "Só para esclarecer…",
+      "example": "Just to clarify, do you need the files by Friday?",
+      "alts": [
+       "Just to clarify"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-let-me-think-for-a-second",
+      "en": "Let me think for a second.",
+      "pt": "Deixa eu pensar um pouco.",
+      "example": "Good question — let me think for a second.",
+      "alts": [
+       "Let me think for a second"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-it-depends-on",
+      "en": "It depends on…",
+      "pt": "Depende de…",
+      "example": "It depends on the budget and the lead time.",
+      "alts": [
+       "It depends on"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-i-m-not-sure-i-follow",
+      "en": "I'm not sure I follow.",
+      "pt": "Acho que não entendi (não acompanhei).",
+      "example": "I'm not sure I follow. Could you give me an example?",
+      "alts": [
+       "I'm not sure I follow"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-does-that-make-sense",
+      "en": "Does that make sense?",
+      "pt": "Faz sentido? (checar compreensão)",
+      "example": "We'll test it first and then release it. Does that make sense?",
+      "alts": [
+       "Does that make sense"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-to-be-honest",
+      "en": "To be honest",
+      "pt": "Para ser sincero",
+      "example": "To be honest, I'm not sure that's the best option.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-i-see-what-you-mean",
+      "en": "I see what you mean.",
+      "pt": "Entendo o que você quer dizer.",
+      "example": "I see what you mean, but the cost is too high.",
+      "alts": [
+       "I see what you mean"
+      ],
+      "level": "B1"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u01-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-could-you-say-that-again",
+       "v-that-makes-sense",
+       "v-what-i-mean-is",
+       "v-just-to-clarify",
+       "v-let-me-think-for-a-second"
+      ]
+     },
+     {
+      "id": "u01-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-it-depends-on",
+       "v-i-m-not-sure-i-follow",
+       "v-does-that-make-sense",
+       "v-to-be-honest",
+       "v-i-see-what-you-mean"
+      ]
+     },
+     {
+      "id": "u01-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-could-you-say-that-again",
+       "v-that-makes-sense",
+       "v-what-i-mean-is",
+       "v-just-to-clarify",
+       "v-let-me-think-for-a-second",
+       "v-it-depends-on",
+       "v-i-m-not-sure-i-follow",
+       "v-does-that-make-sense",
+       "v-to-be-honest",
+       "v-i-see-what-you-mean"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u02",
+    "order": 2,
+    "title_pt": "Apresentações",
+    "icon": "people",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m01-c01",
+      "en": "Nice to meet you. I'm {name}, from Brazil.",
+      "pt": "Prazer em conhecer. Eu sou {name}, do Brasil.",
+      "example": "",
+      "alts": [
+       "Nice to meet you, I am {name} from Brazil",
+       "Pleased to meet you. I'm {name}, from Brazil."
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m01-c02",
+      "en": "I'm a mechanical engineer.",
+      "pt": "Sou engenheiro mecânico.",
+      "example": "",
+      "alts": [
+       "I am a mechanical engineer",
+       "I work as a mechanical engineer"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m01-c03",
+      "en": "I work with product design and manufacturing.",
+      "pt": "Trabalho com projeto de produto e fabricação.",
+      "example": "",
+      "alts": [
+       "I work in product design and manufacturing"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m01-c04",
+      "en": "What is your good name, sir?",
+      "pt": "Qual é o seu nome, senhor?",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m01-c05",
+      "en": "You are from which place?",
+      "pt": "Você é de onde?",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m01-c06",
+      "en": "It's my first time in India.",
+      "pt": "É a minha primeira vez na Índia.",
+      "example": "",
+      "alts": [
+       "It is my first time in India",
+       "This is my first time in India"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m01-c07",
+      "en": "I'm really looking forward to working with your team.",
+      "pt": "Estou muito animado para trabalhar com a sua equipe.",
+      "example": "",
+      "alts": [
+       "I am really looking forward to working with your team",
+       "I'm looking forward to working with your team"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m01-c08",
+      "en": "Are you married? How many kids you have?",
+      "pt": "Você é casado? Quantos filhos você tem?",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m01-c09",
+      "en": "Yes, I'm married and I have two kids. And you?",
+      "pt": "Sim, sou casado e tenho dois filhos. E você?",
+      "example": "",
+      "alts": [
+       "Yes I am married and I have two kids and you",
+       "Yes, I'm married, I have two children. And you?",
+       "Yes, I'm married and I have 2 kids. And you?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m01-c10",
+      "en": "Please call me {name}. No need for 'sir'.",
+      "pt": "Pode me chamar de {name}. Não precisa de 'senhor'.",
+      "example": "",
+      "alts": [
+       "Please call me {name}, no need for sir",
+       "Just call me {name}, no need for sir"
+      ],
+      "level": "B1",
+      "kind": "say"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u02-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m01-c01",
+       "m01-c02",
+       "m01-c03",
+       "m01-c04",
+       "m01-c05"
+      ]
+     },
+     {
+      "id": "u02-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m01-c06",
+       "m01-c07",
+       "m01-c08",
+       "m01-c09",
+       "m01-c10"
+      ]
+     },
+     {
+      "id": "u02-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m01-c01",
+       "m01-c02",
+       "m01-c03",
+       "m01-c04",
+       "m01-c05",
+       "m01-c06",
+       "m01-c07",
+       "m01-c08",
+       "m01-c09",
+       "m01-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u03",
+    "order": 3,
+    "title_pt": "Entender o inglês indiano",
+    "icon": "ear",
+    "levels": [
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m02-c01",
+      "en": "I will send it today only.",
+      "pt": "Vou enviar hoje mesmo.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m02-c02",
+      "en": "He is having fever since yesterday.",
+      "pt": "Ele está com febre desde ontem.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m02-c03",
+      "en": "Do one thing, send me the drawing, I will check.",
+      "pt": "Faça o seguinte: me mande o desenho que eu verifico.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m02-c04",
+      "en": "It's the same to same design, no?",
+      "pt": "É exatamente o mesmo projeto, né?",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m02-c05",
+      "en": "Tell me, sir.",
+      "pt": "Pode falar.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m02-c06",
+      "en": "What to do? The vendor is not picking up the phone.",
+      "pt": "Fazer o quê? O fornecedor não atende o telefone.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m02-c07",
+      "en": "Sorry, could you say that again a bit more slowly?",
+      "pt": "Desculpe, pode repetir um pouco mais devagar?",
+      "example": "",
+      "alts": [
+       "Sorry could you say that again more slowly",
+       "Sorry, can you say that again a bit slower?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m02-c08",
+      "en": "Just to confirm, you mean today, right?",
+      "pt": "Só para confirmar: você quer dizer hoje, certo?",
+      "example": "",
+      "alts": [
+       "Just to confirm you mean today right",
+       "Just to confirm, do you mean today?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m02-c09",
+      "en": "Could you spell that, please?",
+      "pt": "Pode soletrar, por favor?",
+      "example": "",
+      "alts": [
+       "Can you spell that please",
+       "Could you spell it, please?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m02-c10",
+      "en": "Let me repeat to check I understood.",
+      "pt": "Deixa eu repetir para ver se entendi.",
+      "example": "",
+      "alts": [
+       "Let me repeat to make sure I understood",
+       "Let me repeat it to check I understood"
+      ],
+      "level": "B1",
+      "kind": "say"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u03-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m02-c01",
+       "m02-c02",
+       "m02-c03",
+       "m02-c04",
+       "m02-c05"
+      ]
+     },
+     {
+      "id": "u03-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m02-c06",
+       "m02-c07",
+       "m02-c08",
+       "m02-c09",
+       "m02-c10"
+      ]
+     },
+     {
+      "id": "u03-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m02-c01",
+       "m02-c02",
+       "m02-c03",
+       "m02-c04",
+       "m02-c05",
+       "m02-c06",
+       "m02-c07",
+       "m02-c08",
+       "m02-c09",
+       "m02-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u04",
+    "order": 4,
+    "title_pt": "Na viagem",
+    "icon": "airplane",
+    "levels": [
+     "A1",
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "v-boarding-pass",
+      "en": "boarding pass",
+      "pt": "cartão de embarque",
+      "example": "Here's my passport and boarding pass.",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-gate",
+      "en": "gate",
+      "pt": "portão de embarque",
+      "example": "Boarding starts at gate 32 at 9:40.",
+      "alts": [],
+      "level": "A1"
+     },
+     {
+      "id": "v-layover",
+      "en": "layover",
+      "pt": "escala (tempo de conexão)",
+      "example": "I have a three-hour layover in Frankfurt.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-connecting-flight",
+      "en": "connecting flight",
+      "pt": "voo de conexão",
+      "example": "I'm worried I'll miss my connecting flight.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-carry-on-bag",
+      "en": "carry-on (bag)",
+      "pt": "bagagem de mão",
+      "example": "Is this carry-on bag OK, or do I need to check it?",
+      "alts": [
+       "carry-on"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-checked-baggage",
+      "en": "checked baggage",
+      "pt": "bagagem despachada",
+      "example": "My checked baggage didn't arrive.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-customs",
+      "en": "customs",
+      "pt": "alfândega",
+      "example": "Do I need to declare this at customs?",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-what-s-the-purpose-of-your-visit",
+      "en": "What's the purpose of your visit?",
+      "pt": "Qual o propósito da sua visita? (imigração)",
+      "example": "What's the purpose of your visit? — Business. I'm visiting our plant.",
+      "alts": [
+       "What's the purpose of your visit"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-i-have-a-reservation-under-name",
+      "en": "I have a reservation under (name).",
+      "pt": "Tenho uma reserva no nome de…",
+      "example": "Hi, I have a reservation under Ribeiro.",
+      "alts": [
+       "I have a reservation under"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-wake-up-call",
+      "en": "wake-up call",
+      "pt": "serviço de despertar (hotel)",
+      "example": "Could I get a wake-up call at 6:30?",
+      "alts": [],
+      "level": "B1"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u04-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-boarding-pass",
+       "v-gate",
+       "v-layover",
+       "v-connecting-flight",
+       "v-carry-on-bag"
+      ]
+     },
+     {
+      "id": "u04-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-checked-baggage",
+       "v-customs",
+       "v-what-s-the-purpose-of-your-visit",
+       "v-i-have-a-reservation-under-name",
+       "v-wake-up-call"
+      ]
+     },
+     {
+      "id": "u04-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-boarding-pass",
+       "v-gate",
+       "v-layover",
+       "v-connecting-flight",
+       "v-carry-on-bag",
+       "v-checked-baggage",
+       "v-customs",
+       "v-what-s-the-purpose-of-your-visit",
+       "v-i-have-a-reservation-under-name",
+       "v-wake-up-call"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u05",
+    "order": 5,
+    "title_pt": "Imigração e aeroporto",
+    "icon": "id-card",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m05-c01",
+      "en": "I'm here on business.",
+      "pt": "Estou aqui a trabalho.",
+      "example": "",
+      "alts": [
+       "I am here on business",
+       "I'm here for business",
+       "I'm here for work"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m05-c02",
+      "en": "I'm visiting our plant in Pune.",
+      "pt": "Vou visitar a nossa fábrica em Pune.",
+      "example": "",
+      "alts": [
+       "I am visiting our plant in Pune",
+       "I'm visiting our factory in Pune"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m05-c03",
+      "en": "I'll stay for two weeks.",
+      "pt": "Vou ficar duas semanas.",
+      "example": "",
+      "alts": [
+       "I will stay for two weeks",
+       "I'm staying for two weeks",
+       "I'll stay for 2 weeks"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m05-c04",
+      "en": "I'm staying at the Marriott, near the airport.",
+      "pt": "Vou me hospedar no Marriott, perto do aeroporto.",
+      "example": "",
+      "alts": [
+       "I am staying at the Marriott near the airport"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m05-c05",
+      "en": "Here is my invitation letter.",
+      "pt": "Aqui está minha carta-convite.",
+      "example": "",
+      "alts": [
+       "Here's my invitation letter",
+       "This is my invitation letter"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m05-c06",
+      "en": "I have nothing to declare.",
+      "pt": "Não tenho nada a declarar.",
+      "example": "",
+      "alts": [
+       "Nothing to declare"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m05-c07",
+      "en": "Kindly look into the camera.",
+      "pt": "Por favor, olhe para a câmera.",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m05-c08",
+      "en": "Where is the prepaid taxi counter?",
+      "pt": "Onde fica o balcão de táxi pré-pago?",
+      "example": "",
+      "alts": [
+       "Where's the prepaid taxi counter"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m05-c09",
+      "en": "My bag didn't arrive. Where can I report it?",
+      "pt": "Minha mala não chegou. Onde posso registrar?",
+      "example": "",
+      "alts": [
+       "My bag did not arrive where can I report it",
+       "My luggage didn't arrive. Where can I report it?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m05-c10",
+      "en": "No, thank you. I already have a driver.",
+      "pt": "Não, obrigado. Já tenho motorista.",
+      "example": "",
+      "alts": [
+       "No thank you I already have a driver",
+       "No thanks, I already have a driver."
+      ],
+      "level": "A2",
+      "kind": "say"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u05-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m05-c01",
+       "m05-c02",
+       "m05-c03",
+       "m05-c04",
+       "m05-c05"
+      ]
+     },
+     {
+      "id": "u05-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m05-c06",
+       "m05-c07",
+       "m05-c08",
+       "m05-c09",
+       "m05-c10"
+      ]
+     },
+     {
+      "id": "u05-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m05-c01",
+       "m05-c02",
+       "m05-c03",
+       "m05-c04",
+       "m05-c05",
+       "m05-c06",
+       "m05-c07",
+       "m05-c08",
+       "m05-c09",
+       "m05-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u06",
+    "order": 6,
+    "title_pt": "Transporte",
+    "icon": "car",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m06-c01",
+      "en": "Can you take me to this address?",
+      "pt": "Pode me levar a este endereço?",
+      "example": "",
+      "alts": [
+       "Could you take me to this address",
+       "Can you take me to this address, please?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m06-c02",
+      "en": "Will you go by meter?",
+      "pt": "Você vai pelo taxímetro?",
+      "example": "",
+      "alts": [
+       "Will you go by the meter",
+       "Can you go by meter?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m06-c03",
+      "en": "How much to the airport?",
+      "pt": "Quanto até o aeroporto?",
+      "example": "",
+      "alts": [
+       "How much is it to the airport",
+       "How much for the airport?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m06-c04",
+      "en": "That's too much. Two hundred is fine.",
+      "pt": "Está caro demais. Duzentos está bom.",
+      "example": "",
+      "alts": [
+       "That is too much two hundred is fine",
+       "Too much. Two hundred, OK?",
+       "That's too much. 200 is fine."
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m06-c05",
+      "en": "Please stop here.",
+      "pt": "Pare aqui, por favor.",
+      "example": "",
+      "alts": [
+       "Stop here please",
+       "Can you stop here?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m06-c06",
+      "en": "Take a left after the second signal.",
+      "pt": "Vire à esquerda depois do segundo semáforo.",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m06-c07",
+      "en": "Madam, I am at the main gate. Where you are standing?",
+      "pt": "Senhora, estou no portão principal. Onde você está?",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m06-c08",
+      "en": "I'm standing near the main entrance.",
+      "pt": "Estou perto da entrada principal.",
+      "example": "",
+      "alts": [
+       "I am standing near the main entrance",
+       "I'm near the main entrance"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m06-c09",
+      "en": "Could you drive a bit slower, please?",
+      "pt": "Você poderia dirigir um pouco mais devagar, por favor?",
+      "example": "",
+      "alts": [
+       "Can you drive a little slower please",
+       "Could you drive slower, please?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m06-c10",
+      "en": "Sir, OTP please.",
+      "pt": "Senhor, o código",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u06-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m06-c01",
+       "m06-c02",
+       "m06-c03",
+       "m06-c04",
+       "m06-c05"
+      ]
+     },
+     {
+      "id": "u06-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m06-c06",
+       "m06-c07",
+       "m06-c08",
+       "m06-c09",
+       "m06-c10"
+      ]
+     },
+     {
+      "id": "u06-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m06-c01",
+       "m06-c02",
+       "m06-c03",
+       "m06-c04",
+       "m06-c05",
+       "m06-c06",
+       "m06-c07",
+       "m06-c08",
+       "m06-c09",
+       "m06-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u07",
+    "order": 7,
+    "title_pt": "Mais frases de conversa",
+    "icon": "chatbox-ellipses",
+    "levels": [
+     "A1",
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "items": [
+     {
+      "id": "v-as-far-as-i-know",
+      "en": "As far as I know",
+      "pt": "Até onde eu sei",
+      "example": "As far as I know, the supplier hasn't confirmed yet.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-how-s-it-going",
+      "en": "How's it going?",
+      "pt": "Como vai? / Tudo certo?",
+      "example": "Hey, how's it going? How was your flight?",
+      "alts": [
+       "How's it going"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-by-the-way",
+      "en": "By the way",
+      "pt": "A propósito / aliás",
+      "example": "By the way, have you met our new manager?",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-what-do-you-do",
+      "en": "What do you do?",
+      "pt": "O que você faz? (profissão)",
+      "example": "So, what do you do? — I'm a mechanical engineer.",
+      "alts": [
+       "What do you do"
+      ],
+      "level": "A1"
+     },
+     {
+      "id": "v-i-didn-t-catch-that",
+      "en": "I didn't catch that.",
+      "pt": "Não peguei / não entendi isso.",
+      "example": "Sorry, I didn't catch that. What was the part number?",
+      "alts": [
+       "I didn't catch that"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-could-you-speak-a-bit-more-slowly",
+      "en": "Could you speak a bit more slowly?",
+      "pt": "Poderia falar um pouco mais devagar?",
+      "example": "Could you speak a bit more slowly? I'm still getting used to the accent.",
+      "alts": [
+       "Could you speak a bit more slowly"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-how-do-you-say-in-english",
+      "en": "How do you say … in English?",
+      "pt": "Como se diz … em inglês?",
+      "example": "How do you say 'parafuso' in English? — Screw.",
+      "alts": [
+       "How do you say  in English"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-what-s-the-word-for",
+      "en": "What's the word for…?",
+      "pt": "Qual é a palavra para…? (estratégia de compensação)",
+      "example": "What's the word for the thing that holds the shaft?",
+      "alts": [
+       "What's the word for"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-let-me-put-it-another-way",
+      "en": "Let me put it another way.",
+      "pt": "Deixa eu explicar de outro jeito.",
+      "example": "Let me put it another way: we can't ship until QA approves.",
+      "alts": [
+       "Let me put it another way"
+      ],
+      "level": "B2"
+     },
+     {
+      "id": "v-that-s-a-good-point",
+      "en": "That's a good point.",
+      "pt": "Bom ponto.",
+      "example": "That's a good point. I hadn't thought about the tooling.",
+      "alts": [
+       "That's a good point"
+      ],
+      "level": "A2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u07-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-as-far-as-i-know",
+       "v-how-s-it-going",
+       "v-by-the-way",
+       "v-what-do-you-do",
+       "v-i-didn-t-catch-that"
+      ]
+     },
+     {
+      "id": "u07-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-could-you-speak-a-bit-more-slowly",
+       "v-how-do-you-say-in-english",
+       "v-what-s-the-word-for",
+       "v-let-me-put-it-another-way",
+       "v-that-s-a-good-point"
+      ]
+     },
+     {
+      "id": "u07-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-as-far-as-i-know",
+       "v-how-s-it-going",
+       "v-by-the-way",
+       "v-what-do-you-do",
+       "v-i-didn-t-catch-that",
+       "v-could-you-speak-a-bit-more-slowly",
+       "v-how-do-you-say-in-english",
+       "v-what-s-the-word-for",
+       "v-let-me-put-it-another-way",
+       "v-that-s-a-good-point"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u08",
+    "order": 8,
+    "title_pt": "Hotel, chip e dinheiro",
+    "icon": "bed",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m07-c01",
+      "en": "I have a reservation under Silva.",
+      "pt": "Tenho uma reserva no nome de Silva.",
+      "example": "",
+      "alts": [
+       "I have a booking under Silva",
+       "I've got a reservation under Silva"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m07-c02",
+      "en": "What's the Wi-Fi password?",
+      "pt": "Qual é a senha do Wi-Fi?",
+      "example": "",
+      "alts": [
+       "What is the wifi password"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m07-c03",
+      "en": "The air conditioning isn't working in my room.",
+      "pt": "O ar-condicionado do meu quarto não está funcionando.",
+      "example": "",
+      "alts": [
+       "The AC is not working in my room",
+       "The air conditioner isn't working in my room"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m07-c04",
+      "en": "Could I get a late checkout?",
+      "pt": "Posso fazer o check-out mais tarde?",
+      "example": "",
+      "alts": [
+       "Can I get a late checkout",
+       "Is a late checkout possible?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m07-c05",
+      "en": "I need a local SIM card with data.",
+      "pt": "Preciso de um chip local com internet.",
+      "example": "",
+      "alts": [
+       "I need a local SIM with data",
+       "I'd like a local SIM card with data"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m07-c06",
+      "en": "Activation will take two to four hours, sir.",
+      "pt": "A ativação vai levar de duas a quatro horas, senhor.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m07-c07",
+      "en": "Can I pay by card?",
+      "pt": "Posso pagar com cartão?",
+      "example": "",
+      "alts": [
+       "Can I pay with card",
+       "Do you accept cards?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m07-c08",
+      "en": "Is there an ATM nearby?",
+      "pt": "Tem um caixa eletrônico por perto?",
+      "example": "",
+      "alts": [
+       "Is there an ATM near here",
+       "Where is the nearest ATM?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m07-c09",
+      "en": "Could you send someone to clean the room?",
+      "pt": "Você poderia mandar alguém limpar o quarto?",
+      "example": "",
+      "alts": [
+       "Can you send someone to clean my room"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m07-c10",
+      "en": "Breakfast is complimentary, sir, from seven to ten-thirty.",
+      "pt": "O café da manhã é cortesia",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u08-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m07-c01",
+       "m07-c02",
+       "m07-c03",
+       "m07-c04",
+       "m07-c05"
+      ]
+     },
+     {
+      "id": "u08-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m07-c06",
+       "m07-c07",
+       "m07-c08",
+       "m07-c09",
+       "m07-c10"
+      ]
+     },
+     {
+      "id": "u08-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m07-c01",
+       "m07-c02",
+       "m07-c03",
+       "m07-c04",
+       "m07-c05",
+       "m07-c06",
+       "m07-c07",
+       "m07-c08",
+       "m07-c09",
+       "m07-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u09",
+    "order": 9,
+    "title_pt": "Comida e convites",
+    "icon": "restaurant",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m08-c01",
+      "en": "Are you veg or non-veg?",
+      "pt": "Você é vegetariano ou come carne?",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m08-c02",
+      "en": "I eat everything, but not too spicy, please.",
+      "pt": "Eu como de tudo, mas não muito apimentado, por favor.",
+      "example": "",
+      "alts": [
+       "I eat everything but not too spicy please",
+       "I eat everything, but less spicy, please."
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m08-c03",
+      "en": "Is this very spicy?",
+      "pt": "Isto é muito apimentado?",
+      "example": "",
+      "alts": [
+       "Is it very spicy",
+       "Is this spicy?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m08-c04",
+      "en": "What do you recommend?",
+      "pt": "O que você recomenda?",
+      "example": "",
+      "alts": [
+       "What would you recommend"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m08-c05",
+      "en": "Could I have a bottle of water, please?",
+      "pt": "Pode me trazer uma garrafa de água, por favor?",
+      "example": "",
+      "alts": [
+       "Can I have a bottle of water please",
+       "Could I get a bottle of water, please?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m08-c06",
+      "en": "It's delicious, but I'm full, thank you.",
+      "pt": "Está delicioso, mas estou satisfeito, obrigado.",
+      "example": "",
+      "alts": [
+       "It is delicious but I am full thank you",
+       "It's delicious, but I'm full. Thank you."
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m08-c07",
+      "en": "Have you had lunch?",
+      "pt": "Você já almoçou?",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m08-c08",
+      "en": "Thank you for inviting me. I'd love to come.",
+      "pt": "Obrigado pelo convite. Adoraria ir.",
+      "example": "",
+      "alts": [
+       "Thanks for inviting me I would love to come",
+       "Thank you for the invitation. I'd love to come."
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m08-c09",
+      "en": "Could we have the bill, please?",
+      "pt": "Pode trazer a conta, por favor?",
+      "example": "",
+      "alts": [
+       "Can we have the bill please",
+       "Could we get the bill, please?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m08-c10",
+      "en": "You must try the thali, it has a little bit of everything.",
+      "pt": "Você precisa provar o thali; vem um pouco de tudo.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u09-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m08-c01",
+       "m08-c02",
+       "m08-c03",
+       "m08-c04",
+       "m08-c05"
+      ]
+     },
+     {
+      "id": "u09-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m08-c06",
+       "m08-c07",
+       "m08-c08",
+       "m08-c09",
+       "m08-c10"
+      ]
+     },
+     {
+      "id": "u09-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m08-c01",
+       "m08-c02",
+       "m08-c03",
+       "m08-c04",
+       "m08-c05",
+       "m08-c06",
+       "m08-c07",
+       "m08-c08",
+       "m08-c09",
+       "m08-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u10",
+    "order": 10,
+    "title_pt": "Reuniões e calls",
+    "icon": "videocam",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m03-c01",
+      "en": "Can you hear me?",
+      "pt": "Vocês conseguem me ouvir?",
+      "example": "",
+      "alts": [
+       "Can you hear me okay",
+       "Are you able to hear me?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m03-c02",
+      "en": "I think you're on mute.",
+      "pt": "Acho que você está no mudo.",
+      "example": "",
+      "alts": [
+       "I think you are on mute",
+       "You're on mute"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m03-c03",
+      "en": "Sorry, your voice is breaking.",
+      "pt": "Desculpe, sua voz está cortando.",
+      "example": "",
+      "alts": [
+       "Sorry your voice is breaking up",
+       "Sorry, you're breaking up"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m03-c04",
+      "en": "Could you share your screen, please?",
+      "pt": "Você pode compartilhar sua tela, por favor?",
+      "example": "",
+      "alts": [
+       "Can you share your screen please"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m03-c05",
+      "en": "Can I add something here?",
+      "pt": "Posso acrescentar algo aqui?",
+      "example": "",
+      "alts": [
+       "Can I add something",
+       "May I add something here?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m03-c06",
+      "en": "I see your point, but I have a different view.",
+      "pt": "Entendo seu ponto, mas tenho uma visão diferente.",
+      "example": "",
+      "alts": [
+       "I see your point but I have a different opinion",
+       "I see your point, but I see it differently."
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m03-c07",
+      "en": "Let's take this offline.",
+      "pt": "Vamos tratar disso fora da reunião.",
+      "example": "",
+      "alts": [
+       "Let's discuss this offline",
+       "Let us take this offline"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m03-c08",
+      "en": "So, what are the action items?",
+      "pt": "Então, quais são as ações (próximos passos)?",
+      "example": "",
+      "alts": [
+       "So what are the action items",
+       "What are the next steps?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m03-c09",
+      "en": "I will share the MoM by EOD.",
+      "pt": "Vou mandar a ata",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m03-c10",
+      "en": "Shall we wait two more minutes? Others are yet to join.",
+      "pt": "Vamos esperar mais dois minutos? Os outros ainda não entraram.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u10-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m03-c01",
+       "m03-c02",
+       "m03-c03",
+       "m03-c04",
+       "m03-c05"
+      ]
+     },
+     {
+      "id": "u10-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m03-c06",
+       "m03-c07",
+       "m03-c08",
+       "m03-c09",
+       "m03-c10"
+      ]
+     },
+     {
+      "id": "u10-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m03-c01",
+       "m03-c02",
+       "m03-c03",
+       "m03-c04",
+       "m03-c05",
+       "m03-c06",
+       "m03-c07",
+       "m03-c08",
+       "m03-c09",
+       "m03-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u11",
+    "order": 11,
+    "title_pt": "E-mail e rotina de trabalho",
+    "icon": "mail",
+    "levels": [
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m04-c01",
+      "en": "PFA the revised drawing.",
+      "pt": "Segue em anexo o desenho revisado.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m04-c02",
+      "en": "Kindly revert at the earliest.",
+      "pt": "Por favor, responda o quanto antes.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m04-c03",
+      "en": "Please find attached the updated report.",
+      "pt": "Segue em anexo o relatório atualizado.",
+      "example": "",
+      "alts": [
+       "Please find the updated report attached",
+       "Attached is the updated report"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m04-c04",
+      "en": "As discussed in the call, we'll go with option B.",
+      "pt": "Conforme conversamos na call, vamos seguir com a opção B.",
+      "example": "",
+      "alts": [
+       "As discussed in the call we will go with option B",
+       "As discussed on the call, we'll go with option B."
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m04-c05",
+      "en": "Could you please confirm by end of day?",
+      "pt": "Você poderia confirmar até o fim do dia?",
+      "example": "",
+      "alts": [
+       "Could you confirm by end of day",
+       "Can you please confirm by the end of the day?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m04-c06",
+      "en": "This is a gentle reminder about the quotation.",
+      "pt": "Este é um lembrete gentil sobre o orçamento.",
+      "example": "",
+      "alts": [
+       "Just a gentle reminder about the quotation",
+       "This is a gentle reminder regarding the quotation"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m04-c07",
+      "en": "The approval is pending from your side.",
+      "pt": "A aprovação está pendente do seu lado",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m04-c08",
+      "en": "Noted, thanks. I'll get back to you tomorrow.",
+      "pt": "Anotado, obrigado. Te dou um retorno amanhã.",
+      "example": "",
+      "alts": [
+       "Noted thanks I will get back to you tomorrow",
+       "Noted, thank you. I'll get back to you tomorrow."
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m04-c09",
+      "en": "Please treat this on priority.",
+      "pt": "Por favor, trate isso como prioridade.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m04-c10",
+      "en": "I'm working from home today, but I'm available on Teams.",
+      "pt": "Estou trabalhando de casa hoje, mas estou disponível no Teams.",
+      "example": "",
+      "alts": [
+       "I am working from home today but I am available on Teams"
+      ],
+      "level": "B1",
+      "kind": "say"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u11-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m04-c01",
+       "m04-c02",
+       "m04-c03",
+       "m04-c04",
+       "m04-c05"
+      ]
+     },
+     {
+      "id": "u11-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m04-c06",
+       "m04-c07",
+       "m04-c08",
+       "m04-c09",
+       "m04-c10"
+      ]
+     },
+     {
+      "id": "u11-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m04-c01",
+       "m04-c02",
+       "m04-c03",
+       "m04-c04",
+       "m04-c05",
+       "m04-c06",
+       "m04-c07",
+       "m04-c08",
+       "m04-c09",
+       "m04-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u12",
+    "order": 12,
+    "title_pt": "Inglês corporativo",
+    "icon": "briefcase",
+    "levels": [
+     "B1",
+     "B2"
+    ],
+    "items": [
+     {
+      "id": "v-agenda",
+      "en": "agenda",
+      "pt": "pauta (de reunião)",
+      "example": "The first item on the agenda is the budget.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-stakeholder",
+      "en": "stakeholder",
+      "pt": "parte interessada",
+      "example": "We need approval from all stakeholders.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-deliverable",
+      "en": "deliverable",
+      "pt": "entregável",
+      "example": "The main deliverable is the validated prototype.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-milestone",
+      "en": "milestone",
+      "pt": "marco (do projeto)",
+      "example": "We hit the first milestone ahead of schedule.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-scope",
+      "en": "scope",
+      "pt": "escopo",
+      "example": "That request is out of scope for this phase.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-lead-time",
+      "en": "lead time",
+      "pt": "prazo de entrega/fabricação",
+      "example": "The lead time for the castings is eight weeks.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-bottleneck",
+      "en": "bottleneck",
+      "pt": "gargalo",
+      "example": "Painting is the bottleneck on this line.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-action-items",
+      "en": "action items",
+      "pt": "itens de ação / tarefas definidas",
+      "example": "Let's review the action items from last week.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-workaround",
+      "en": "workaround",
+      "pt": "solução paliativa / contorno",
+      "example": "We found a workaround until the patch is ready.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-trade-off",
+      "en": "trade-off",
+      "pt": "compromisso / troca (ganha-perde)",
+      "example": "There's a trade-off between weight and stiffness.",
+      "alts": [],
+      "level": "B2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u12-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-agenda",
+       "v-stakeholder",
+       "v-deliverable",
+       "v-milestone",
+       "v-scope"
+      ]
+     },
+     {
+      "id": "u12-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-lead-time",
+       "v-bottleneck",
+       "v-action-items",
+       "v-workaround",
+       "v-trade-off"
+      ]
+     },
+     {
+      "id": "u12-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-agenda",
+       "v-stakeholder",
+       "v-deliverable",
+       "v-milestone",
+       "v-scope",
+       "v-lead-time",
+       "v-bottleneck",
+       "v-action-items",
+       "v-workaround",
+       "v-trade-off"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u13",
+    "order": 13,
+    "title_pt": "Phrasal verbs 1",
+    "icon": "git-branch",
+    "levels": [
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "items": [
+     {
+      "id": "v-follow-up-on",
+      "en": "follow up (on)",
+      "pt": "dar seguimento a / retomar",
+      "example": "I'll follow up on the quote with the supplier.",
+      "alts": [
+       "follow up"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-figure-out",
+      "en": "figure out",
+      "pt": "descobrir / entender (resolvendo)",
+      "example": "We need to figure out why the sensor keeps failing.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-set-up",
+      "en": "set up",
+      "pt": "configurar / montar / organizar",
+      "example": "Can you set up a call with the German team?",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-run-into",
+      "en": "run into",
+      "pt": "deparar-se com (problema)",
+      "example": "We ran into some issues during the installation.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-carry-out",
+      "en": "carry out",
+      "pt": "realizar / executar",
+      "example": "We carried out a full inspection last week.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-put-off",
+      "en": "put off",
+      "pt": "adiar",
+      "example": "They put off the launch until next quarter.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-come-up-with",
+      "en": "come up with",
+      "pt": "propor / ter (uma ideia)",
+      "example": "She came up with a cheaper solution.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-bring-up",
+      "en": "bring up",
+      "pt": "mencionar / levantar (assunto)",
+      "example": "I'd like to bring up the delivery schedule.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-look-into",
+      "en": "look into",
+      "pt": "investigar / verificar",
+      "example": "I'll look into it and let you know.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-sort-out",
+      "en": "sort out",
+      "pt": "resolver / organizar",
+      "example": "Don't worry, we'll sort it out.",
+      "alts": [],
+      "level": "B1"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u13-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-follow-up-on",
+       "v-figure-out",
+       "v-set-up",
+       "v-run-into",
+       "v-carry-out"
+      ]
+     },
+     {
+      "id": "u13-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-put-off",
+       "v-come-up-with",
+       "v-bring-up",
+       "v-look-into",
+       "v-sort-out"
+      ]
+     },
+     {
+      "id": "u13-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-follow-up-on",
+       "v-figure-out",
+       "v-set-up",
+       "v-run-into",
+       "v-carry-out",
+       "v-put-off",
+       "v-come-up-with",
+       "v-bring-up",
+       "v-look-into",
+       "v-sort-out"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u14",
+    "order": 14,
+    "title_pt": "Expressões do inglês indiano",
+    "icon": "earth",
+    "levels": [
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "v-do-the-needful",
+      "en": "do the needful",
+      "pt": "fazer o necessário (pedido formal muito comum)",
+      "example": "Kindly check the drawing and do the needful.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-revert-back",
+      "en": "revert (back)",
+      "pt": "responder / dar retorno (não é 'reverter')",
+      "example": "Please revert by EOD with the revised BOM.",
+      "alts": [
+       "revert"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-prepone",
+      "en": "prepone",
+      "pt": "antecipar (o oposto de 'postpone')",
+      "example": "Can we prepone the meeting to 10:30?",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-kindly",
+      "en": "kindly",
+      "pt": "por favor (formal, muito usado em e-mails e pedidos)",
+      "example": "Kindly share the test report.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-lakh",
+      "en": "lakh",
+      "pt": "100 mil (1,00,000) — 5 lakh = 500 mil",
+      "example": "The tooling cost is around five lakh rupees.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-crore",
+      "en": "crore",
+      "pt": "10 milhões (1,00,00,000) — 2 crore = 20 milhões",
+      "example": "The project budget is two crore.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-today-only-now-itself",
+      "en": "today only / now itself",
+      "pt": "hoje mesmo / agora mesmo ('only' e 'itself' dão ênfase)",
+      "example": "I will send it today only. Call him now itself.",
+      "alts": [
+       "today only",
+       "now itself"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-yesterday-night",
+      "en": "yesterday night",
+      "pt": "ontem à noite (= last night)",
+      "example": "Yesterday night the line stopped twice.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-out-of-station",
+      "en": "out of station",
+      "pt": "fora da cidade, viajando",
+      "example": "Mr. Rao is out of station till Monday.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-no-na-isn-t-it",
+      "en": "..., no? / ..., na? / isn't it?",
+      "pt": "…, né? (pedido de confirmação no fim da frase)",
+      "example": "You are coming tomorrow, no? It's a good design, isn't it?",
+      "alts": [
+       ", no? / ..., na? / isn't it",
+       ", no",
+       ", na",
+       "isn't it"
+      ],
+      "level": "B1"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u14-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-do-the-needful",
+       "v-revert-back",
+       "v-prepone",
+       "v-kindly",
+       "v-lakh"
+      ]
+     },
+     {
+      "id": "u14-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-crore",
+       "v-today-only-now-itself",
+       "v-yesterday-night",
+       "v-out-of-station",
+       "v-no-na-isn-t-it"
+      ]
+     },
+     {
+      "id": "u14-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-do-the-needful",
+       "v-revert-back",
+       "v-prepone",
+       "v-kindly",
+       "v-lakh",
+       "v-crore",
+       "v-today-only-now-itself",
+       "v-yesterday-night",
+       "v-out-of-station",
+       "v-no-na-isn-t-it"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u15",
+    "order": 15,
+    "title_pt": "Na planta",
+    "icon": "construct",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m09-c01",
+      "en": "Do I need safety shoes?",
+      "pt": "Preciso de sapato de segurança?",
+      "example": "",
+      "alts": [
+       "Do I need safety shoes here",
+       "Should I wear safety shoes?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m09-c02",
+      "en": "Could you walk me through the process?",
+      "pt": "Você poderia me explicar o processo passo a passo?",
+      "example": "",
+      "alts": [
+       "Can you walk me through the process"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m09-c03",
+      "en": "Is this the latest revision of the drawing?",
+      "pt": "Esta é a revisão mais recente do desenho?",
+      "example": "",
+      "alts": [
+       "Is this the latest drawing revision",
+       "Is this the latest revision?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m09-c04",
+      "en": "What's the current rejection rate?",
+      "pt": "Qual é a taxa de rejeição atual?",
+      "example": "",
+      "alts": [
+       "What is the current rejection rate",
+       "What's the rejection rate now?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m09-c05",
+      "en": "What's the root cause?",
+      "pt": "Qual é a causa raiz?",
+      "example": "",
+      "alts": [
+       "What is the root cause"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m09-c06",
+      "en": "Can we see the first article inspection report?",
+      "pt": "Podemos ver o relatório de inspeção da primeira peça?",
+      "example": "",
+      "alts": [
+       "Could we see the first article inspection report",
+       "Can I see the FAI report?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m09-c07",
+      "en": "Let's do a trial run before mass production.",
+      "pt": "Vamos fazer um lote piloto antes da produção em série.",
+      "example": "",
+      "alts": [
+       "Let's do a trial run before mass production starts",
+       "Let us do a trial run before mass production"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m09-c08",
+      "en": "The job is under process, sir.",
+      "pt": "A peça/serviço está em processo",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m09-c09",
+      "en": "Material is dispatched, it will reach by Monday.",
+      "pt": "O material foi despachado; chega até segunda.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m09-c10",
+      "en": "We have done the rework on the rejected lot.",
+      "pt": "Fizemos o retrabalho no lote reprovado.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u15-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m09-c01",
+       "m09-c02",
+       "m09-c03",
+       "m09-c04",
+       "m09-c05"
+      ]
+     },
+     {
+      "id": "u15-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m09-c06",
+       "m09-c07",
+       "m09-c08",
+       "m09-c09",
+       "m09-c10"
+      ]
+     },
+     {
+      "id": "u15-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m09-c01",
+       "m09-c02",
+       "m09-c03",
+       "m09-c04",
+       "m09-c05",
+       "m09-c06",
+       "m09-c07",
+       "m09-c08",
+       "m09-c09",
+       "m09-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u16",
+    "order": 16,
+    "title_pt": "Vocabulário técnico 1",
+    "icon": "cog",
+    "levels": [
+     "B1",
+     "B2",
+     "C1"
+    ],
+    "items": [
+     {
+      "id": "v-technical-drawing",
+      "en": "technical drawing",
+      "pt": "desenho técnico",
+      "example": "Please check the technical drawing for the hole diameter.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-tolerance",
+      "en": "tolerance",
+      "pt": "tolerância (dimensional)",
+      "example": "The tolerance on this diameter is plus or minus 0.05 mm.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-bill-of-materials-bom",
+      "en": "bill of materials (BOM)",
+      "pt": "lista de materiais (LM/BOM)",
+      "example": "The BOM is missing two fasteners.",
+      "alts": [
+       "bill of materials"
+      ],
+      "level": "B2"
+     },
+     {
+      "id": "v-part-number",
+      "en": "part number",
+      "pt": "código da peça (PN)",
+      "example": "What's the part number of the bracket?",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-assembly",
+      "en": "assembly",
+      "pt": "montagem / conjunto",
+      "example": "The gearbox assembly weighs 40 kilos.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-sub-assembly",
+      "en": "sub-assembly",
+      "pt": "subconjunto",
+      "example": "We'll ship the sub-assemblies separately.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-revision",
+      "en": "revision",
+      "pt": "revisão (de desenho/documento)",
+      "example": "Make sure you're using revision C of the drawing.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-engineering-change-order-eco",
+      "en": "engineering change order (ECO)",
+      "pt": "ordem de alteração de engenharia",
+      "example": "We need an ECO to change the material.",
+      "alts": [
+       "engineering change order"
+      ],
+      "level": "C1"
+     },
+     {
+      "id": "v-3d-model",
+      "en": "3D model",
+      "pt": "modelo 3D",
+      "example": "I'll send you the 3D model in STEP format.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-part-assembly-drawing-solidworks",
+      "en": "part / assembly / drawing (SolidWorks)",
+      "pt": "peça / montagem / desenho (arquivos do SolidWorks)",
+      "example": "In SolidWorks, the drawing references the part and the assembly files.",
+      "alts": [
+       "part / assembly / drawing",
+       "part",
+       "assembly",
+       "drawing"
+      ],
+      "level": "B2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u16-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-technical-drawing",
+       "v-tolerance",
+       "v-bill-of-materials-bom",
+       "v-part-number",
+       "v-assembly"
+      ]
+     },
+     {
+      "id": "u16-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-sub-assembly",
+       "v-revision",
+       "v-engineering-change-order-eco",
+       "v-3d-model",
+       "v-part-assembly-drawing-solidworks"
+      ]
+     },
+     {
+      "id": "u16-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-technical-drawing",
+       "v-tolerance",
+       "v-bill-of-materials-bom",
+       "v-part-number",
+       "v-assembly",
+       "v-sub-assembly",
+       "v-revision",
+       "v-engineering-change-order-eco",
+       "v-3d-model",
+       "v-part-assembly-drawing-solidworks"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u17",
+    "order": 17,
+    "title_pt": "Prazos e o \"não\" indireto",
+    "icon": "calendar",
+    "levels": [
+     "B1",
+     "B2"
+    ],
+    "items": [
+     {
+      "id": "m10-c01",
+      "en": "We will try our level best, sir.",
+      "pt": "Vamos fazer o nosso melhor, senhor.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m10-c02",
+      "en": "It may be a little difficult.",
+      "pt": "Pode ser um pouco difícil.",
+      "example": "",
+      "alts": [],
+      "level": "B2",
+      "kind": "hear"
+     },
+     {
+      "id": "m10-c03",
+      "en": "What date can you commit to?",
+      "pt": "Com qual data vocês podem se comprometer?",
+      "example": "",
+      "alts": [
+       "What date can you commit to",
+       "Which date can you commit to?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m10-c04",
+      "en": "So, can we confirm Friday — yes or no?",
+      "pt": "Então, podemos confirmar sexta — sim ou não?",
+      "example": "",
+      "alts": [
+       "So can we confirm Friday yes or no",
+       "Can we confirm Friday, yes or no?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m10-c05",
+      "en": "What do you need from us to make it happen?",
+      "pt": "Do que vocês precisam da nossa parte para isso acontecer?",
+      "example": "",
+      "alts": [
+       "What do you need from us to make this happen",
+       "What do you need from our side to make it happen?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m10-c06",
+      "en": "Who needs to approve this?",
+      "pt": "Quem precisa aprovar isso?",
+      "example": "",
+      "alts": [
+       "Who has to approve this",
+       "Who needs to approve it?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m10-c07",
+      "en": "Could you confirm this by email, please?",
+      "pt": "Pode confirmar isso por e-mail, por favor?",
+      "example": "",
+      "alts": [
+       "Can you confirm this by email please",
+       "Could you confirm it in writing, please?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m10-c08",
+      "en": "Who is the owner of this action?",
+      "pt": "Quem é o responsável por esta ação?",
+      "example": "",
+      "alts": [
+       "Who owns this action",
+       "Who is responsible for this action?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m10-c09",
+      "en": "I will check and revert.",
+      "pt": "Vou verificar e dou retorno.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m10-c10",
+      "en": "Great. By when?",
+      "pt": "Ótimo. Até quando?",
+      "example": "",
+      "alts": [
+       "Great by when",
+       "OK, by when?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u17-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m10-c01",
+       "m10-c02",
+       "m10-c03",
+       "m10-c04",
+       "m10-c05"
+      ]
+     },
+     {
+      "id": "u17-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m10-c06",
+       "m10-c07",
+       "m10-c08",
+       "m10-c09",
+       "m10-c10"
+      ]
+     },
+     {
+      "id": "u17-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m10-c01",
+       "m10-c02",
+       "m10-c03",
+       "m10-c04",
+       "m10-c05",
+       "m10-c06",
+       "m10-c07",
+       "m10-c08",
+       "m10-c09",
+       "m10-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u18",
+    "order": 18,
+    "title_pt": "Números e preços",
+    "icon": "cash",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m11-c01",
+      "en": "The tooling cost is five lakh rupees.",
+      "pt": "O custo do ferramental é de 500 mil rúpias.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m11-c02",
+      "en": "The project budget is two crore.",
+      "pt": "O orçamento do projeto é de 20 milhões.",
+      "example": "",
+      "alts": [],
+      "level": "B1",
+      "kind": "hear"
+     },
+     {
+      "id": "m11-c03",
+      "en": "So, five lakh is half a million, right?",
+      "pt": "Então, 5 lakh é meio milhão, certo?",
+      "example": "",
+      "alts": [
+       "So five lakh is half a million right",
+       "Five lakh is five hundred thousand, right?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m11-c04",
+      "en": "Is that India time or Brazil time?",
+      "pt": "Isso é no horário da Índia ou do Brasil?",
+      "example": "",
+      "alts": [
+       "Is that India time or Brazil time",
+       "Is it India time or Brazil time?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m11-c05",
+      "en": "Let's meet at half past nine.",
+      "pt": "Vamos nos encontrar às nove e meia.",
+      "example": "",
+      "alts": [
+       "Let's meet at nine thirty",
+       "Let us meet at half past nine",
+       "Let's meet at 9:30"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m11-c06",
+      "en": "How much is this?",
+      "pt": "Quanto custa isto?",
+      "example": "",
+      "alts": [
+       "How much is it"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m11-c07",
+      "en": "That's too expensive. What's your best price?",
+      "pt": "Está caro demais. Qual é o seu melhor preço?",
+      "example": "",
+      "alts": [
+       "That is too expensive what is your best price",
+       "Too expensive. What's your best price?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m11-c08",
+      "en": "I'll take two if you give me a discount.",
+      "pt": "Levo dois se você me der desconto.",
+      "example": "",
+      "alts": [
+       "I will take two if you give me a discount",
+       "I'll take two for a discount.",
+       "I'll take 2 if you give me a discount"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m11-c09",
+      "en": "Final price, sir. Already I am giving discount.",
+      "pt": "Preço final, senhor. Já estou dando desconto.",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m11-c10",
+      "en": "OK, deal.",
+      "pt": "Ok, fechado.",
+      "example": "",
+      "alts": [
+       "OK deal",
+       "Deal"
+      ],
+      "level": "A2",
+      "kind": "say"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u18-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m11-c01",
+       "m11-c02",
+       "m11-c03",
+       "m11-c04",
+       "m11-c05"
+      ]
+     },
+     {
+      "id": "u18-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m11-c06",
+       "m11-c07",
+       "m11-c08",
+       "m11-c09",
+       "m11-c10"
+      ]
+     },
+     {
+      "id": "u18-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m11-c01",
+       "m11-c02",
+       "m11-c03",
+       "m11-c04",
+       "m11-c05",
+       "m11-c06",
+       "m11-c07",
+       "m11-c08",
+       "m11-c09",
+       "m11-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u19",
+    "order": 19,
+    "title_pt": "Erros que brasileiros cometem",
+    "icon": "alert-circle",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m12-c01",
+      "en": "I agree with you.",
+      "pt": "Eu concordo com você. (não: 'I am agree')",
+      "example": "",
+      "alts": [
+       "I agree with you"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m12-c02",
+      "en": "I'm thirty-five years old.",
+      "pt": "Tenho 35 anos. (não: 'I have 35 years')",
+      "example": "",
+      "alts": [
+       "I am thirty five years old",
+       "I'm 35 years old",
+       "I'm thirty-five"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m12-c03",
+      "en": "We need to discuss the drawing.",
+      "pt": "Precisamos discutir o desenho. (sem 'about')",
+      "example": "",
+      "alts": [
+       "We need to discuss the drawing"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m12-c04",
+      "en": "Could you explain it to me?",
+      "pt": "Você pode me explicar? (não: 'explain me')",
+      "example": "",
+      "alts": [
+       "Can you explain it to me",
+       "Could you explain that to me?"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m12-c05",
+      "en": "Can I ask a question?",
+      "pt": "Posso fazer uma pergunta? (não: 'make a question')",
+      "example": "",
+      "alts": [
+       "May I ask a question",
+       "Can I ask you a question?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m12-c06",
+      "en": "I intend to visit the plant next week.",
+      "pt": "Pretendo visitar a planta semana que vem. ('pretend' = fingir!)",
+      "example": "",
+      "alts": [
+       "I plan to visit the plant next week",
+       "I'm planning to visit the plant next week"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m12-c07",
+      "en": "Currently, I work in the product team.",
+      "pt": "Atualmente, trabalho na equipe de produto. ('actually' = na verdade!)",
+      "example": "",
+      "alts": [
+       "Currently I work in the product team",
+       "At the moment, I work in the product team"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m12-c08",
+      "en": "I'll attend the meeting tomorrow.",
+      "pt": "Vou participar da reunião amanhã. ('assist' = ajudar)",
+      "example": "",
+      "alts": [
+       "I will attend the meeting tomorrow",
+       "I'll join the meeting tomorrow"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m12-c09",
+      "en": "I've been working here for five years.",
+      "pt": "Trabalho aqui há cinco anos. (não: 'I work here since…')",
+      "example": "",
+      "alts": [
+       "I have been working here for five years",
+       "I've worked here for five years",
+       "I've been working here for 5 years"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m12-c10",
+      "en": "It depends on the supplier.",
+      "pt": "Depende do fornecedor. ('depends ON', não 'of')",
+      "example": "",
+      "alts": [
+       "It depends on the vendor"
+      ],
+      "level": "B1",
+      "kind": "say"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u19-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m12-c01",
+       "m12-c02",
+       "m12-c03",
+       "m12-c04",
+       "m12-c05"
+      ]
+     },
+     {
+      "id": "u19-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m12-c06",
+       "m12-c07",
+       "m12-c08",
+       "m12-c09",
+       "m12-c10"
+      ]
+     },
+     {
+      "id": "u19-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m12-c01",
+       "m12-c02",
+       "m12-c03",
+       "m12-c04",
+       "m12-c05",
+       "m12-c06",
+       "m12-c07",
+       "m12-c08",
+       "m12-c09",
+       "m12-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u20",
+    "order": 20,
+    "title_pt": "Combinações naturais",
+    "icon": "link",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "v-make-a-decision",
+      "en": "make a decision",
+      "pt": "tomar uma decisão",
+      "example": "We need to make a decision by Friday.",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-meet-a-deadline",
+      "en": "meet a deadline",
+      "pt": "cumprir um prazo",
+      "example": "We worked overtime to meet the deadline.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-raise-an-issue",
+      "en": "raise an issue",
+      "pt": "levantar um problema/questão",
+      "example": "I'd like to raise an issue about the tolerances.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-take-responsibility-for",
+      "en": "take responsibility for",
+      "pt": "assumir a responsabilidade por",
+      "example": "I take full responsibility for the delay.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-run-a-test",
+      "en": "run a test",
+      "pt": "rodar/fazer um teste",
+      "example": "Let's run a test before we change the parameters.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-place-an-order",
+      "en": "place an order",
+      "pt": "fazer um pedido (compra)",
+      "example": "We placed an order for 500 bearings.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-reach-an-agreement",
+      "en": "reach an agreement",
+      "pt": "chegar a um acordo",
+      "example": "We finally reached an agreement on the price.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-make-progress",
+      "en": "make progress",
+      "pt": "progredir / avançar",
+      "example": "We're making good progress on the prototype.",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-take-notes",
+      "en": "take notes",
+      "pt": "fazer anotações",
+      "example": "Could someone take notes during the meeting?",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-give-feedback",
+      "en": "give feedback",
+      "pt": "dar feedback / retorno",
+      "example": "Can you give me some feedback on the presentation?",
+      "alts": [],
+      "level": "A2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u20-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-make-a-decision",
+       "v-meet-a-deadline",
+       "v-raise-an-issue",
+       "v-take-responsibility-for",
+       "v-run-a-test"
+      ]
+     },
+     {
+      "id": "u20-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-place-an-order",
+       "v-reach-an-agreement",
+       "v-make-progress",
+       "v-take-notes",
+       "v-give-feedback"
+      ]
+     },
+     {
+      "id": "u20-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-make-a-decision",
+       "v-meet-a-deadline",
+       "v-raise-an-issue",
+       "v-take-responsibility-for",
+       "v-run-a-test",
+       "v-place-an-order",
+       "v-reach-an-agreement",
+       "v-make-progress",
+       "v-take-notes",
+       "v-give-feedback"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u21",
+    "order": 21,
+    "title_pt": "Phrasal verbs 2",
+    "icon": "git-branch",
+    "levels": [
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "items": [
+     {
+      "id": "v-get-back-to",
+      "en": "get back to",
+      "pt": "retornar a (alguém)",
+      "example": "Let me get back to you on that.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-go-over",
+      "en": "go over",
+      "pt": "revisar / repassar",
+      "example": "Let's go over the drawing before we release it.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-point-out",
+      "en": "point out",
+      "pt": "apontar / destacar",
+      "example": "He pointed out a mistake in the BOM.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-break-down",
+      "en": "break down",
+      "pt": "quebrar (máquina) / detalhar",
+      "example": "The press broke down this morning.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-shut-down",
+      "en": "shut down",
+      "pt": "desligar / parar (equipamento)",
+      "example": "We had to shut down line 2 for maintenance.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-roll-out",
+      "en": "roll out",
+      "pt": "implantar / lançar gradualmente",
+      "example": "We'll roll out the new SAP module in March.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-take-over",
+      "en": "take over",
+      "pt": "assumir (responsabilidade)",
+      "example": "Who's going to take over the project while you're away?",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-fill-out",
+      "en": "fill out",
+      "pt": "preencher (formulário)",
+      "example": "Please fill out this form at the front desk.",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-check-in",
+      "en": "check in",
+      "pt": "fazer check-in",
+      "example": "I'd like to check in, please. I have a reservation.",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-pick-up",
+      "en": "pick up",
+      "pt": "buscar / pegar (alguém/algo)",
+      "example": "A driver will pick you up at the airport.",
+      "alts": [],
+      "level": "A2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u21-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-get-back-to",
+       "v-go-over",
+       "v-point-out",
+       "v-break-down",
+       "v-shut-down"
+      ]
+     },
+     {
+      "id": "u21-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-roll-out",
+       "v-take-over",
+       "v-fill-out",
+       "v-check-in",
+       "v-pick-up"
+      ]
+     },
+     {
+      "id": "u21-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-get-back-to",
+       "v-go-over",
+       "v-point-out",
+       "v-break-down",
+       "v-shut-down",
+       "v-roll-out",
+       "v-take-over",
+       "v-fill-out",
+       "v-check-in",
+       "v-pick-up"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u22",
+    "order": 22,
+    "title_pt": "Mais expressões indianas",
+    "icon": "earth",
+    "levels": [
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "items": [
+     {
+      "id": "v-i-have-a-doubt",
+      "en": "I have a doubt",
+      "pt": "tenho uma pergunta (na Índia 'doubt' = dúvida/pergunta; internacionalmente use 'question')",
+      "example": "Sir, I have a doubt about the tolerance.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-do-one-thing",
+      "en": "do one thing",
+      "pt": "faça o seguinte (introduz uma sugestão)",
+      "example": "Do one thing — send me the 3D model, I'll check it.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-intimate-someone",
+      "en": "intimate (someone)",
+      "pt": "informar/avisar alguém",
+      "example": "I will intimate you once the material is dispatched.",
+      "alts": [
+       "intimate"
+      ],
+      "level": "B2"
+     },
+     {
+      "id": "v-passed-out-of-college",
+      "en": "passed out (of college)",
+      "pt": "formou-se (concluiu a faculdade)",
+      "example": "I passed out from IIT Madras in 2015.",
+      "alts": [
+       "passed out"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-fresher",
+      "en": "fresher",
+      "pt": "recém-formado (primeiro emprego)",
+      "example": "We have hired three freshers for the design team.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-what-is-your-good-name",
+      "en": "What is your good name?",
+      "pt": "Qual é o seu nome? (forma polida)",
+      "example": "Sir, what is your good name?",
+      "alts": [
+       "What is your good name"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-veg-non-veg",
+      "en": "veg / non-veg",
+      "pt": "vegetariano / não vegetariano (pergunta comum em refeições)",
+      "example": "Are you veg or non-veg, sir?",
+      "alts": [
+       "veg",
+       "non-veg"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-a-little-spicy-only",
+      "en": "a little spicy only",
+      "pt": "só um pouco apimentado (cuidado: o 'pouco' pode ser bem picante)",
+      "example": "Don't worry, it's a little spicy only.",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-auto-rickshaw",
+      "en": "auto (rickshaw)",
+      "pt": "autorriquixá (táxi de três rodas)",
+      "example": "Let's take an auto to the metro station.",
+      "alts": [
+       "auto"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-cab",
+      "en": "cab",
+      "pt": "táxi / carro de aplicativo",
+      "example": "I'll book a cab for you to the airport.",
+      "alts": [],
+      "level": "A2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u22-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-i-have-a-doubt",
+       "v-do-one-thing",
+       "v-intimate-someone",
+       "v-passed-out-of-college",
+       "v-fresher"
+      ]
+     },
+     {
+      "id": "u22-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-what-is-your-good-name",
+       "v-veg-non-veg",
+       "v-a-little-spicy-only",
+       "v-auto-rickshaw",
+       "v-cab"
+      ]
+     },
+     {
+      "id": "u22-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-i-have-a-doubt",
+       "v-do-one-thing",
+       "v-intimate-someone",
+       "v-passed-out-of-college",
+       "v-fresher",
+       "v-what-is-your-good-name",
+       "v-veg-non-veg",
+       "v-a-little-spicy-only",
+       "v-auto-rickshaw",
+       "v-cab"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u23",
+    "order": 23,
+    "title_pt": "Vocabulário técnico 2",
+    "icon": "cog",
+    "levels": [
+     "B1",
+     "B2",
+     "C1"
+    ],
+    "items": [
+     {
+      "id": "v-mate-solidworks",
+      "en": "mate (SolidWorks)",
+      "pt": "relação de posicionamento em montagem",
+      "example": "Add a concentric mate between the shaft and the bearing.",
+      "alts": [
+       "mate"
+      ],
+      "level": "C1"
+     },
+     {
+      "id": "v-fillet-chamfer",
+      "en": "fillet / chamfer",
+      "pt": "arredondamento (raio) / chanfro",
+      "example": "Add a 2 mm fillet to remove the sharp edge.",
+      "alts": [
+       "fillet",
+       "chamfer"
+      ],
+      "level": "B2"
+     },
+     {
+      "id": "v-extrude",
+      "en": "extrude",
+      "pt": "extrudar (recurso CAD)",
+      "example": "Sketch the profile and extrude it 20 millimeters.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-sheet-metal",
+      "en": "sheet metal",
+      "pt": "chapa metálica",
+      "example": "The cover is made of 2 mm sheet metal.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-weld-welding",
+      "en": "weld / welding",
+      "pt": "solda / soldagem",
+      "example": "There's a crack in the weld.",
+      "alts": [
+       "weld",
+       "welding"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-torque",
+      "en": "torque",
+      "pt": "torque",
+      "example": "Tighten the bolts to 25 newton-meters of torque.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-shaft-bearing",
+      "en": "shaft / bearing",
+      "pt": "eixo / rolamento",
+      "example": "The bearing on the main shaft is worn out.",
+      "alts": [
+       "shaft",
+       "bearing"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-fastener-bolt-nut-washer-screw",
+      "en": "fastener (bolt, nut, washer, screw)",
+      "pt": "elemento de fixação (parafuso, porca, arruela)",
+      "example": "We standardized the fasteners to reduce part numbers.",
+      "alts": [
+       "fastener"
+      ],
+      "level": "B2"
+     },
+     {
+      "id": "v-specification-spec",
+      "en": "specification (spec)",
+      "pt": "especificação",
+      "example": "The motor doesn't meet the customer's spec.",
+      "alts": [
+       "specification"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-datasheet",
+      "en": "datasheet",
+      "pt": "folha de dados",
+      "example": "According to the datasheet, the max temperature is 85 °C.",
+      "alts": [],
+      "level": "B1"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u23-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-mate-solidworks",
+       "v-fillet-chamfer",
+       "v-extrude",
+       "v-sheet-metal",
+       "v-weld-welding"
+      ]
+     },
+     {
+      "id": "u23-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-torque",
+       "v-shaft-bearing",
+       "v-fastener-bolt-nut-washer-screw",
+       "v-specification-spec",
+       "v-datasheet"
+      ]
+     },
+     {
+      "id": "u23-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-mate-solidworks",
+       "v-fillet-chamfer",
+       "v-extrude",
+       "v-sheet-metal",
+       "v-weld-welding",
+       "v-torque",
+       "v-shaft-bearing",
+       "v-fastener-bolt-nut-washer-screw",
+       "v-specification-spec",
+       "v-datasheet"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u24",
+    "order": 24,
+    "title_pt": "Viagem 2",
+    "icon": "map",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "v-could-i-have-the-check-please",
+      "en": "Could I have the check, please?",
+      "pt": "A conta, por favor.",
+      "example": "Excuse me, could I have the check, please?",
+      "alts": [
+       "Could I have the check, please"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-split-the-bill",
+      "en": "split the bill",
+      "pt": "dividir a conta",
+      "example": "Shall we split the bill?",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-still-sparkling-water",
+      "en": "still / sparkling water",
+      "pt": "água sem gás / com gás",
+      "example": "Could I have a bottle of still water?",
+      "alts": [
+       "still",
+       "sparkling water"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-medium-rare-well-done",
+      "en": "medium rare / well done",
+      "pt": "ao ponto para malpassado / bem passado",
+      "example": "I'd like my steak medium rare, please.",
+      "alts": [
+       "medium rare",
+       "well done"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-could-you-take-me-to",
+      "en": "Could you take me to…?",
+      "pt": "Pode me levar para…? (táxi)",
+      "example": "Could you take me to the Hilton on Main Street?",
+      "alts": [
+       "Could you take me to"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-pick-up-point",
+      "en": "pick-up point",
+      "pt": "ponto de embarque (app/transfer)",
+      "example": "Where's the pick-up point for ride-shares?",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-delayed-canceled",
+      "en": "delayed / canceled",
+      "pt": "atrasado / cancelado",
+      "example": "Our flight is delayed by two hours.",
+      "alts": [
+       "delayed",
+       "canceled"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-lost-and-found",
+      "en": "lost and found",
+      "pt": "achados e perdidos",
+      "example": "I left my jacket on the plane. Where's lost and found?",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-receipt",
+      "en": "receipt",
+      "pt": "recibo / nota (pronúncia: ri-SIIT, sem 'p')",
+      "example": "Can I get a receipt for my expense report?",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-is-breakfast-included",
+      "en": "Is breakfast included?",
+      "pt": "O café da manhã está incluído?",
+      "example": "Is breakfast included in the rate?",
+      "alts": [
+       "Is breakfast included"
+      ],
+      "level": "A2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u24-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-could-i-have-the-check-please",
+       "v-split-the-bill",
+       "v-still-sparkling-water",
+       "v-medium-rare-well-done",
+       "v-could-you-take-me-to"
+      ]
+     },
+     {
+      "id": "u24-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-pick-up-point",
+       "v-delayed-canceled",
+       "v-lost-and-found",
+       "v-receipt",
+       "v-is-breakfast-included"
+      ]
+     },
+     {
+      "id": "u24-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-could-i-have-the-check-please",
+       "v-split-the-bill",
+       "v-still-sparkling-water",
+       "v-medium-rare-well-done",
+       "v-could-you-take-me-to",
+       "v-pick-up-point",
+       "v-delayed-canceled",
+       "v-lost-and-found",
+       "v-receipt",
+       "v-is-breakfast-included"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u25",
+    "order": 25,
+    "title_pt": "Imprevistos e palavras em hindi",
+    "icon": "medkit",
+    "levels": [
+     "A2",
+     "B1"
+    ],
+    "items": [
+     {
+      "id": "m13-c01",
+      "en": "Accha, theek hai.",
+      "pt": "Certo, tudo bem.",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m13-c02",
+      "en": "Haan ji, haan ji.",
+      "pt": "Sim, sim.",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m13-c03",
+      "en": "Chalo, let's go.",
+      "pt": "Vamos lá.",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m13-c04",
+      "en": "Namaste. Dhanyavaad.",
+      "pt": "Olá",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m13-c05",
+      "en": "Bas, bas. Enough.",
+      "pt": "Chega, chega. Já basta.",
+      "example": "",
+      "alts": [],
+      "level": "A2",
+      "kind": "hear"
+     },
+     {
+      "id": "m13-c06",
+      "en": "I'm not feeling well.",
+      "pt": "Não estou me sentindo bem.",
+      "example": "",
+      "alts": [
+       "I am not feeling well",
+       "I don't feel well"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m13-c07",
+      "en": "Where is the nearest pharmacy?",
+      "pt": "Onde fica a farmácia mais próxima?",
+      "example": "",
+      "alts": [
+       "Where's the nearest pharmacy",
+       "Where is the nearest chemist?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     },
+     {
+      "id": "m13-c08",
+      "en": "I have an upset stomach.",
+      "pt": "Estou com o estômago/intestino ruim.",
+      "example": "",
+      "alts": [
+       "I've got an upset stomach",
+       "My stomach is upset"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m13-c09",
+      "en": "I think I left my phone in the cab.",
+      "pt": "Acho que esqueci meu celular no táxi.",
+      "example": "",
+      "alts": [
+       "I think I left my phone in the taxi",
+       "I think I forgot my phone in the cab"
+      ],
+      "level": "B1",
+      "kind": "say"
+     },
+     {
+      "id": "m13-c10",
+      "en": "Please call a doctor.",
+      "pt": "Por favor, chame um médico.",
+      "example": "",
+      "alts": [
+       "Please call the doctor",
+       "Can you call a doctor, please?"
+      ],
+      "level": "A2",
+      "kind": "say"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u25-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "m13-c01",
+       "m13-c02",
+       "m13-c03",
+       "m13-c04",
+       "m13-c05"
+      ]
+     },
+     {
+      "id": "u25-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "m13-c06",
+       "m13-c07",
+       "m13-c08",
+       "m13-c09",
+       "m13-c10"
+      ]
+     },
+     {
+      "id": "u25-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "m13-c01",
+       "m13-c02",
+       "m13-c03",
+       "m13-c04",
+       "m13-c05",
+       "m13-c06",
+       "m13-c07",
+       "m13-c08",
+       "m13-c09",
+       "m13-c10"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u26",
+    "order": 26,
+    "title_pt": "Frases avançadas de conversa",
+    "icon": "sparkles",
+    "levels": [
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "items": [
+     {
+      "id": "v-sorry-to-interrupt-but",
+      "en": "Sorry to interrupt, but…",
+      "pt": "Desculpe interromper, mas…",
+      "example": "Sorry to interrupt, but we only have five minutes left.",
+      "alts": [
+       "Sorry to interrupt, but"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-can-i-add-something",
+      "en": "Can I add something?",
+      "pt": "Posso acrescentar algo?",
+      "example": "Can I add something? We had the same issue last year.",
+      "alts": [
+       "Can I add something"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-let-s-move-on-to",
+      "en": "Let's move on to…",
+      "pt": "Vamos passar para…",
+      "example": "Let's move on to the next item on the agenda.",
+      "alts": [
+       "Let's move on to"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-i-m-looking-forward-to",
+      "en": "I'm looking forward to…",
+      "pt": "Estou ansioso por… (positivo)",
+      "example": "I'm looking forward to meeting the team in person.",
+      "alts": [
+       "I'm looking forward to"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-i-m-afraid",
+      "en": "I'm afraid…",
+      "pt": "Receio que… (dar má notícia com polidez)",
+      "example": "I'm afraid we won't make it by Monday.",
+      "alts": [
+       "I'm afraid"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-on-the-other-hand",
+      "en": "On the other hand",
+      "pt": "Por outro lado",
+      "example": "It's cheaper. On the other hand, the quality is lower.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-would-it-be-possible-to",
+      "en": "Would it be possible to…?",
+      "pt": "Seria possível…? (pedido educado)",
+      "example": "Would it be possible to move the meeting to 3 p.m.?",
+      "alts": [
+       "Would it be possible to"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-no-worries",
+      "en": "No worries.",
+      "pt": "Sem problemas / tranquilo.",
+      "example": "No worries, I'll send it again.",
+      "alts": [
+       "No worries"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-i-ll-get-back-to-you",
+      "en": "I'll get back to you.",
+      "pt": "Eu te dou um retorno.",
+      "example": "I don't have the numbers now, but I'll get back to you today.",
+      "alts": [
+       "I'll get back to you"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-in-the-meantime",
+      "en": "In the meantime",
+      "pt": "Enquanto isso",
+      "example": "In the meantime, I'll update the drawing.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-i-d-rather",
+      "en": "I'd rather…",
+      "pt": "Eu prefiro…",
+      "example": "I'd rather discuss this in person.",
+      "alts": [
+       "I'd rather"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-i-m-used-to",
+      "en": "I'm used to…",
+      "pt": "Estou acostumado a…",
+      "example": "I'm used to working with tight deadlines.",
+      "alts": [
+       "I'm used to"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-here-s-the-thing",
+      "en": "Here's the thing:",
+      "pt": "A questão é a seguinte:",
+      "example": "Here's the thing: the old design can't handle the load.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-fair-enough",
+      "en": "Fair enough.",
+      "pt": "Justo / faz sentido.",
+      "example": "Fair enough. Let's wait for the test results.",
+      "alts": [
+       "Fair enough"
+      ],
+      "level": "B2"
+     },
+     {
+      "id": "v-long-story-short",
+      "en": "Long story short",
+      "pt": "Resumindo",
+      "example": "Long story short, the shipment is delayed two weeks.",
+      "alts": [],
+      "level": "B2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u26-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-sorry-to-interrupt-but",
+       "v-can-i-add-something",
+       "v-let-s-move-on-to",
+       "v-i-m-looking-forward-to",
+       "v-i-m-afraid"
+      ]
+     },
+     {
+      "id": "u26-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-on-the-other-hand",
+       "v-would-it-be-possible-to",
+       "v-no-worries",
+       "v-i-ll-get-back-to-you",
+       "v-in-the-meantime"
+      ]
+     },
+     {
+      "id": "u26-l3",
+      "kind": "learn",
+      "title_pt": "Lição 3",
+      "item_ids": [
+       "v-i-d-rather",
+       "v-i-m-used-to",
+       "v-here-s-the-thing",
+       "v-fair-enough",
+       "v-long-story-short"
+      ]
+     },
+     {
+      "id": "u26-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-sorry-to-interrupt-but",
+       "v-can-i-add-something",
+       "v-let-s-move-on-to",
+       "v-i-m-looking-forward-to",
+       "v-i-m-afraid",
+       "v-on-the-other-hand",
+       "v-would-it-be-possible-to",
+       "v-no-worries",
+       "v-i-ll-get-back-to-you",
+       "v-in-the-meantime",
+       "v-i-d-rather",
+       "v-i-m-used-to",
+       "v-here-s-the-thing",
+       "v-fair-enough",
+       "v-long-story-short"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u27",
+    "order": 27,
+    "title_pt": "Expressões idiomáticas",
+    "icon": "bulb",
+    "levels": [
+     "B1",
+     "B2",
+     "C1"
+    ],
+    "items": [
+     {
+      "id": "v-on-the-same-page",
+      "en": "on the same page",
+      "pt": "alinhados / com o mesmo entendimento",
+      "example": "Let's make sure we're all on the same page.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-ballpark-figure",
+      "en": "ballpark figure",
+      "pt": "estimativa aproximada",
+      "example": "Can you give me a ballpark figure for the tooling cost?",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-touch-base",
+      "en": "touch base",
+      "pt": "conversar rapidamente / fazer contato",
+      "example": "Let's touch base next week.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-back-to-square-one",
+      "en": "back to square one",
+      "pt": "voltar à estaca zero",
+      "example": "The test failed, so we're back to square one.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-get-the-ball-rolling",
+      "en": "get the ball rolling",
+      "pt": "dar o pontapé inicial",
+      "example": "Let's get the ball rolling with a kick-off meeting.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-the-bottom-line",
+      "en": "the bottom line",
+      "pt": "o essencial / resultado final",
+      "example": "The bottom line is we need two more weeks.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-a-piece-of-cake",
+      "en": "a piece of cake",
+      "pt": "moleza / muito fácil",
+      "example": "The installation was a piece of cake.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-hit-the-ground-running",
+      "en": "hit the ground running",
+      "pt": "começar já produzindo",
+      "example": "The new engineer hit the ground running.",
+      "alts": [],
+      "level": "C1"
+     },
+     {
+      "id": "v-cut-corners",
+      "en": "cut corners",
+      "pt": "fazer de qualquer jeito (economizar onde não deve)",
+      "example": "We can't cut corners on safety.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-keep-someone-in-the-loop",
+      "en": "keep someone in the loop",
+      "pt": "manter alguém informado",
+      "example": "Please keep me in the loop.",
+      "alts": [],
+      "level": "B2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u27-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-on-the-same-page",
+       "v-ballpark-figure",
+       "v-touch-base",
+       "v-back-to-square-one",
+       "v-get-the-ball-rolling"
+      ]
+     },
+     {
+      "id": "u27-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-the-bottom-line",
+       "v-a-piece-of-cake",
+       "v-hit-the-ground-running",
+       "v-cut-corners",
+       "v-keep-someone-in-the-loop"
+      ]
+     },
+     {
+      "id": "u27-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-on-the-same-page",
+       "v-ballpark-figure",
+       "v-touch-base",
+       "v-back-to-square-one",
+       "v-get-the-ball-rolling",
+       "v-the-bottom-line",
+       "v-a-piece-of-cake",
+       "v-hit-the-ground-running",
+       "v-cut-corners",
+       "v-keep-someone-in-the-loop"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u28",
+    "order": 28,
+    "title_pt": "Inglês corporativo 2",
+    "icon": "briefcase",
+    "levels": [
+     "B1",
+     "B2"
+    ],
+    "items": [
+     {
+      "id": "v-sign-off",
+      "en": "sign-off",
+      "pt": "aprovação formal",
+      "example": "We need the customer's sign-off before production.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-kick-off-meeting",
+      "en": "kick-off meeting",
+      "pt": "reunião de abertura do projeto",
+      "example": "The kick-off meeting is on Monday.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-root-cause",
+      "en": "root cause",
+      "pt": "causa raiz",
+      "example": "We still haven't found the root cause.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-escalate",
+      "en": "escalate",
+      "pt": "escalar (levar a um nível superior)",
+      "example": "If it's not fixed today, we'll escalate it to management.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-status-update",
+      "en": "status update",
+      "pt": "atualização de status",
+      "example": "Can you give us a quick status update?",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-roadmap",
+      "en": "roadmap",
+      "pt": "planejamento (roteiro)",
+      "example": "Standardization is on the roadmap for next year.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-budget",
+      "en": "budget",
+      "pt": "orçamento",
+      "example": "We're 10% over budget.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-head-office",
+      "en": "head office",
+      "pt": "matriz / sede",
+      "example": "The head office is in Munich.",
+      "alts": [],
+      "level": "B1"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u28-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-sign-off",
+       "v-kick-off-meeting",
+       "v-root-cause",
+       "v-escalate",
+       "v-status-update"
+      ]
+     },
+     {
+      "id": "u28-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-roadmap",
+       "v-budget",
+       "v-head-office"
+      ]
+     },
+     {
+      "id": "u28-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-sign-off",
+       "v-kick-off-meeting",
+       "v-root-cause",
+       "v-escalate",
+       "v-status-update",
+       "v-roadmap",
+       "v-budget",
+       "v-head-office"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u29",
+    "order": 29,
+    "title_pt": "Phrasal verbs 3",
+    "icon": "git-branch",
+    "levels": [
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "items": [
+     {
+      "id": "v-drop-off",
+      "en": "drop off",
+      "pt": "deixar (alguém/algo em um lugar)",
+      "example": "Can you drop me off at the main entrance?",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-hold-on",
+      "en": "hold on",
+      "pt": "aguardar / esperar um momento",
+      "example": "Hold on, let me check the system.",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-catch-up",
+      "en": "catch up",
+      "pt": "pôr a conversa em dia / alcançar",
+      "example": "Let's catch up after the meeting.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-back-up",
+      "en": "back up",
+      "pt": "fazer backup / apoiar",
+      "example": "Make sure you back up the CAD files before updating.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-narrow-down",
+      "en": "narrow down",
+      "pt": "restringir / afunilar opções",
+      "example": "We narrowed down the root cause to the power supply.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-run-out-of",
+      "en": "run out of",
+      "pt": "ficar sem / acabar",
+      "example": "We're running out of time.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-work-out",
+      "en": "work out",
+      "pt": "dar certo / calcular / resolver",
+      "example": "Let's see if the new layout works out.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-lay-out",
+      "en": "lay out",
+      "pt": "expor / organizar (plano, ideias)",
+      "example": "Let me lay out the plan for the next three months.",
+      "alts": [],
+      "level": "B2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u29-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-drop-off",
+       "v-hold-on",
+       "v-catch-up",
+       "v-back-up",
+       "v-narrow-down"
+      ]
+     },
+     {
+      "id": "u29-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-run-out-of",
+       "v-work-out",
+       "v-lay-out"
+      ]
+     },
+     {
+      "id": "u29-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-drop-off",
+       "v-hold-on",
+       "v-catch-up",
+       "v-back-up",
+       "v-narrow-down",
+       "v-run-out-of",
+       "v-work-out",
+       "v-lay-out"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u30",
+    "order": 30,
+    "title_pt": "Expressões indianas 3",
+    "icon": "earth",
+    "levels": [
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "items": [
+     {
+      "id": "v-signal",
+      "en": "signal",
+      "pt": "semáforo (traffic light)",
+      "example": "Take a left after the second signal.",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-flyover",
+      "en": "flyover",
+      "pt": "viaduto (overpass)",
+      "example": "The office is just after the flyover.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-chai",
+      "en": "chai",
+      "pt": "chá com leite e especiarias (pausa social importante)",
+      "example": "Let's have chai and then discuss.",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-on-leave",
+      "en": "on leave",
+      "pt": "de folga / de licença",
+      "example": "Priya is on leave today; she'll revert tomorrow.",
+      "alts": [],
+      "level": "A2"
+     },
+     {
+      "id": "v-please-adjust",
+      "en": "Please adjust",
+      "pt": "por favor, tenha paciência / acomode-se (pedido de flexibilidade)",
+      "example": "The room is small, please adjust.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-where-do-you-stay",
+      "en": "Where do you stay?",
+      "pt": "Onde você mora? (stay = morar)",
+      "example": "Where do you stay in Brazil — São Paulo?",
+      "alts": [
+       "Where do you stay"
+      ],
+      "level": "A2"
+     },
+     {
+      "id": "v-timepass",
+      "en": "timepass",
+      "pt": "passatempo, algo para passar o tempo",
+      "example": "Cricket on TV is good timepass.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-don-t-take-tension",
+      "en": "Don't take tension",
+      "pt": "Não se preocupe",
+      "example": "Don't take tension, sir, we'll manage the deadline.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-updation",
+      "en": "updation",
+      "pt": "atualização (= update)",
+      "example": "The updation of the drawings is pending.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-it-may-be-a-little-difficult",
+      "en": "It may be a little difficult",
+      "pt": "frequentemente significa 'não' de forma educada — confirme!",
+      "example": "Friday delivery? It may be a little difficult, sir.",
+      "alts": [],
+      "level": "B2"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u30-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-signal",
+       "v-flyover",
+       "v-chai",
+       "v-on-leave",
+       "v-please-adjust"
+      ]
+     },
+     {
+      "id": "u30-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-where-do-you-stay",
+       "v-timepass",
+       "v-don-t-take-tension",
+       "v-updation",
+       "v-it-may-be-a-little-difficult"
+      ]
+     },
+     {
+      "id": "u30-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-signal",
+       "v-flyover",
+       "v-chai",
+       "v-on-leave",
+       "v-please-adjust",
+       "v-where-do-you-stay",
+       "v-timepass",
+       "v-don-t-take-tension",
+       "v-updation",
+       "v-it-may-be-a-little-difficult"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u31",
+    "order": 31,
+    "title_pt": "Vocabulário técnico 3",
+    "icon": "cog",
+    "levels": [
+     "B1",
+     "B2",
+     "C1"
+    ],
+    "items": [
+     {
+      "id": "v-wiring-diagram",
+      "en": "wiring diagram",
+      "pt": "diagrama elétrico / esquema de fiação",
+      "example": "Check the wiring diagram before you connect the sensor.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-plc-programmable-logic-controller",
+      "en": "PLC (programmable logic controller)",
+      "pt": "CLP (controlador lógico programável)",
+      "example": "The PLC stops the conveyor when the sensor is blocked.",
+      "alts": [
+       "PLC"
+      ],
+      "level": "B2"
+     },
+     {
+      "id": "v-sensor-actuator",
+      "en": "sensor / actuator",
+      "pt": "sensor / atuador",
+      "example": "The actuator doesn't respond when the sensor is triggered.",
+      "alts": [
+       "sensor",
+       "actuator"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-troubleshooting",
+      "en": "troubleshooting",
+      "pt": "diagnóstico e solução de falhas",
+      "example": "We spent the morning troubleshooting the hydraulic unit.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-downtime",
+      "en": "downtime",
+      "pt": "tempo de máquina parada",
+      "example": "Unplanned downtime cost us two days of production.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-preventive-maintenance",
+      "en": "preventive maintenance",
+      "pt": "manutenção preventiva",
+      "example": "Preventive maintenance is scheduled every 500 hours.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-nonconformance",
+      "en": "nonconformance",
+      "pt": "não conformidade",
+      "example": "Quality opened a nonconformance report for the batch.",
+      "alts": [],
+      "level": "C1"
+     },
+     {
+      "id": "v-material-master-sap",
+      "en": "material master (SAP)",
+      "pt": "cadastro de material (SAP)",
+      "example": "The part doesn't have a material master in SAP yet.",
+      "alts": [
+       "material master"
+      ],
+      "level": "C1"
+     },
+     {
+      "id": "v-purchase-order-po",
+      "en": "purchase order (PO)",
+      "pt": "pedido de compra",
+      "example": "Purchasing will issue the PO today.",
+      "alts": [
+       "purchase order"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-work-order",
+      "en": "work order",
+      "pt": "ordem de serviço/produção",
+      "example": "Create a work order for the repair.",
+      "alts": [],
+      "level": "B1"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u31-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-wiring-diagram",
+       "v-plc-programmable-logic-controller",
+       "v-sensor-actuator",
+       "v-troubleshooting",
+       "v-downtime"
+      ]
+     },
+     {
+      "id": "u31-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-preventive-maintenance",
+       "v-nonconformance",
+       "v-material-master-sap",
+       "v-purchase-order-po",
+       "v-work-order"
+      ]
+     },
+     {
+      "id": "u31-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-wiring-diagram",
+       "v-plc-programmable-logic-controller",
+       "v-sensor-actuator",
+       "v-troubleshooting",
+       "v-downtime",
+       "v-preventive-maintenance",
+       "v-nonconformance",
+       "v-material-master-sap",
+       "v-purchase-order-po",
+       "v-work-order"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "u32",
+    "order": 32,
+    "title_pt": "Vocabulário técnico 4",
+    "icon": "cog",
+    "levels": [
+     "B1",
+     "B2",
+     "C1"
+    ],
+    "items": [
+     {
+      "id": "v-standardization",
+      "en": "standardization",
+      "pt": "padronização",
+      "example": "Product standardization will cut the number of variants by 30%.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-prototype",
+      "en": "prototype",
+      "pt": "protótipo",
+      "example": "The first prototype will be ready in May.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-manufacturing-process",
+      "en": "manufacturing process",
+      "pt": "processo de fabricação",
+      "example": "Machining is the most expensive step of the manufacturing process.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-tolerance-stack-up",
+      "en": "tolerance stack-up",
+      "pt": "acúmulo de tolerâncias",
+      "example": "A tolerance stack-up analysis showed interference.",
+      "alts": [],
+      "level": "C1"
+     },
+     {
+      "id": "v-finite-element-analysis-fea",
+      "en": "finite element analysis (FEA)",
+      "pt": "análise por elementos finitos",
+      "example": "FEA shows the stress is below the yield strength.",
+      "alts": [
+       "finite element analysis"
+      ],
+      "level": "C1"
+     },
+     {
+      "id": "v-deploy-deployment",
+      "en": "deploy / deployment",
+      "pt": "implantar / implantação (software)",
+      "example": "We'll deploy the fix tonight.",
+      "alts": [
+       "deploy",
+       "deployment"
+      ],
+      "level": "B2"
+     },
+     {
+      "id": "v-bug-fix",
+      "en": "bug / fix",
+      "pt": "defeito (software) / correção",
+      "example": "We found a bug in the export function. The fix is ready.",
+      "alts": [
+       "bug",
+       "fix"
+      ],
+      "level": "B1"
+     },
+     {
+      "id": "v-code-review-pull-request",
+      "en": "code review / pull request",
+      "pt": "revisão de código / solicitação de merge",
+      "example": "Can you review my pull request?",
+      "alts": [
+       "code review",
+       "pull request"
+      ],
+      "level": "B2"
+     },
+     {
+      "id": "v-rollback",
+      "en": "rollback",
+      "pt": "reverter (versão)",
+      "example": "If the release fails, we'll roll back.",
+      "alts": [],
+      "level": "B2"
+     },
+     {
+      "id": "v-requirement",
+      "en": "requirement",
+      "pt": "requisito",
+      "example": "This feature isn't in the requirements.",
+      "alts": [],
+      "level": "B1"
+     },
+     {
+      "id": "v-lead-engineer",
+      "en": "lead engineer",
+      "pt": "engenheiro responsável/líder",
+      "example": "I'm the lead engineer for the gearbox project.",
+      "alts": [],
+      "level": "B1"
+     }
+    ],
+    "lessons": [
+     {
+      "id": "u32-l1",
+      "kind": "learn",
+      "title_pt": "Lição 1",
+      "item_ids": [
+       "v-standardization",
+       "v-prototype",
+       "v-manufacturing-process",
+       "v-tolerance-stack-up",
+       "v-finite-element-analysis-fea"
+      ]
+     },
+     {
+      "id": "u32-l2",
+      "kind": "learn",
+      "title_pt": "Lição 2",
+      "item_ids": [
+       "v-deploy-deployment",
+       "v-bug-fix",
+       "v-code-review-pull-request",
+       "v-rollback",
+       "v-requirement",
+       "v-lead-engineer"
+      ]
+     },
+     {
+      "id": "u32-r",
+      "kind": "review",
+      "title_pt": "Revisão da unidade",
+      "item_ids": [
+       "v-standardization",
+       "v-prototype",
+       "v-manufacturing-process",
+       "v-tolerance-stack-up",
+       "v-finite-element-analysis-fea",
+       "v-deploy-deployment",
+       "v-bug-fix",
+       "v-code-review-pull-request",
+       "v-rollback",
+       "v-requirement",
+       "v-lead-engineer"
+      ]
+     }
+    ]
+   }
+  ],
+  "lesson_size": 5,
+  "xp_base": 10,
+  "xp_perfect_bonus": 5,
+  "daily_goal_options": [
+   20,
+   30,
+   50
+  ]
+ },
  "planner": {
   "activity_info": {
    "vocab_review": {

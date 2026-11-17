@@ -50,7 +50,7 @@ export function overview(db: DB) {
 }
 
 /** Reaproveita o cartão se a frase já existir (conteúdo base ou pessoal); senão cria um item pessoal. */
-function cardFor(db: DB, chunk: Row): [Row, boolean] {
+export function cardForPhrase(db: DB, chunk: Row): [Row, boolean] {
   const term = chunk.en.toLowerCase();
   const existing = Object.values(db.cards).find((c) => c.language === LANGUAGE && itemById(db, c.item_id)?.term.toLowerCase() === term);
   if (existing) return [existing, false];
@@ -69,7 +69,7 @@ export function completeMission(db: DB, mission: Row, body: Row) {
   for (const r of results) {
     const chunk = chunks[r.chunk_id];
     if (!chunk) continue;
-    const [card, created] = cardFor(db, chunk);
+    const [card, created] = cardForPhrase(db, chunk);
     added += Number(created);
     reviewCard(db, card, r.rating, null, "mission");
     reviewed += 1;

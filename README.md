@@ -24,6 +24,19 @@ O app é um **PWA**: publique no GitHub Pages (grátis), abra o link no Safari e
 aparelho — sem App Store, sem conta de desenvolvedor e sem servidor. Passo a passo em
 **[docs/08-instalar-no-iphone.md](docs/08-instalar-no-iphone.md)**.
 
+## 🎯 Trilha — lições curtas para aprender e fixar
+
+Aba com caminho de **97 lições de ~3 min** (32 unidades, 322 frases e palavras): escolher significado, montar frases com
+blocos, ouvir e montar, completar, juntar pares e falar/digitar. XP, meta diária, sequência de dias e combo; os erros
+voltam no fim da lição e tudo vai para a revisão espaçada. Detalhes em **[docs/10-trilha.md](docs/10-trilha.md)**.
+
+<p>
+  <img src="docs/screenshots/16-trilha.jpg" width="190" alt="Caminho de lições">
+  <img src="docs/screenshots/18-trilha-montar.jpg" width="190" alt="Ouvir e montar a frase">
+  <img src="docs/screenshots/17-trilha-pares.jpg" width="190" alt="Juntar pares">
+  <img src="docs/screenshots/20-trilha-resultado.jpg" width="190" alt="Resultado com XP">
+</p>
+
 ## 🇮🇳 Missão Índia — falar e entender indianos rápido
 
 13 missões de ~12 minutos (130 frases) com voz em inglês indiano: **Ouvir → Falar → Entender → Conversar**, e cada frase
@@ -49,6 +62,7 @@ em cartões. Detalhes em **[docs/09-missao-india.md](docs/09-missao-india.md)**.
 | **Tutor** | IA generativa com o servidor configurado; no modo local, roteiros + correção por regras (sinalizado no app). Conversa por voz ou texto; modos natural (sem interrupções), correção imediata, *No Portuguese*, Quick Response, simulações e *Conversation Challenge* (3–30 min); relatório com erros, frases corrigidas, expressões mais naturais, vocabulário, recomendações e exercícios; memória entre sessões |
 | **Destravar a Fala** | Quick Response com janela adaptativa, Think in English, construção de frases progressiva |
 | **Plano de 90 dias** | 3 fases com metas mensuráveis, avaliações a cada 15 dias, motor adaptativo explicável, data e destino da viagem |
+| **Trilha** | 97 lições curtas gamificadas (XP, meta diária, sequência, combo) com 7 tipos de exercício; erros voltam no fim; itens vão para o FSRS |
 | **Missão Índia** | 13 missões curtas (130 frases) em sequência: ouvir com voz indiana, falar do português para o inglês, entender e conversar; frases vão para o FSRS; entram no plano diário quando o destino é Índia; importação das suas próprias frases |
 | **Índia** | 6 diálogos com falantes indianos, 5 simulações (Bengaluru/Pune), tutor com inglês indiano, 30 expressões (do the needful, revert, prepone…), treino de valores em lakh/crore, guia de pronúncia e comunicação no trabalho |
 | **Memória** | FSRS-5 (verificado contra a implementação de referência) com recuperação ativa; seus erros viram cartões |
@@ -94,9 +108,10 @@ com sotaque (inclusive en-IN), configure os provedores — veja [docs/05-provedo
 7. [Testes e qualidade](docs/07-testes-e-qualidade.md)
 8. [Instalar no iPhone sem custo](docs/08-instalar-no-iphone.md) — PWA no GitHub Pages, modo local, limites
 9. [Missão Índia](docs/09-missao-india.md) — trilha rápida de frases para falar e entender indianos
+10. [Trilha](docs/10-trilha.md) — lições curtas gamificadas para aprender e fixar
 
 ## Qualidade
-- Backend: 116 testes (SQLite) + suíte de API contra PostgreSQL, migrações verificadas, lint.
+- Backend: 120 testes (SQLite) + suíte de API contra PostgreSQL, migrações verificadas, lint.
 - App: typecheck, testes de lógica e de paridade com o backend (FSRS, analisador de erros, plano, avaliação, shadowing),
   build web e PWA; fluxo ponta a ponta (boas-vindas → plano → tutor → relatório → revisão → offline) verificado com
   Playwright em viewport de iPhone.
