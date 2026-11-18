@@ -262,7 +262,7 @@ async def error_attempt(error_id: uuid.UUID, body: RewriteIn, user: CurrentUser,
 # ------------------------------- Atividades & dashboard -------------------------------
 class ActivityIn(BaseModel):
     language: str = "en"
-    activity_type: str = Field(pattern="^(vocab_review|listening|shadowing|quick_response|sentence_building|think_in_english|conversation|scenario|error_review|assessment|reading|india_mission|lesson|other)$")
+    activity_type: str = Field(pattern="^(vocab_review|listening|shadowing|quick_response|sentence_building|think_in_english|conversation|scenario|error_review|assessment|reading|india_mission|lesson|turbo|other)$")
     duration_seconds: int = Field(ge=0, le=14_400)
     score: float | None = Field(default=None, ge=0, le=1)
     details: dict = Field(default_factory=dict)

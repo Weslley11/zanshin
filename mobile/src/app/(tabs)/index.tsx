@@ -67,7 +67,7 @@ export default function Home() {
   const india = profile?.trip_destination === "IN";
   const done = today?.activities.filter((a) => a.done).length ?? 0;
   const next = today?.activities.find((a) => !a.done);
-  const modules = MODULES.filter((m) => (language === "en" || !m.enOnly) && m.id !== "documents" && m.id !== "missions").slice(0, 6);
+  const modules = MODULES.filter((m) => (language === "en" || !m.enOnly) && !["documents", "missions", "turbo"].includes(m.id)).slice(0, 6);
 
   return (
     <Screen scrollY={scrollY}>
@@ -130,6 +130,19 @@ export default function Home() {
           {missions ? <ProgressBar value={missions.completed / missions.total} gradient="india" /> : null}
         </Card>
       ) : null}
+
+      <Card index={2} onPress={() => router.push("/turbo")} style={{ flexDirection: "row", alignItems: "center", gap: 12, padding: 14 }}
+        accessibilityLabel="Turbo de hoje">
+        <Gradient name="unlock" style={{ width: 52, height: 52, borderRadius: 16, alignItems: "center", justifyContent: "center" }}>
+          <Icon name="rocket" size={26} color="#fff" />
+        </Gradient>
+        <View style={{ flex: 1 }}>
+          <Text variant="label" color={c.primary}>Turbo de hoje · 15 min</Text>
+          <Text weight="800">Lembrar, imitar e falar sem medo</Text>
+          <Text variant="small" muted>Os métodos mais eficazes numa sessão só.</Text>
+        </View>
+        <Icon name="play-circle" size={34} color={c.primary} />
+      </Card>
 
       <InstallHint />
       <ErrorText error={error} />

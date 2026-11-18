@@ -8,6 +8,7 @@ export type Module = {
 
 /** Módulos do app (cada um com identidade visual própria). */
 export const MODULES: Module[] = [
+  { id: "turbo", title: "Turbo: falar sem medo", subtitle: "15 min/dia com os métodos mais eficazes", icon: "rocket", gradient: "unlock", href: "/turbo" },
   { id: "missions", title: "Missão Índia", subtitle: "Frases para falar e entender indianos", icon: "flag", gradient: "india", href: "/missao", enOnly: true },
   { id: "tutor", title: "Conversa com o tutor", subtitle: "Fale sem medo: correções só no final", icon: "chatbubbles", gradient: "tutor", href: { pathname: "/tutor/new", params: { mode: "natural" } } },
   { id: "unlock", title: "Destravar a Fala", subtitle: "Respostas rápidas sem traduzir", icon: "flash", gradient: "unlock", href: "/unlock" },
