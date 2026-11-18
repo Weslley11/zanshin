@@ -4,7 +4,9 @@ import { Platform, Switch } from "react-native";
 import { Button, Card, Chip, Divider, ErrorText, Row, Screen, Segmented, Stack, Text } from "../../components/ui";
 import { AUDIO_TIPS, soundTest } from "../../components/AudioHelp";
 import { ThemePicker } from "../../components/ThemePicker";
-import { speak } from "../../lib/speech";
+import { getVoicePref, setVoicePref, speak, type VoicePref } from "../../lib/speech";
+import { setItem } from "../../lib/storage";
+import { recordedCount } from "../../lib/webAudio";
 import { englishVoices } from "../../lib/webSpeech";
 import { api, LOCAL_MODE } from "../../lib/api";
 import { useApp } from "../../lib/app";
@@ -18,6 +20,7 @@ export default function Profile() {
   const { c } = useTheme();
   const [usage, setUsage] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+  const [voice, setVoice] = useState<VoicePref>(getVoicePref());
 
   useFocusEffect(useCallback(() => { api("/me/usage").then(setUsage).catch(() => {}); }, []));
 
@@ -49,6 +52,17 @@ export default function Profile() {
 
       <Card style={{ gap: 8 }}>
         <Text variant="label" muted>Som e voz</Text>
+        {Platform.OS === "web" ? (
+          <>
+            <Segmented<VoicePref> value={voice} onChange={(v) => { setVoice(v); setVoicePref(v); setItem("fluent.voicePref", v); }}
+              options={[{ value: "recorded", label: "Voz gravada" }, { value: "device", label: "Voz do aparelho" }]} />
+            <Text variant="tiny" muted>
+              {voice === "recorded"
+                ? `Voz gravada: arquivos de áudio (${recordedCount()} frases) — funciona no iPhone mesmo no modo silencioso. Frases sem gravação usam a voz do aparelho.`
+                : "Voz do aparelho: permite sotaques (ex.: Índia), mas no iPhone pode não tocar no modo silencioso."}
+            </Text>
+          </>
+        ) : null}
         <Button title="Testar som" icon="volume-high" variant="secondary" onPress={soundTest} />
         <Button title="Testar sotaque indiano" icon="earth" variant="ghost" size="sm"
           onPress={() => speak("Kindly revert by end of day. We will do the needful.", { language: "en", accent: "IN", rate: 0.95 })} />
@@ -94,6 +108,7 @@ export default function Profile() {
         <Button title="Seu progresso" icon="stats-chart" variant="secondary" onPress={() => router.push("/progress")} />
         <Button title="Jornada de 90 dias" icon="map" variant="secondary" onPress={() => router.push("/plan")} />
         <ErrorText error={error} />
+        <Text variant="tiny" muted center>Versão do app: {(process.env.EXPO_PUBLIC_APP_VERSION ?? "dev").slice(0, 7)}</Text>
         {!LOCAL_MODE ? <Button title="Sair" variant="ghost" icon="log-out" onPress={async () => { await signOut(); router.replace("/"); }} /> : null}
       </Stack>
     </Screen>

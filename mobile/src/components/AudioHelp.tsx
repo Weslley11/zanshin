@@ -15,7 +15,8 @@ export const AUDIO_TIPS = [
 ];
 
 export function soundTest() {
-  speak("Hello! This is a sound test. Can you hear me?", { language: "en", accent: "US", rate: 0.95 });
+  // frase que tem gravação (Missão 2): testa o caminho mais confiável primeiro
+  speak("Sorry, could you say that again a bit more slowly?", { language: "en", accent: "US", rate: 0.95 });
 }
 
 /** Aparece quando a voz do aparelho não começa a falar (provável modo silencioso ou volume zero). */

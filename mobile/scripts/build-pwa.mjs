@@ -130,7 +130,16 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Arquivos estáticos (nomes com hash): cache primeiro.
+  // Índice dos áudios gravados: rede primeiro (muda a cada publicação)
+  if (url.pathname.endsWith("/audio/index.json")) {
+    event.respondWith(fetch(req).then((res) => {
+      if (res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); }
+      return res;
+    }).catch(() => caches.match(req)));
+    return;
+  }
+
+  // Arquivos estáticos (nomes com hash) e áudios: cache primeiro (áudios entram no cache ao tocar).
   event.respondWith(
     caches.match(req).then((hit) => hit || fetch(req).then((res) => {
       if (res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); }
