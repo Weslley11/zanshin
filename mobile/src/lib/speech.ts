@@ -1,6 +1,8 @@
 import * as Speech from "expo-speech";
 import { createAudioPlayer, type AudioPlayer } from "expo-audio";
+import { Platform } from "react-native";
 import { API_URL, authHeader } from "./api";
+import { webSpeak, webStop } from "./webSpeech";
 
 /** Locales por idioma/sotaque para a voz do dispositivo (gratuita, funciona offline se a voz estiver instalada). */
 export const ACCENT_LOCALES: Record<string, Record<string, string>> = {
@@ -38,7 +40,8 @@ export function speedToRate(speed: "slow" | "normal" | "fast" | number): number 
 
 export async function stopSpeaking() {
   activeId++;
-  await Speech.stop();
+  if (Platform.OS === "web") webStop();
+  else await Speech.stop();
   try {
     player?.pause();
   } catch {
@@ -81,8 +84,13 @@ export function speak(
     player.play();
     return;
   }
-  Speech.stop();
   activeId = myId;
+  if (Platform.OS === "web") {
+    // implementação própria para o Safari do iPhone (ver lib/webSpeech.ts)
+    webSpeak(clean, localeFor(language, accent), rate, onDone);
+    return;
+  }
+  Speech.stop();
   Speech.speak(clean, { language: localeFor(language, accent), rate, onDone, onStopped: onDone, onError: () => onDone?.() });
 }
 
