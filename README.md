@@ -24,6 +24,19 @@ O app é um **PWA**: publique no GitHub Pages (grátis), abra o link no Safari e
 aparelho — sem App Store, sem conta de desenvolvedor e sem servidor. Passo a passo em
 **[docs/08-instalar-no-iphone.md](docs/08-instalar-no-iphone.md)**.
 
+## ✨ Visual: temas, motion e animações do After Effects
+
+5 temas (Aurora, Oceano, Pôr do sol, Floresta, Clássico) no claro e no escuro; fundo com luzes em movimento, barra de abas
+com pílula animada, parallax, transições com mola e o mascote **Fluo** em animações Lottie (formato do After Effects).
+Detalhes em **[docs/11-tema-e-animacoes.md](docs/11-tema-e-animacoes.md)**.
+
+<p>
+  <img src="docs/screenshots/24-mascote-escuro.jpg" width="190" alt="Mascote Fluo">
+  <img src="docs/screenshots/22-trilha-escuro.jpg" width="190" alt="Trilha no escuro">
+  <img src="docs/screenshots/21-temas.jpg" width="190" alt="Seletor de temas">
+  <img src="docs/screenshots/23-tema-por-do-sol.jpg" width="190" alt="Tema Pôr do sol">
+</p>
+
 ## 🎯 Trilha — lições curtas para aprender e fixar
 
 Aba com caminho de **97 lições de ~3 min** (32 unidades, 322 frases e palavras): escolher significado, montar frases com
@@ -69,7 +82,7 @@ em cartões. Detalhes em **[docs/09-missao-india.md](docs/09-missao-india.md)**.
 | **Ouvir e pronunciar** | Listening com 4 sotaques e velocidade ajustável; shadowing com feedback de inteligibilidade, ritmo e pausas (inconclusivo quando o áudio não permite avaliar) |
 | **Engenharia** | Vocabulário e cenários de BOM, desenhos técnicos, tolerâncias, SolidWorks, SAP, troubleshooting, fornecedores; documentos próprios → exercícios, com bloqueio de material confidencial e redação de dados pessoais |
 | **Multilíngue** | Inglês completo (MVP); trilhas iniciais com estratégias próprias para espanhol, italiano, mandarim e japonês |
-| **Experiência** | Hub de módulos com gradientes, animações (Reanimated) e ilustrações Lottie — o formato exportado do After Effects —, flashcards com flip, anéis de progresso, celebrações, hápticos, modo escuro |
+| **Experiência** | 5 temas com fundo animado, barra de abas animada, parallax, mascote Fluo e animações Lottie (formato do After Effects), flashcards com flip, anéis de progresso, celebrações, hápticos, modo escuro, opção de animações reduzidas |
 | **Modo local** | Sem servidor: plano, FSRS, tutor por roteiros e regras, avaliação e relatórios rodam no aparelho (TypeScript com testes de paridade contra o backend); backup em JSON |
 | **Privacidade** | Consentimentos granulares, áudio descartado por padrão, retenção configurável, exportação e exclusão (LGPD) |
 
@@ -109,6 +122,7 @@ com sotaque (inclusive en-IN), configure os provedores — veja [docs/05-provedo
 8. [Instalar no iPhone sem custo](docs/08-instalar-no-iphone.md) — PWA no GitHub Pages, modo local, limites
 9. [Missão Índia](docs/09-missao-india.md) — trilha rápida de frases para falar e entender indianos
 10. [Trilha](docs/10-trilha.md) — lições curtas gamificadas para aprender e fixar
+11. [Tema e animações](docs/11-tema-e-animacoes.md) — temas, motion, Lottie (After Effects) e acessibilidade
 
 ## Qualidade
 - Backend: 120 testes (SQLite) + suíte de API contra PostgreSQL, migrações verificadas, lint.

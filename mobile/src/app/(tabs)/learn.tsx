@@ -3,20 +3,22 @@ import { useCallback, useRef, useState } from "react";
 import { ScrollView, View, type ScrollViewInstance } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import flameAnim from "../../assets/lottie/flame.json";
+import mascotAnim from "../../assets/lottie/mascot.json";
+import { Aurora } from "../../components/Aurora";
 import Lottie from "../../components/Lottie";
 import { Enter, PressableScale, ProgressRing, PulseRings } from "../../components/motion";
 import { Chip, ErrorText, Gradient, Icon, Loading, Row, Text } from "../../components/ui";
 import type { IconName } from "../../components/ui";
 import { api } from "../../lib/api";
 import { useDailyGoal } from "../../lib/coursePrefs";
-import { gradients, radius, useTheme, type GradientName } from "../../lib/theme";
+import { radius, useTheme, type GradientName } from "../../lib/theme";
 
 const UNIT_GRADIENTS: GradientName[] = ["brand", "india", "listening", "vocab", "scenarios", "unlock", "tutor", "shadowing", "plan", "assessment"];
 const ZIGZAG = [0, 52, 78, 52, 0, -52, -78, -52];
 
 /** Trilha: caminho de lições curtas com XP, meta diária e sequência de dias. */
 export default function Learn() {
-  const { c } = useTheme();
+  const { c, g: grad } = useTheme();
   const [ov, setOv] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
   const [hint, setHint] = useState<string | null>(null);
@@ -55,6 +57,7 @@ export default function Learn() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: c.bg }} edges={["top", "left", "right"]}>
+      <Aurora />
       {/* barra de status do curso */}
       <Row style={{ justifyContent: "space-between", paddingHorizontal: 16, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: c.border }}>
         <Row gap={2}>
@@ -71,15 +74,18 @@ export default function Learn() {
         </Row>
       </Row>
 
-      <ScrollView ref={scroll} contentContainerStyle={{ padding: 16, paddingBottom: 80, gap: 18, maxWidth: 680, width: "100%", alignSelf: "center" }}
+      <ScrollView ref={scroll} contentContainerStyle={{ padding: 16, paddingBottom: 130, gap: 18, maxWidth: 680, width: "100%", alignSelf: "center" }}
         showsVerticalScrollIndicator={false}>
         <Enter>
-          <Row gap={14} style={{ backgroundColor: c.surface, borderRadius: radius.lg, padding: 14, borderWidth: 1, borderColor: c.border }}>
+          <Row gap={14} style={{ backgroundColor: c.card, borderRadius: radius.lg, padding: 14, borderWidth: 1, borderColor: c.border }}>
             <ProgressRing value={Math.min(1, ov.xp_today / goal)} size={72} stroke={8} colors={reached ? ["#22C55E", "#86EFAC"] : ["#F5B700", "#FF7A00"]}>
               <Icon name={reached ? "checkmark" : "flash"} size={26} color={reached ? c.success : "#F5B700"} />
             </ProgressRing>
             <View style={{ flex: 1, gap: 6 }}>
-              <Text weight="800">{reached ? "Meta diária batida!" : `Meta diária: faltam ${goal - ov.xp_today} XP`}</Text>
+              <Row style={{ justifyContent: "space-between" }}>
+                <Text weight="800" style={{ flex: 1 }}>{reached ? "Meta diária batida!" : `Meta diária: faltam ${goal - ov.xp_today} XP`}</Text>
+                <Lottie source={mascotAnim} style={{ width: 54, height: 50, marginTop: -10, marginRight: -6 }} />
+              </Row>
               <Text variant="small" muted>{ov.lessons_done}/{ov.total_lessons} lições · uma lição leva ~3 min e vale 10–25 XP</Text>
               <Row gap={6}>{ov.daily_goal_options.map((g: number) => <Chip key={g} label={`${g} XP`} selected={goal === g} onPress={() => setGoal(g)} />)}</Row>
             </View>
@@ -118,7 +124,7 @@ export default function Learn() {
                     ) : null}
                     <PressableScale onPress={() => open(l)} accessibilityLabel={`${u.title_pt}: ${l.title_pt}${locked ? " (bloqueada)" : ""}`} scaleTo={0.9}>
                       <View style={{ width: 84, height: 84, alignItems: "center", justifyContent: "center" }}>
-                        {isCurrent ? <PulseRings size={76} color={gradients[g][0]} rings={2} /> : null}
+                        {isCurrent ? <PulseRings size={76} color={grad[g][0]} rings={2} /> : null}
                         {/* "base" deslocada dá a sensação de botão 3D */}
                         <View style={{ position: "absolute", top: 10, width: 72, height: 72, borderRadius: 36,
                                        backgroundColor: locked ? c.border : "rgba(0,0,0,0.18)" }} />

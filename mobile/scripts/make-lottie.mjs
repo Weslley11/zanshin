@@ -140,3 +140,87 @@ save("trophy", comp("trophy", 240, 240, 80, [
     p: st([120, 120, 0]), s: anim([[0, [0, 0, 100]], [18, [118, 118, 100]], [28, [100, 100, 100]]], EASE_IO), r: anim([[0, -40], [28, 0]]),
   }, 0, 80),
 ]));
+
+// ------------------------------------------------------------------------------------------------
+// 7) Mascote "Fluo" (original): balão de fala com olhos que piscam, flutuando, e um brilho orbitando.
+const LOOP = 180;
+function mascotLayers({ cheer = false } = {}) {
+  const bob = cheer
+    ? animPos([[0, [160, 176, 0]], [14, [160, 120, 0]], [28, [160, 176, 0]], [42, [160, 136, 0]], [56, [160, 176, 0]], [LOOP, [160, 176, 0]]], EASE_IO)
+    : animPos([[0, [160, 176, 0]], [90, [160, 162, 0]], [LOOP, [160, 176, 0]]], EASE_IO);
+  const squash = cheer
+    ? anim([[0, [100, 100, 100]], [10, [92, 110, 100]], [26, [110, 90, 100]], [34, [100, 100, 100]]], EASE_IO)
+    : anim([[0, [100, 100, 100]], [90, [103, 98, 100]], [LOOP, [100, 100, 100]]], EASE_IO);
+  const blink = anim([[0, [100, 100, 100]], [70, [100, 100, 100]], [74, [100, 10, 100]], [78, [100, 100, 100]], [140, [100, 100, 100]], [143, [100, 10, 100]], [146, [100, 100, 100]]]);
+  const body = layer("body", [
+    group([path([[-26, 52], [-40, 84], [6, 58]], true), fill("#6D4AFF")], "tail"),
+    group([rect(170, 132, 62), fill("#6D4AFF")], "shadow"),
+    group([rect(160, 120, 58), fill("#8B6CFF")], "front"),
+    group([ellipse(120, 26), fill("#FFFFFF", 18)], "shine"),
+  ], { p: bob, s: squash });
+  // brilho do balão na parte de cima
+  body.shapes[3].it[2].p = st([-6, -38]);
+  body.shapes[1].it[2].p = st([0, 6]);
+  // olhos: cada um é um grupo com transformação própria (piscar escala em torno do centro do olho)
+  const eyeGroup = (x) => ({
+    ty: "gr", nm: `eye${x}`,
+    it: [
+      group([ellipse(6), fill("#FFFFFF")], "glint"),
+      group([ellipse(16, 18), fill("#1B1340")], "pupil"),
+      group([ellipse(30, 34), fill("#FFFFFF")], "white"),
+      { ...tr(), p: st([x, -6]), s: blink },
+    ],
+  });
+  const eyes = layer("eyes", [eyeGroup(-30), eyeGroup(30)], { p: bob });
+  for (const g of eyes.shapes) {
+    g.it[1].it[2].p = st([3, 2]);
+    g.it[0].it[2].p = st([7, -3]);
+  }
+  const smile = layer("smile", [group([path([[-18, 0], [0, 12], [18, 0]], false, [[0, 0], [-10, 0], [0, 0]], [[0, 0], [10, 0], [0, 0]]),
+    stroke("#1B1340", 6)])], { p: bob, a: st([0, -30, 0]) });
+  const cheekL = layer("cheekL", [group([ellipse(18, 10), fill("#FF7AB6", 70)])], { p: bob, a: st([52, -24, 0]) });
+  const cheekR = layer("cheekR", [group([ellipse(18, 10), fill("#FF7AB6", 70)])], { p: bob, a: st([-52, -24, 0]) });
+  const sparkle = layer("sparkle", [group([star(4, 4, 12), fill("#FFD43B")])], {
+    p: animPos([[0, [262, 90, 0]], [90, [276, 70, 0]], [LOOP, [262, 90, 0]]], EASE_IO),
+    r: anim([[0, 0], [LOOP, 180]], EASE_IO), s: anim([[0, [100, 100, 100]], [45, [60, 60, 100]], [90, [110, 110, 100]], [LOOP, [100, 100, 100]]], EASE_IO),
+  });
+  const layers = [sparkle, body, eyes, smile, cheekL, cheekR];
+  for (const l of layers) l.op = LOOP;
+  if (cheer) {
+    for (let i = 0; i < 8; i++) {
+      const ang = (i / 8) * Math.PI * 2;
+      layers.unshift(layer(`pop${i}`, [group([star(5, 5, 11), fill(["#FFD43B", "#FF7AB6", "#3DD6F5", "#2BD47D"][i % 4])])], {
+        p: animPos([[6, [160, 150, 0]], [40, [160 + Math.cos(ang) * 130, 150 + Math.sin(ang) * 110, 0]]]),
+        o: anim([[6, 100], [34, 100], [48, 0]]), s: anim([[6, [20, 20, 100]], [24, [120, 120, 100]], [48, [60, 60, 100]]]),
+      }, 0, LOOP));
+    }
+  }
+  return layers;
+}
+save("mascot", comp("mascot", 320, 300, LOOP, mascotLayers()));
+save("mascot-cheer", comp("mascot-cheer", 320, 300, LOOP, mascotLayers({ cheer: true })));
+
+// 8) Carregador: três pontos com mola e troca de cor
+save("loader", comp("loader", 120, 60, 60, [0, 1, 2].map((i) => layer(`d${i}`, [group([ellipse(16), fill(["#7C5CFF", "#00C2FF", "#FF5FA2"][i])])], {
+  p: animPos([[i * 6, [30 + i * 30, 34, 0]], [12 + i * 6, [30 + i * 30, 18, 0]], [24 + i * 6, [30 + i * 30, 34, 0]], [60, [30 + i * 30, 34, 0]]], EASE_IO),
+  s: anim([[i * 6, [100, 100, 100]], [12 + i * 6, [120, 120, 100]], [24 + i * 6, [100, 100, 100]]], EASE_IO),
+}))));
+
+// 9) Subiu de nível: anéis concêntricos + estrela que sobe girando + faíscas
+const lvl = [
+  ...[0, 1].map((k) => layer(`ring${k}`, [group([ellipse(110), stroke(k ? "#00C2FF" : "#7C5CFF", 8)])], {
+    p: st([150, 150, 0]), s: anim([[k * 8, [40, 40, 100]], [36 + k * 8, [210, 210, 100]]]), o: anim([[k * 8, 100], [36 + k * 8, 0]]),
+  })),
+  layer("star", [group([star(5, 26, 60), fill("#FFD43B")]), group([star(5, 14, 32), fill("#FFF3B0")])], {
+    p: animPos([[0, [150, 210, 0]], [26, [150, 140, 0]], [40, [150, 150, 0]]]),
+    s: anim([[0, [0, 0, 100]], [22, [120, 120, 100]], [34, [100, 100, 100]]], EASE_IO), r: anim([[0, -90], [34, 0]]),
+  }),
+  ...Array.from({ length: 10 }, (_, i) => {
+    const ang = (i / 10) * Math.PI * 2;
+    return layer(`spark${i}`, [group([rect(5, 18, 3), fill(i % 2 ? "#FF5FA2" : "#00C2FF")])], {
+      p: animPos([[18, [150, 150, 0]], [44, [150 + Math.cos(ang) * 120, 150 + Math.sin(ang) * 120, 0]]]),
+      r: st((ang * 180) / Math.PI + 90), o: anim([[18, 100], [44, 0]]),
+    });
+  }),
+];
+save("levelup", comp("levelup", 300, 300, 70, lvl));

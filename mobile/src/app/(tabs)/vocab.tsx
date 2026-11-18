@@ -9,7 +9,7 @@ import { api } from "../../lib/api";
 import { useApp } from "../../lib/app";
 import { tap } from "../../lib/haptics";
 import { speak } from "../../lib/speech";
-import { gradients, useTheme } from "../../lib/theme";
+import { useTheme } from "../../lib/theme";
 import type { Card as VCard } from "../../lib/types";
 
 const KIND_PT: Record<string, string> = {
@@ -31,7 +31,7 @@ function fmtInterval(days: number) {
 
 export default function Vocab() {
   const { language } = useApp();
-  const { c } = useTheme();
+  const { c, g } = useTheme();
   const params = useLocalSearchParams<{ planDay?: string; planActivity?: string }>();
   const [cards, setCards] = useState<VCard[] | null>(null);
   const [idx, setIdx] = useState(0);
@@ -137,7 +137,7 @@ export default function Vocab() {
             <Text muted variant="small">Repetição espaçada (FSRS) com recuperação ativa</Text>
           </View>
           {stats ? (
-            <ProgressRing value={stats.total ? stats.learned / stats.total : 0} size={74} stroke={8} colors={gradients.vocab}>
+            <ProgressRing value={stats.total ? stats.learned / stats.total : 0} size={74} stroke={8} colors={g.vocab}>
               <Text weight="800">{stats.learned}</Text>
               <Text variant="tiny" muted>aprendidas</Text>
             </ProgressRing>

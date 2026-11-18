@@ -7,6 +7,8 @@ import globeAnim from "../assets/lottie/globe.json";
 import successAnim from "../assets/lottie/success.json";
 import talkAnim from "../assets/lottie/talk.json";
 import { InstallHint } from "../components/InstallHint";
+import mascotAnim from "../assets/lottie/mascot.json";
+import { Aurora } from "../components/Aurora";
 import Lottie from "../components/Lottie";
 import { Float } from "../components/motion";
 import { Button, ErrorText, Field, Gradient, Row, Text } from "../components/ui";
@@ -15,6 +17,7 @@ import { useApp } from "../lib/app";
 import { useTheme } from "../lib/theme";
 
 const SLIDES = [
+  { anim: mascotAnim, title: "Oi! Eu sou o Fluo.", text: "Vou te acompanhar todo dia: lições curtas, conversa sem medo de errar e revisão no momento certo." },
   { anim: talkAnim, title: "Fale mais.\nTraduza menos.", text: "Um parceiro de conversa que não interrompe a cada erro — e mostra tudo no relatório final." },
   { anim: globeAnim, title: "Pronto para a viagem", text: "Simulações de aeroporto, hotel e reuniões, sotaques reais (inclusive da Índia) e um plano de 90 dias." },
   { anim: successAnim, title: "Memória que fica", text: "Revisão espaçada no momento certo, exercícios rápidos de 5 minutos e progresso medido a cada 15 dias." },
@@ -46,7 +49,7 @@ export default function Welcome() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: c.bg }}>
-      <Gradient name="brand" style={{ position: "absolute", left: 0, right: 0, top: 0, height: 360, opacity: 0.12 }} />
+      <Aurora intensity={1.2} />
       <View style={{ flex: 1, padding: 24, maxWidth: 560, width: "100%", alignSelf: "center", justifyContent: "space-between" }}>
         <Row style={{ justifyContent: "space-between" }}>
           <Row gap={8}>

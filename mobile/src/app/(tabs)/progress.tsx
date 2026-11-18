@@ -4,7 +4,7 @@ import { useWindowDimensions } from "react-native";
 import { LineChart, SkillBars, WeekBars } from "../../components/charts";
 import { AnimatedNumber, Enter, ProgressRing } from "../../components/motion";
 import { Button, Card, ErrorText, Gradient, Loading, ProgressBar, Row, Screen, Stack, Text } from "../../components/ui";
-import { gradients } from "../../lib/theme";
+import { useTheme } from "../../lib/theme";
 import { formatMinutes } from "../../lib/activities";
 import { api } from "../../lib/api";
 import { useApp } from "../../lib/app";
@@ -32,6 +32,7 @@ function reportText(d: any): string {
 }
 
 export default function Progress() {
+  const { g } = useTheme();
   const { language } = useApp();
   const { width } = useWindowDimensions();
   const chartW = Math.min(width, 640) - 64;
@@ -68,9 +69,9 @@ export default function Progress() {
       <Enter index={2}>
         <Row style={{ justifyContent: "space-around" }}>
           {[
-            { label: "Jornada", value: (d.plan?.percent_activities_done ?? 0) / 100, text: `${Math.round(d.plan?.percent_activities_done ?? 0)}%`, colors: gradients.plan },
-            { label: "Vocabulário", value: d.vocabulary.total ? d.vocabulary.learned / d.vocabulary.total : 0, text: String(d.vocabulary.learned), colors: gradients.vocab },
-            { label: "Meta de hoje", value: d.effort.today_minutes / d.effort.daily_goal_minutes, text: `${Math.round(d.effort.today_minutes)}′`, colors: gradients.speak },
+            { label: "Jornada", value: (d.plan?.percent_activities_done ?? 0) / 100, text: `${Math.round(d.plan?.percent_activities_done ?? 0)}%`, colors: g.plan },
+            { label: "Vocabulário", value: d.vocabulary.total ? d.vocabulary.learned / d.vocabulary.total : 0, text: String(d.vocabulary.learned), colors: g.vocab },
+            { label: "Meta de hoje", value: d.effort.today_minutes / d.effort.daily_goal_minutes, text: `${Math.round(d.effort.today_minutes)}′`, colors: g.speak },
           ].map((r) => (
             <Stack key={r.label} gap={6} style={{ alignItems: "center" }}>
               <ProgressRing value={r.value} size={88} stroke={9} colors={r.colors}><Text variant="h3">{r.text}</Text></ProgressRing>

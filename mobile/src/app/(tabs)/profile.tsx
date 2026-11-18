@@ -2,6 +2,7 @@ import { router, useFocusEffect } from "expo-router";
 import { useCallback, useContext, useState } from "react";
 import { Switch } from "react-native";
 import { Button, Card, Chip, Divider, ErrorText, Row, Screen, Segmented, Stack, Text } from "../../components/ui";
+import { ThemePicker } from "../../components/ThemePicker";
 import { api, LOCAL_MODE } from "../../lib/api";
 import { useApp } from "../../lib/app";
 import { ThemeModeContext, useTheme, type ThemeMode } from "../../lib/theme";
@@ -44,9 +45,8 @@ export default function Profile() {
       </Card>
 
       <Card style={{ gap: 10 }}>
-        <Text variant="label" muted>Aparência</Text>
-        <Segmented<ThemeMode> value={mode} onChange={setMode}
-          options={[{ value: "system", label: "Sistema" }, { value: "light", label: "Claro" }, { value: "dark", label: "Escuro" }]} />
+        <Text variant="label" muted>Tema e animações</Text>
+        <ThemePicker />
       </Card>
 
       <Card style={{ gap: 8 }}>

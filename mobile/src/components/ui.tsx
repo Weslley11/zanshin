@@ -14,9 +14,14 @@ import {
   type TextStyle,
   type ViewStyle,
 } from "react-native";
-import Animated, { FadeIn } from "react-native-reanimated";
+import Animated, {
+  Easing, FadeIn, useAnimatedRef, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue, withRepeat, withTiming, type SharedValue,
+} from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { gradients, font, radius, spacing, useTheme, type GradientName } from "../lib/theme";
+import loaderAnim from "../assets/lottie/loader.json";
+import { font, fontFamily, radius, spacing, useTheme, type GradientName } from "../lib/theme";
+import { Aurora } from "./Aurora";
+import Lottie from "./Lottie";
 import { Enter, PressableScale, useTween } from "./motion";
 
 export type IconName = ComponentProps<typeof Ionicons>["name"];
@@ -26,23 +31,32 @@ export function Icon({ name, size = 22, color }: { name: IconName; size?: number
   return <Ionicons name={name} size={size} color={color ?? c.text} accessibilityElementsHidden importantForAccessibility="no" />;
 }
 
-export function Screen({ children, scroll = true, padded = true, overlay, scrollKey }: {
+export function Screen({ children, scroll = true, padded = true, overlay, scrollKey, scrollY, aurora = true }: {
   children: ReactNode; scroll?: boolean; padded?: boolean; overlay?: ReactNode;
   /** Quando muda (ex.: próxima etapa de um exercício), a tela volta ao topo. */
   scrollKey?: string | number;
+  /** Posição da rolagem, para efeitos de parallax (Reanimated). */
+  scrollY?: SharedValue<number>;
+  /** Fundo animado do tema. */
+  aurora?: boolean;
 }) {
   const { c } = useTheme();
-  const ref = useRef<ScrollViewInstance>(null);
+  const ref = useAnimatedRef<Animated.ScrollView>();
+  const onScroll = useAnimatedScrollHandler((e) => {
+    if (scrollY) scrollY.value = e.contentOffset.y;
+  });
   useEffect(() => {
-    if (scrollKey !== undefined) ref.current?.scrollTo({ y: 0, animated: false });
+    if (scrollKey !== undefined) (ref.current as any)?.scrollTo?.({ y: 0, animated: false });
   }, [scrollKey]);
   const inner = <View style={[styles.inner, padded && { padding: spacing.lg }]}>{children}</View>;
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: c.bg }} edges={["top", "left", "right"]}>
+      {aurora ? <Aurora /> : null}
       {scroll ? (
-        <ScrollView ref={ref} contentContainerStyle={{ flexGrow: 1, paddingBottom: 48 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
+        <Animated.ScrollView ref={ref} onScroll={onScroll} scrollEventThrottle={16}
+          contentContainerStyle={{ flexGrow: 1, paddingBottom: 110 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
           {inner}
-        </ScrollView>
+        </Animated.ScrollView>
       ) : inner}
       {overlay}
     </SafeAreaView>
@@ -62,7 +76,7 @@ export function Text({ children, variant = "body", muted, color, style, weight, 
     <RNText selectable={selectable} numberOfLines={numberOfLines}
       style={[{
         fontSize: size, lineHeight: Math.round(size * (variant === "display" ? 1.15 : 1.38)), color: color ?? (muted ? c.textMuted : c.text),
-        fontWeight: weight ?? defaultWeight, textAlign: center ? "center" : undefined,
+        fontWeight: weight ?? defaultWeight, fontFamily: fontFamily(String(weight ?? defaultWeight)), textAlign: center ? "center" : undefined,
         letterSpacing: variant === "label" ? 0.9 : variant === "display" || variant === "h1" ? -0.6 : undefined,
         textTransform: variant === "label" ? "uppercase" : undefined,
       }, style]}>
@@ -72,7 +86,8 @@ export function Text({ children, variant = "body", muted, color, style, weight, 
 }
 
 export function Gradient({ name = "brand", colors, style, children }: { name?: GradientName; colors?: readonly string[]; style?: StyleProp<ViewStyle>; children?: ReactNode }) {
-  const cs = (colors ?? gradients[name]) as unknown as [string, string, ...string[]];
+  const { g } = useTheme();
+  const cs = (colors ?? g[name]) as unknown as [string, string, ...string[]];
   return <LinearGradient colors={cs} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={style}>{children}</LinearGradient>;
 }
 
@@ -82,7 +97,7 @@ export function Card({ children, style, onPress, tone, index, accessibilityLabel
 }) {
   const { c, dark } = useTheme();
   const bg = tone === "primary" ? c.primarySoft : tone === "accent" ? c.accentSoft : tone === "success" ? c.successSoft
-    : tone === "warning" ? c.warningSoft : tone === "danger" ? c.dangerSoft : c.surface;
+    : tone === "warning" ? c.warningSoft : tone === "danger" ? c.dangerSoft : c.card;
   const cardStyle = [styles.card, { backgroundColor: bg, borderColor: c.border, shadowColor: dark ? "#000" : "#2B1F7A" }, style];
   const body = onPress
     ? <PressableScale onPress={onPress} style={cardStyle} accessibilityLabel={accessibilityLabel}>{children}</PressableScale>
@@ -102,7 +117,7 @@ export function Button({ title, onPress, variant = "primary", loading, disabled,
   const content = loading ? <ActivityIndicator color={fg} /> : (
     <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
       {icon ? (isIcon ? <Icon name={icon as IconName} size={size === "sm" ? 16 : 19} color={fg} /> : <RNText style={{ color: fg }}>{icon}</RNText>) : null}
-      <RNText style={{ color: fg, fontSize: size === "lg" ? 17 : size === "sm" ? 14 : 16, fontWeight: "700" }}>{title}</RNText>
+      <RNText style={{ color: fg, fontSize: size === "lg" ? 17 : size === "sm" ? 14 : 16, fontWeight: "700", fontFamily: fontFamily("700") }}>{title}</RNText>
     </View>
   );
   const base = [styles.button, { paddingVertical: pad }];
@@ -215,12 +230,30 @@ export function ErrorText({ error }: { error: string | null | undefined }) {
   return <Text variant="small" color={c.danger} selectable>{error}</Text>;
 }
 
-export function Loading({ label }: { label?: string }) {
-  const { c } = useTheme();
+export function Loading({ label, skeleton = true }: { label?: string; skeleton?: boolean }) {
   return (
-    <View style={{ padding: spacing.xxl, alignItems: "center", gap: spacing.md }}>
-      <ActivityIndicator color={c.primary} />
-      {label ? <Text muted variant="small">{label}</Text> : null}
+    <View style={{ paddingVertical: spacing.lg, gap: spacing.md }} accessibilityLabel={label ?? "Carregando"} accessibilityRole="progressbar">
+      <View style={{ alignItems: "center" }}><Lottie source={loaderAnim} style={{ width: 96, height: 48 }} /></View>
+      {label ? <Text muted variant="small" center>{label}</Text> : null}
+      {skeleton ? <Stack gap={12}><Skeleton height={110} /><Skeleton height={64} /><Skeleton height={64} /></Stack> : null}
+    </View>
+  );
+}
+
+/** Bloco "esqueleto" com brilho passando enquanto o conteúdo carrega. */
+export function Skeleton({ height = 64, radius: r = radius.lg }: { height?: number; radius?: number }) {
+  const { c, dark, reduceMotion } = useTheme();
+  const x = useSharedValue(-1);
+  useEffect(() => {
+    if (!reduceMotion) x.value = withRepeat(withTiming(1, { duration: 1300, easing: Easing.inOut(Easing.quad) }), -1, false);
+  }, []);
+  const shine = useAnimatedStyle(() => ({ transform: [{ translateX: x.value * 400 }] }));
+  return (
+    <View style={{ height, borderRadius: r, backgroundColor: c.surfaceAlt, overflow: "hidden", opacity: 0.8 }}>
+      <Animated.View style={[{ position: "absolute", top: 0, bottom: 0, width: 160 }, shine]}>
+        <LinearGradient colors={["transparent", dark ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.75)", "transparent"]}
+          start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} style={{ flex: 1 }} />
+      </Animated.View>
     </View>
   );
 }

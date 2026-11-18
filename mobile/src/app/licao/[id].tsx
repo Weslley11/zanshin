@@ -4,6 +4,10 @@ import { Pressable, View } from "react-native";
 import Animated, { FadeIn, FadeInRight, SlideInDown } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 import flameAnim from "../../assets/lottie/flame.json";
+import levelupAnim from "../../assets/lottie/levelup.json";
+import mascotCheerAnim from "../../assets/lottie/mascot-cheer.json";
+import mascotAnim from "../../assets/lottie/mascot.json";
+import { Aurora } from "../../components/Aurora";
 import { AnswerBox } from "../../components/AnswerBox";
 import Lottie from "../../components/Lottie";
 import { AnimatedNumber, Celebration, Enter, PressableScale, ProgressRing } from "../../components/motion";
@@ -110,13 +114,12 @@ export default function LessonPlayer() {
   if (!started) {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: c.bg }}>
+        <Aurora />
         <View style={{ flex: 1, padding: 20, justifyContent: "space-between", maxWidth: 560, width: "100%", alignSelf: "center" }}>
           <Pressable onPress={() => router.back()} accessibilityLabel="Fechar" hitSlop={12}><Icon name="close" size={28} color={c.textMuted} /></Pressable>
           <Enter>
             <Stack gap={14}>
-              <Gradient name="brand" style={{ width: 88, height: 88, borderRadius: 28, alignItems: "center", justifyContent: "center", alignSelf: "center" }}>
-                <Icon name={lesson.kind === "review" ? "trophy" : "star"} size={44} color="#fff" />
-              </Gradient>
+              <Lottie source={mascotAnim} style={{ width: 180, height: 168, alignSelf: "center" }} />
               <Text variant="label" muted center>Unidade {lesson.unit_order} · {lesson.unit_title_pt}</Text>
               <Text variant="display" center>{lesson.kind === "review" ? "Revisão da unidade" : lesson.title_pt}</Text>
               <Text muted center>
@@ -148,12 +151,17 @@ export default function LessonPlayer() {
     const secs = Math.round((Date.now() - startedAt.current) / 1000);
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: c.bg }}>
-        <Celebration show={!result.pending} />
+        <Aurora intensity={1.3} />
+        <Celebration show={!result.pending} trophy={false} />
         <View style={{ flex: 1, padding: 20, justifyContent: "space-between", maxWidth: 560, width: "100%", alignSelf: "center" }}>
           <View />
           {result.pending || saving ? <Loading /> : (
             <Enter>
               <Stack gap={18}>
+                <View style={{ alignItems: "center", height: 170 }}>
+                  <Lottie source={levelupAnim} loop={false} style={{ position: "absolute", width: 220, height: 220, top: -30 }} />
+                  <Lottie source={mascotCheerAnim} style={{ width: 190, height: 178 }} />
+                </View>
                 <Text variant="display" center>{result.perfect ? "Lição perfeita!" : "Lição concluída!"}</Text>
                 <Row gap={10}>
                   {[
@@ -194,6 +202,7 @@ export default function LessonPlayer() {
   const e = current.ex;
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: c.bg }}>
+      <Aurora intensity={0.6} />
       <View style={{ flex: 1, maxWidth: 620, width: "100%", alignSelf: "center" }}>
         <Row gap={12} style={{ paddingHorizontal: 16, paddingTop: 8 }}>
           <Pressable onPress={() => router.back()} accessibilityLabel="Sair da lição" hitSlop={12}><Icon name="close" size={28} color={c.textMuted} /></Pressable>

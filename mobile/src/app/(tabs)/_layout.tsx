@@ -3,6 +3,7 @@ import { Redirect } from "expo-router";
 import { Tabs } from "expo-router/js-tabs";
 import { type ComponentProps } from "react";
 import { View, type ColorValue } from "react-native";
+import { AnimatedTabBar } from "../../components/AnimatedTabBar";
 import { useApp } from "../../lib/app";
 import { useTheme } from "../../lib/theme";
 
@@ -26,11 +27,12 @@ export default function TabsLayout() {
   if (ready && !signedIn) return <Redirect href="/" />;
   return (
     <Tabs
+      tabBar={(props: any) => <AnimatedTabBar {...props} />}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: c.primary,
         tabBarInactiveTintColor: c.textMuted,
-        tabBarStyle: { backgroundColor: c.surface, borderTopColor: c.border, height: 64, paddingTop: 6 },
+        tabBarStyle: { position: "absolute", backgroundColor: "transparent", borderTopWidth: 0, elevation: 0 },
         tabBarLabelStyle: { fontSize: 11, fontWeight: "700" },
       }}
     >

@@ -1,8 +1,17 @@
+// importa só os pesos usados (o índice do pacote inclui todos os 16 arquivos de fonte)
+import { PlusJakartaSans_400Regular } from "@expo-google-fonts/plus-jakarta-sans/400Regular";
+import { PlusJakartaSans_500Medium } from "@expo-google-fonts/plus-jakarta-sans/500Medium";
+import { PlusJakartaSans_600SemiBold } from "@expo-google-fonts/plus-jakarta-sans/600SemiBold";
+import { PlusJakartaSans_700Bold } from "@expo-google-fonts/plus-jakarta-sans/700Bold";
+import { PlusJakartaSans_800ExtraBold } from "@expo-google-fonts/plus-jakarta-sans/800ExtraBold";
+import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useEffect, useState } from "react";
+import { View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { AppProvider } from "../lib/app";
-import { useTheme } from "../lib/theme";
+import { setFontsLoaded, useTheme } from "../lib/theme";
 
 function RootStack() {
   const { c, dark } = useTheme();
@@ -13,9 +22,11 @@ function RootStack() {
         screenOptions={{
           headerStyle: { backgroundColor: c.bg },
           headerTintColor: c.text,
+          headerTitleStyle: { fontFamily: "PlusJakartaSans_700Bold" },
           headerShadowVisible: false,
           headerBackTitle: "Voltar",
           contentStyle: { backgroundColor: c.bg },
+          animation: "slide_from_right",
         }}
       >
         <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -42,7 +53,7 @@ function RootStack() {
         <Stack.Screen name="missao/index" options={{ title: "Missão Índia" }} />
         <Stack.Screen name="missao/[id]" options={{ title: "Missão" }} />
         <Stack.Screen name="frases" options={{ title: "Minhas frases" }} />
-        <Stack.Screen name="licao/[id]" options={{ headerShown: false, gestureEnabled: false }} />
+        <Stack.Screen name="licao/[id]" options={{ headerShown: false, gestureEnabled: false, animation: "slide_from_bottom" }} />
         <Stack.Screen name="unlock" options={{ title: "Destravar a Fala" }} />
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
       </Stack>
@@ -51,6 +62,17 @@ function RootStack() {
 }
 
 export default function RootLayout() {
+  const [loaded, error] = useFonts({
+    PlusJakartaSans_400Regular, PlusJakartaSans_500Medium, PlusJakartaSans_600SemiBold, PlusJakartaSans_700Bold, PlusJakartaSans_800ExtraBold,
+  });
+  // não trava o app se a fonte demorar (ex.: rede lenta no primeiro acesso): segue com a fonte do sistema
+  const [timedOut, setTimedOut] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setTimedOut(true), 2500);
+    return () => clearTimeout(t);
+  }, []);
+  setFontsLoaded(loaded && !error);
+  if (!loaded && !error && !timedOut) return <View style={{ flex: 1, backgroundColor: "#07060F" }} />;
   return (
     <SafeAreaProvider>
       <AppProvider>

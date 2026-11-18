@@ -1,7 +1,9 @@
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { View } from "react-native";
+import Animated, { Extrapolation, interpolate, useAnimatedStyle, useSharedValue } from "react-native-reanimated";
 import flameAnim from "../../assets/lottie/flame.json";
+import mascotAnim from "../../assets/lottie/mascot.json";
 import globeAnim from "../../assets/lottie/globe.json";
 import { ActivityRow } from "../../components/ActivityRow";
 import { InstallHint } from "../../components/InstallHint";
@@ -12,7 +14,7 @@ import { activityHref } from "../../lib/activities";
 import { api, LOCAL_MODE } from "../../lib/api";
 import { useApp } from "../../lib/app";
 import { MODULES } from "../../lib/modules";
-import { gradients, useTheme } from "../../lib/theme";
+import { useTheme } from "../../lib/theme";
 import type { PlanDay } from "../../lib/types";
 
 function greeting() {
@@ -22,7 +24,7 @@ function greeting() {
 
 export default function Home() {
   const { me, caps, language, profile } = useApp();
-  const { c } = useTheme();
+  const { c, g } = useTheme();
   const [dash, setDash] = useState<any>(null);
   const [today, setToday] = useState<PlanDay | null>(null);
   const [missions, setMissions] = useState<any>(null);
@@ -44,6 +46,16 @@ export default function Home() {
     return () => { alive = false; };
   }, [language, profile?.trip_destination]));
 
+  // parallax: ao puxar para baixo o card principal cresce; ao rolar, encolhe e esmaece suavemente
+  const scrollY = useSharedValue(0);
+  const heroParallax = useAnimatedStyle(() => ({
+    transform: [
+      { scale: interpolate(scrollY.value, [-140, 0, 240], [1.08, 1, 0.9], Extrapolation.CLAMP) },
+      { rotateX: `${interpolate(scrollY.value, [0, 240], [0, 18], Extrapolation.CLAMP)}deg` },
+    ],
+    opacity: interpolate(scrollY.value, [0, 240], [1, 0.35], Extrapolation.CLAMP),
+  }));
+
   const startTalking = () => {
     const conv = today?.activities.find((a) => a.type === "conversation" && !a.done);
     if (conv && today) router.push(activityHref(conv, today.day) as any);
@@ -58,14 +70,15 @@ export default function Home() {
   const modules = MODULES.filter((m) => (language === "en" || !m.enOnly) && m.id !== "documents" && m.id !== "missions").slice(0, 6);
 
   return (
-    <Screen>
+    <Screen scrollY={scrollY}>
       <Enter>
         <Row style={{ justifyContent: "space-between" }}>
+          <Lottie source={mascotAnim} style={{ width: 58, height: 54, marginLeft: -8 }} />
           <View style={{ flex: 1 }}>
             <Text muted>{greeting()},</Text>
             <Text variant="h1" numberOfLines={1}>{me?.display_name || "você"}</Text>
           </View>
-          <Row gap={4} style={{ backgroundColor: c.surface, borderRadius: 999, paddingRight: 14, paddingLeft: 4, paddingVertical: 2, borderWidth: 1, borderColor: c.border }}>
+          <Row gap={4} style={{ backgroundColor: c.card, borderRadius: 999, paddingRight: 14, paddingLeft: 4, paddingVertical: 2, borderWidth: 1, borderColor: c.border }}>
             <Lottie source={flameAnim} style={{ width: 34, height: 34 }} />
             <Text weight="800">{effort?.streak_days ?? 0}</Text>
             <Text variant="tiny" muted>{effort?.streak_days === 1 ? "dia" : "dias"}</Text>
@@ -74,6 +87,7 @@ export default function Home() {
       </Enter>
 
       <Enter index={1}>
+        <Animated.View style={heroParallax}>
         <PressableScale onPress={startTalking} accessibilityLabel="Começar a falar agora">
           <Gradient name="speak" style={{ borderRadius: 28, padding: 22, overflow: "hidden", minHeight: 170 }}>
             <View style={{ position: "absolute", width: 240, height: 240, borderRadius: 120, right: -60, top: -70, backgroundColor: "rgba(255,255,255,0.12)" }} />
@@ -89,13 +103,14 @@ export default function Home() {
                 <PulseRings size={64} color="#FFFFFF" />
                 <Float amplitude={4}>
                   <View style={{ width: 64, height: 64, borderRadius: 32, backgroundColor: "#FFFFFF", alignItems: "center", justifyContent: "center" }}>
-                    <Icon name="mic" size={30} color={gradients.speak[1]} />
+                    <Icon name="mic" size={30} color={g.speak[1]} />
                   </View>
                 </Float>
               </View>
             </Row>
           </Gradient>
         </PressableScale>
+        </Animated.View>
       </Enter>
 
       {india ? (
@@ -122,7 +137,7 @@ export default function Home() {
 
       {effort ? (
         <Card index={2} style={{ flexDirection: "row", alignItems: "center", gap: 16 }}>
-          <ProgressRing value={effort.today_minutes / effort.daily_goal_minutes} size={92} stroke={10} colors={gradients.brand}>
+          <ProgressRing value={effort.today_minutes / effort.daily_goal_minutes} size={92} stroke={10} colors={g.brand}>
             <AnimatedNumber value={effort.today_minutes} render={(s) => <Text variant="h2">{s}</Text>} />
             <Text variant="tiny" muted>/ {effort.daily_goal_minutes} min</Text>
           </ProgressRing>
