@@ -98,7 +98,7 @@ export function speak(
     // 1º: áudio gravado (lib/webAudio.ts); 2º: voz do aparelho com contornos do Safari (lib/webSpeech.ts)
     const viaDevice = () => webSpeak(clean, localeFor(language, accent), rate, onDone);
     webStop();
-    if (voicePref === "recorded" && language === "en" && playRecorded(clean, rate, onDone, viaDevice)) return;
+    if (voicePref === "recorded" && language === "en" && playRecorded(clean, rate, onDone, viaDevice, accent)) return;
     stopRecorded();
     viaDevice();
     return;

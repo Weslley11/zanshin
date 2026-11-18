@@ -67,3 +67,10 @@ mesmo nome — nenhum código precisa mudar.
   gradientes do tema e `reduceMotion`).
 - Componentes: `components/Aurora.tsx`, `components/AnimatedTabBar.tsx`, `components/ThemePicker.tsx`; `Skeleton` e
   `Loading` em `components/ui.tsx`; `Screen` aceita `scrollY` para parallax.
+
+## Áudio gravado
+
+No app web/PWA, as frases em inglês tocam a partir de arquivos MP3 gerados no deploy (`mobile/scripts/make_audio.py`),
+porque a voz do sistema não é confiável no iPhone. Vozes do [Piper](https://github.com/OHF-Voice/piper1-gpl):
+**LJSpeech** (inglês americano, domínio público) e, para o sotaque indiano, falantes indianos do corpus **VCTK**
+(CSTR, Universidade de Edimburgo — licença CC BY 4.0).

@@ -54,7 +54,8 @@ jobs:
           command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
           pip install piper-tts==1.8.0
           [ -f voices/en_US-ljspeech-medium.onnx ] || python -m piper.download_voices en_US-ljspeech-medium --data-dir voices
-          python scripts/make_audio.py --model voices/en_US-ljspeech-medium.onnx --out .audio-cache
+          [ -f voices/en_GB-vctk-medium.onnx ] || python -m piper.download_voices en_GB-vctk-medium --data-dir voices
+          python scripts/make_audio.py --model voices/en_US-ljspeech-medium.onnx --model-in voices/en_GB-vctk-medium.onnx --out .audio-cache
           mkdir -p dist/audio && cp .audio-cache/* dist/audio/
           ls dist/audio | wc -l
       - uses: actions/configure-pages@v5
