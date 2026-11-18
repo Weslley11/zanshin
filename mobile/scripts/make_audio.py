@@ -69,6 +69,8 @@ def main() -> int:
     ap.add_argument("--engine", choices=["piper", "tone"], default="piper")
     ap.add_argument("--model", help="modelo .onnx do Piper")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--model-in", help="modelo multi-falante com sotaque indiano (ex.: en_GB-vctk-medium.onnx)")
+    ap.add_argument("--speakers-in", default="p248,p251,p376", help="falantes indianos do VCTK, em ordem de preferência")
     args = ap.parse_args()
 
     texts: set[str] = set()
@@ -105,8 +107,42 @@ def main() -> int:
             clips[key] = mp3.name
             if n % 200 == 0:
                 print(f"{n}/{len(items)}", flush=True)
+    # Sotaque indiano: mesma lista de frases com um falante indiano do VCTK (CC BY 4.0), arquivos "in-<chave>.mp3"
+    clips_in: dict[str, str] = {}
+    if args.engine == "tone" or args.model_in:
+        syn = None
+        voice_in = None
+        if args.engine == "piper":
+            from piper import PiperVoice, SynthesisConfig  # type: ignore
+
+            voice_in = PiperVoice.load(args.model_in)
+            ids = voice_in.config.speaker_id_map
+            spk = next((ids[k] for k in args.speakers_in.split(",") if k in ids), None)
+            if spk is None:
+                print(f"aviso: nenhum falante indiano ({args.speakers_in}) no modelo; pulando sotaque indiano")
+                voice_in = None
+            else:
+                syn = SynthesisConfig(speaker_id=spk)
+        if voice_in is not None or args.engine == "tone":
+            with tempfile.TemporaryDirectory() as tmp:
+                wav = Path(tmp) / "t.wav"
+                for text in items:
+                    key = fnv1a(normalize(text))
+                    if key in clips_in:
+                        continue
+                    mp3 = out / f"in-{key}.mp3"
+                    if not (mp3.exists() and mp3.stat().st_size > 0):
+                        if voice_in is not None:
+                            with wave.open(str(wav), "wb") as wf:
+                                voice_in.synthesize_wav(text, wf, syn_config=syn)
+                        else:
+                            subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "lavfi", "-i", "sine=frequency=660:duration=0.6", str(wav)], check=True)
+                        to_mp3(wav, mp3)
+                    clips_in[key] = mp3.name
+
     (out / "index.json").write_text(json.dumps({"voice": Path(args.model).stem if args.engine == "piper" else "tone",
-                                                "count": len(clips), "clips": clips}, separators=(",", ":")))
+                                                "count": len(clips), "clips": clips, "clips_in": clips_in}, separators=(",", ":")))
+    print(f"sotaque indiano: {len(clips_in)} arquivos")
     print(f"áudios: {len(clips)} arquivos em {out}")
     return 0
 

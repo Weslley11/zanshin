@@ -25,17 +25,19 @@ export function fnv1a(text: string): string {
 }
 
 let clips: Record<string, string> = {};
+let clipsIn: Record<string, string> = {};
 let manifestLoaded = false;
 let manifestPromise: Promise<void> | null = null;
 export function loadAudioManifest(): Promise<void> {
   if (!IS_WEB) return Promise.resolve();
   manifestPromise ??= fetch(`${BASE}/audio/index.json`, { cache: "no-cache" })
     .then((r) => (r.ok ? r.json() : { clips: {} }))
-    .then((m) => { clips = m.clips ?? {}; manifestLoaded = true; })
+    .then((m) => { clips = m.clips ?? {}; clipsIn = m.clips_in ?? {}; manifestLoaded = true; })
     .catch(() => { manifestLoaded = true; });
   return manifestPromise;
 }
 export const recordedCount = () => Object.keys(clips).length;
+export const recordedIndianCount = () => Object.keys(clipsIn).length;
 export const hasRecorded = (text: string) => !!clips[fnv1a(normalizeKey(text))];
 
 let el: HTMLAudioElement | null = null;
@@ -83,9 +85,11 @@ export function stopRecorded() {
  * Toca a gravação da frase, se existir. Retorna false se não houver gravação (o chamador usa a voz do aparelho).
  * onFail: a gravação existe mas não tocou (bloqueio do navegador/erro de rede) — o chamador pode tentar a voz do aparelho.
  */
-export function playRecorded(text: string, rate: number, onDone: () => void, onFail: () => void): boolean {
+export function playRecorded(text: string, rate: number, onDone: () => void, onFail: () => void, accent?: string | null): boolean {
   if (!manifestLoaded) return false;
-  const file = clips[fnv1a(normalizeKey(text))];
+  const key = fnv1a(normalizeKey(text));
+  // sotaque indiano gravado quando pedido (cai para a gravação padrão se não houver)
+  const file = (accent === "IN" && clipsIn[key]) || clips[key];
   const a = element();
   if (!file || !a) return false;
   const my = ++seq;

@@ -6,7 +6,7 @@ import { AUDIO_TIPS, soundTest } from "../../components/AudioHelp";
 import { ThemePicker } from "../../components/ThemePicker";
 import { getVoicePref, setVoicePref, speak, type VoicePref } from "../../lib/speech";
 import { setItem } from "../../lib/storage";
-import { recordedCount } from "../../lib/webAudio";
+import { recordedCount, recordedIndianCount } from "../../lib/webAudio";
 import { englishVoices } from "../../lib/webSpeech";
 import { api, LOCAL_MODE } from "../../lib/api";
 import { useApp } from "../../lib/app";
@@ -58,14 +58,14 @@ export default function Profile() {
               options={[{ value: "recorded", label: "Voz gravada" }, { value: "device", label: "Voz do aparelho" }]} />
             <Text variant="tiny" muted>
               {voice === "recorded"
-                ? `Voz gravada: arquivos de áudio (${recordedCount()} frases) — funciona no iPhone mesmo no modo silencioso. Frases sem gravação usam a voz do aparelho.`
-                : "Voz do aparelho: permite sotaques (ex.: Índia), mas no iPhone pode não tocar no modo silencioso."}
+                ? `Voz gravada: ${recordedCount()} frases (${recordedIndianCount()} também com sotaque indiano) — funciona no iPhone mesmo no modo silencioso. Frases sem gravação usam a voz do aparelho.`
+                : "Voz do aparelho: usa as vozes instaladas no iPhone; no app da tela de início ela pode não tocar."}
             </Text>
           </>
         ) : null}
         <Button title="Testar som" icon="volume-high" variant="secondary" onPress={soundTest} />
         <Button title="Testar sotaque indiano" icon="earth" variant="ghost" size="sm"
-          onPress={() => speak("Kindly revert by end of day. We will do the needful.", { language: "en", accent: "IN", rate: 0.95 })} />
+          onPress={() => speak("Kindly revert at the earliest.", { language: "en", accent: "IN", rate: 0.95 })} />
         <Text variant="small" muted>Não ouviu nada?</Text>
         {AUDIO_TIPS.map((t) => <Text key={t} variant="small">• {t}</Text>)}
         {Platform.OS === "web" ? (
