@@ -1,0 +1,30 @@
+{"id": "e01", "text": "I am agree with your proposal.", "expect": [{"fix": "I agree", "subtype": "verb_agree"}], "rule_covered": true}
+{"id": "e02", "text": "It depends of the lead time of the supplier.", "expect": [{"fix": "depends on", "subtype": "preposition"}], "rule_covered": true}
+{"id": "e03", "text": "I work in this company since five years.", "expect": [{"fix": "for five years", "subtype": "for_since"}], "rule_covered": true}
+{"id": "e04", "text": "Can you explain me how the PLC works?", "expect": [{"fix": "explain to me", "subtype": "verb_pattern"}], "rule_covered": true}
+{"id": "e05", "text": "Yesterday I assisted a training about SolidWorks.", "expect": [{"fix": "attended", "subtype": "false_friend"}], "rule_covered": true}
+{"id": "e06", "text": "We need some informations about the equipments.", "expect": [{"fix": "information", "subtype": "uncountable"}], "rule_covered": true}
+{"id": "e07", "text": "He don't know the part number.", "expect": [{"fix": "doesn't", "subtype": "third_person"}], "rule_covered": true}
+{"id": "e08", "text": "I have a doubt about the tolerance.", "expect": [{"fix": "question", "subtype": "doubt_question"}], "rule_covered": true}
+{"id": "e09", "text": "Is possible to send the drawing today?", "expect": [{"fix": "Is it possible", "subtype": "dummy_subject"}], "rule_covered": true}
+{"id": "e10", "text": "I didn't went to the plant last week.", "expect": [{"fix": "didn't go", "subtype": "did_base_form"}], "rule_covered": true}
+{"id": "e11", "text": "We lost the flight because of the traffic.", "expect": [{"fix": "missed", "subtype": "lose_miss"}], "rule_covered": true}
+{"id": "e12", "text": "The new design is more cheap than the old one.", "expect": [{"fix": "cheaper", "subtype": "comparative"}], "rule_covered": true}
+{"id": "e13", "text": "Let's discuss about the budget tomorrow.", "expect": [{"fix": "discuss the budget", "subtype": "preposition"}], "rule_covered": true}
+{"id": "e14", "text": "I pretend to finish the BOM until Friday.", "expect": [{"fix": "intend to", "subtype": "false_friend"}, {"fix": "by Friday", "subtype": "preposition"}], "rule_covered": false}
+{"id": "e15", "text": "When I was in the university I have studied mechanical engineering.", "expect": [{"fix": "studied", "subtype": "verb_tense"}], "rule_covered": false}
+{"id": "e16", "text": "The machine is broken since monday and nobody fixed.", "expect": [{"fix": "has been broken", "subtype": "present_perfect"}], "rule_covered": false}
+{"id": "e17", "text": "I'm agree, but we need to take a decision fast.", "expect": [{"fix": "I agree", "subtype": "verb_agree"}], "rule_covered": true}
+{"id": "e18", "text": "My boss want that I travel next month.", "expect": [{"fix": "wants me to travel", "subtype": "verb_pattern"}], "rule_covered": false}
+{"id": "e19", "text": "Actually I work with product standardization.", "expect": [{"fix": "Currently", "subtype": "false_friend"}], "rule_covered": true}
+{"id": "e20", "text": "I need to push the deadline to the next week because we had a problem in the welding.", "expect": [{"fix": "next week", "subtype": "article"}], "rule_covered": false}
+{"id": "c01", "text": "I've been working here since 2019.", "expect": []}
+{"id": "c02", "text": "Could you send me the updated drawing by Friday?", "expect": []}
+{"id": "c03", "text": "Honestly, I think the tolerance is too tight for this process.", "expect": []}
+{"id": "c04", "text": "We're running behind because the supplier hasn't shipped the bearings yet.", "expect": []}
+{"id": "c05", "text": "Does she have the latest revision of the BOM?", "expect": []}
+{"id": "c06", "text": "I have fifteen years of experience in mechanical design.", "expect": []}
+{"id": "c07", "text": "gonna check with the team and get back to you", "expect": []}
+{"id": "c08", "text": "Yeah I mean it kinda depends on the budget you know", "expect": []}
+{"id": "c09", "text": "The managers don't agree with the new layout.", "expect": []}
+{"id": "c10", "text": "He pretended to understand, but he was lost.", "expect": []}

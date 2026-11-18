@@ -1,0 +1,20 @@
+{
+  "name": "Fluent AI — Inglês para falar",
+  "short_name": "Fluent AI",
+  "description": "Treine conversação, compreensão (inclusive do inglês indiano), vocabulário e pronúncia com um plano de 90 dias. Funciona offline.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F4F3FA",
+  "theme_color": "#6C5CE7",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

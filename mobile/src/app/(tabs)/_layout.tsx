@@ -1,0 +1,48 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { Redirect } from "expo-router";
+import { Tabs } from "expo-router/js-tabs";
+import { type ComponentProps } from "react";
+import { View, type ColorValue } from "react-native";
+import { AnimatedTabBar } from "../../components/AnimatedTabBar";
+import { useApp } from "../../lib/app";
+import { useTheme } from "../../lib/theme";
+
+type Name = ComponentProps<typeof Ionicons>["name"];
+
+function TabIcon({ name, color, focused }: { name: Name; color: ColorValue; focused: boolean }) {
+  const { c } = useTheme();
+  return (
+    <View style={{ width: 46, height: 30, borderRadius: 15, alignItems: "center", justifyContent: "center",
+                   backgroundColor: focused ? c.primarySoft : "transparent" }}>
+      <Ionicons name={focused ? name : (`${name}-outline` as Name)} size={22} color={color as string} />
+    </View>
+  );
+}
+
+const icon = (name: Name) => ({ color, focused }: { color: ColorValue; focused: boolean }) => <TabIcon name={name} color={color} focused={focused} />;
+
+export default function TabsLayout() {
+  const { c } = useTheme();
+  const { ready, signedIn } = useApp();
+  if (ready && !signedIn) return <Redirect href="/" />;
+  return (
+    <Tabs
+      tabBar={(props: any) => <AnimatedTabBar {...props} />}
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: c.primary,
+        tabBarInactiveTintColor: c.textMuted,
+        tabBarStyle: { position: "absolute", backgroundColor: "transparent", borderTopWidth: 0, elevation: 0 },
+        tabBarLabelStyle: { fontSize: 11, fontWeight: "700" },
+      }}
+    >
+      <Tabs.Screen name="index" options={{ title: "Início", tabBarIcon: icon("home") }} />
+      <Tabs.Screen name="learn" options={{ title: "Trilha", tabBarIcon: icon("footsteps") }} />
+      <Tabs.Screen name="practice" options={{ title: "Módulos", tabBarIcon: icon("grid") }} />
+      <Tabs.Screen name="vocab" options={{ title: "Revisão", tabBarIcon: icon("albums") }} />
+      {/* Progresso continua acessível pelo Perfil e pela Início (fora da barra para manter 5 abas) */}
+      <Tabs.Screen name="progress" options={{ title: "Progresso", tabBarButton: () => null, tabBarItemStyle: { display: "none" } }} />
+      <Tabs.Screen name="profile" options={{ title: "Perfil", tabBarIcon: icon("person-circle") }} />
+    </Tabs>
+  );
+}
