@@ -25,19 +25,37 @@ export function fnv1a(text: string): string {
 }
 
 let clips: Record<string, string> = {};
-let clipsIn: Record<string, string> = {};
+/** Gravações com sotaque indiano por falante (VCTK: p248 feminina, p251 e p376 masculinas). */
+let clipsIn: Record<string, Record<string, string>> = {};
+let indianVoice = "";
+export const INDIAN_VOICES: { id: string; label: string }[] = [
+  { id: "p251", label: "Masculina 1" }, { id: "p376", label: "Masculina 2" }, { id: "p248", label: "Feminina" },
+];
+export const indianVoicesAvailable = () => INDIAN_VOICES.filter((v) => clipsIn[v.id] && Object.keys(clipsIn[v.id]).length);
+export const setIndianVoice = (v: string) => { indianVoice = v; };
+export const getIndianVoice = () => indianVoice || indianVoicesAvailable()[0]?.id || "";
+function indianFile(key: string): string | undefined {
+  const pref = getIndianVoice();
+  return clipsIn[pref]?.[key] ?? Object.values(clipsIn).find((m) => m[key])?.[key];
+}
 let manifestLoaded = false;
 let manifestPromise: Promise<void> | null = null;
 export function loadAudioManifest(): Promise<void> {
   if (!IS_WEB) return Promise.resolve();
   manifestPromise ??= fetch(`${BASE}/audio/index.json`, { cache: "no-cache" })
     .then((r) => (r.ok ? r.json() : { clips: {} }))
-    .then((m) => { clips = m.clips ?? {}; clipsIn = m.clips_in ?? {}; manifestLoaded = true; })
+    .then((m) => {
+      clips = m.clips ?? {};
+      const raw = m.clips_in ?? {};
+      // formato antigo: {chave: arquivo} de um único falante
+      clipsIn = Object.values(raw).some((v) => typeof v === "string") ? { in: raw } : raw;
+      manifestLoaded = true;
+    })
     .catch(() => { manifestLoaded = true; });
   return manifestPromise;
 }
 export const recordedCount = () => Object.keys(clips).length;
-export const recordedIndianCount = () => Object.keys(clipsIn).length;
+export const recordedIndianCount = () => Math.max(0, ...Object.values(clipsIn).map((m) => Object.keys(m).length));
 export const hasRecorded = (text: string) => !!clips[fnv1a(normalizeKey(text))];
 
 let el: HTMLAudioElement | null = null;
@@ -89,7 +107,7 @@ export function playRecorded(text: string, rate: number, onDone: () => void, onF
   if (!manifestLoaded) return false;
   const key = fnv1a(normalizeKey(text));
   // sotaque indiano gravado quando pedido (cai para a gravação padrão se não houver)
-  const file = (accent === "IN" && clipsIn[key]) || clips[key];
+  const file = (accent === "IN" && indianFile(key)) || clips[key];
   const a = element();
   if (!file || !a) return false;
   const my = ++seq;
@@ -102,4 +120,17 @@ export function playRecorded(text: string, rate: number, onDone: () => void, onF
   a.onerror = () => { if (my === seq) onFail(); };
   a.play().catch(() => { if (my === seq) onFail(); });
   return true;
+}
+
+/** Baixa antes (e deixa no cache do app) os áudios das próximas frases, para o "Ouvir" tocar sem espera. */
+export async function prefetchRecorded(texts: string[], accent?: string | null) {
+  if (!IS_WEB) return;
+  await loadAudioManifest();
+  const files = new Set<string>();
+  for (const t of texts) {
+    const key = fnv1a(normalizeKey(t));
+    const f = (accent === "IN" && indianFile(key)) || clips[key];
+    if (f) files.add(f);
+  }
+  for (const f of [...files].slice(0, 80)) fetch(`${BASE}/audio/${f}`).catch(() => {});
 }

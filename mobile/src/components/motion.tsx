@@ -61,7 +61,7 @@ export function PressableScale({ children, onPress, style, disabled, accessibili
 /** Entrada escalonada (fade + subida com mola). */
 export function Enter({ children, index = 0, style }: { children: ReactNode; index?: number; style?: StyleProp<ViewStyle> }) {
   return (
-    <Animated.View entering={FadeInDown.delay(Math.min(index, 12) * 55).springify().damping(18)} style={style}>
+    <Animated.View entering={FadeInDown.delay(Math.min(index, 6) * 30).duration(260)} style={style}>
       {children}
     </Animated.View>
   );

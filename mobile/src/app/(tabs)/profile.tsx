@@ -6,7 +6,7 @@ import { AUDIO_TIPS, soundTest } from "../../components/AudioHelp";
 import { ThemePicker } from "../../components/ThemePicker";
 import { getVoicePref, setVoicePref, speak, type VoicePref } from "../../lib/speech";
 import { setItem } from "../../lib/storage";
-import { recordedCount, recordedIndianCount } from "../../lib/webAudio";
+import { getIndianVoice, indianVoicesAvailable, recordedCount, recordedIndianCount, setIndianVoice } from "../../lib/webAudio";
 import { englishVoices } from "../../lib/webSpeech";
 import { api, LOCAL_MODE } from "../../lib/api";
 import { useApp } from "../../lib/app";
@@ -21,6 +21,7 @@ export default function Profile() {
   const [usage, setUsage] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
   const [voice, setVoice] = useState<VoicePref>(getVoicePref());
+  const [indianVoiceId, setIndianVoiceId] = useState(getIndianVoice());
 
   useFocusEffect(useCallback(() => { api("/me/usage").then(setUsage).catch(() => {}); }, []));
 
@@ -64,8 +65,25 @@ export default function Profile() {
           </>
         ) : null}
         <Button title="Testar som" icon="volume-high" variant="secondary" onPress={soundTest} />
-        <Button title="Testar sotaque indiano" icon="earth" variant="ghost" size="sm"
-          onPress={() => speak("Kindly revert at the earliest.", { language: "en", accent: "IN", rate: 0.95 })} />
+        {Platform.OS === "web" && indianVoicesAvailable().length ? (
+          <>
+            <Text variant="small" weight="700">Voz indiana (toque para ouvir e escolher)</Text>
+            <Row wrap gap={8}>
+              {indianVoicesAvailable().map((v) => (
+                <Chip key={v.id} label={v.label} icon="volume-high" selected={indianVoiceId === v.id}
+                  onPress={() => {
+                    setIndianVoice(v.id);
+                    setIndianVoiceId(v.id);
+                    setItem("fluent.indianVoice", v.id);
+                    speak("Kindly revert at the earliest.", { language: "en", accent: "IN", rate: 1 });
+                  }} />
+              ))}
+            </Row>
+          </>
+        ) : (
+          <Button title="Testar sotaque indiano" icon="earth" variant="ghost" size="sm"
+            onPress={() => speak("Kindly revert at the earliest.", { language: "en", accent: "IN", rate: 0.95 })} />
+        )}
         <Text variant="small" muted>Não ouviu nada?</Text>
         {AUDIO_TIPS.map((t) => <Text key={t} variant="small">• {t}</Text>)}
         {Platform.OS === "web" ? (

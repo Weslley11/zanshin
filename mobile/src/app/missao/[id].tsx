@@ -10,6 +10,7 @@ import { api } from "../../lib/api";
 import { tap } from "../../lib/haptics";
 import { checkChunk, checkTurn, missionScore, ratingFor, type Chunk, type Mission, type SayCheck } from "../../lib/missions";
 import { speak, stopSpeaking } from "../../lib/speech";
+import { prefetchRecorded } from "../../lib/webAudio";
 import { radius, useTheme } from "../../lib/theme";
 
 type Step = "intro" | "learn" | "speak" | "listen" | "talk" | "done";
@@ -76,6 +77,10 @@ export default function MissionPlayer() {
         const m = await api<Mission>(`/india/missions/${mid}`);
         if (!alive) return;
         setMission(m);
+        // áudio pronto antes de tocar: falas indianas e as frases da missão
+        prefetchRecorded([...m.chunks.map((c) => c.cue ?? ""), ...m.chunks.filter((c) => c.kind === "hear").map((c) => c.en),
+                          ...m.listen.map((l) => l.say), ...m.dialog.turns.map((t) => t.say)].filter(Boolean), "IN");
+        prefetchRecorded(m.chunks.filter((c) => c.kind === "say").map((c) => c.en));
         navigation.setOptions({ title: `Missão ${m.order}` });
       } catch (e: any) {
         setError(e.message);
