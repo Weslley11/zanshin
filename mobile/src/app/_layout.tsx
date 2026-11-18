@@ -10,6 +10,7 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { AudioHelp } from "../components/AudioHelp";
 import { AppProvider } from "../lib/app";
 import { setFontsLoaded, useTheme } from "../lib/theme";
 
@@ -57,6 +58,7 @@ function RootStack() {
         <Stack.Screen name="unlock" options={{ title: "Destravar a Fala" }} />
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
       </Stack>
+      <AudioHelp />
     </>
   );
 }

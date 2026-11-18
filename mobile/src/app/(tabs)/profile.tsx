@@ -1,8 +1,11 @@
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useContext, useState } from "react";
-import { Switch } from "react-native";
+import { Platform, Switch } from "react-native";
 import { Button, Card, Chip, Divider, ErrorText, Row, Screen, Segmented, Stack, Text } from "../../components/ui";
+import { AUDIO_TIPS, soundTest } from "../../components/AudioHelp";
 import { ThemePicker } from "../../components/ThemePicker";
+import { speak } from "../../lib/speech";
+import { englishVoices } from "../../lib/webSpeech";
 import { api, LOCAL_MODE } from "../../lib/api";
 import { useApp } from "../../lib/app";
 import { ThemeModeContext, useTheme, type ThemeMode } from "../../lib/theme";
@@ -42,6 +45,20 @@ export default function Profile() {
           </Text>
         ) : null}
         <Button title="Ajustar metas e plano" variant="secondary" size="sm" onPress={() => router.push("/onboarding")} />
+      </Card>
+
+      <Card style={{ gap: 8 }}>
+        <Text variant="label" muted>Som e voz</Text>
+        <Button title="Testar som" icon="volume-high" variant="secondary" onPress={soundTest} />
+        <Button title="Testar sotaque indiano" icon="earth" variant="ghost" size="sm"
+          onPress={() => speak("Kindly revert by end of day. We will do the needful.", { language: "en", accent: "IN", rate: 0.95 })} />
+        <Text variant="small" muted>Não ouviu nada?</Text>
+        {AUDIO_TIPS.map((t) => <Text key={t} variant="small">• {t}</Text>)}
+        {Platform.OS === "web" ? (
+          <Text variant="tiny" muted>
+            Vozes em inglês neste aparelho: {englishVoices().length ? `${englishVoices().length} (${englishVoices().some((v) => v.lang.replace("_", "-").toLowerCase() === "en-in") ? "inclui Índia" : "sem voz da Índia"})` : "nenhuma encontrada ainda"}
+          </Text>
+        ) : null}
       </Card>
 
       <Card style={{ gap: 10 }}>
