@@ -35,6 +35,28 @@ jobs:
         run: npm run build:pwa
         env:
           FLUENT_BASE_URL: /${{ github.event.repository.name }}
+          EXPO_PUBLIC_BASE_URL: /${{ github.event.repository.name }}
+          EXPO_PUBLIC_APP_VERSION: ${{ github.sha }}
+      # Áudios gravados (voz neural Piper, LJSpeech — domínio público): tocam como mídia, de forma confiável no iPhone
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Cache dos áudios e da voz
+        uses: actions/cache@v4
+        with:
+          path: |
+            mobile/.audio-cache
+            mobile/voices
+          key: audio-${{ hashFiles('mobile/src/content/content.json', 'mobile/scripts/make_audio.py') }}
+          restore-keys: audio-
+      - name: Gerar áudios das frases
+        run: |
+          command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+          pip install piper-tts==1.8.0
+          [ -f voices/en_US-ljspeech-medium.onnx ] || python -m piper.download_voices en_US-ljspeech-medium --data-dir voices
+          python scripts/make_audio.py --model voices/en_US-ljspeech-medium.onnx --out .audio-cache
+          mkdir -p dist/audio && cp .audio-cache/* dist/audio/
+          ls dist/audio | wc -l
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

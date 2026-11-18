@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { api, auth, loadTokens, setUnauthorizedHandler } from "./api";
-import { setServerVoice } from "./speech";
+import { setServerVoice, setVoicePref, type VoicePref } from "./speech";
 import { getItem, setItem } from "./storage";
 import { THEMES, ThemeModeContext, type MotionPref, type ThemeId, type ThemeMode } from "./theme";
 import type { Capabilities, Me, Profile } from "./types";
@@ -55,6 +55,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       if (savedTheme && savedTheme in THEMES) setThemeIdState(savedTheme);
       const savedMotion = (await getItem("fluent.motion")) as MotionPref | null;
       if (savedMotion) setMotionState(savedMotion);
+      const savedVoice = (await getItem("fluent.voicePref")) as VoicePref | null;
+      if (savedVoice) setVoicePref(savedVoice);
       api<Capabilities>("/system/capabilities", { auth: false }).then(setCaps).catch(() => setCaps(null));
       if (await loadTokens()) {
         try {

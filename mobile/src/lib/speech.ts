@@ -2,7 +2,14 @@ import * as Speech from "expo-speech";
 import { createAudioPlayer, type AudioPlayer } from "expo-audio";
 import { Platform } from "react-native";
 import { API_URL, authHeader } from "./api";
+import { playRecorded, stopRecorded } from "./webAudio";
 import { webSpeak, webStop } from "./webSpeech";
+
+/** Na web: "recorded" = áudio gravado (confiável no iPhone) quando existir; "device" = voz do aparelho (sotaques). */
+export type VoicePref = "recorded" | "device";
+let voicePref: VoicePref = "recorded";
+export const setVoicePref = (v: VoicePref) => { voicePref = v; };
+export const getVoicePref = () => voicePref;
 
 /** Locales por idioma/sotaque para a voz do dispositivo (gratuita, funciona offline se a voz estiver instalada). */
 export const ACCENT_LOCALES: Record<string, Record<string, string>> = {
@@ -40,8 +47,10 @@ export function speedToRate(speed: "slow" | "normal" | "fast" | number): number 
 
 export async function stopSpeaking() {
   activeId++;
-  if (Platform.OS === "web") webStop();
-  else await Speech.stop();
+  if (Platform.OS === "web") {
+    webStop();
+    stopRecorded();
+  } else await Speech.stop();
   try {
     player?.pause();
   } catch {
@@ -86,8 +95,12 @@ export function speak(
   }
   activeId = myId;
   if (Platform.OS === "web") {
-    // implementação própria para o Safari do iPhone (ver lib/webSpeech.ts)
-    webSpeak(clean, localeFor(language, accent), rate, onDone);
+    // 1º: áudio gravado (lib/webAudio.ts); 2º: voz do aparelho com contornos do Safari (lib/webSpeech.ts)
+    const viaDevice = () => webSpeak(clean, localeFor(language, accent), rate, onDone);
+    webStop();
+    if (voicePref === "recorded" && language === "en" && playRecorded(clean, rate, onDone, viaDevice)) return;
+    stopRecorded();
+    viaDevice();
     return;
   }
   Speech.stop();
