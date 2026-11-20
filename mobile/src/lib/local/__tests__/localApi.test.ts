@@ -137,3 +137,35 @@ test("Trilha no aparelho: XP, desbloqueio, sequência e revisão", async () => {
   await assert.rejects(localApi(`/course/lessons/${first}/complete`, { body: { results: [{ item_id: "x", rating: 0 }], total: 1 } }), /inválida/);
   await assert.rejects(localApi("/course/lessons/nope"), /não encontrada/);
 });
+
+test("Missão Wisconsin e mapas mentais no aparelho", async () => {
+  setMemoryDB(null);
+  mem.clear();
+  await localApi("/auth/register", { body: { display_name: "Ana" } });
+  await localApi("/me/profiles/en", { method: "PUT", body: { daily_minutes: 30, self_level: "B1" } });
+  const us: any = await localApi("/india/missions?track=us");
+  assert.equal(us.track, "us");
+  assert.equal(us.next_mission_id, "w01");
+  assert.ok(us.missions.every((m: any) => m.accent === "US"));
+  await assert.rejects(localApi("/india/missions?track=xx"), /inválida/);
+  const w: any = await localApi("/india/missions/w02");
+  const done: any = await localApi("/india/missions/w02/complete", { body: { results: w.chunks.map((c: any) => ({ chunk_id: c.id, rating: 3 })), score: 1, duration_seconds: 300 } });
+  assert.equal(done.overview.track, "us");
+  assert.equal(done.overview.completed, 1);
+  assert.equal(((await localApi("/india/missions")) as any).completed, 0);
+
+  const ov: any = await localApi("/maps");
+  assert.equal(ov.practiced, 0);
+  assert.equal(ov.next_map_id, "mm01");
+  const m: any = await localApi("/maps/mm08");
+  const leaves = m.branches.flatMap((b: any) => b.leaves);
+  const res: any = await localApi("/maps/mm08/complete", { body: { mode: "rebuild", duration_seconds: 200,
+    results: leaves.map((l: any, i: number) => ({ leaf_id: l.id, rating: i % 2 ? 3 : 1 })) } });
+  assert.equal(res.reviewed, leaves.length);
+  assert.equal(res.added, leaves.length);
+  assert.equal(res.score, 0.5);
+  assert.equal(res.overview.practiced, 1);
+  assert.equal(res.overview.next_map_id, "mm01");
+  await assert.rejects(localApi("/maps/mm08/complete", { body: { mode: "zz", results: [] } }), /inválido/);
+  await assert.rejects(localApi("/maps/zz"), /não encontrado/);
+});

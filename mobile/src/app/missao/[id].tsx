@@ -20,7 +20,6 @@ const STEPS: { key: Step; label: string; icon: IconName }[] = [
   { key: "listen", label: "Entender", icon: "ear" },
   { key: "talk", label: "Conversar", icon: "chatbubbles" },
 ];
-const IN = "IN";
 
 function shuffleInterleaved(chunks: Chunk[]): string[] {
   // intercala "dizer" e "entender" e embaralha levemente (prática intercalada)
@@ -77,9 +76,10 @@ export default function MissionPlayer() {
         const m = await api<Mission>(`/india/missions/${mid}`);
         if (!alive) return;
         setMission(m);
+        setVoice(m.accent === "US" ? "US" : "IN");
         // áudio pronto antes de tocar: falas indianas e as frases da missão
         prefetchRecorded([...m.chunks.map((c) => c.cue ?? ""), ...m.chunks.filter((c) => c.kind === "hear").map((c) => c.en),
-                          ...m.listen.map((l) => l.say), ...m.dialog.turns.map((t) => t.say)].filter(Boolean), "IN");
+                          ...m.listen.map((l) => l.say), ...m.dialog.turns.map((t) => t.say)].filter(Boolean), m.accent ?? "IN");
         prefetchRecorded(m.chunks.filter((c) => c.kind === "say").map((c) => c.en));
         navigation.setOptions({ title: `Missão ${m.order}` });
       } catch (e: any) {
@@ -93,6 +93,9 @@ export default function MissionPlayer() {
   const chunks = mission.chunks;
   const byId = Object.fromEntries(chunks.map((x) => [x.id, x]));
 
+  const IN = mission.accent ?? "IN"; // sotaque da missão (IN = Índia, US = Wisconsin/EUA)
+  const isUS = IN === "US";
+  const GR = isUS ? "usa" : "india";
   const say = (text: string, accent: string = IN, rate = 0.95) => speak(text, { language: "en", accent, rate });
 
   // ------------------------------- transições -------------------------------
@@ -237,7 +240,7 @@ export default function MissionPlayer() {
           );
         })}
       </Row>
-      <ProgressBar value={progress} gradient="india" />
+      <ProgressBar value={progress} gradient={GR} />
     </Stack>
   );
 
@@ -246,7 +249,7 @@ export default function MissionPlayer() {
     const sayCount = chunks.filter((x) => x.kind === "say").length;
     return (
       <Screen>
-        <ModuleHero title={mission.title_pt} icon={mission.icon as IconName} gradient="india" subtitle={mission.subtitle_pt}>
+        <ModuleHero title={mission.title_pt} icon={mission.icon as IconName} gradient={GR} subtitle={mission.subtitle_pt}>
           <Row gap={6} wrap>
             <Pill label={`Missão ${mission.order}`} icon="flag" color="#fff" bg="rgba(255,255,255,0.22)" />
             <Pill label={`~${mission.minutes} min`} icon="time" color="#fff" bg="rgba(255,255,255,0.22)" />
@@ -259,14 +262,14 @@ export default function MissionPlayer() {
         </Card>
         <Stack gap={10}>
           {[
-            ["headset", "Ouvir", `Ouça as ${chunks.length} frases com voz indiana e repita em voz alta.`],
+            ["headset", "Ouvir", `Ouça as ${chunks.length} frases com voz ${isUS ? "americana" : "indiana"} e repita em voz alta.`],
             ["mic", "Falar", `Do português para o inglês, falando (${sayCount} frases) — e repita o que ouvir.`],
-            ["ear", "Entender", "Frases como os indianos dizem, na velocidade normal."],
+            ["ear", "Entender", isUS ? "Frases como os americanos do Meio-Oeste dizem, na velocidade normal." : "Frases como os indianos dizem, na velocidade normal."],
             ["chatbubbles", "Conversar", `Mini-conversa com ${mission.dialog.partner}.`],
           ].map(([icon, title, text], k) => (
             <Enter key={title} index={k}>
               <Row gap={12}>
-                <Gradient name="india" style={{ width: 40, height: 40, borderRadius: 12, alignItems: "center", justifyContent: "center" }}>
+                <Gradient name={GR} style={{ width: 40, height: 40, borderRadius: 12, alignItems: "center", justifyContent: "center" }}>
                   <Icon name={icon as IconName} size={20} color="#fff" />
                 </Gradient>
                 <View style={{ flex: 1 }}>
@@ -277,12 +280,12 @@ export default function MissionPlayer() {
             </Enter>
           ))}
         </Stack>
-        <Row gap={10}>
+        {!isUS ? <Row gap={10}>
           <Text variant="small" muted>Voz das suas frases</Text>
           <View style={{ flex: 1 }}>
             <Segmented<"IN" | "US"> value={voice} onChange={setVoice} options={[{ value: "IN", label: "Indiana" }, { value: "US", label: "Americana" }]} />
           </View>
-        </Row>
+        </Row> : null}
         <Button title="Começar missão" size="lg" icon="play" onPress={startLearn} />
         <Text variant="tiny" muted center>Use fones se estiver em público: você vai falar em voz alta. As frases entram na sua revisão espaçada no final.</Text>
       </Screen>
@@ -296,14 +299,14 @@ export default function MissionPlayer() {
         {header((li + 1) / chunks.length / 4)}
         <Text variant="label" muted>Frase {li + 1} de {chunks.length} · {ch.kind === "say" ? "você vai dizer" : "você vai ouvir"}</Text>
         <Animated.View key={ch.id} entering={FadeInRight.springify().damping(18)}>
-          <Gradient name="india" style={{ borderRadius: radius.xl, padding: 22, gap: 12 }}>
+          <Gradient name={GR} style={{ borderRadius: radius.xl, padding: 22, gap: 12 }}>
             {ch.cue ? <Text variant="small" color="rgba(255,255,255,0.92)">Quando alguém disser: “{ch.cue}”</Text> : null}
             <Text variant="h1" color="#fff">{ch.en}</Text>
             <Text color="rgba(255,255,255,0.95)">{ch.pt}</Text>
             <Row gap={8} wrap>
-              <Button title="Ouvir (Índia)" icon="volume-high" size="sm" variant="secondary" onPress={() => say(ch.en, IN, 0.9)} />
+              <Button title={isUS ? "Ouvir (EUA)" : "Ouvir (Índia)"} icon="volume-high" size="sm" variant="secondary" onPress={() => say(ch.en, IN, 0.9)} />
               <Button title="Devagar" icon="speedometer" size="sm" variant="secondary" onPress={() => say(ch.en, voice, 0.7)} />
-              {ch.kind === "say" ? <Button title="EUA" icon="volume-medium" size="sm" variant="secondary" onPress={() => say(ch.en, "US", 0.9)} /> : null}
+              {ch.kind === "say" && !isUS ? <Button title="EUA" icon="volume-medium" size="sm" variant="secondary" onPress={() => say(ch.en, "US", 0.9)} /> : null}
             </Row>
           </Gradient>
         </Animated.View>
@@ -427,7 +430,7 @@ export default function MissionPlayer() {
         <Text variant="label" muted>Conversa com {mission.dialog.partner} · {ti + 1}/{turns.length}</Text>
         <Animated.View key={ti} entering={FadeInRight.springify().damping(18)}>
           <Row gap={10} style={{ alignItems: "flex-end" }}>
-            <Gradient name="india" style={{ width: 38, height: 38, borderRadius: 19, alignItems: "center", justifyContent: "center" }}>
+            <Gradient name={GR} style={{ width: 38, height: 38, borderRadius: 19, alignItems: "center", justifyContent: "center" }}>
               <Icon name="person" size={20} color="#fff" />
             </Gradient>
             <Card style={{ flex: 1, gap: 8, borderBottomLeftRadius: 6 }}>
@@ -468,7 +471,7 @@ export default function MissionPlayer() {
   return (
     <Screen scrollKey="done" overlay={<Celebration show={!saving && !!result && score >= 0.6} />}>
       <Enter>
-        <Gradient name="india" style={{ borderRadius: radius.xl, padding: 22, alignItems: "center", gap: 10 }}>
+        <Gradient name={GR} style={{ borderRadius: radius.xl, padding: 22, alignItems: "center", gap: 10 }}>
           <Text variant="label" color="rgba(255,255,255,0.9)">Missão {mission.order} concluída</Text>
           <ProgressRing value={score} size={120} colors={["#FFFFFF", "#FFE7A3"]} track="rgba(255,255,255,0.25)">
             <Text variant="h1" color="#fff">{Math.round(score * 100)}%</Text>

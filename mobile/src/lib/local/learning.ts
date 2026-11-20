@@ -327,7 +327,7 @@ export function dashboard(db: DB, language: string) {
   for (const l of logs) byDay[l.started_at.slice(0, 10)] = (byDay[l.started_at.slice(0, 10)] ?? 0) + l.duration_seconds / 60;
   // dia ativo: ≥ 1 min de estudo ou uma lição/missão concluída (lições curtas também mantêm a sequência)
   const active = new Set([...Object.entries(byDay).filter(([, m]) => m >= 1).map(([d]) => d),
-                          ...logs.filter((l) => l.activity_type === "lesson" || l.activity_type === "india_mission").map((l) => l.started_at.slice(0, 10))]);
+                          ...logs.filter((l) => ["lesson", "india_mission", "mind_map"].includes(l.activity_type)).map((l) => l.started_at.slice(0, 10))]);
   const dayOf = (offset: number) => new Date(Date.parse(today) - offset * 86_400_000).toISOString().slice(0, 10);
   let streak = 0;
   for (let o = active.has(today) ? 0 : 1; active.has(dayOf(o)); o++) streak++;

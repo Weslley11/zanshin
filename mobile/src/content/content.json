@@ -9299,7 +9299,9 @@
       "model": "Thank you! I'm really looking forward to working with your team."
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m02",
@@ -9503,7 +9505,9 @@
       "model": "So it's BLR 45792. Got it, thank you!"
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m03",
@@ -9717,7 +9721,9 @@
       "model": "Just one thing: what are the action items, and who will send the minutes?"
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m04",
@@ -9924,7 +9930,9 @@
       "model": "Great, thanks. Could you please attach the updated drawing to the invite?"
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m05",
@@ -10140,7 +10148,9 @@
       "model": "Thank you very much."
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m06",
@@ -10347,7 +10357,9 @@
       "model": "OK, three hundred. Could you drive a bit slower, please?"
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m07",
@@ -10555,7 +10567,9 @@
       "model": "Thank you. Is there an ATM nearby too?"
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m08",
@@ -10764,7 +10778,9 @@
       "model": "Thank you for inviting me. I'd love to come."
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m09",
@@ -10967,7 +10983,9 @@
       "model": "OK. Let's do a trial run before mass production, and please share the first article inspection report."
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m10",
@@ -11170,7 +11188,9 @@
       "model": "Perfect. Could you confirm the date and the owner by email, please?"
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m11",
@@ -11371,7 +11391,9 @@
       "model": "OK, deal."
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m12",
@@ -11582,7 +11604,9 @@
       "model": "Yes, I'll attend the meeting tomorrow."
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
   },
   {
    "id": "m13",
@@ -11778,7 +11802,2017 @@
       "model": "Thank you so much. Dhanyavaad!"
      }
     ]
-   }
+   },
+   "track": "india",
+   "accent": "IN"
+  }
+ ],
+ "us_missions": [
+  {
+   "id": "w01",
+   "order": 1,
+   "icon": "airplane",
+   "minutes": 12,
+   "title_pt": "Chegada aos EUA: imigração e conexão",
+   "subtitle_pt": "Oficial da imigração (CBP), alfândega, conexão em Chicago e aluguel de carro",
+   "goal_pt": "Passar pela imigração americana com respostas curtas e claras e chegar ao carro alugado sem travar.",
+   "chunks": [
+    {
+     "id": "w01-c01",
+     "kind": "say",
+     "level": "A2",
+     "en": "I'm here for business meetings.",
+     "pt": "Estou aqui para reuniões de negócios.",
+     "alts": [
+      "I am here for business meetings",
+      "I'm here for business"
+     ],
+     "cue": "What's the purpose of your trip?",
+     "note_pt": "O visto B-1 cobre reuniões, visitas técnicas e treinamentos, não trabalho remunerado para a empresa americana. Diga a verdade, de forma curta e específica."
+    },
+    {
+     "id": "w01-c02",
+     "kind": "say",
+     "level": "A2",
+     "en": "I'm visiting our partner's plant in Wisconsin.",
+     "pt": "Vou visitar a fábrica do nosso parceiro em Wisconsin.",
+     "alts": [
+      "I am visiting our partner's plant in Wisconsin"
+     ]
+    },
+    {
+     "id": "w01-c03",
+     "kind": "say",
+     "level": "A2",
+     "en": "I'll be here for ten days.",
+     "pt": "Vou ficar dez dias.",
+     "alts": [
+      "I will be here for ten days",
+      "I'll be here for 10 days"
+     ],
+     "cue": "How long will you be staying?"
+    },
+    {
+     "id": "w01-c04",
+     "kind": "say",
+     "level": "A2",
+     "en": "I'm staying at a hotel in Milwaukee.",
+     "pt": "Vou ficar num hotel em Milwaukee.",
+     "alts": [
+      "I am staying at a hotel in Milwaukee"
+     ],
+     "cue": "Where are you staying?",
+     "note_pt": "Troque pela cidade real (Madison, Green Bay…)."
+    },
+    {
+     "id": "w01-c05",
+     "kind": "say",
+     "level": "B1",
+     "en": "My company in Brazil is paying for the trip.",
+     "pt": "Minha empresa no Brasil está pagando a viagem.",
+     "alts": [
+      "My company in Brazil is paying for my trip"
+     ],
+     "cue": "Who's paying for your trip?"
+    },
+    {
+     "id": "w01-c06",
+     "kind": "say",
+     "level": "A2",
+     "en": "No, I have nothing to declare.",
+     "pt": "Não, não tenho nada a declarar.",
+     "alts": [
+      "No I have nothing to declare",
+      "Nothing to declare"
+     ],
+     "cue": "Any food, plants or cash over ten thousand dollars?"
+    },
+    {
+     "id": "w01-c07",
+     "kind": "say",
+     "level": "B1",
+     "en": "Where do I recheck my bags for the connection?",
+     "pt": "Onde eu despacho de novo as malas para a conexão?",
+     "alts": [
+      "Where do I recheck my bags for my connection"
+     ],
+     "note_pt": "No primeiro aeroporto dos EUA você retira a mala, passa na alfândega e despacha de novo."
+    },
+    {
+     "id": "w01-c08",
+     "kind": "hear",
+     "level": "A2",
+     "en": "Next in line, please. Step up to the yellow line.",
+     "pt": "O próximo da fila, por favor. Venha até a linha amarela."
+    },
+    {
+     "id": "w01-c09",
+     "kind": "say",
+     "level": "A2",
+     "en": "I have a reservation for a midsize car.",
+     "pt": "Tenho uma reserva de um carro médio.",
+     "alts": [
+      "I have a reservation for a mid size car",
+      "I've got a reservation for a midsize car"
+     ]
+    },
+    {
+     "id": "w01-c10",
+     "kind": "hear",
+     "level": "B1",
+     "en": "Would you like to add the prepaid fuel option?",
+     "pt": "Quer incluir a opção de combustível pré-pago?",
+     "note_pt": "Normalmente compensa recusar e devolver com o tanque cheio: 'No thanks, I'll return it full.'"
+    }
+   ],
+   "listen": [
+    {
+     "id": "w01-l01",
+     "say": "Passport and visa, please. Look into the camera. Right index finger on the scanner.",
+     "question_pt": "O que o oficial pediu?",
+     "answer": 0,
+     "options_pt": [
+      "Passaporte e visto, olhar a câmera e o indicador direito no leitor",
+      "O cartão de embarque e a reserva do hotel",
+      "Pagar uma taxa"
+     ],
+     "note_pt": "Foto e digitais fazem parte da entrada nos EUA."
+    },
+    {
+     "id": "w01-l02",
+     "say": "Your connecting flight to Milwaukee leaves from Terminal Three, gate K seven. Take the train.",
+     "question_pt": "Como chegar ao voo de conexão?",
+     "answer": 2,
+     "options_pt": [
+      "Sair do aeroporto e pegar um táxi",
+      "Esperar no mesmo portão",
+      "Pegar o trem até o Terminal 3, portão K7"
+     ],
+     "note_pt": "Em Chicago O'Hare, o trem entre terminais é o 'ATS'."
+    },
+    {
+     "id": "w01-l03",
+     "say": "Okay, you're all set. Car's in spot forty-two, keys are inside. Have a good one.",
+     "question_pt": "Onde está o carro?",
+     "answer": 1,
+     "options_pt": [
+      "Na garagem do hotel",
+      "Na vaga 42, com a chave dentro",
+      "Ainda vai ser lavado"
+     ],
+     "note_pt": "'You're all set' = está tudo certo; 'Have a good one' = tenha um bom dia."
+    }
+   ],
+   "dialog": {
+    "partner": "Oficial da imigração (CBP), Chicago",
+    "turns": [
+     {
+      "say": "Good afternoon. What's the purpose of your trip?",
+      "hint_pt": "Diga que veio para reuniões de negócios e visita técnica.",
+      "keywords": [
+       "business",
+       "meetings",
+       "plant",
+       "visit",
+       "partner"
+      ],
+      "model": "Good afternoon. I'm here for business meetings and a plant visit."
+     },
+     {
+      "say": "Where's the plant?",
+      "hint_pt": "Diga a cidade e o estado.",
+      "keywords": [
+       "wisconsin",
+       "milwaukee",
+       "madison",
+       "green bay"
+      ],
+      "model": "It's in Milwaukee, Wisconsin."
+     },
+     {
+      "say": "How long are you staying, and where?",
+      "hint_pt": "Diga quantos dias e o hotel.",
+      "keywords": [
+       "days",
+       "week",
+       "hotel",
+       "staying"
+      ],
+      "model": "Ten days, at a hotel in Milwaukee."
+     },
+     {
+      "say": "Alright. Welcome to the United States.",
+      "hint_pt": "Agradeça.",
+      "keywords": [
+       "thank",
+       "thanks"
+      ],
+      "model": "Thank you!"
+     }
+    ]
+   },
+   "track": "us",
+   "accent": "US"
+  },
+  {
+   "id": "w02",
+   "order": 2,
+   "icon": "snow",
+   "minutes": 12,
+   "title_pt": "Carro, posto e inverno de Wisconsin",
+   "subtitle_pt": "Abastecer, direções, neve, gelo na pista e temperaturas em Fahrenheit",
+   "goal_pt": "Abastecer, se orientar e conversar sobre o frio — entendendo temperaturas em Fahrenheit.",
+   "chunks": [
+    {
+     "id": "w02-c01",
+     "kind": "say",
+     "level": "A2",
+     "en": "Do I pay at the pump or inside?",
+     "pt": "Pago na bomba ou lá dentro?",
+     "alts": [
+      "Do I pay at the pump or inside the store"
+     ],
+     "note_pt": "Cartões estrangeiros às vezes pedem 'ZIP code' na bomba; aí pague no caixa."
+    },
+    {
+     "id": "w02-c02",
+     "kind": "say",
+     "level": "A2",
+     "en": "Forty dollars on pump four, please.",
+     "pt": "Quarenta dólares na bomba quatro, por favor.",
+     "alts": [
+      "Forty dollars on pump number four please",
+      "$40 on pump 4, please"
+     ]
+    },
+    {
+     "id": "w02-c03",
+     "kind": "say",
+     "level": "B1",
+     "en": "Are the roads icy this morning?",
+     "pt": "As estradas estão com gelo hoje de manhã?",
+     "alts": [
+      "Are the roads icy today"
+     ]
+    },
+    {
+     "id": "w02-c04",
+     "kind": "hear",
+     "level": "B1",
+     "en": "Drive safe, it's pretty slick out there.",
+     "pt": "Dirija com cuidado, está bem escorregadio lá fora.",
+     "note_pt": "'slick' = escorregadio (gelo)."
+    },
+    {
+     "id": "w02-c05",
+     "kind": "hear",
+     "level": "B1",
+     "en": "It's ten below with the wind chill.",
+     "pt": "Está -10 °F com a sensação térmica (≈ -23 °C).",
+     "note_pt": "Fahrenheit: 32 °F = 0 °C. Conta rápida: (°F − 30) ÷ 2 ≈ °C."
+    },
+    {
+     "id": "w02-c06",
+     "kind": "say",
+     "level": "A2",
+     "en": "I'm not used to this kind of cold.",
+     "pt": "Não estou acostumado com esse tipo de frio.",
+     "alts": [
+      "I am not used to this kind of cold",
+      "I'm not used to this cold"
+     ]
+    },
+    {
+     "id": "w02-c07",
+     "kind": "say",
+     "level": "B1",
+     "en": "Is it far from here, or can I walk?",
+     "pt": "É longe daqui ou dá para ir a pé?",
+     "alts": [
+      "Is it far from here or can I walk"
+     ]
+    },
+    {
+     "id": "w02-c08",
+     "kind": "hear",
+     "level": "B1",
+     "en": "Take the highway north for about five miles, then exit on Main Street.",
+     "pt": "Pegue a rodovia sentido norte por umas cinco milhas (8 km) e saia na Main Street.",
+     "note_pt": "1 milha ≈ 1,6 km."
+    },
+    {
+     "id": "w02-c09",
+     "kind": "say",
+     "level": "B1",
+     "en": "Could you recommend a good place for lunch nearby?",
+     "pt": "Você pode recomendar um bom lugar para almoçar aqui perto?",
+     "alts": [
+      "Can you recommend a good place for lunch nearby"
+     ]
+    },
+    {
+     "id": "w02-c10",
+     "kind": "hear",
+     "level": "B1",
+     "en": "Watch out for deer on the county roads at night.",
+     "pt": "Cuidado com cervos nas estradas do interior à noite.",
+     "note_pt": "Bem comum em Wisconsin."
+    }
+   ],
+   "listen": [
+    {
+     "id": "w02-l01",
+     "say": "Looks like we're getting six to eight inches of snow tonight, so give yourself extra time tomorrow.",
+     "question_pt": "Qual é o aviso?",
+     "answer": 0,
+     "options_pt": [
+      "Vai nevar de 15 a 20 cm à noite; sair mais cedo amanhã",
+      "A estrada vai fechar",
+      "Amanhã vai fazer calor"
+     ],
+     "note_pt": "1 inch = 2,54 cm."
+    },
+    {
+     "id": "w02-l02",
+     "say": "It's supposed to hit thirty-five on Saturday, practically a heat wave.",
+     "question_pt": "Que temperatura vai fazer no sábado?",
+     "answer": 2,
+     "options_pt": [
+      "35 °C",
+      "-35 °F",
+      "Uns 2 °C (35 °F) — e a pessoa está brincando"
+     ],
+     "note_pt": "Humor do Meio-Oeste: 35 °F no inverno é 'onda de calor'."
+    },
+    {
+     "id": "w02-l03",
+     "say": "Card didn't go through at the pump? No worries, just prepay inside and I'll turn it on for ya.",
+     "question_pt": "O que fazer?",
+     "answer": 1,
+     "options_pt": [
+      "Ir a outro posto",
+      "Pagar antes no caixa; ele libera a bomba",
+      "Ligar para o banco"
+     ],
+     "note_pt": "'for ya' = for you."
+    }
+   ],
+   "dialog": {
+    "partner": "Atendente do posto",
+    "turns": [
+     {
+      "say": "Hey there, what can I get ya?",
+      "hint_pt": "Peça 40 dólares na bomba quatro.",
+      "keywords": [
+       "forty",
+       "40",
+       "pump",
+       "four"
+      ],
+      "model": "Hi! Forty dollars on pump four, please."
+     },
+     {
+      "say": "Sure thing. Anything else?",
+      "hint_pt": "Pergunte se as estradas estão com gelo.",
+      "keywords": [
+       "roads",
+       "icy",
+       "ice",
+       "slippery"
+      ],
+      "model": "Yes — are the roads icy this morning?"
+     },
+     {
+      "say": "A little slick on the back roads. Where you headed?",
+      "hint_pt": "Diga que vai à fábrica e pergunte se é longe.",
+      "keywords": [
+       "plant",
+       "factory",
+       "far",
+       "office"
+      ],
+      "model": "To the plant on Main Street. Is it far from here?"
+     },
+     {
+      "say": "Nah, about ten minutes. Drive safe!",
+      "hint_pt": "Agradeça.",
+      "keywords": [
+       "thank",
+       "thanks"
+      ],
+      "model": "Thanks, have a good one!"
+     }
+    ]
+   },
+   "track": "us",
+   "accent": "US"
+  },
+  {
+   "id": "w03",
+   "order": 3,
+   "icon": "construct",
+   "minutes": 12,
+   "title_pt": "Unidades americanas na engenharia",
+   "subtitle_pt": "Polegadas, milésimos, libras-pé, psi, Fahrenheit e datas no formato americano",
+   "goal_pt": "Entender e confirmar medidas, tolerâncias e datas no padrão americano sem erro de conversão.",
+   "chunks": [
+    {
+     "id": "w03-c01",
+     "kind": "say",
+     "level": "B1",
+     "en": "Is that in inches or millimeters?",
+     "pt": "Isso está em polegadas ou milímetros?",
+     "alts": [
+      "Is it in inches or millimeters"
+     ]
+    },
+    {
+     "id": "w03-c02",
+     "kind": "say",
+     "level": "B1",
+     "en": "Could you convert that to metric for me?",
+     "pt": "Você pode converter isso para o sistema métrico para mim?",
+     "alts": [
+      "Can you convert that to metric for me",
+      "Could you convert it to metric?"
+     ]
+    },
+    {
+     "id": "w03-c03",
+     "kind": "hear",
+     "level": "B1",
+     "en": "The tolerance is plus or minus five thou.",
+     "pt": "A tolerância é de mais ou menos cinco milésimos de polegada (±0,127 mm).",
+     "note_pt": "'thou' = 0,001 polegada (também 'mil')."
+    },
+    {
+     "id": "w03-c04",
+     "kind": "hear",
+     "level": "B1",
+     "en": "Torque it to forty foot-pounds.",
+     "pt": "Aperte com torque de 40 libras-pé (≈ 54 N·m).",
+     "note_pt": "1 ft·lb ≈ 1,36 N·m."
+    },
+    {
+     "id": "w03-c05",
+     "kind": "say",
+     "level": "B1",
+     "en": "Just to confirm, is the ship date March fifth or May third?",
+     "pt": "Só para confirmar: a data de envio é 5 de março ou 3 de maio?",
+     "alts": [
+      "Just to confirm is the ship date March fifth or May third"
+     ],
+     "note_pt": "Nos EUA, 3/5 = March 5 (mês/dia). Sempre confirme datas por extenso."
+    },
+    {
+     "id": "w03-c06",
+     "kind": "hear",
+     "level": "B1",
+     "en": "The line runs at eighty psi.",
+     "pt": "A linha trabalha a 80 psi (≈ 5,5 bar).",
+     "note_pt": "1 bar ≈ 14,5 psi."
+    },
+    {
+     "id": "w03-c07",
+     "kind": "say",
+     "level": "B1",
+     "en": "We use ISO standards in Brazil. Which standard do you follow here?",
+     "pt": "No Brasil usamos normas ISO. Que norma vocês seguem aqui?",
+     "alts": [
+      "We use ISO standards in Brazil, which standard do you follow here"
+     ]
+    },
+    {
+     "id": "w03-c08",
+     "kind": "hear",
+     "level": "B1",
+     "en": "That part weighs about twelve pounds.",
+     "pt": "Essa peça pesa umas 12 libras (≈ 5,4 kg).",
+     "note_pt": "1 lb ≈ 0,45 kg."
+    },
+    {
+     "id": "w03-c09",
+     "kind": "say",
+     "level": "B1",
+     "en": "Can we add the metric values to the drawing?",
+     "pt": "Podemos colocar os valores métricos no desenho?",
+     "alts": [
+      "Could we add the metric values to the drawing"
+     ]
+    },
+    {
+     "id": "w03-c10",
+     "kind": "hear",
+     "level": "B1",
+     "en": "Keep the oven at three fifty for twenty minutes.",
+     "pt": "Mantenha o forno a 350 °F por 20 minutos (≈ 177 °C).",
+     "note_pt": "Processos térmicos também vêm em Fahrenheit."
+    }
+   ],
+   "listen": [
+    {
+     "id": "w03-l01",
+     "say": "The bore is one point two five oh inches, plus or minus half a thou.",
+     "question_pt": "Qual é a cota?",
+     "answer": 0,
+     "options_pt": [
+      "Furo de 1,250\" (31,75 mm), ±0,0005\"",
+      "Furo de 125 mm",
+      "Furo de 1,25 mm"
+     ],
+     "note_pt": "'oh' = zero ao ler números."
+    },
+    {
+     "id": "w03-l02",
+     "say": "We need the parts here by eleven twelve, so please plan the shipment.",
+     "question_pt": "No formato americano, até quando as peças precisam chegar?",
+     "answer": 1,
+     "options_pt": [
+      "11 de dezembro",
+      "12 de novembro",
+      "12 de dezembro"
+     ],
+     "note_pt": "Nos EUA a data é mês/dia: 11/12 = November 12. Confirme sempre por extenso."
+    },
+    {
+     "id": "w03-l03",
+     "say": "Run the test at a hundred and fifty psi for ten minutes and watch for leaks.",
+     "question_pt": "Qual é o teste?",
+     "answer": 1,
+     "options_pt": [
+      "150 bar por 10 minutos",
+      "150 psi (≈ 10 bar) por 10 minutos, verificando vazamentos",
+      "15 psi por uma hora"
+     ],
+     "note_pt": "psi ÷ 14,5 ≈ bar."
+    }
+   ],
+   "dialog": {
+    "partner": "Mike, engenheiro de manufatura (Milwaukee)",
+    "turns": [
+     {
+      "say": "So the new bracket needs a hole at three eighths of an inch.",
+      "hint_pt": "Pergunte se pode converter para métrico.",
+      "keywords": [
+       "metric",
+       "millimeters",
+       "convert",
+       "mm"
+      ],
+      "model": "Could you convert that to metric for me?"
+     },
+     {
+      "say": "Sure, that's about nine and a half millimeters.",
+      "hint_pt": "Pergunte qual é a tolerância.",
+      "keywords": [
+       "tolerance",
+       "plus or minus"
+      ],
+      "model": "Great. And what's the tolerance?"
+     },
+     {
+      "say": "Plus or minus five thou. And we need the first parts on three five.",
+      "hint_pt": "Confirme se é 5 de março ou 3 de maio.",
+      "keywords": [
+       "march",
+       "may",
+       "confirm",
+       "fifth",
+       "third"
+      ],
+      "model": "Just to confirm, is that March fifth or May third?"
+     },
+     {
+      "say": "March fifth. Can you make that?",
+      "hint_pt": "Diga que vai checar com a equipe e dar retorno até amanhã.",
+      "keywords": [
+       "check",
+       "team",
+       "get back",
+       "tomorrow",
+       "follow up"
+      ],
+      "model": "I'll check with my team and get back to you by tomorrow."
+     }
+    ]
+   },
+   "track": "us",
+   "accent": "US"
+  },
+  {
+   "id": "w04",
+   "order": 4,
+   "icon": "chatbubbles",
+   "minutes": 12,
+   "title_pt": "Small talk do Meio-Oeste",
+   "subtitle_pt": "Conversa leve com colegas: fim de semana, Packers, comida local e expressões de Wisconsin",
+   "goal_pt": "Puxar e manter uma conversa leve com colegas americanos e entender as expressões locais.",
+   "chunks": [
+    {
+     "id": "w04-c01",
+     "kind": "say",
+     "level": "A2",
+     "en": "How was your weekend?",
+     "pt": "Como foi seu fim de semana?",
+     "alts": [
+      "How was the weekend"
+     ],
+     "note_pt": "Pergunta padrão na segunda-feira."
+    },
+    {
+     "id": "w04-c02",
+     "kind": "say",
+     "level": "A2",
+     "en": "It's my first time in Wisconsin.",
+     "pt": "É minha primeira vez em Wisconsin.",
+     "alts": [
+      "It is my first time in Wisconsin",
+      "This is my first time in Wisconsin"
+     ]
+    },
+    {
+     "id": "w04-c03",
+     "kind": "hear",
+     "level": "A2",
+     "en": "Ope, sorry, just gonna squeeze past ya.",
+     "pt": "Opa, desculpa, só vou passar aqui do seu lado.",
+     "note_pt": "'Ope' = o 'opa' do Meio-Oeste, ao esbarrar ou passar perto de alguém."
+    },
+    {
+     "id": "w04-c04",
+     "kind": "hear",
+     "level": "A2",
+     "en": "You betcha!",
+     "pt": "Claro! / Com certeza! / De nada!",
+     "note_pt": "Responde a 'thanks' ou confirma algo com entusiasmo."
+    },
+    {
+     "id": "w04-c05",
+     "kind": "hear",
+     "level": "A2",
+     "en": "The bubbler is down the hall on the left.",
+     "pt": "O bebedouro fica no fim do corredor, à esquerda.",
+     "note_pt": "'bubbler' = bebedouro (palavra típica de Wisconsin)."
+    },
+    {
+     "id": "w04-c06",
+     "kind": "say",
+     "level": "B1",
+     "en": "Are you a Packers fan?",
+     "pt": "Você torce para os Packers?",
+     "alts": [
+      "Are you a fan of the Packers"
+     ],
+     "note_pt": "Green Bay Packers (futebol americano) é assunto garantido em Wisconsin."
+    },
+    {
+     "id": "w04-c07",
+     "kind": "say",
+     "level": "B1",
+     "en": "I'd love to try cheese curds.",
+     "pt": "Adoraria provar cheese curds.",
+     "alts": [
+      "I would love to try cheese curds"
+     ],
+     "note_pt": "Cheese curds: queijo fresco em pedaços, muitas vezes empanado — símbolo do estado."
+    },
+    {
+     "id": "w04-c08",
+     "kind": "hear",
+     "level": "B1",
+     "en": "We should do a fish fry on Friday.",
+     "pt": "A gente devia ir num fish fry na sexta.",
+     "note_pt": "Fish fry de sexta-feira: tradição local (peixe frito, muitas vezes num 'supper club')."
+    },
+    {
+     "id": "w04-c09",
+     "kind": "say",
+     "level": "B1",
+     "en": "What do you usually do in winter around here?",
+     "pt": "O que vocês costumam fazer no inverno por aqui?",
+     "alts": [
+      "What do you usually do in the winter around here"
+     ]
+    },
+    {
+     "id": "w04-c10",
+     "kind": "say",
+     "level": "A2",
+     "en": "That sounds great, count me in!",
+     "pt": "Parece ótimo, pode contar comigo!",
+     "alts": [
+      "That sounds great count me in",
+      "Sounds great, count me in!"
+     ]
+    }
+   ],
+   "listen": [
+    {
+     "id": "w04-l01",
+     "say": "Oh, you're from Brazil? That's awesome. You picked a cold time to visit, huh?",
+     "question_pt": "O que a pessoa comentou?",
+     "answer": 1,
+     "options_pt": [
+      "Que o Brasil é frio",
+      "Que você escolheu uma época fria para visitar",
+      "Que ela já foi ao Brasil"
+     ],
+     "note_pt": "'huh?' no fim = 'né?'."
+    },
+    {
+     "id": "w04-l02",
+     "say": "We're going to a supper club Friday, they've got the best old fashioned in town. You should come along.",
+     "question_pt": "Qual é o convite?",
+     "answer": 0,
+     "options_pt": [
+      "Jantar num supper club na sexta e experimentar o drink 'old fashioned'",
+      "Um churrasco no sábado",
+      "Uma reunião de trabalho"
+     ],
+     "note_pt": "Supper club: restaurante tradicional do Meio-Oeste."
+    },
+    {
+     "id": "w04-l03",
+     "say": "Ope, my bad! Didn't see ya there.",
+     "question_pt": "O que aconteceu?",
+     "answer": 2,
+     "options_pt": [
+      "A pessoa está brava",
+      "A pessoa te chamou",
+      "A pessoa esbarrou em você e pediu desculpa"
+     ],
+     "note_pt": "'my bad' = foi mal."
+    }
+   ],
+   "dialog": {
+    "partner": "Jenny, colega do time de qualidade",
+    "turns": [
+     {
+      "say": "Morning! How's your trip going so far?",
+      "hint_pt": "Diga que está indo bem e que é sua primeira vez em Wisconsin.",
+      "keywords": [
+       "good",
+       "great",
+       "first time",
+       "wisconsin"
+      ],
+      "model": "Pretty good! It's my first time in Wisconsin."
+     },
+     {
+      "say": "Nice! Have you tried any local food yet?",
+      "hint_pt": "Diga que adoraria provar cheese curds.",
+      "keywords": [
+       "cheese curds",
+       "try",
+       "love",
+       "not yet"
+      ],
+      "model": "Not yet, but I'd love to try cheese curds."
+     },
+     {
+      "say": "Oh, you have to! We're doing a fish fry on Friday, wanna come?",
+      "hint_pt": "Aceite o convite.",
+      "keywords": [
+       "count me in",
+       "sure",
+       "love",
+       "yes",
+       "great"
+      ],
+      "model": "That sounds great, count me in!"
+     },
+     {
+      "say": "Awesome. Are you a Packers fan yet?",
+      "hint_pt": "Responda e faça uma pergunta de volta.",
+      "keywords": [
+       "packers",
+       "football",
+       "not yet",
+       "you",
+       "?"
+      ],
+      "model": "Not yet, but I'm learning! Are you a big fan?"
+     }
+    ]
+   },
+   "track": "us",
+   "accent": "US"
+  },
+  {
+   "id": "w05",
+   "order": 5,
+   "icon": "people",
+   "minutes": 12,
+   "title_pt": "Reuniões americanas e o \"não\" educado",
+   "subtitle_pt": "Jargão de escritório (circle back, loop in) e como reconhecer um 'não' gentil do Meio-Oeste",
+   "goal_pt": "Participar de reuniões com americanos, entender o jargão e perceber quando 'interessante' quer dizer 'não'.",
+   "chunks": [
+    {
+     "id": "w05-c01",
+     "kind": "hear",
+     "level": "B1",
+     "en": "Let's circle back on that next week.",
+     "pt": "Vamos retomar isso semana que vem.",
+     "note_pt": "'circle back' = voltar ao assunto depois."
+    },
+    {
+     "id": "w05-c02",
+     "kind": "hear",
+     "level": "B1",
+     "en": "I'll loop in our purchasing manager.",
+     "pt": "Vou incluir nosso gerente de compras na conversa.",
+     "note_pt": "'loop in' = colocar alguém no circuito (e-mail, reunião)."
+    },
+    {
+     "id": "w05-c03",
+     "kind": "hear",
+     "level": "B2",
+     "en": "That's an interesting idea. We might want to revisit it later.",
+     "pt": "Ideia interessante. Talvez seja bom rever isso depois. (muitas vezes = não agora)",
+     "note_pt": "O 'Midwest nice' evita o 'não' direto. Confirme: 'So is that a no for this quarter?'"
+    },
+    {
+     "id": "w05-c04",
+     "kind": "say",
+     "level": "B1",
+     "en": "What's the timeline for this?",
+     "pt": "Qual é o prazo para isso?",
+     "alts": [
+      "What is the timeline for this",
+      "What's the timeline on this?"
+     ]
+    },
+    {
+     "id": "w05-c05",
+     "kind": "say",
+     "level": "B1",
+     "en": "So, is that a yes for this quarter?",
+     "pt": "Então, isso é um sim para este trimestre?",
+     "alts": [
+      "So is that a yes for this quarter"
+     ]
+    },
+    {
+     "id": "w05-c06",
+     "kind": "say",
+     "level": "B1",
+     "en": "Who's the point of contact on your side?",
+     "pt": "Quem é o ponto de contato do lado de vocês?",
+     "alts": [
+      "Who is the point of contact on your side"
+     ]
+    },
+    {
+     "id": "w05-c07",
+     "kind": "say",
+     "level": "B1",
+     "en": "I'll follow up with an email summarizing the action items.",
+     "pt": "Vou mandar um e-mail resumindo as ações.",
+     "alts": [
+      "I will follow up with an email summarizing the action items"
+     ]
+    },
+    {
+     "id": "w05-c08",
+     "kind": "hear",
+     "level": "B1",
+     "en": "Let's touch base on Thursday.",
+     "pt": "Vamos nos falar rapidamente na quinta.",
+     "note_pt": "'touch base' = alinhar rapidamente."
+    },
+    {
+     "id": "w05-c09",
+     "kind": "say",
+     "level": "B1",
+     "en": "That works for me.",
+     "pt": "Por mim, tudo bem / Funciona para mim.",
+     "alts": [
+      "That works for me"
+     ]
+    },
+    {
+     "id": "w05-c10",
+     "kind": "say",
+     "level": "B1",
+     "en": "Can I share some data from our plant in Brazil?",
+     "pt": "Posso mostrar alguns dados da nossa fábrica no Brasil?",
+     "alts": [
+      "Could I share some data from our plant in Brazil"
+     ]
+    }
+   ],
+   "listen": [
+    {
+     "id": "w05-l01",
+     "say": "Yeah, I hear you. I'm just not sure that's gonna work for us right now.",
+     "question_pt": "Qual é a mensagem real?",
+     "answer": 1,
+     "options_pt": [
+      "Concordaram com a proposta",
+      "Provavelmente é um 'não' por enquanto",
+      "Querem mais detalhes técnicos"
+     ],
+     "note_pt": "Pergunte o que precisaria mudar: 'What would make it work for you?'"
+    },
+    {
+     "id": "w05-l02",
+     "say": "Great meeting, everyone. I'll send out the notes and we'll circle back Monday.",
+     "question_pt": "O que vai acontecer?",
+     "answer": 0,
+     "options_pt": [
+      "Vão mandar a ata e retomar na segunda",
+      "A reunião foi cancelada",
+      "Vão decidir agora"
+     ],
+     "note_pt": "Nos EUA, 'notes' = ata (MoM na Índia)."
+    },
+    {
+     "id": "w05-l03",
+     "say": "Can you loop in Dave from quality? He'll want to weigh in on the new spec.",
+     "question_pt": "O que pediram?",
+     "answer": 2,
+     "options_pt": [
+      "Demitir o Dave",
+      "Pesar as peças",
+      "Incluir o Dave da qualidade para opinar na nova especificação"
+     ],
+     "note_pt": "'weigh in' = dar opinião."
+    }
+   ],
+   "dialog": {
+    "partner": "Tom, gerente de compras",
+    "turns": [
+     {
+      "say": "Thanks for coming in. So, about moving production to your plant… that's an interesting idea.",
+      "hint_pt": "Pergunte qual é o prazo.",
+      "keywords": [
+       "timeline",
+       "when",
+       "deadline",
+       "time"
+      ],
+      "model": "Thanks, Tom. What's the timeline you have in mind?"
+     },
+     {
+      "say": "Well, we might want to revisit it next year.",
+      "hint_pt": "Confirme, com educação, se isso é um 'não' para este ano.",
+      "keywords": [
+       "no",
+       "this year",
+       "quarter",
+       "so is that",
+       "confirm"
+      ],
+      "model": "I see. So, is that a no for this year?"
+     },
+     {
+      "say": "For this year, probably. But let's keep the conversation going.",
+      "hint_pt": "Pergunte quem é o ponto de contato.",
+      "keywords": [
+       "point of contact",
+       "who",
+       "contact"
+      ],
+      "model": "Sounds good. Who's the point of contact on your side?"
+     },
+     {
+      "say": "That'd be me. Let's touch base next month.",
+      "hint_pt": "Concorde e diga que vai mandar um e-mail com as ações.",
+      "keywords": [
+       "works",
+       "follow up",
+       "email",
+       "action items"
+      ],
+      "model": "That works for me. I'll follow up with an email summarizing the action items."
+     }
+    ]
+   },
+   "track": "us",
+   "accent": "US"
+  },
+  {
+   "id": "w06",
+   "order": 6,
+   "icon": "restaurant",
+   "minutes": 12,
+   "title_pt": "Restaurante, gorjeta e compras",
+   "subtitle_pt": "Pedir, dividir a conta, gorjeta, imposto somado no caixa e 'for here or to go'",
+   "goal_pt": "Pedir comida, pagar e dar gorjeta do jeito americano sem constrangimento.",
+   "chunks": [
+    {
+     "id": "w06-c01",
+     "kind": "say",
+     "level": "A2",
+     "en": "Can I get the check, please?",
+     "pt": "Pode trazer a conta, por favor?",
+     "alts": [
+      "Could I get the check please",
+      "Can we get the check, please?"
+     ],
+     "note_pt": "Nos EUA é 'check' (na Índia, 'bill')."
+    },
+    {
+     "id": "w06-c02",
+     "kind": "say",
+     "level": "B1",
+     "en": "Could we split the check?",
+     "pt": "Podemos dividir a conta?",
+     "alts": [
+      "Can we split the check"
+     ]
+    },
+    {
+     "id": "w06-c03",
+     "kind": "hear",
+     "level": "A2",
+     "en": "For here or to go?",
+     "pt": "Para comer aqui ou para levar?"
+    },
+    {
+     "id": "w06-c04",
+     "kind": "say",
+     "level": "A2",
+     "en": "To go, please.",
+     "pt": "Para levar, por favor.",
+     "alts": [
+      "To go please"
+     ]
+    },
+    {
+     "id": "w06-c05",
+     "kind": "say",
+     "level": "B1",
+     "en": "Could I get a box for this?",
+     "pt": "Pode me dar uma embalagem para levar isto?",
+     "alts": [
+      "Can I get a box for this"
+     ],
+     "note_pt": "Levar a sobra é normal — as porções são grandes."
+    },
+    {
+     "id": "w06-c06",
+     "kind": "hear",
+     "level": "B1",
+     "en": "Would you like to add a tip?",
+     "pt": "Gostaria de adicionar uma gorjeta?",
+     "note_pt": "Em restaurante com garçom, 18–20% é o padrão hoje; em balcão é opcional."
+    },
+    {
+     "id": "w06-c07",
+     "kind": "say",
+     "level": "B1",
+     "en": "Is the tax included in the price?",
+     "pt": "O imposto está incluído no preço?",
+     "alts": [
+      "Is tax included in the price"
+     ],
+     "note_pt": "Nos EUA o imposto sobre vendas costuma ser somado no caixa (em Wisconsin, 5% estadual + taxa local, que varia por cidade)."
+    },
+    {
+     "id": "w06-c08",
+     "kind": "say",
+     "level": "A2",
+     "en": "Could I get a refill, please?",
+     "pt": "Pode reabastecer meu copo, por favor?",
+     "alts": [
+      "Can I get a refill please"
+     ],
+     "note_pt": "Refrigerante e café costumam ter refil grátis."
+    },
+    {
+     "id": "w06-c09",
+     "kind": "hear",
+     "level": "A2",
+     "en": "How would you like your burger cooked?",
+     "pt": "Qual o ponto do hambúrguer?",
+     "note_pt": "Responda: 'Medium, please' (ao ponto) ou 'Well done' (bem passado)."
+    },
+    {
+     "id": "w06-c10",
+     "kind": "say",
+     "level": "B1",
+     "en": "I have a food allergy. Does this have nuts?",
+     "pt": "Tenho alergia alimentar. Isto tem castanhas?",
+     "alts": [
+      "I have a food allergy, does this have nuts"
+     ]
+    }
+   ],
+   "listen": [
+    {
+     "id": "w06-l01",
+     "say": "Your total comes to forty-two eighteen. You can tap or insert whenever you're ready.",
+     "question_pt": "Quanto é e como pagar?",
+     "answer": 0,
+     "options_pt": [
+      "US$ 42,18; aproximar ou inserir o cartão",
+      "US$ 4.218; só dinheiro",
+      "US$ 24,80; pagar depois"
+     ],
+     "note_pt": "'forty-two eighteen' = 42,18."
+    },
+    {
+     "id": "w06-l02",
+     "say": "Can I get you started with something to drink? We've got Spotted Cow on tap.",
+     "question_pt": "O que o garçom ofereceu?",
+     "answer": 2,
+     "options_pt": [
+      "A sobremesa",
+      "A conta",
+      "Algo para beber; tem a cerveja local Spotted Cow na pressão"
+     ],
+     "note_pt": "Spotted Cow: cerveja famosa que só é vendida em Wisconsin."
+    },
+    {
+     "id": "w06-l03",
+     "say": "Sorry, we're cash only, but there's an ATM by the door.",
+     "question_pt": "Qual é o problema?",
+     "answer": 1,
+     "options_pt": [
+      "O restaurante está fechando",
+      "Só aceitam dinheiro; há um caixa eletrônico na porta",
+      "O cartão foi recusado"
+     ],
+     "note_pt": "Raro, mas acontece em lugares pequenos."
+    }
+   ],
+   "dialog": {
+    "partner": "Garçonete de um supper club",
+    "turns": [
+     {
+      "say": "Hi folks! Can I get you started with something to drink?",
+      "hint_pt": "Peça uma bebida (ex.: água ou um refrigerante).",
+      "keywords": [
+       "water",
+       "coke",
+       "soda",
+       "beer",
+       "please",
+       "i'll have",
+       "can i get"
+      ],
+      "model": "Can I get a Coke, please?"
+     },
+     {
+      "say": "Sure thing. And how would you like your burger cooked?",
+      "hint_pt": "Diga o ponto (ao ponto = medium).",
+      "keywords": [
+       "medium",
+       "well done",
+       "rare"
+      ],
+      "model": "Medium, please."
+     },
+     {
+      "say": "You got it. Anything else for ya?",
+      "hint_pt": "Diga que tem alergia e pergunte se tem castanhas.",
+      "keywords": [
+       "allergy",
+       "nuts"
+      ],
+      "model": "I have a food allergy. Does the burger have any nuts?"
+     },
+     {
+      "say": "Nope, no nuts. I'll bring that right out!",
+      "hint_pt": "Agradeça; depois peça para dividir a conta.",
+      "keywords": [
+       "thank",
+       "split",
+       "check"
+      ],
+      "model": "Thank you! And could we split the check later?"
+     }
+    ]
+   },
+   "track": "us",
+   "accent": "US"
+  }
+ ],
+ "mind_maps": [
+  {
+   "id": "mm01",
+   "order": 1,
+   "icon": "people",
+   "track": "work",
+   "title_pt": "Reuniões e calls",
+   "center_en": "Meetings",
+   "center_pt": "Reuniões",
+   "branches": [
+    {
+     "id": "mm01-a",
+     "en": "Opening",
+     "pt": "Abrir",
+     "icon": "play",
+     "leaves": [
+      {
+       "id": "mm01-a-1",
+       "en": "Can everyone hear me?",
+       "pt": "Todos estão me ouvindo?"
+      },
+      {
+       "id": "mm01-a-2",
+       "en": "Let's get started.",
+       "pt": "Vamos começar."
+      },
+      {
+       "id": "mm01-a-3",
+       "en": "The goal today is to agree on the timeline.",
+       "pt": "O objetivo hoje é fechar o cronograma."
+      }
+     ]
+    },
+    {
+     "id": "mm01-b",
+     "en": "Clarifying",
+     "pt": "Esclarecer",
+     "icon": "help-circle",
+     "leaves": [
+      {
+       "id": "mm01-b-1",
+       "en": "Sorry, could you repeat that?",
+       "pt": "Desculpe, você pode repetir?"
+      },
+      {
+       "id": "mm01-b-2",
+       "en": "Just to make sure I understood, you mean the new line?",
+       "pt": "Só para ter certeza que entendi: você quer dizer a linha nova?"
+      },
+      {
+       "id": "mm01-b-3",
+       "en": "Could you share your screen?",
+       "pt": "Você pode compartilhar a tela?"
+      }
+     ]
+    },
+    {
+     "id": "mm01-c",
+     "en": "Disagreeing politely",
+     "pt": "Discordar com educação",
+     "icon": "swap-horizontal",
+     "leaves": [
+      {
+       "id": "mm01-c-1",
+       "en": "I see your point, but I have a concern.",
+       "pt": "Entendo seu ponto, mas tenho uma preocupação."
+      },
+      {
+       "id": "mm01-c-2",
+       "en": "What if we tried a different approach?",
+       "pt": "E se tentássemos outro caminho?"
+      },
+      {
+       "id": "mm01-c-3",
+       "en": "I'm not sure that will work for us.",
+       "pt": "Não tenho certeza de que isso funciona para nós."
+      }
+     ]
+    },
+    {
+     "id": "mm01-d",
+     "en": "Wrapping up",
+     "pt": "Fechar",
+     "icon": "checkmark-done",
+     "leaves": [
+      {
+       "id": "mm01-d-1",
+       "en": "Let's recap the action items.",
+       "pt": "Vamos recapitular as ações."
+      },
+      {
+       "id": "mm01-d-2",
+       "en": "Who owns this task?",
+       "pt": "Quem é o responsável por esta tarefa?"
+      },
+      {
+       "id": "mm01-d-3",
+       "en": "I'll send the notes after the call.",
+       "pt": "Vou mandar a ata depois da call."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mm02",
+   "order": 2,
+   "icon": "warning",
+   "track": "work",
+   "title_pt": "Explicar um problema técnico",
+   "center_en": "A technical problem",
+   "center_pt": "Um problema técnico",
+   "branches": [
+    {
+     "id": "mm02-a",
+     "en": "Symptom",
+     "pt": "Sintoma",
+     "icon": "pulse",
+     "leaves": [
+      {
+       "id": "mm02-a-1",
+       "en": "The machine stops every two hours.",
+       "pt": "A máquina para a cada duas horas."
+      },
+      {
+       "id": "mm02-a-2",
+       "en": "We're seeing a lot of rejects on line two.",
+       "pt": "Estamos vendo muito refugo na linha dois."
+      },
+      {
+       "id": "mm02-a-3",
+       "en": "It started after the last update.",
+       "pt": "Começou depois da última atualização."
+      }
+     ]
+    },
+    {
+     "id": "mm02-b",
+     "en": "Cause",
+     "pt": "Causa",
+     "icon": "search",
+     "leaves": [
+      {
+       "id": "mm02-b-1",
+       "en": "We think it's a sensor issue.",
+       "pt": "Achamos que é um problema de sensor."
+      },
+      {
+       "id": "mm02-b-2",
+       "en": "The root cause is still unclear.",
+       "pt": "A causa raiz ainda não está clara."
+      },
+      {
+       "id": "mm02-b-3",
+       "en": "We ruled out the software.",
+       "pt": "Descartamos o software."
+      }
+     ]
+    },
+    {
+     "id": "mm02-c",
+     "en": "Impact",
+     "pt": "Impacto",
+     "icon": "trending-down",
+     "leaves": [
+      {
+       "id": "mm02-c-1",
+       "en": "We're losing about ten percent of output.",
+       "pt": "Estamos perdendo uns dez por cento da produção."
+      },
+      {
+       "id": "mm02-c-2",
+       "en": "It could delay the shipment.",
+       "pt": "Pode atrasar o envio."
+      },
+      {
+       "id": "mm02-c-3",
+       "en": "There's no safety risk so far.",
+       "pt": "Por enquanto não há risco de segurança."
+      }
+     ]
+    },
+    {
+     "id": "mm02-d",
+     "en": "Next steps",
+     "pt": "Próximos passos",
+     "icon": "arrow-forward-circle",
+     "leaves": [
+      {
+       "id": "mm02-d-1",
+       "en": "We'll replace the sensor tomorrow.",
+       "pt": "Vamos trocar o sensor amanhã."
+      },
+      {
+       "id": "mm02-d-2",
+       "en": "I'll keep you posted.",
+       "pt": "Vou te mantendo informado."
+      },
+      {
+       "id": "mm02-d-3",
+       "en": "Can we check again on Friday?",
+       "pt": "Podemos checar de novo na sexta?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mm03",
+   "order": 3,
+   "icon": "construct",
+   "track": "work",
+   "title_pt": "Na fábrica",
+   "center_en": "On the shop floor",
+   "center_pt": "No chão de fábrica",
+   "branches": [
+    {
+     "id": "mm03-a",
+     "en": "Safety",
+     "pt": "Segurança",
+     "icon": "shield-checkmark",
+     "leaves": [
+      {
+       "id": "mm03-a-1",
+       "en": "Do I need safety glasses here?",
+       "pt": "Preciso de óculos de segurança aqui?"
+      },
+      {
+       "id": "mm03-a-2",
+       "en": "Where's the emergency exit?",
+       "pt": "Onde fica a saída de emergência?"
+      },
+      {
+       "id": "mm03-a-3",
+       "en": "Is the machine locked out?",
+       "pt": "A máquina está bloqueada (lockout)?"
+      }
+     ]
+    },
+    {
+     "id": "mm03-b",
+     "en": "Quality",
+     "pt": "Qualidade",
+     "icon": "ribbon",
+     "leaves": [
+      {
+       "id": "mm03-b-1",
+       "en": "This part is out of spec.",
+       "pt": "Esta peça está fora de especificação."
+      },
+      {
+       "id": "mm03-b-2",
+       "en": "How do you inspect it?",
+       "pt": "Como vocês inspecionam isso?"
+      },
+      {
+       "id": "mm03-b-3",
+       "en": "Let's check the measurement again.",
+       "pt": "Vamos conferir a medida de novo."
+      }
+     ]
+    },
+    {
+     "id": "mm03-c",
+     "en": "Production",
+     "pt": "Produção",
+     "icon": "cog",
+     "leaves": [
+      {
+       "id": "mm03-c-1",
+       "en": "What's the cycle time?",
+       "pt": "Qual é o tempo de ciclo?"
+      },
+      {
+       "id": "mm03-c-2",
+       "en": "How many shifts do you run?",
+       "pt": "Quantos turnos vocês rodam?"
+      },
+      {
+       "id": "mm03-c-3",
+       "en": "We're behind schedule this week.",
+       "pt": "Estamos atrasados esta semana."
+      }
+     ]
+    },
+    {
+     "id": "mm03-d",
+     "en": "Maintenance",
+     "pt": "Manutenção",
+     "icon": "build",
+     "leaves": [
+      {
+       "id": "mm03-d-1",
+       "en": "When was the last maintenance?",
+       "pt": "Quando foi a última manutenção?"
+      },
+      {
+       "id": "mm03-d-2",
+       "en": "We need a spare part.",
+       "pt": "Precisamos de uma peça de reposição."
+      },
+      {
+       "id": "mm03-d-3",
+       "en": "The pump is leaking.",
+       "pt": "A bomba está vazando."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mm04",
+   "order": 4,
+   "icon": "airplane",
+   "track": "travel",
+   "title_pt": "Viagem: aeroporto, hotel e transporte",
+   "center_en": "Travel",
+   "center_pt": "Viagem",
+   "branches": [
+    {
+     "id": "mm04-a",
+     "en": "Airport",
+     "pt": "Aeroporto",
+     "icon": "airplane",
+     "leaves": [
+      {
+       "id": "mm04-a-1",
+       "en": "I'd like a window seat, please.",
+       "pt": "Queria um assento na janela, por favor."
+      },
+      {
+       "id": "mm04-a-2",
+       "en": "My flight was cancelled.",
+       "pt": "Meu voo foi cancelado."
+      },
+      {
+       "id": "mm04-a-3",
+       "en": "Where's the baggage claim?",
+       "pt": "Onde fica a esteira de bagagens?"
+      }
+     ]
+    },
+    {
+     "id": "mm04-b",
+     "en": "Immigration",
+     "pt": "Imigração",
+     "icon": "document-text",
+     "leaves": [
+      {
+       "id": "mm04-b-1",
+       "en": "I'm here for business meetings.",
+       "pt": "Estou aqui para reuniões de negócios."
+      },
+      {
+       "id": "mm04-b-2",
+       "en": "I'll be here for ten days.",
+       "pt": "Vou ficar dez dias."
+      },
+      {
+       "id": "mm04-b-3",
+       "en": "Here's my hotel reservation.",
+       "pt": "Aqui está a reserva do meu hotel."
+      }
+     ]
+    },
+    {
+     "id": "mm04-c",
+     "en": "Hotel",
+     "pt": "Hotel",
+     "icon": "bed",
+     "leaves": [
+      {
+       "id": "mm04-c-1",
+       "en": "I have a reservation under my name.",
+       "pt": "Tenho uma reserva no meu nome."
+      },
+      {
+       "id": "mm04-c-2",
+       "en": "What time is checkout?",
+       "pt": "Que horas é o checkout?"
+      },
+      {
+       "id": "mm04-c-3",
+       "en": "The Wi-Fi isn't working in my room.",
+       "pt": "O Wi-Fi não está funcionando no meu quarto."
+      }
+     ]
+    },
+    {
+     "id": "mm04-d",
+     "en": "Getting around",
+     "pt": "Transporte",
+     "icon": "car",
+     "leaves": [
+      {
+       "id": "mm04-d-1",
+       "en": "How long does it take to get to the plant?",
+       "pt": "Quanto tempo leva para chegar à fábrica?"
+      },
+      {
+       "id": "mm04-d-2",
+       "en": "Could you call me a taxi?",
+       "pt": "Você pode chamar um táxi para mim?"
+      },
+      {
+       "id": "mm04-d-3",
+       "en": "Please drop me off at the main gate.",
+       "pt": "Por favor, me deixe no portão principal."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mm05",
+   "order": 5,
+   "icon": "chatbubbles",
+   "track": "work",
+   "title_pt": "Small talk e comida",
+   "center_en": "Small talk",
+   "center_pt": "Conversa leve",
+   "branches": [
+    {
+     "id": "mm05-a",
+     "en": "Starting",
+     "pt": "Puxar conversa",
+     "icon": "hand-left",
+     "leaves": [
+      {
+       "id": "mm05-a-1",
+       "en": "How's your week going?",
+       "pt": "Como está sua semana?"
+      },
+      {
+       "id": "mm05-a-2",
+       "en": "How long have you worked here?",
+       "pt": "Há quanto tempo você trabalha aqui?"
+      },
+      {
+       "id": "mm05-a-3",
+       "en": "Is this your first time in Brazil?",
+       "pt": "É sua primeira vez no Brasil?"
+      }
+     ]
+    },
+    {
+     "id": "mm05-b",
+     "en": "Keeping it going",
+     "pt": "Manter a conversa",
+     "icon": "repeat",
+     "leaves": [
+      {
+       "id": "mm05-b-1",
+       "en": "Oh really? How was it?",
+       "pt": "Sério? Como foi?"
+      },
+      {
+       "id": "mm05-b-2",
+       "en": "That sounds great!",
+       "pt": "Parece ótimo!"
+      },
+      {
+       "id": "mm05-b-3",
+       "en": "What about you?",
+       "pt": "E você?"
+      }
+     ]
+    },
+    {
+     "id": "mm05-c",
+     "en": "Food",
+     "pt": "Comida",
+     "icon": "restaurant",
+     "leaves": [
+      {
+       "id": "mm05-c-1",
+       "en": "What do you recommend?",
+       "pt": "O que você recomenda?"
+      },
+      {
+       "id": "mm05-c-2",
+       "en": "Is it spicy?",
+       "pt": "É apimentado?"
+      },
+      {
+       "id": "mm05-c-3",
+       "en": "I'm vegetarian.",
+       "pt": "Sou vegetariano."
+      }
+     ]
+    },
+    {
+     "id": "mm05-d",
+     "en": "Leaving",
+     "pt": "Encerrar",
+     "icon": "exit",
+     "leaves": [
+      {
+       "id": "mm05-d-1",
+       "en": "It was great talking to you.",
+       "pt": "Foi ótimo conversar com você."
+      },
+      {
+       "id": "mm05-d-2",
+       "en": "I'd better get back to work.",
+       "pt": "É melhor eu voltar ao trabalho."
+      },
+      {
+       "id": "mm05-d-3",
+       "en": "See you at the meeting.",
+       "pt": "Te vejo na reunião."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mm06",
+   "order": 6,
+   "icon": "flag",
+   "track": "india",
+   "title_pt": "Inglês indiano no trabalho",
+   "center_en": "Indian English",
+   "center_pt": "Inglês indiano",
+   "branches": [
+    {
+     "id": "mm06-a",
+     "en": "Common expressions",
+     "pt": "Expressões comuns",
+     "icon": "chatbox-ellipses",
+     "leaves": [
+      {
+       "id": "mm06-a-1",
+       "en": "Please do the needful.",
+       "pt": "Por favor, faça o necessário."
+      },
+      {
+       "id": "mm06-a-2",
+       "en": "Kindly revert by Monday.",
+       "pt": "Por favor, responda até segunda."
+      },
+      {
+       "id": "mm06-a-3",
+       "en": "Can we prepone the meeting?",
+       "pt": "Podemos antecipar a reunião?"
+      }
+     ]
+    },
+    {
+     "id": "mm06-b",
+     "en": "Numbers",
+     "pt": "Números",
+     "icon": "calculator",
+     "leaves": [
+      {
+       "id": "mm06-b-1",
+       "en": "One lakh is one hundred thousand.",
+       "pt": "Um lakh é cem mil."
+      },
+      {
+       "id": "mm06-b-2",
+       "en": "Ten lakh is one million.",
+       "pt": "Dez lakh é um milhão."
+      },
+      {
+       "id": "mm06-b-3",
+       "en": "One crore is ten million.",
+       "pt": "Um crore é dez milhões."
+      }
+     ]
+    },
+    {
+     "id": "mm06-c",
+     "en": "Politeness",
+     "pt": "Cortesia",
+     "icon": "heart",
+     "leaves": [
+      {
+       "id": "mm06-c-1",
+       "en": "Good morning, sir.",
+       "pt": "Bom dia, senhor."
+      },
+      {
+       "id": "mm06-c-2",
+       "en": "Thank you so much, ma'am.",
+       "pt": "Muito obrigado, senhora."
+      },
+      {
+       "id": "mm06-c-3",
+       "en": "No problem, I'll take care of it.",
+       "pt": "Sem problema, eu cuido disso."
+      }
+     ]
+    },
+    {
+     "id": "mm06-d",
+     "en": "Yes, no or maybe",
+     "pt": "Sim, não ou talvez",
+     "icon": "help-buoy",
+     "leaves": [
+      {
+       "id": "mm06-d-1",
+       "en": "I will try my best.",
+       "pt": "Vou fazer o possível (às vezes = provavelmente não)."
+      },
+      {
+       "id": "mm06-d-2",
+       "en": "So, is that a yes for Friday?",
+       "pt": "Então, isso é um sim para sexta?"
+      },
+      {
+       "id": "mm06-d-3",
+       "en": "Can you confirm the date by email?",
+       "pt": "Você pode confirmar a data por e-mail?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mm07",
+   "order": 7,
+   "icon": "snow",
+   "track": "us",
+   "title_pt": "Wisconsin e o Meio-Oeste",
+   "center_en": "Wisconsin",
+   "center_pt": "Wisconsin",
+   "branches": [
+    {
+     "id": "mm07-a",
+     "en": "Local words",
+     "pt": "Palavras locais",
+     "icon": "chatbubble",
+     "leaves": [
+      {
+       "id": "mm07-a-1",
+       "en": "Where's the bubbler?",
+       "pt": "Onde fica o bebedouro?"
+      },
+      {
+       "id": "mm07-a-2",
+       "en": "Ope, sorry about that!",
+       "pt": "Opa, desculpa!"
+      },
+      {
+       "id": "mm07-a-3",
+       "en": "You betcha!",
+       "pt": "Claro! / Com certeza!"
+      }
+     ]
+    },
+    {
+     "id": "mm07-b",
+     "en": "Local food",
+     "pt": "Comida local",
+     "icon": "pizza",
+     "leaves": [
+      {
+       "id": "mm07-b-1",
+       "en": "I'd love to try cheese curds.",
+       "pt": "Adoraria provar cheese curds."
+      },
+      {
+       "id": "mm07-b-2",
+       "en": "Let's do a fish fry on Friday.",
+       "pt": "Vamos num fish fry na sexta."
+      },
+      {
+       "id": "mm07-b-3",
+       "en": "Have you been to a supper club?",
+       "pt": "Você já foi a um supper club?"
+      }
+     ]
+    },
+    {
+     "id": "mm07-c",
+     "en": "Winter",
+     "pt": "Inverno",
+     "icon": "snow",
+     "leaves": [
+      {
+       "id": "mm07-c-1",
+       "en": "Are the roads icy?",
+       "pt": "As estradas estão com gelo?"
+      },
+      {
+       "id": "mm07-c-2",
+       "en": "It's below zero today.",
+       "pt": "Está abaixo de zero (°F) hoje."
+      },
+      {
+       "id": "mm07-c-3",
+       "en": "I'm not used to this kind of cold.",
+       "pt": "Não estou acostumado com esse tipo de frio."
+      }
+     ]
+    },
+    {
+     "id": "mm07-d",
+     "en": "Midwest nice",
+     "pt": "Jeito do Meio-Oeste",
+     "icon": "happy",
+     "leaves": [
+      {
+       "id": "mm07-d-1",
+       "en": "That's an interesting idea.",
+       "pt": "Ideia interessante (às vezes = não)."
+      },
+      {
+       "id": "mm07-d-2",
+       "en": "Let's circle back on that.",
+       "pt": "Vamos retomar isso depois."
+      },
+      {
+       "id": "mm07-d-3",
+       "en": "Thanks for having me!",
+       "pt": "Obrigado por me receberem!"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mm08",
+   "order": 8,
+   "icon": "calculator",
+   "track": "us",
+   "title_pt": "Unidades e datas nos EUA",
+   "center_en": "US units",
+   "center_pt": "Unidades americanas",
+   "branches": [
+    {
+     "id": "mm08-a",
+     "en": "Length",
+     "pt": "Comprimento",
+     "icon": "resize",
+     "leaves": [
+      {
+       "id": "mm08-a-1",
+       "en": "One inch is about twenty-five millimeters.",
+       "pt": "Uma polegada tem uns 25 milímetros."
+      },
+      {
+       "id": "mm08-a-2",
+       "en": "The tolerance is plus or minus five thou.",
+       "pt": "A tolerância é de mais ou menos cinco milésimos de polegada."
+      },
+      {
+       "id": "mm08-a-3",
+       "en": "One mile is about one point six kilometers.",
+       "pt": "Uma milha tem cerca de 1,6 km."
+      }
+     ]
+    },
+    {
+     "id": "mm08-b",
+     "en": "Weight and force",
+     "pt": "Peso e força",
+     "icon": "barbell",
+     "leaves": [
+      {
+       "id": "mm08-b-1",
+       "en": "It weighs about twelve pounds.",
+       "pt": "Pesa umas 12 libras (≈ 5,4 kg)."
+      },
+      {
+       "id": "mm08-b-2",
+       "en": "Torque it to forty foot-pounds.",
+       "pt": "Aperte com 40 libras-pé (≈ 54 N·m)."
+      },
+      {
+       "id": "mm08-b-3",
+       "en": "The line runs at eighty psi.",
+       "pt": "A linha trabalha a 80 psi (≈ 5,5 bar)."
+      }
+     ]
+    },
+    {
+     "id": "mm08-c",
+     "en": "Temperature",
+     "pt": "Temperatura",
+     "icon": "thermometer",
+     "leaves": [
+      {
+       "id": "mm08-c-1",
+       "en": "Thirty-two degrees is freezing.",
+       "pt": "32 °F é o ponto de congelamento (0 °C)."
+      },
+      {
+       "id": "mm08-c-2",
+       "en": "Seventy degrees is nice and warm.",
+       "pt": "70 °F é agradável (≈ 21 °C)."
+      },
+      {
+       "id": "mm08-c-3",
+       "en": "Keep the oven at three fifty.",
+       "pt": "Mantenha o forno a 350 °F (≈ 177 °C)."
+      }
+     ]
+    },
+    {
+     "id": "mm08-d",
+     "en": "Dates and time",
+     "pt": "Datas e horário",
+     "icon": "calendar",
+     "leaves": [
+      {
+       "id": "mm08-d-1",
+       "en": "Is that March fifth or May third?",
+       "pt": "É 5 de março ou 3 de maio?"
+      },
+      {
+       "id": "mm08-d-2",
+       "en": "The meeting is at nine a.m. Central Time.",
+       "pt": "A reunião é às 9h, horário central."
+      },
+      {
+       "id": "mm08-d-3",
+       "en": "That's noon in Brazil.",
+       "pt": "Isso é meio-dia no Brasil (no inverno americano; no verão, 11h)."
+      }
+     ]
+    }
+   ]
   }
  ],
  "course": {

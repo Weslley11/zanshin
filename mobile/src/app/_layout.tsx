@@ -51,7 +51,9 @@ function RootStack() {
         <Stack.Screen name="documents" options={{ title: "Documentos técnicos" }} />
         <Stack.Screen name="privacy" options={{ title: "Privacidade e dados" }} />
         <Stack.Screen name="india" options={{ title: "Inglês da Índia" }} />
-        <Stack.Screen name="missao/index" options={{ title: "Missão Índia" }} />
+        <Stack.Screen name="missao/index" options={{ title: "Missões" }} />
+        <Stack.Screen name="mapas/index" options={{ title: "Mapas mentais" }} />
+        <Stack.Screen name="mapas/[id]" options={{ title: "Mapa" }} />
         <Stack.Screen name="missao/[id]" options={{ title: "Missão" }} />
         <Stack.Screen name="frases" options={{ title: "Minhas frases" }} />
         <Stack.Screen name="turbo" options={{ title: "Turbo" }} />

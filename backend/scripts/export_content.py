@@ -27,8 +27,10 @@ from app.content import (  # noqa: E402
     india,
     india_missions,
     languages,
+    mind_maps,
     other_languages,
     scenarios,
+    us_missions,
 )
 from app.services import planner  # noqa: E402
 from app.services.assessment import estimate_level, score_item  # noqa: E402
@@ -65,6 +67,8 @@ def build_content() -> dict:
                     "tone_pairs": other_languages.ZH_TONE_PAIRS},
         "india_guide": india.variety_guide("IN"),
         "india_missions": india_missions.MISSIONS,
+        "us_missions": us_missions.MISSIONS_US,
+        "mind_maps": mind_maps.MAPS,
         "course": {"units": course.UNITS, "lesson_size": course.LESSON_SIZE, "xp_base": course.XP_BASE,
                    "xp_perfect_bonus": course.XP_PERFECT_BONUS, "daily_goal_options": course.DAILY_GOAL_OPTIONS},
         "planner": {"activity_info": planner.ACTIVITY_INFO, "phase_weights": planner.PHASE_WEIGHTS,

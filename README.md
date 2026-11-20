@@ -76,6 +76,8 @@ em cartões. Detalhes em **[docs/09-missao-india.md](docs/09-missao-india.md)**.
 | **Destravar a Fala** | Quick Response com janela adaptativa, Think in English, construção de frases progressiva |
 | **Plano de 90 dias** | 3 fases com metas mensuráveis, avaliações a cada 15 dias, motor adaptativo explicável, data e destino da viagem |
 | **Turbo** | Sessão diária de 15 min: lembrar em voz alta com intervalos crescentes, shadowing, fluência 4/3/2 e confiança antes/depois com desafio real |
+| **Mapas mentais** | 8 mapas (96 frases) com 3 modos — Explorar, Lembrar e Reconstruir de memória — e revisão espaçada do mapa inteiro |
+| **Missão Wisconsin** | 6 missões para a viagem de trabalho aos EUA: imigração, inverno, unidades americanas, reuniões e small talk do Meio-Oeste |
 | **Trilha** | 97 lições curtas gamificadas (XP, meta diária, sequência, combo) com 7 tipos de exercício; erros voltam no fim; itens vão para o FSRS |
 | **Missão Índia** | 13 missões curtas (130 frases) em sequência: ouvir com voz indiana, falar do português para o inglês, entender e conversar; frases vão para o FSRS; entram no plano diário quando o destino é Índia; importação das suas próprias frases |
 | **Índia** | 6 diálogos com falantes indianos, 5 simulações (Bengaluru/Pune), tutor com inglês indiano, 30 expressões (do the needful, revert, prepone…), treino de valores em lakh/crore, guia de pronúncia e comunicação no trabalho |
@@ -125,6 +127,7 @@ com sotaque (inclusive en-IN), configure os provedores — veja [docs/05-provedo
 10. [Trilha](docs/10-trilha.md) — lições curtas gamificadas para aprender e fixar
 11. [Tema e animações](docs/11-tema-e-animacoes.md) — temas, motion, Lottie (After Effects) e acessibilidade
 12. [Turbo](docs/12-turbo.md) — sessão diária com os métodos mais eficazes para fixar e falar sem medo
+13. [Mapas mentais e Missão Wisconsin](docs/13-mapas-e-wisconsin.md) — fixação por reconstrução de memória e preparação para os EUA
 
 ## Qualidade
 - Backend: 120 testes (SQLite) + suíte de API contra PostgreSQL, migrações verificadas, lint.

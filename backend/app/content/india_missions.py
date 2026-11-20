@@ -896,8 +896,14 @@ def first_name(display_name: str | None) -> str:
 def mission_summary(m: dict) -> dict:
     """Versão curta para a lista de missões (sem o conteúdo completo)."""
     return {"id": m["id"], "order": m["order"], "icon": m["icon"], "minutes": m["minutes"], "title_pt": m["title_pt"],
-            "subtitle_pt": m["subtitle_pt"], "goal_pt": m["goal_pt"], "chunk_count": len(m["chunks"])}
+            "subtitle_pt": m["subtitle_pt"], "goal_pt": m["goal_pt"], "chunk_count": len(m["chunks"]),
+            "track": m.get("track", "india"), "accent": m.get("accent", "IN")}
 
 
 def get_mission(mission_id: str) -> dict | None:
     return next((m for m in MISSIONS if m["id"] == mission_id), None)
+
+
+for _m in MISSIONS:
+    _m["track"] = "india"
+    _m["accent"] = "IN"
