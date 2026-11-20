@@ -67,7 +67,7 @@ export default function Home() {
   const india = profile?.trip_destination === "IN";
   const done = today?.activities.filter((a) => a.done).length ?? 0;
   const next = today?.activities.find((a) => !a.done);
-  const modules = MODULES.filter((m) => (language === "en" || !m.enOnly) && m.id !== "documents" && m.id !== "missions").slice(0, 6);
+  const modules = MODULES.filter((m) => (language === "en" || !m.enOnly) && !["documents", "missions", "turbo", "maps", "wisconsin"].includes(m.id)).slice(0, 6);
 
   return (
     <Screen scrollY={scrollY}>
@@ -130,6 +130,37 @@ export default function Home() {
           {missions ? <ProgressBar value={missions.completed / missions.total} gradient="india" /> : null}
         </Card>
       ) : null}
+
+      <Card index={2} onPress={() => router.push("/turbo")} style={{ flexDirection: "row", alignItems: "center", gap: 12, padding: 14 }}
+        accessibilityLabel="Turbo de hoje">
+        <Gradient name="unlock" style={{ width: 52, height: 52, borderRadius: 16, alignItems: "center", justifyContent: "center" }}>
+          <Icon name="rocket" size={26} color="#fff" />
+        </Gradient>
+        <View style={{ flex: 1 }}>
+          <Text variant="label" color={c.primary}>Turbo de hoje · 15 min</Text>
+          <Text weight="800">Lembrar, imitar e falar sem medo</Text>
+          <Text variant="small" muted>Os métodos mais eficazes numa sessão só.</Text>
+        </View>
+        <Icon name="play-circle" size={34} color={c.primary} />
+      </Card>
+
+      {language === "en" ? <Row gap={10}>
+        <Card index={2} onPress={() => router.push("/mapas")} style={{ flex: 1, gap: 8, padding: 14 }} accessibilityLabel="Mapas mentais">
+          <Gradient name="maps" style={{ width: 44, height: 44, borderRadius: 14, alignItems: "center", justifyContent: "center" }}>
+            <Icon name="git-network" size={22} color="#fff" />
+          </Gradient>
+          <Text weight="800">Mapas mentais</Text>
+          <Text variant="small" muted>Reconstrua de memória</Text>
+        </Card>
+        <Card index={2} onPress={() => router.push({ pathname: "/missao", params: { track: "us" } })} style={{ flex: 1, gap: 8, padding: 14 }}
+          accessibilityLabel="Missão Wisconsin">
+          <Gradient name="usa" style={{ width: 44, height: 44, borderRadius: 14, alignItems: "center", justifyContent: "center" }}>
+            <Icon name="snow" size={22} color="#fff" />
+          </Gradient>
+          <Text weight="800">Missão Wisconsin</Text>
+          <Text variant="small" muted>Viagem de trabalho aos EUA</Text>
+        </Card>
+      </Row> : null}
 
       <InstallHint />
       <ErrorText error={error} />

@@ -27,13 +27,17 @@ from app.content import (  # noqa: E402
     india,
     india_missions,
     languages,
+    mind_maps,
     other_languages,
     scenarios,
+    speaking_check,
+    us_missions,
 )
 from app.services import planner  # noqa: E402
 from app.services.assessment import estimate_level, score_item  # noqa: E402
 from app.services.error_analyzer import analyze_english, correct_text  # noqa: E402
 from app.services.fsrs import CardState, FSRSScheduler, Rating  # noqa: E402
+from app.services.speaking import speaking_metrics  # noqa: E402
 from app.services.speech_metrics import shadowing_feedback  # noqa: E402
 from app.services.text_utils import answer_matches, normalize, word_error_rate  # noqa: E402
 from app.services.vocab import _seed_rows, accepted_answers, cloze  # noqa: E402
@@ -65,10 +69,15 @@ def build_content() -> dict:
                     "tone_pairs": other_languages.ZH_TONE_PAIRS},
         "india_guide": india.variety_guide("IN"),
         "india_missions": india_missions.MISSIONS,
+        "us_missions": us_missions.MISSIONS_US,
+        "mind_maps": mind_maps.MAPS,
+        "speaking_check": {"prompts": speaking_check.PROMPTS, "seconds": speaking_check.SECONDS, "fillers": sorted(speaking_check.FILLERS),
+                           "pt_words": sorted(speaking_check.PT_WORDS), "partners": speaking_check.REAL_PARTNERS},
         "course": {"units": course.UNITS, "lesson_size": course.LESSON_SIZE, "xp_base": course.XP_BASE,
                    "xp_perfect_bonus": course.XP_PERFECT_BONUS, "daily_goal_options": course.DAILY_GOAL_OPTIONS},
         "planner": {"activity_info": planner.ACTIVITY_INFO, "phase_weights": planner.PHASE_WEIGHTS,
-                    "phases": planner.PHASES, "week_themes": planner.WEEK_THEMES_PT, "destinations": planner.DESTINATIONS},
+                    "phases": planner.PHASES, "week_themes": planner.WEEK_THEMES_PT, "destinations": planner.DESTINATIONS,
+                    "en_only": sorted(planner.EN_ONLY), "extra_dest_factor": planner.EXTRA_DEST_FACTOR},
     }
 
 
@@ -111,7 +120,10 @@ def build_parity() -> dict:
                 dict(total_days=60, daily_minutes=20, learner_level="A2", placement_done=True),
                 dict(total_days=90, daily_minutes=90, learner_level="B2", destination="IN",
                      multipliers={"listening": 1.2, "shadowing": 1.1}),
-                dict(total_days=75, daily_minutes=30, learner_level="B1", destination="IN", focus_domains=["engineering"])]:
+                dict(total_days=75, daily_minutes=30, learner_level="B1", destination="IN", focus_domains=["engineering"]),
+                dict(total_days=90, daily_minutes=60, learner_level="B1", destination="IN", extra_destinations=["US"]),
+                dict(total_days=45, daily_minutes=40, learner_level="A2", destination="US"),
+                dict(total_days=30, daily_minutes=30, learner_level="B1", language="es")]:
         days = planner.generate(start=date(2026, 11, 10), **cfg)
         planner_cases.append({"config": cfg, "days": [
             {"day": d.day_index, "phase": d.phase, "focus": d.focus, "assessment": d.is_assessment_day,
@@ -130,6 +142,11 @@ def build_parity() -> dict:
         "fsrs": fsrs_cases,
         "analyzer": analyzer,
         "planner": planner_cases,
+        "speaking": [{"text": t, "seconds": sec, "result": speaking_metrics(t, sec)} for t, sec in [
+            ("", 60), ("Hello. My name is Alex and I work as an engineer.", 60),
+            ("Um, I think, uh, the machine stops every two hours. We're checking the sensor! It's not the software?", 42),
+            ("Eu acho que the problem is, tipo, the pump. Não sei.", 30), ("I I I don't know know", 5),
+            ("Ok so first we check the line, then we talk to the team, and finally we send the report to Priya’s manager.", 75.5)]],
         "estimate_level": [{"acc": acc, "result": list(estimate_level(acc))} for acc in [
             {"A2": 1.0, "B1": 0.75, "B2": 0.25, "C1": 0.0}, {"A2": 0.5, "B1": 0.9}, {"A2": 1, "B1": 1, "B2": 1, "C1": 1},
             {"A2": 1, "B1": 0.5}, {"A2": 0.8, "B1": 0.6, "B2": 0.7, "C1": 0.3}]],

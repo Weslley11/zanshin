@@ -16,7 +16,19 @@ from app.ai.registry import build_providers
 from app.config import get_settings
 from app.db import Base, get_engine, get_sessionmaker
 from app.jobs import purge_expired_recordings
-from app.routers import auth, content, course, documents, learning, me, missions, speech, tutor
+from app.routers import (
+    auth,
+    content,
+    course,
+    documents,
+    learning,
+    me,
+    mind_maps,
+    missions,
+    speaking,
+    speech,
+    tutor,
+)
 from app.services.vocab import seed_vocab
 
 log = logging.getLogger("fluent")
@@ -78,7 +90,7 @@ def create_app() -> FastAPI:
     async def health() -> dict:
         return {"status": "ok"}
 
-    for r in (auth.router, me.router, content.router, learning.router, missions.router, course.router, tutor.router, speech.router,
+    for r in (auth.router, me.router, content.router, learning.router, missions.router, mind_maps.router, speaking.router, course.router, tutor.router, speech.router,
               documents.router):
         app.include_router(r, prefix=settings.api_prefix)
     return app

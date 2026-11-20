@@ -68,6 +68,8 @@ export const gradients = {
   vocab: ["#0F9F6E", "#3DDC97"],
   scenarios: ["#2563EB", "#56CCF2"],
   india: ["#FF8A00", "#F2C94C"],
+  usa: ["#1E40AF", "#E11D48"],
+  maps: ["#8B5CF6", "#06B6D4"],
   plan: ["#7F5AF0", "#2CB67D"],
   assessment: ["#F08C00", "#FFD43B"],
   errors: ["#D6336C", "#FF8787"],

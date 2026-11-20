@@ -1,8 +1,8 @@
-"""Missão Índia: trilha rápida de frases para conversar e trabalhar com indianos."""
+"""Missões: trilhas rápidas de frases para a Índia e para Wisconsin (EUA)."""
 
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, Query, status
 from pydantic import BaseModel, Field
 
 from app.deps import DB, CurrentUser
@@ -12,8 +12,8 @@ router = APIRouter(prefix="/india/missions", tags=["missions"])
 
 
 @router.get("")
-async def list_missions(user: CurrentUser, db: DB) -> dict:
-    return await mission_service.overview(db, user)
+async def list_missions(user: CurrentUser, db: DB, track: str = Query("india", pattern="^(india|us)$")) -> dict:
+    return await mission_service.overview(db, user, track)
 
 
 @router.get("/{mission_id}")

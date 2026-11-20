@@ -137,3 +137,73 @@ test("Trilha no aparelho: XP, desbloqueio, sequência e revisão", async () => {
   await assert.rejects(localApi(`/course/lessons/${first}/complete`, { body: { results: [{ item_id: "x", rating: 0 }], total: 1 } }), /inválida/);
   await assert.rejects(localApi("/course/lessons/nope"), /não encontrada/);
 });
+
+test("Missão Wisconsin e mapas mentais no aparelho", async () => {
+  setMemoryDB(null);
+  mem.clear();
+  await localApi("/auth/register", { body: { display_name: "Ana" } });
+  await localApi("/me/profiles/en", { method: "PUT", body: { daily_minutes: 30, self_level: "B1" } });
+  const us: any = await localApi("/india/missions?track=us");
+  assert.equal(us.track, "us");
+  assert.equal(us.next_mission_id, "w01");
+  assert.ok(us.missions.every((m: any) => m.accent === "US"));
+  await assert.rejects(localApi("/india/missions?track=xx"), /inválida/);
+  const w: any = await localApi("/india/missions/w02");
+  const done: any = await localApi("/india/missions/w02/complete", { body: { results: w.chunks.map((c: any) => ({ chunk_id: c.id, rating: 3 })), score: 1, duration_seconds: 300 } });
+  assert.equal(done.overview.track, "us");
+  assert.equal(done.overview.completed, 1);
+  assert.equal(((await localApi("/india/missions")) as any).completed, 0);
+
+  const ov: any = await localApi("/maps");
+  assert.equal(ov.practiced, 0);
+  assert.equal(ov.next_map_id, "mm01");
+  const m: any = await localApi("/maps/mm08");
+  const leaves = m.branches.flatMap((b: any) => b.leaves);
+  const res: any = await localApi("/maps/mm08/complete", { body: { mode: "rebuild", duration_seconds: 200,
+    results: leaves.map((l: any, i: number) => ({ leaf_id: l.id, rating: i % 2 ? 3 : 1 })) } });
+  assert.equal(res.reviewed, leaves.length);
+  assert.equal(res.added, leaves.length);
+  assert.equal(res.score, 0.5);
+  assert.equal(res.overview.practiced, 1);
+  assert.equal(res.overview.next_map_id, "mm01");
+  await assert.rejects(localApi("/maps/mm08/complete", { body: { mode: "zz", results: [] } }), /inválido/);
+  await assert.rejects(localApi("/maps/zz"), /não encontrado/);
+});
+
+test("plano com Índia + EUA, medidor de fala e conversas reais no aparelho", async () => {
+  setMemoryDB(null);
+  mem.clear();
+  await localApi("/auth/register", { body: { display_name: "Ana" } });
+  const prof: any = await localApi("/me/profiles/en", { method: "PUT", body: { daily_minutes: 45, self_level: "B1", trip_destination: "IN", extra_destinations: ["US", "IN", "zz"] } });
+  assert.deepEqual(prof.extra_destinations, ["US"]);
+  const plan: any = await localApi("/plans", { body: { language: "en" } });
+  assert.deepEqual(plan.insights.slice(0, 2).map((i: any) => i.signal), ["destination_india", "destination_us"]);
+  const types = new Set<string>();
+  let check: any = null;
+  for (let i = 1; i <= 21; i++) {
+    const d: any = await localApi(`/plans/current/days/${i}?language=en`);
+    for (const a of d.activities) types.add(a.type);
+    if (!check) {
+      const a = d.activities.find((x: any) => x.type === "speaking_check");
+      if (a) check = { day: i, id: a.id };
+    }
+  }
+  for (const t of ["india_mission", "us_mission", "turbo", "mind_map", "speaking_check"]) assert.ok(types.has(t), t);
+  assert.equal(check.day, 7);
+
+  const ov: any = await localApi("/speaking");
+  assert.equal(ov.summary, null);
+  assert.equal(ov.prompt.id, "sc01");
+  const r: any = await localApi("/speaking/checks", { body: { prompt_id: "sc01", transcript: "Hi, I'm Ana. I work as an engineer at a big company.", seconds: 30,
+    confidence: 3, plan_day: check.day, plan_activity_id: check.id } });
+  assert.equal(r.metrics.words, 12);
+  assert.equal(r.metrics.wpm, 24);
+  assert.ok(r.plan_day.activities.find((a: any) => a.id === check.id).done);
+  assert.equal(r.overview.prompt.id, "sc02");
+  assert.equal(r.overview.summary.checks, 1);
+  await assert.rejects(localApi("/speaking/checks", { body: { prompt_id: "zz", transcript: "x", seconds: 60, confidence: 3 } }), /desconhecido/);
+  const real: any = await localApi("/speaking/real", { body: { minutes: 15, partner: "india" } });
+  assert.equal(real.real.week_minutes, 15);
+  assert.equal(real.real.by_partner.india, 15);
+  await assert.rejects(localApi("/speaking/real", { body: { minutes: 0, partner: "india" } }), /inválidos/);
+});

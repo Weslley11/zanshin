@@ -107,30 +107,30 @@ def main() -> int:
             clips[key] = mp3.name
             if n % 200 == 0:
                 print(f"{n}/{len(items)}", flush=True)
-    # Sotaque indiano: mesma lista de frases com um falante indiano do VCTK (CC BY 4.0), arquivos "in-<chave>.mp3"
-    clips_in: dict[str, str] = {}
+    # Sotaque indiano: cada frase com cada falante indiano do VCTK (CC BY 4.0) — o app deixa escolher no Perfil.
+    # Fala ~8% mais rápida (o inglês indiano costuma ter ritmo mais acelerado e silábico).
+    clips_in: dict[str, dict[str, str]] = {}
     if args.engine == "tone" or args.model_in:
-        syn = None
         voice_in = None
+        ids: dict[str, int] = {}
         if args.engine == "piper":
             from piper import PiperVoice, SynthesisConfig  # type: ignore
 
             voice_in = PiperVoice.load(args.model_in)
-            ids = voice_in.config.speaker_id_map
-            spk = next((ids[k] for k in args.speakers_in.split(",") if k in ids), None)
-            if spk is None:
-                print(f"aviso: nenhum falante indiano ({args.speakers_in}) no modelo; pulando sotaque indiano")
-                voice_in = None
-            else:
-                syn = SynthesisConfig(speaker_id=spk)
-        if voice_in is not None or args.engine == "tone":
-            with tempfile.TemporaryDirectory() as tmp:
-                wav = Path(tmp) / "t.wav"
+            ids = dict(voice_in.config.speaker_id_map)
+        speakers = [k for k in args.speakers_in.split(",") if args.engine == "tone" or k in ids]
+        if not speakers:
+            print(f"aviso: nenhum falante indiano ({args.speakers_in}) no modelo; pulando sotaque indiano")
+        with tempfile.TemporaryDirectory() as tmp:
+            wav = Path(tmp) / "t.wav"
+            for spk in speakers:
+                syn = SynthesisConfig(speaker_id=ids[spk], length_scale=0.92) if voice_in is not None else None
+                done: dict[str, str] = {}
                 for text in items:
                     key = fnv1a(normalize(text))
-                    if key in clips_in:
+                    if key in done:
                         continue
-                    mp3 = out / f"in-{key}.mp3"
+                    mp3 = out / f"in-{spk}-{key}.mp3"
                     if not (mp3.exists() and mp3.stat().st_size > 0):
                         if voice_in is not None:
                             with wave.open(str(wav), "wb") as wf:
@@ -138,11 +138,13 @@ def main() -> int:
                         else:
                             subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "lavfi", "-i", "sine=frequency=660:duration=0.6", str(wav)], check=True)
                         to_mp3(wav, mp3)
-                    clips_in[key] = mp3.name
+                    done[key] = mp3.name
+                clips_in[spk] = done
+                print(f"sotaque indiano ({spk}): {len(done)} arquivos", flush=True)
 
     (out / "index.json").write_text(json.dumps({"voice": Path(args.model).stem if args.engine == "piper" else "tone",
                                                 "count": len(clips), "clips": clips, "clips_in": clips_in}, separators=(",", ":")))
-    print(f"sotaque indiano: {len(clips_in)} arquivos")
+
     print(f"áudios: {len(clips)} arquivos em {out}")
     return 0
 

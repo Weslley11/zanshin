@@ -25,9 +25,12 @@ function browserRecognitionCtor(): any {
   return w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null;
 }
 
+// se o navegador bloquear o reconhecimento (comum no app instalado no iPhone), escondemos o microfone na sessão
+let browserBlocked = false;
+
 export function detectVoiceMode(serverStt: boolean): VoiceMode {
   if (serverStt) return "server";
-  return browserRecognitionCtor() ? "browser" : "none";
+  return browserRecognitionCtor() && !browserBlocked ? "browser" : "none";
 }
 
 export function useVoiceInput(serverStt: boolean, language = "en") {
@@ -73,9 +76,29 @@ export function useVoiceInput(serverStt: boolean, language = "en") {
           if (e.results[i].isFinal) transcript.current += " " + e.results[i][0].transcript;
         }
       };
-      r.onerror = (e: any) => setError(e.error === "not-allowed" ? "Permita o microfone no navegador." : "Falha no reconhecimento de voz.");
+      r.onerror = (e: any) => {
+        // não deixa o botão preso em "gravando": encerra e explica o que fazer
+        if (timer.current) clearInterval(timer.current);
+        setRecording(false);
+        recog.current = null;
+        if (e.error === "no-speech") {
+          setError("Não captei a sua voz. Tente de novo, mais perto do microfone.");
+        } else if (e.error === "not-allowed" || e.error === "service-not-allowed" || e.error === "audio-capture") {
+          browserBlocked = true;
+          setError("O iPhone bloqueou o reconhecimento de voz neste app. Toque no campo de texto e use o microfone do teclado para ditar em inglês.");
+        } else {
+          setError("Falha no reconhecimento de voz. Use o microfone do teclado ou digite.");
+        }
+      };
       recog.current = r;
-      r.start();
+      try {
+        r.start();
+      } catch {
+        browserBlocked = true;
+        setError("Reconhecimento de voz indisponível aqui. Use o microfone do teclado para ditar.");
+        recog.current = null;
+        return false;
+      }
     }
     startedAt.current = Date.now();
     setElapsed(0);
@@ -106,8 +129,8 @@ export function useVoiceInput(serverStt: boolean, language = "en") {
       const r = recog.current;
       await new Promise<void>((resolve) => {
         r.onend = () => resolve();
-        r.stop();
-        setTimeout(resolve, 1500);
+        try { r.stop(); } catch { resolve(); }
+        setTimeout(resolve, 600);
       });
       recog.current = null;
       return { kind: "transcript", text: transcript.current.trim(), durationSec };

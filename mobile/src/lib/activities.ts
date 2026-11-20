@@ -2,7 +2,7 @@ import type { Activity } from "./types";
 
 export const ACTIVITY_ICONS: Record<string, string> = {
   vocab_review: "🗂️", listening: "🎧", shadowing: "🔁", quick_response: "⚡", sentence_building: "🧩",
-  think_in_english: "💭", india_mission: "🧭", conversation: "💬", scenario: "🎭", error_review: "🩹", assessment: "📊",
+  think_in_english: "💭", india_mission: "🧭", us_mission: "❄️", turbo: "🚀", mind_map: "🧠", speaking_check: "🎙️", conversation: "💬", scenario: "🎭", error_review: "🩹", assessment: "📊",
 };
 
 /** Ícone (Ionicons) e gradiente de cada tipo de atividade. */
@@ -10,7 +10,9 @@ export const ACTIVITY_STYLE: Record<string, { icon: string; gradient: string }> 
   vocab_review: { icon: "albums", gradient: "vocab" }, listening: { icon: "headset", gradient: "listening" },
   shadowing: { icon: "repeat", gradient: "shadowing" }, quick_response: { icon: "flash", gradient: "unlock" },
   sentence_building: { icon: "extension-puzzle", gradient: "unlock" }, think_in_english: { icon: "bulb", gradient: "unlock" },
-  india_mission: { icon: "flag", gradient: "india" },
+  india_mission: { icon: "flag", gradient: "india" }, us_mission: { icon: "snow", gradient: "usa" },
+  turbo: { icon: "rocket", gradient: "unlock" }, mind_map: { icon: "git-network", gradient: "maps" },
+  speaking_check: { icon: "speedometer", gradient: "speak" },
   conversation: { icon: "chatbubbles", gradient: "tutor" }, scenario: { icon: "airplane", gradient: "scenarios" },
   error_review: { icon: "construct", gradient: "errors" }, assessment: { icon: "ribbon", gradient: "assessment" },
 };
@@ -36,7 +38,16 @@ export function activityHref(a: Activity, day: number): { pathname: string; para
     case "error_review":
       return { pathname: "/errors", params: base };
     case "india_mission":
+    case "us_mission":
       return { pathname: "/missao/[id]", params: { ...base, id: a.params.mission_id ?? "next" } };
+    case "turbo":
+      return { pathname: "/turbo", params: base };
+    case "mind_map":
+      return a.params.map_id
+        ? { pathname: "/mapas/[id]", params: { ...base, id: a.params.map_id, mode: a.params.mode ?? "learn" } }
+        : { pathname: "/mapas", params: base };
+    case "speaking_check":
+      return { pathname: "/fala", params: base };
     case "assessment":
       return { pathname: "/assessment", params: { ...base, kind: a.params.kind ?? "checkpoint" } };
     case "scenario":

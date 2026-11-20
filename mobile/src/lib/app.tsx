@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import { api, auth, loadTokens, setUnauthorizedHandler } from "./api";
 import { setServerVoice, setVoicePref, type VoicePref } from "./speech";
 import { getItem, setItem } from "./storage";
+import { setIndianVoice } from "./webAudio";
 import { THEMES, ThemeModeContext, type MotionPref, type ThemeId, type ThemeMode } from "./theme";
 import type { Capabilities, Me, Profile } from "./types";
 
@@ -57,6 +58,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       if (savedMotion) setMotionState(savedMotion);
       const savedVoice = (await getItem("fluent.voicePref")) as VoicePref | null;
       if (savedVoice) setVoicePref(savedVoice);
+      const savedIndian = await getItem("fluent.indianVoice");
+      if (savedIndian) setIndianVoice(savedIndian);
       api<Capabilities>("/system/capabilities", { auth: false }).then(setCaps).catch(() => setCaps(null));
       if (await loadTokens()) {
         try {

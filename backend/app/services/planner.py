@@ -14,7 +14,9 @@ from datetime import date, timedelta
 from app.content.en_listening import LISTENING_EN
 from app.content.india_missions import MISSIONS
 from app.content.languages import CEFR_LEVELS
+from app.content.mind_maps import MAPS
 from app.content.scenarios import SCENARIOS
+from app.content.us_missions import MISSIONS_US
 
 ACTIVITY_INFO: dict[str, dict] = {
     "vocab_review": {"title_pt": "Revisão espaçada de vocabulário", "min": 5, "max": 12, "skills": ["vocabulary"], "mode": "input"},
@@ -27,17 +29,27 @@ ACTIVITY_INFO: dict[str, dict] = {
     "scenario": {"title_pt": "Simulação (viagem/trabalho)", "min": 8, "max": 15, "skills": ["interaction", "speaking", "listening"], "mode": "output"},
     "error_review": {"title_pt": "Revisão dos seus erros", "min": 5, "max": 6, "skills": ["grammar"], "mode": "output"},
     "assessment": {"title_pt": "Avaliação de progresso", "min": 20, "max": 25, "skills": ["listening", "speaking", "vocabulary", "grammar"], "mode": "eval"},
-    # Só entra no plano via DESTINATIONS[...]["extra_weights"] (ex.: destino Índia).
+    "turbo": {"title_pt": "Turbo: lembrar e falar sem medo", "min": 12, "max": 15, "skills": ["vocabulary", "fluency", "speaking"], "mode": "output"},
+    "mind_map": {"title_pt": "Mapa mental", "min": 6, "max": 10, "skills": ["vocabulary", "speaking"], "mode": "output"},
+    # Só entram no plano via DESTINATIONS[...]["extra_weights"] (destino Índia / EUA).
     "india_mission": {"title_pt": "Missão Índia", "min": 10, "max": 15, "skills": ["vocabulary", "speaking", "listening"], "mode": "output"},
+    "us_mission": {"title_pt": "Missão Wisconsin (EUA)", "min": 10, "max": 15, "skills": ["vocabulary", "speaking", "listening"], "mode": "output"},
+    # Medidor de fala: 1 vez por semana, tamanho fixo (mesma tarefa → comparável ao longo do tempo).
+    "speaking_check": {"title_pt": "Medidor de fala (1 min)", "min": 5, "max": 5, "skills": ["speaking", "fluency"], "mode": "eval"},
 }
+
+# Tipos que só existem em inglês (conteúdo escrito para o inglês).
+EN_ONLY = {"mind_map", "india_mission", "us_mission"}
+# Peso dos destinos extras (ex.: Índia + EUA) em relação ao destino principal.
+EXTRA_DEST_FACTOR = 0.6
 
 PHASE_WEIGHTS: dict[int, dict[str, float]] = {
     1: {"vocab_review": 0.15, "listening": 0.24, "shadowing": 0.10, "quick_response": 0.12, "sentence_building": 0.12,
-        "think_in_english": 0.06, "conversation": 0.11, "scenario": 0.07, "error_review": 0.03},
+        "think_in_english": 0.06, "conversation": 0.11, "scenario": 0.07, "error_review": 0.03, "turbo": 0.10, "mind_map": 0.07},
     2: {"vocab_review": 0.11, "listening": 0.19, "shadowing": 0.07, "quick_response": 0.08, "sentence_building": 0.05,
-        "think_in_english": 0.05, "conversation": 0.17, "scenario": 0.22, "error_review": 0.06},
+        "think_in_english": 0.05, "conversation": 0.17, "scenario": 0.22, "error_review": 0.06, "turbo": 0.08, "mind_map": 0.05},
     3: {"vocab_review": 0.08, "listening": 0.14, "shadowing": 0.05, "quick_response": 0.06, "sentence_building": 0.02,
-        "think_in_english": 0.05, "conversation": 0.26, "scenario": 0.29, "error_review": 0.05},
+        "think_in_english": 0.05, "conversation": 0.26, "scenario": 0.29, "error_review": 0.05, "turbo": 0.06, "mind_map": 0.04},
 }
 
 PHASES: dict[int, dict] = {
@@ -98,6 +110,22 @@ DESTINATIONS: dict[str, dict] = {
                 f"Concluir as {len(MISSIONS)} missões da Missão Índia (≈130 frases para falar e entender)"],
             2: ["≥ 65% de acerto em listening com falantes indianos em velocidade normal"],
             3: ["Concluir a visita técnica simulada à planta na Índia obtendo um 'sim/não' claro sobre prazos"],
+        },
+    },
+    "US": {
+        "name_pt": "EUA (Wisconsin)",
+        "accent": "US",
+        "multipliers": {"listening": 1.1},
+        # Missões de viagem e trabalho no Meio-Oeste americano: imigração, inverno, unidades, reuniões, small talk.
+        "extra_weights": {1: {"us_mission": 0.22}, 2: {"us_mission": 0.07}, 3: {"us_mission": 0.03}},
+        "insight": {"signal": "destination_us",
+                    "finding_pt": "Destino: EUA (Wisconsin). Imigração, inverno, unidades americanas (polegadas, °F, psi) "
+                                  "e o jeito indireto do Meio-Oeste nas reuniões são prioridade.",
+                    "action_pt": "O plano inclui as missões de Wisconsin, mapas de unidades americanas e listenings com sotaque americano."},
+        "goals_pt": {
+            1: [f"Concluir as {len(MISSIONS_US)} missões da Missão Wisconsin (≈60 frases para a viagem e o trabalho)"],
+            2: ["Converter na hora polegadas, °F, psi e datas mês/dia ditas em voz alta"],
+            3: ["Conduzir uma reunião simulada com americanos e confirmar um 'sim/não' claro"],
         },
     },
 }
@@ -167,9 +195,13 @@ def generate(
     focus_domains: list[str] | None = None,
     placement_done: bool = False,
     destination: str | None = None,
+    extra_destinations: list[str] | None = None,
+    language: str = "en",
 ) -> list[DayPlan]:
     multipliers = multipliers or {}
     dest = DESTINATIONS.get(destination or "")
+    extras = [DESTINATIONS[x] for x in (extra_destinations or []) if x in DESTINATIONS and x != destination]
+    dest_codes = {c for c in [destination, *(extra_destinations or [])] if c in DESTINATIONS}
     dest_accent = dest["accent"] if dest else None
     focus_domains = focus_domains or []
     learner_level = learner_level if learner_level in CEFR_LEVELS else "B1"
@@ -184,7 +216,14 @@ def generate(
         if dest:
             for t, w in dest.get("extra_weights", {}).get(phase, {}).items():
                 raw[t] = w * multipliers.get(t, 1.0)
-        tot = sum(raw.values())
+        for x in extras:
+            for t, w in x.get("extra_weights", {}).get(phase, {}).items():
+                raw[t] = raw.get(t, 0.0) + w * EXTRA_DEST_FACTOR * multipliers.get(t, 1.0)
+        if language != "en":
+            raw = {t: w for t, w in raw.items() if t not in EN_ONLY}
+        tot = 0.0
+        for w in raw.values():  # soma simples (o sum() do Python 3.12 compensa arredondamento; o app em TS não)
+            tot += w
         weights = {t: w / tot for t, w in raw.items()}
 
         week = min((day - 1) * 13 // total_days, 12)
@@ -199,6 +238,11 @@ def generate(
             chosen.append(("assessment", block))
             minutes_left -= block
             dp.is_assessment_day = True
+
+        # Medidor de fala semanal (mesma tarefa de 1 min) para ver a evolução da fala com números.
+        if is_weekly_review and minutes_left >= 15:
+            chosen.append(("speaking_check", 5))
+            minutes_left -= 5
 
         for t, w in weights.items():
             credits[t] += w * minutes_left
@@ -244,7 +288,7 @@ def generate(
                 chosen[idx] = (chosen[idx][0], chosen[idx][1] + minutes_left)
 
         # Ordem intercalada: aquecimento (revisão) → alterna input/output → fecha com produção ou erros
-        order = {"assessment": 0, "vocab_review": 1}
+        order = {"assessment": 0, "speaking_check": 1, "vocab_review": 2}
         inputs = [c for c in chosen if ACTIVITY_INFO[c[0]]["mode"] == "input" and c[0] not in order]
         outputs = [c for c in chosen if ACTIVITY_INFO[c[0]]["mode"] == "output" and c[0] != "error_review"]
         head = sorted([c for c in chosen if c[0] in order], key=lambda c: order[c[0]])
@@ -302,6 +346,25 @@ def generate(
                 params["mission_id"] = m["id"]
                 title = (f"Missão Índia {m['order']}: {m['title_pt']}" if k < len(MISSIONS)
                          else f"Revisar missão {m['order']}: {m['title_pt']}")
+            elif t == "us_mission":
+                k = rotation.get("us_mission_count", 0)
+                rotation["us_mission_count"] = k + 1
+                m = MISSIONS_US[k % len(MISSIONS_US)]
+                params["mission_id"] = m["id"]
+                title = (f"Missão Wisconsin {m['order']}: {m['title_pt']}" if k < len(MISSIONS_US)
+                         else f"Revisar missão Wisconsin {m['order']}: {m['title_pt']}")
+            elif t == "mind_map":
+                # Alterna mapa novo e reconstrução (de memória) do mapa anterior: espaçamento + recuperação.
+                pool = [m for m in MAPS if m["track"] in ("work", "travel") or (m["track"] == "india" and "IN" in dest_codes)
+                        or (m["track"] == "us" and "US" in dest_codes)]
+                pool.sort(key=lambda m: (m["track"] in ("work", "travel"), m["order"]))
+                k = rotation.get("map_count", 0)
+                rotation["map_count"] = k + 1
+                rebuild = k % 2 == 1
+                m = pool[(k // 2) % len(pool)]
+                params["map_id"] = m["id"]
+                params["mode"] = "rebuild" if rebuild else "learn"
+                title = f"Reconstruir de memória: {m['title_pt']}" if rebuild else f"Mapa mental: {m['title_pt']}"
             elif t == "assessment":
                 params["kind"] = "placement" if (day == 1 and not placement_done) else "checkpoint"
                 title = "Avaliação inicial" if params["kind"] == "placement" else f"Avaliação de progresso (dia {day})"

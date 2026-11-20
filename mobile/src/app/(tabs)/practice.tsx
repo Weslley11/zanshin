@@ -7,9 +7,9 @@ import { useApp } from "../../lib/app";
 import { MODULES } from "../../lib/modules";
 
 const GROUPS: { title: string; ids: string[] }[] = [
-  { title: "Falar", ids: ["missions", "tutor", "unlock", "scenarios"] },
+  { title: "Falar", ids: ["turbo", "missions", "wisconsin", "tutor", "unlock", "scenarios"] },
   { title: "Ouvir e pronunciar", ids: ["listening", "shadowing", "india"] },
-  { title: "Memorizar e medir", ids: ["vocab", "errors", "plan", "assessment", "documents"] },
+  { title: "Memorizar e medir", ids: ["maps", "vocab", "speaking", "errors", "plan", "assessment", "documents"] },
 ];
 
 export default function ModulesHub() {

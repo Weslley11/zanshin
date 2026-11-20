@@ -10,6 +10,8 @@ import {
   evaluateSentenceBuilding, planView, scoreListening, startAssessment, submitAssessment,
 } from "./learning";
 import { completeLesson, lessonFor, overview as courseOverview } from "./course";
+import { completeMap, mapById, overview as mapsOverview } from "./mindMaps";
+import { logReal, saveCheck, speakingOverview } from "./speaking";
 import { completeMission, missionFor, overview as missionOverview } from "./missions";
 import { shadowingFeedback } from "./speech";
 import { endSession, getScenario, postMessage, sessionView, startSession } from "./tutor";
@@ -40,7 +42,8 @@ function formValue(form: FormData | undefined, key: string): string | null {
 function profileView(p: Row) {
   return { language: p.language, cefr_estimate: p.cefr_estimate ?? null, skill_scores: p.skill_scores ?? {}, daily_minutes: p.daily_minutes,
            goals: p.goals ?? [], focus_domains: p.focus_domains ?? [], difficulties: p.difficulties ?? [], trip_date: p.trip_date ?? null,
-           preferred_accents: p.preferred_accents ?? [], new_cards_per_day: p.new_cards_per_day ?? 12, trip_destination: p.trip_destination ?? null };
+           preferred_accents: p.preferred_accents ?? [], new_cards_per_day: p.new_cards_per_day ?? 12, trip_destination: p.trip_destination ?? null,
+           extra_destinations: p.extra_destinations ?? [] };
 }
 
 function meView(db: DB) {
@@ -111,7 +114,8 @@ async function route(db: DB, method: string, path: string, q: URLSearchParams, b
     const changed = p.trip_destination !== (body.trip_destination ?? null);
     Object.assign(p, { daily_minutes: body.daily_minutes ?? 45, goals: body.goals ?? [], focus_domains: body.focus_domains ?? [],
                        difficulties: body.difficulties ?? [], trip_date: body.trip_date ?? null, new_cards_per_day: body.new_cards_per_day ?? 12,
-                       preferred_accents: body.preferred_accents ?? [], trip_destination: body.trip_destination ?? null });
+                       preferred_accents: body.preferred_accents ?? [], trip_destination: body.trip_destination ?? null,
+                       extra_destinations: [...new Set(((body.extra_destinations ?? []) as string[]).filter((x) => /^[A-Z]{2}$/.test(x) && x !== body.trip_destination))].slice(0, 3) });
     if (p.trip_destination && DEST_ACCENTS[p.trip_destination] && (!(body.preferred_accents ?? []).length || changed)) p.preferred_accents = DEST_ACCENTS[p.trip_destination];
     if (body.self_level && !p.cefr_estimate) p.cefr_estimate = body.self_level;
     db.user!.active_language = language;
@@ -274,15 +278,45 @@ async function route(db: DB, method: string, path: string, q: URLSearchParams, b
     }
   }
 
-  // ------------------------------- Missão Índia -------------------------------
+  // ------------------------------- Missões (Índia e Wisconsin/EUA) -------------------------------
   if (seg[0] === "india" && seg[1] === "missions") {
-    if (!seg[2]) return missionOverview(db);
+    if (!seg[2]) {
+      const track = q.get("track") ?? "india";
+      if (!["india", "us"].includes(track)) throw new ApiError(422, "Trilha inválida.");
+      return missionOverview(db, track);
+    }
     const m = missionFor(db, seg[2]);
     if (!m) throw notFound("Missão não encontrada.");
     if (!seg[3]) return m;
     if (seg[3] === "complete" && method === "POST") {
       try {
         return completeMission(db, m, body ?? {});
+      } catch (e: any) {
+        throw new ApiError(422, e.message);
+      }
+    }
+  }
+
+  // ------------------------------- Medidor de fala -------------------------------
+  if (seg[0] === "speaking") {
+    try {
+      if (!seg[1]) return speakingOverview(db);
+      if (seg[1] === "checks" && method === "POST") return saveCheck(db, body ?? {});
+      if (seg[1] === "real" && method === "POST") return logReal(db, body ?? {});
+    } catch (e: any) {
+      throw new ApiError(422, e.message);
+    }
+  }
+
+  // ------------------------------- Mapas mentais -------------------------------
+  if (seg[0] === "maps") {
+    if (!seg[1]) return mapsOverview(db);
+    const m = mapById(seg[1]);
+    if (!m) throw notFound("Mapa não encontrado.");
+    if (!seg[2]) return m;
+    if (seg[2] === "complete" && method === "POST") {
+      try {
+        return completeMap(db, m, body ?? {});
       } catch (e: any) {
         throw new ApiError(422, e.message);
       }

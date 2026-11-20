@@ -1,11 +1,14 @@
-/** Missão Índia no modo local — espelha backend/app/services/missions.py. */
+/** Missões (Índia e Wisconsin/EUA) no modo local — espelha backend/app/services/missions.py. */
 import { CONTENT } from "./content";
 import { newId, nowIso, type DB, type Row } from "./db";
 import { completeActivity, currentPlan, dayView } from "./learning";
 import { addPersonalItem, itemById, reviewCard } from "./vocab";
 
 export const MISSIONS: Row[] = CONTENT.india_missions;
+export const MISSIONS_US: Row[] = CONTENT.us_missions;
+const ALL_MISSIONS: Row[] = [...MISSIONS, ...MISSIONS_US];
 const LANGUAGE = "en";
+const DOMAIN: Record<string, string> = { india: "india", us: "usa" };
 
 export function personalize<T>(value: T, name: string): T {
   if (typeof value === "string") return value.split("{name}").join(name) as T;
@@ -20,16 +23,16 @@ export function firstName(display?: string | null): string {
 }
 
 export function missionFor(db: DB, id: string): Row | null {
-  const m = MISSIONS.find((x) => x.id === id);
+  const m = ALL_MISSIONS.find((x) => x.id === id);
   return m ? personalize(m, firstName(db.user?.display_name)) : null;
 }
 
 function summary(m: Row) {
   return { id: m.id, order: m.order, icon: m.icon, minutes: m.minutes, title_pt: m.title_pt, subtitle_pt: m.subtitle_pt,
-           goal_pt: m.goal_pt, chunk_count: m.chunks.length };
+           goal_pt: m.goal_pt, chunk_count: m.chunks.length, track: m.track ?? "india", accent: m.accent ?? "IN" };
 }
 
-export function overview(db: DB) {
+export function overview(db: DB, track = "india") {
   const progress: Record<string, { completions: number; best_score: number; last_at: string | null }> = {};
   for (const log of db.activities) {
     if (log.activity_type !== "india_mission" || !log.details?.mission_id) continue;
@@ -38,23 +41,23 @@ export function overview(db: DB) {
     p.best_score = Math.max(p.best_score, log.score ?? 0);
     if (!p.last_at || log.started_at > p.last_at) p.last_at = log.started_at;
   }
-  const items = MISSIONS.map((m) => {
+  const items = ALL_MISSIONS.filter((m) => (m.track ?? "india") === track).map((m) => {
     const p = progress[m.id] ?? { completions: 0, best_score: 0, last_at: null };
     return { ...summary(m), completed: p.completions > 0, completions: p.completions, best_score: Math.round(p.best_score * 1000) / 1000, last_at: p.last_at };
   });
   const pending = items.filter((i) => !i.completed);
   const next = pending[0] ?? [...items].sort((a, b) => a.best_score - b.best_score || a.order - b.order)[0];
   const done = items.filter((i) => i.completed);
-  return { missions: items, next_mission_id: next.id, completed: done.length, total: items.length,
+  return { track, missions: items, next_mission_id: next.id, completed: done.length, total: items.length,
            phrases_learned: done.reduce((s, i) => s + i.chunk_count, 0) };
 }
 
 /** Reaproveita o cartão se a frase já existir (conteúdo base ou pessoal); senão cria um item pessoal. */
-export function cardForPhrase(db: DB, chunk: Row): [Row, boolean] {
+export function cardForPhrase(db: DB, chunk: Row, source = "mission", domain = "india"): [Row, boolean] {
   const term = chunk.en.toLowerCase();
   const existing = Object.values(db.cards).find((c) => c.language === LANGUAGE && itemById(db, c.item_id)?.term.toLowerCase() === term);
   if (existing) return [existing, false];
-  const card = addPersonalItem(db, { language: LANGUAGE, term: chunk.en, meaning_pt: chunk.pt, kind: "phrase", source: "mission", domain: "india",
+  const card = addPersonalItem(db, { language: LANGUAGE, term: chunk.en, meaning_pt: chunk.pt, kind: "phrase", source, domain,
                                      definition: chunk.note_pt ?? "" })!;
   return [card, true];
 }
@@ -69,7 +72,7 @@ export function completeMission(db: DB, mission: Row, body: Row) {
   for (const r of results) {
     const chunk = chunks[r.chunk_id];
     if (!chunk) continue;
-    const [card, created] = cardForPhrase(db, chunk);
+    const [card, created] = cardForPhrase(db, chunk, "mission", DOMAIN[mission.track ?? "india"] ?? "india");
     added += Number(created);
     reviewCard(db, card, r.rating, null, "mission");
     reviewed += 1;
@@ -85,5 +88,5 @@ export function completeMission(db: DB, mission: Row, body: Row) {
     const d = plan ? completeActivity(plan, body.plan_day, body.plan_activity_id) : null;
     day = d ? dayView(d) : null;
   }
-  return { reviewed, added, plan_day: day, overview: overview(db) };
+  return { reviewed, added, plan_day: day, overview: overview(db, mission.track ?? "india") };
 }

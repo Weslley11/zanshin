@@ -1,4 +1,4 @@
-"""Missão Índia: progresso por missão e entrada das frases aprendidas na revisão espaçada (FSRS)."""
+"""Missões (Índia e Wisconsin/EUA): progresso por missão e entrada das frases aprendidas na revisão espaçada (FSRS)."""
 
 from __future__ import annotations
 
@@ -6,11 +6,15 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.content.india_missions import MISSIONS, first_name, mission_summary, personalize
+from app.content.us_missions import MISSIONS_US
 from app.models import ActivityLog, User, UserCard, VocabItem
 from app.services import plans as plan_service
 from app.services import vocab as vocab_service
 
 LANGUAGE = "en"
+ALL_MISSIONS: list[dict] = MISSIONS + MISSIONS_US
+TRACKS = ("india", "us")
+DOMAIN = {"india": "india", "us": "usa"}
 
 
 async def _progress(db: AsyncSession, user: User) -> dict[str, dict]:
@@ -30,10 +34,10 @@ async def _progress(db: AsyncSession, user: User) -> dict[str, dict]:
     return progress
 
 
-async def overview(db: AsyncSession, user: User) -> dict:
+async def overview(db: AsyncSession, user: User, track: str = "india") -> dict:
     progress = await _progress(db, user)
     items = []
-    for m in MISSIONS:
+    for m in (x for x in ALL_MISSIONS if x["track"] == track):
         p = progress.get(m["id"], {"completions": 0, "best_score": 0.0, "last_at": None})
         items.append(mission_summary(m) | {"completed": p["completions"] > 0, "completions": p["completions"],
                                            "best_score": round(p["best_score"], 3), "last_at": p["last_at"]})
@@ -41,16 +45,17 @@ async def overview(db: AsyncSession, user: User) -> dict:
     # Próxima: a primeira não concluída; com tudo concluído, a de pior resultado (para revisar).
     nxt = pending[0] if pending else min(items, key=lambda i: (i["best_score"], i["order"]))
     done = [i for i in items if i["completed"]]
-    return {"missions": items, "next_mission_id": nxt["id"], "completed": len(done), "total": len(items),
+    return {"track": track, "missions": items, "next_mission_id": nxt["id"], "completed": len(done), "total": len(items),
             "phrases_learned": sum(i["chunk_count"] for i in done)}
 
 
 def mission_for(user: User, mission_id: str) -> dict | None:
-    m = next((x for x in MISSIONS if x["id"] == mission_id), None)
+    m = next((x for x in ALL_MISSIONS if x["id"] == mission_id), None)
     return personalize(m, first_name(user.display_name)) if m else None
 
 
-async def card_for_phrase(db: AsyncSession, user: User, chunk: dict) -> tuple[UserCard, bool]:
+async def card_for_phrase(db: AsyncSession, user: User, chunk: dict, *, source: str = "mission",
+                          domain: str = "india") -> tuple[UserCard, bool]:
     """Reaproveita o cartão se a frase já existir (conteúdo base ou pessoal); senão cria um item pessoal."""
     card = (await db.execute(
         select(UserCard).join(VocabItem, UserCard.vocab_item_id == VocabItem.id)
@@ -60,7 +65,7 @@ async def card_for_phrase(db: AsyncSession, user: User, chunk: dict) -> tuple[Us
         await db.refresh(card, ["item"])
         return card, False
     card = await vocab_service.add_personal_item(db, user, language=LANGUAGE, term=chunk["en"], meaning_pt=chunk["pt"],
-                                                 kind="phrase", source="mission", domain="india",
+                                                 kind="phrase", source=source, domain=domain,
                                                  definition=chunk.get("note_pt", ""))
     await db.refresh(card, ["item"])
     return card, True
@@ -74,7 +79,7 @@ async def complete(db: AsyncSession, user: User, mission: dict, *, results: list
         chunk = chunks.get(r["chunk_id"])
         if chunk is None:
             continue
-        card, created = await card_for_phrase(db, user, chunk)
+        card, created = await card_for_phrase(db, user, chunk, domain=DOMAIN.get(mission.get("track", "india"), "india"))
         added += int(created)
         await vocab_service.review(db, user, card, r["rating"], None, "mission")
         reviewed += 1
@@ -88,4 +93,5 @@ async def complete(db: AsyncSession, user: User, mission: dict, *, results: list
             d = await plan_service.complete_activity(db, plan, plan_day, plan_activity_id)
             day = plan_service.day_view(d) if d else None
     await db.flush()
-    return {"reviewed": reviewed, "added": added, "plan_day": day, "overview": await overview(db, user)}
+    return {"reviewed": reviewed, "added": added, "plan_day": day,
+            "overview": await overview(db, user, mission.get("track", "india"))}

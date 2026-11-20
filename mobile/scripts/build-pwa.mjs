@@ -47,6 +47,8 @@ if (!html.includes('rel="manifest"')) {
     <link rel="icon" type="image/png" href="${BASE}/favicon.png" />
     <style id="pwa-base">
       html, body { background: #F4F3FA; overscroll-behavior: none; -webkit-tap-highlight-color: transparent; }
+      /* toque imediato: sem a espera de ~300 ms do "duplo toque para zoom" do Safari */
+      *, *::before, *::after { touch-action: manipulation; }
       @media (prefers-color-scheme: dark) { html, body { background: #0B0A14; } }
     </style>
     <script>

@@ -33,7 +33,12 @@ export function PressableScale({ children, onPress, style, disabled, accessibili
   accessibilityRole?: "button" | "link" | "tab" | "radio" | "checkbox"; scaleTo?: number;
 }) {
   const s = useSharedValue(1);
-  const anim = useAnimatedStyle(() => ({ transform: [{ scale: s.value }] }));
+  const pressed = useSharedValue(0);
+  // toque bem visível: afunda (escala), desce 1–2 px e escurece levemente; volta com mola
+  const anim = useAnimatedStyle(() => ({
+    transform: [{ scale: s.value }, { translateY: pressed.value * 1.5 }],
+    opacity: 1 - pressed.value * 0.18,
+  }));
   // Propriedades de layout valem para o Pressable (quem ocupa espaço na linha/coluna); o resto, para a camada animada.
   const flat = (StyleSheet.flatten(style) ?? {}) as Record<string, any>;
   const outer: Record<string, any> = {};
@@ -46,8 +51,14 @@ export function PressableScale({ children, onPress, style, disabled, accessibili
       disabled={disabled}
       accessibilityRole={accessibilityRole}
       accessibilityLabel={accessibilityLabel}
-      onPressIn={() => (s.value = withSpring(scaleTo, { damping: 18, stiffness: 320 }))}
-      onPressOut={() => (s.value = withSpring(1, { damping: 14, stiffness: 260 }))}
+      onPressIn={() => {
+        s.value = withTiming(Math.min(scaleTo, 0.94), { duration: 70 });
+        pressed.value = withTiming(1, { duration: 70 });
+      }}
+      onPressOut={() => {
+        s.value = withSpring(1, { damping: 10, stiffness: 300 });
+        pressed.value = withTiming(0, { duration: 180 });
+      }}
       onPress={() => {
         tap();
         onPress?.();
@@ -61,7 +72,7 @@ export function PressableScale({ children, onPress, style, disabled, accessibili
 /** Entrada escalonada (fade + subida com mola). */
 export function Enter({ children, index = 0, style }: { children: ReactNode; index?: number; style?: StyleProp<ViewStyle> }) {
   return (
-    <Animated.View entering={FadeInDown.delay(Math.min(index, 12) * 55).springify().damping(18)} style={style}>
+    <Animated.View entering={FadeInDown.delay(Math.min(index, 6) * 30).duration(260)} style={style}>
       {children}
     </Animated.View>
   );

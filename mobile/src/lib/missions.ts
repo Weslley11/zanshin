@@ -7,6 +7,7 @@ export type Turn = { say: string; hint_pt: string; keywords: string[]; model: st
 export type Mission = {
   id: string; order: number; icon: string; minutes: number; title_pt: string; subtitle_pt: string; goal_pt: string;
   chunks: Chunk[]; listen: ListenItem[]; dialog: { partner: string; turns: Turn[] };
+  track?: "india" | "us"; accent?: "IN" | "US";
 };
 
 export type SayCheck = { ok: boolean; sim: number; closest: string; diff: Alignment[] };

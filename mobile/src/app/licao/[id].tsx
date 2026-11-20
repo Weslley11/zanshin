@@ -18,6 +18,7 @@ import { buildLesson, checkTiles, checkTyped, display, EXERCISE_TITLE, itemRatin
 import { useDailyGoal } from "../../lib/coursePrefs";
 import { tap } from "../../lib/haptics";
 import { speak, stopSpeaking } from "../../lib/speech";
+import { prefetchRecorded } from "../../lib/webAudio";
 import { radius, useTheme } from "../../lib/theme";
 
 type Entry = { ex: Exercise; retry: boolean };
@@ -47,7 +48,10 @@ export default function LessonPlayer() {
   const xpBefore = useRef(0);
 
   useEffect(() => {
-    api<Lesson>(`/course/lessons/${id}`).then(setLesson).catch((e) => setError(e.message));
+    api<Lesson>(`/course/lessons/${id}`).then((l) => {
+      setLesson(l);
+      prefetchRecorded(l.items.map((i) => i.en), accent); // áudio pronto antes do primeiro "Ouvir"
+    }).catch((e) => setError(e.message));
     api<any>("/course").then((o) => { xpBefore.current = o.xp_today; }).catch(() => {});
     return () => { stopSpeaking(); };
   }, [id]);
