@@ -207,3 +207,20 @@ test("plano com Índia + EUA, medidor de fala e conversas reais no aparelho", as
   assert.equal(real.real.by_partner.india, 15);
   await assert.rejects(localApi("/speaking/real", { body: { minutes: 0, partner: "india" } }), /inválidos/);
 });
+
+test("guia 'Como eles falam' no aparelho", async () => {
+  setMemoryDB(null);
+  mem.clear();
+  await localApi("/auth/register", { body: { display_name: "Ana" } });
+  await localApi("/me/profiles/en", { method: "PUT", body: { daily_minutes: 30, self_level: "B1" } });
+  const ov: any = await localApi("/guides");
+  assert.deepEqual(ov.guides.map((g: any) => g.code), ["IN", "US"]);
+  const g: any = await localApi("/guides/in");
+  const items = g.sections.flatMap((s: any) => s.items).slice(0, 4);
+  const r: any = await localApi("/guides/IN/complete", { body: { results: items.map((i: any, k: number) => ({ item_id: i.id, rating: k ? 3 : 1 })), duration_seconds: 60 } });
+  assert.equal(r.reviewed, 4);
+  assert.equal(r.added, 4);
+  assert.equal(r.score, 0.75);
+  assert.equal(r.overview.guides[0].sessions, 1);
+  await assert.rejects(localApi("/guides/zz"), /não encontrado/);
+});

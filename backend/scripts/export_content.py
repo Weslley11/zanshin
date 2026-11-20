@@ -31,6 +31,7 @@ from app.content import (  # noqa: E402
     other_languages,
     scenarios,
     speaking_check,
+    speech_guide,
     us_missions,
 )
 from app.services import planner  # noqa: E402
@@ -71,6 +72,7 @@ def build_content() -> dict:
         "india_missions": india_missions.MISSIONS,
         "us_missions": us_missions.MISSIONS_US,
         "mind_maps": mind_maps.MAPS,
+        "speech_guides": speech_guide.GUIDES,
         "speaking_check": {"prompts": speaking_check.PROMPTS, "seconds": speaking_check.SECONDS, "fillers": sorted(speaking_check.FILLERS),
                            "pt_words": sorted(speaking_check.PT_WORDS), "partners": speaking_check.REAL_PARTNERS},
         "course": {"units": course.UNITS, "lesson_size": course.LESSON_SIZE, "xp_base": course.XP_BASE,

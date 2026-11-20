@@ -13815,6 +13815,658 @@
    ]
   }
  ],
+ "speech_guides": [
+  {
+   "code": "IN",
+   "accent": "IN",
+   "title_pt": "Índia",
+   "icon": "flag",
+   "intro_pt": "No trabalho, o inglês indiano é fluente e rápido, com ritmo próprio e palavras do hindi e de outras línguas no meio. Brasileiros têm vantagem: vogais simples, 'r' batido e p/t/k sem sopro são parecidos com o português. O desafio é a velocidade, as expressões e o estilo indireto.",
+   "sections": [
+    {
+     "id": "pron",
+     "icon": "mic",
+     "title_pt": "Pronúncia: como soa",
+     "intro_pt": "O que muda no som. Ouça a frase e leia como ela costuma soar.",
+     "items": [
+      {
+       "id": "in-p01",
+       "en": "We will verify the vendor's invoice.",
+       "pt": "Vamos verificar a nota do fornecedor.",
+       "note_pt": "V e W viram um som parecido: se não fizer sentido com 'v', tente com 'w'.",
+       "sounds_pt": "uí uill wérifai de wendors inwoice"
+      },
+      {
+       "id": "in-p02",
+       "en": "Three thousand three hundred.",
+       "pt": "Três mil e trezentos.",
+       "note_pt": "'Th' vira t/d: 'three' soa como 'tree'. Cuidado com números!",
+       "sounds_pt": "tri táuzend tri hândred"
+      },
+      {
+       "id": "in-p03",
+       "en": "The data is in the total.",
+       "pt": "O dado está no total.",
+       "note_pt": "T e D 'duros', com a língua curvada para trás (retroflexos). Continuam fáceis de reconhecer pelo contexto."
+      },
+      {
+       "id": "in-p04",
+       "en": "I am going to the office.",
+       "pt": "Estou indo para o escritório.",
+       "note_pt": "Ritmo de sílabas iguais e menos contrações: 'I am', 'do not'. Soa mais 'cheio' que o americano.",
+       "sounds_pt": "ai-em-gô-ing-tu-di-ó-fis"
+      },
+      {
+       "id": "in-p05",
+       "en": "Please share the schedule.",
+       "pt": "Por favor, compartilhe o cronograma.",
+       "note_pt": "'Schedule' à britânica: 'shédiul' (nos EUA: 'skédjul').",
+       "sounds_pt": "plíz xér de xédiul"
+      },
+      {
+       "id": "in-p06",
+       "en": "My number is nine eight double five, triple two.",
+       "pt": "Meu número é 9-8-5-5-2-2-2.",
+       "note_pt": "Números de telefone com 'double' e 'triple'. Anote enquanto ouve."
+      },
+      {
+       "id": "in-p07",
+       "en": "Is it Z for zebra?",
+       "pt": "É Z de zebra?",
+       "note_pt": "A letra Z se chama 'zed' (britânico), não 'zee'.",
+       "sounds_pt": "is it zéd for zíbra"
+      },
+      {
+       "id": "in-p08",
+       "en": "Today we will discuss the development plan.",
+       "pt": "Hoje vamos discutir o plano de desenvolvimento.",
+       "note_pt": "A sílaba forte pode mudar de lugar: 'DE-ve-lop-ment' em vez de 'de-VE-lop-ment'."
+      },
+      {
+       "id": "in-p09",
+       "en": "The meeting is at eleven thirty.",
+       "pt": "A reunião é às onze e meia.",
+       "note_pt": "Fala rápida e entonação que sobe e desce bastante. Peça: 'Could you say that a bit slowly?'"
+      }
+     ]
+    },
+    {
+     "id": "daily",
+     "icon": "chatbubbles",
+     "title_pt": "Jeito de falar no dia a dia",
+     "intro_pt": "Construções comuns no inglês indiano que confundem quem aprendeu o inglês dos livros.",
+     "items": [
+      {
+       "id": "in-d01",
+       "en": "You are coming tomorrow, no?",
+       "pt": "Você vem amanhã, né?",
+       "note_pt": "'no?' ou 'na?' no fim = 'né?'. Perguntas também vêm sem inverter: 'You are coming?'"
+      },
+      {
+       "id": "in-d02",
+       "en": "You will send it today, isn't it?",
+       "pt": "Você manda hoje, né?",
+       "note_pt": "'isn't it?' serve para qualquer frase (não muda para 'won't you?')."
+      },
+      {
+       "id": "in-d03",
+       "en": "I will send it today only.",
+       "pt": "Mando hoje mesmo.",
+       "note_pt": "'only' dá ênfase: 'today only' = hoje mesmo."
+      },
+      {
+       "id": "in-d04",
+       "en": "He is sitting here itself.",
+       "pt": "Ele está sentado aqui mesmo.",
+       "note_pt": "'itself' também enfatiza: 'here itself' = aqui mesmo."
+      },
+      {
+       "id": "in-d05",
+       "en": "Tell me.",
+       "pt": "Pode falar / Diga.",
+       "note_pt": "Ao atender o telefone, 'Tell me' quer dizer 'pode falar', não é grosseria."
+      },
+      {
+       "id": "in-d06",
+       "en": "I have a small doubt.",
+       "pt": "Tenho uma pequena dúvida (pergunta).",
+       "note_pt": "'Doubt' = pergunta, não desconfiança."
+      },
+      {
+       "id": "in-d07",
+       "en": "What is your good name?",
+       "pt": "Qual é o seu nome?",
+       "note_pt": "Forma educada e tradicional de perguntar o nome."
+      },
+      {
+       "id": "in-d08",
+       "en": "Do one thing: send me the file first.",
+       "pt": "Faz o seguinte: me manda o arquivo primeiro.",
+       "note_pt": "'Do one thing' introduz uma sugestão."
+      },
+      {
+       "id": "in-d09",
+       "en": "He is out of station this week.",
+       "pt": "Ele está viajando (fora da cidade) esta semana.",
+       "note_pt": "'Out of station' = fora da cidade."
+      },
+      {
+       "id": "in-d10",
+       "en": "Please revert by evening.",
+       "pt": "Por favor, responda até o fim do dia.",
+       "note_pt": "'Revert' = responder (não 'reverter')."
+      },
+      {
+       "id": "in-d11",
+       "en": "Can we prepone the call?",
+       "pt": "Podemos antecipar a call?",
+       "note_pt": "'Prepone' = o contrário de 'postpone'."
+      },
+      {
+       "id": "in-d12",
+       "en": "Give me two minutes.",
+       "pt": "Me dá um minutinho.",
+       "note_pt": "'Two minutes' = 'um instante', não exatamente dois minutos."
+      }
+     ]
+    },
+    {
+     "id": "slang",
+     "icon": "happy",
+     "title_pt": "Gírias e palavras do hindi no meio",
+     "intro_pt": "Entre colegas, é comum misturar palavras do hindi ('Hinglish'), principalmente no norte e no oeste. No sul (Chennai, Bangalore, Hyderabad) aparecem menos palavras do hindi e mais das línguas locais.",
+     "items": [
+      {
+       "id": "in-s01",
+       "en": "Acha, okay, I'll do it.",
+       "pt": "Ah, tá, eu faço.",
+       "note_pt": "'Acha' (atchá) = 'tá / entendi / é mesmo?', depende da entonação."
+      },
+      {
+       "id": "in-s02",
+       "en": "Chalo, let's start the meeting.",
+       "pt": "Bora, vamos começar a reunião.",
+       "note_pt": "'Chalo' (tchalô) = 'vamos / bora'. Também encerra conversa."
+      },
+      {
+       "id": "in-s03",
+       "en": "Arre, no problem, yaar!",
+       "pt": "Ah, sem problema, cara!",
+       "note_pt": "'Arre' = 'ah / opa'; 'yaar' = 'cara, amigo' (informal)."
+      },
+      {
+       "id": "in-s04",
+       "en": "Haan, I'm listening.",
+       "pt": "Sim, estou ouvindo.",
+       "note_pt": "'Haan' (rrãn) = 'sim'. 'Nahi' = 'não'."
+      },
+      {
+       "id": "in-s05",
+       "en": "Bas, that's all for today.",
+       "pt": "Só isso por hoje.",
+       "note_pt": "'Bas' (bâs) = 'só / chega / é isso'."
+      },
+      {
+       "id": "in-s06",
+       "en": "Pakka, I'll send it by five.",
+       "pt": "Com certeza, mando até as cinco.",
+       "note_pt": "'Pakka' (pâká) = 'certeza / combinado'."
+      },
+      {
+       "id": "in-s07",
+       "en": "That's a smart jugaad.",
+       "pt": "Que gambiarra esperta.",
+       "note_pt": "'Jugaad' (djugárd) = solução improvisada e criativa."
+      },
+      {
+       "id": "in-s08",
+       "en": "Sharma-ji will join the call.",
+       "pt": "O senhor Sharma vai entrar na call.",
+       "note_pt": "'-ji' depois do nome = respeito (como 'seu' ou 'dona')."
+      },
+      {
+       "id": "in-s09",
+       "en": "Don't take tension, I'll handle it.",
+       "pt": "Não se preocupe, eu resolvo.",
+       "note_pt": "'Tension' = preocupação, estresse."
+      },
+      {
+       "id": "in-s10",
+       "en": "It was just timepass.",
+       "pt": "Foi só para passar o tempo.",
+       "note_pt": "'Timepass' = passatempo, algo sem importância."
+      },
+      {
+       "id": "in-s11",
+       "en": "Thik hai, see you tomorrow.",
+       "pt": "Tá bom, até amanhã.",
+       "note_pt": "'Thik hai' (tík rrái) = 'tá bom / ok'."
+      }
+     ]
+    },
+    {
+     "id": "style",
+     "icon": "people",
+     "title_pt": "Como eles conversam",
+     "intro_pt": "Estilo e etiqueta. Saber isso evita mal-entendidos maiores do que qualquer erro de gramática.",
+     "items": [
+      {
+       "id": "in-c01",
+       "en": "Yes, yes, it will be done.",
+       "pt": "Sim, sim, vai ser feito.",
+       "note_pt": "'Yes' pode significar 'estou ouvindo', não um compromisso. Confirme o prazo por e-mail."
+      },
+      {
+       "id": "in-c02",
+       "en": "We will try our level best.",
+       "pt": "Vamos fazer o máximo possível.",
+       "note_pt": "Pode ser um 'não' educado. Pergunte: 'So, can we commit to Friday?'"
+      },
+      {
+       "id": "in-c03",
+       "en": "Sir, one small request.",
+       "pt": "Senhor, um pequeno pedido.",
+       "note_pt": "Pedidos costumam vir com 'one small request' e 'sir/ma'am'."
+      },
+      {
+       "id": "in-c04",
+       "en": "Hello? Am I audible?",
+       "pt": "Alô? Vocês estão me ouvindo?",
+       "note_pt": "Muito comum em calls: 'Am I audible?' = está me ouvindo?"
+      },
+      {
+       "id": "in-c05",
+       "en": "Please be on the line.",
+       "pt": "Por favor, aguarde na linha.",
+       "note_pt": "Ao telefone: 'be on the line' = não desligue."
+      },
+      {
+       "id": "in-c06",
+       "en": "Have you had lunch?",
+       "pt": "Você já almoçou?",
+       "note_pt": "Pergunta de cuidado, faz parte da conversa leve. Responda e devolva."
+      },
+      {
+       "id": "in-c07",
+       "en": "Are you married? How many kids?",
+       "pt": "Você é casado? Quantos filhos?",
+       "note_pt": "Perguntas pessoais cedo são simpatia, não invasão. Responda o que quiser."
+      },
+      {
+       "id": "in-c08",
+       "en": "Sorry for the delay, there was a power cut.",
+       "pt": "Desculpe a demora, faltou luz.",
+       "note_pt": "'Power cut' (britânico) = falta de luz."
+      },
+      {
+       "id": "in-c09",
+       "en": "Kindly do the needful.",
+       "pt": "Por favor, providencie o necessário.",
+       "note_pt": "Típico de e-mail formal. Responda dizendo o que vai fazer."
+      }
+     ]
+    }
+   ],
+   "accents": [
+    {
+     "title_pt": "Norte (Delhi, Punjab)",
+     "text_pt": "Mais palavras do hindi no meio, 'v/w' parecidos, ritmo rápido."
+    },
+    {
+     "title_pt": "Oeste (Mumbai, Pune)",
+     "text_pt": "Mistura de hindi e marathi; inglês muito usado em empresas e na cidade."
+    },
+    {
+     "title_pt": "Sul (Bangalore, Chennai, Hyderabad)",
+     "text_pt": "Menos hindi; t/d bem retroflexos e entonação marcada. Grande centro de tecnologia: você vai ouvir muito este sotaque em calls."
+    },
+    {
+     "title_pt": "Leste (Kolkata)",
+     "text_pt": "Influência do bengali: algumas vogais mais abertas e 'v' que soa como 'bh'."
+    }
+   ],
+   "listening_tips": [
+    "Foque nas palavras-chave (números, datas, nomes, verbos) e não em cada palavra.",
+    "Nomes indianos: peça para soletrar ('Could you spell your name?') e anote.",
+    "Confirme números e prazos repetindo: 'So, three-three-zero, by Friday, right?'",
+    "Na primeira semana tudo parece rápido; o ouvido se acostuma com 2–3 semanas de exposição diária."
+   ]
+  },
+  {
+   "code": "US",
+   "accent": "US",
+   "title_pt": "EUA (Wisconsin)",
+   "icon": "snow",
+   "intro_pt": "Os americanos encurtam e juntam as palavras na fala rápida ('gonna', 'whaddaya'), usam muitas expressões de escritório e, no Meio-Oeste, são simpáticos e indiretos. Wisconsin tem um sotaque próprio (o do 'Upper Midwest'), mas no trabalho você também vai ouvir pessoas de outras regiões.",
+   "sections": [
+    {
+     "id": "pron",
+     "icon": "mic",
+     "title_pt": "Pronúncia: como soa",
+     "intro_pt": "As mudanças de som que mais atrapalham a compreensão do inglês americano.",
+     "items": [
+      {
+       "id": "us-p01",
+       "en": "Can I get some water?",
+       "pt": "Pode me dar um pouco de água?",
+       "note_pt": "O 't' entre vogais vira um 'r' rápido: 'water' soa como 'wárer'.",
+       "sounds_pt": "ken ai guéd sâm wárer",
+       "fast": "Can I get some wadder?"
+      },
+      {
+       "id": "us-p02",
+       "en": "It's a better bottle.",
+       "pt": "É uma garrafa melhor.",
+       "note_pt": "Mesmo efeito: 'better' = 'bérer', 'bottle' = 'bárou'.",
+       "sounds_pt": "its a bérer bárou",
+       "fast": "It's a bedder baddle."
+      },
+      {
+       "id": "us-p03",
+       "en": "Did you eat yet?",
+       "pt": "Você já comeu?",
+       "note_pt": "Na fala rápida vira uma palavra só: 'Jeet yet?'",
+       "sounds_pt": "djit iét",
+       "fast": "Jeet yet?"
+      },
+      {
+       "id": "us-p04",
+       "en": "What do you want to do?",
+       "pt": "O que você quer fazer?",
+       "note_pt": "'What do you' = 'whaddaya'; 'want to' = 'wanna'.",
+       "sounds_pt": "uárarrâ uána du",
+       "fast": "Whaddaya wanna do?"
+      },
+      {
+       "id": "us-p05",
+       "en": "I'm going to call him.",
+       "pt": "Vou ligar para ele.",
+       "note_pt": "'going to' = 'gonna'; 'him' perde o 'h': 'call 'im'.",
+       "sounds_pt": "aim gâna kól im",
+       "fast": "I'm gonna call 'im."
+      },
+      {
+       "id": "us-p06",
+       "en": "I've got to go.",
+       "pt": "Tenho que ir.",
+       "note_pt": "'got to' = 'gotta'.",
+       "sounds_pt": "aiv gára gou",
+       "fast": "I gotta go."
+      },
+      {
+       "id": "us-p07",
+       "en": "I can go, but I can't stay.",
+       "pt": "Posso ir, mas não posso ficar.",
+       "note_pt": "'can' é fraco (kn) e 'can't' é forte, com o 't' quase mudo. Preste atenção na força da palavra."
+      },
+      {
+       "id": "us-p08",
+       "en": "There are twenty people on the internet call.",
+       "pt": "Há vinte pessoas na call.",
+       "note_pt": "Depois de 'n', o 't' some: 'twenny', 'innernet'.",
+       "sounds_pt": "dér ar tuéni pípou",
+       "fast": "There're twenny people on the innernet call."
+      },
+      {
+       "id": "us-p09",
+       "en": "Grab your bag and the flag.",
+       "pt": "Pegue sua bolsa e a bandeira.",
+       "note_pt": "Em Wisconsin, o 'a' antes de 'g' soa quase como 'ei': 'bag' = 'bêig'.",
+       "sounds_pt": "gréib iór bêig end de flêig"
+      },
+      {
+       "id": "us-p10",
+       "en": "Let's go to the boat.",
+       "pt": "Vamos para o barco.",
+       "note_pt": "No Upper Midwest, 'go' e 'boat' soam com 'ô' puro, como em português.",
+       "sounds_pt": "léts gô tu de bôt"
+      },
+      {
+       "id": "us-p11",
+       "en": "I live in Milwaukee.",
+       "pt": "Moro em Milwaukee.",
+       "note_pt": "Muitos locais dizem algo como 'm'WAW-kee', quase sem o 'l'.",
+       "sounds_pt": "ai liv in muóki"
+      }
+     ]
+    },
+    {
+     "id": "daily",
+     "icon": "chatbubbles",
+     "title_pt": "Fala do dia a dia",
+     "intro_pt": "Expressões curtas que aparecem o tempo todo no escritório e na rua.",
+     "items": [
+      {
+       "id": "us-d01",
+       "en": "How's it going?",
+       "pt": "Tudo bem?",
+       "note_pt": "Não é uma pergunta de verdade. Responda curto: 'Good, you?'"
+      },
+      {
+       "id": "us-d02",
+       "en": "What's up?",
+       "pt": "E aí?",
+       "note_pt": "Resposta comum: 'Not much, you?'"
+      },
+      {
+       "id": "us-d03",
+       "en": "I'm gonna grab a coffee. Want anything?",
+       "pt": "Vou pegar um café. Quer algo?",
+       "note_pt": "'Grab' = pegar, comprar rápido."
+      },
+      {
+       "id": "us-d04",
+       "en": "Sounds good.",
+       "pt": "Combinado / Ótimo.",
+       "note_pt": "Para aceitar um plano ou horário."
+      },
+      {
+       "id": "us-d05",
+       "en": "No worries.",
+       "pt": "Sem problema / De nada.",
+       "note_pt": "Resposta a 'sorry' ou 'thanks'."
+      },
+      {
+       "id": "us-d06",
+       "en": "My bad.",
+       "pt": "Foi mal.",
+       "note_pt": "Pedido de desculpas informal por um erro pequeno."
+      },
+      {
+       "id": "us-d07",
+       "en": "I'll shoot you an email.",
+       "pt": "Vou te mandar um e-mail.",
+       "note_pt": "'Shoot' = mandar rápido."
+      },
+      {
+       "id": "us-d08",
+       "en": "Can you give me a ballpark?",
+       "pt": "Você pode me dar uma estimativa?",
+       "note_pt": "'Ballpark' = número aproximado."
+      },
+      {
+       "id": "us-d09",
+       "en": "Just a heads-up, the meeting moved to three.",
+       "pt": "Só um aviso: a reunião mudou para as três.",
+       "note_pt": "'Heads-up' = aviso prévio."
+      },
+      {
+       "id": "us-d10",
+       "en": "Let's take this offline.",
+       "pt": "Vamos falar disso depois, fora da reunião.",
+       "note_pt": "Não tem nada a ver com internet."
+      },
+      {
+       "id": "us-d11",
+       "en": "I'm swamped this week.",
+       "pt": "Estou atolado esta semana.",
+       "note_pt": "'Swamped' = cheio de trabalho."
+      },
+      {
+       "id": "us-d12",
+       "en": "Hang on a sec.",
+       "pt": "Espera um segundo.",
+       "note_pt": "'Sec' = second."
+      }
+     ]
+    },
+    {
+     "id": "slang",
+     "icon": "happy",
+     "title_pt": "Gírias e jeito de Wisconsin",
+     "intro_pt": "Palavras e expressões regionais do Upper Midwest. Entenda todas; use só as que soarem naturais para você.",
+     "items": [
+      {
+       "id": "us-s01",
+       "en": "Ope, sorry!",
+       "pt": "Opa, desculpa!",
+       "note_pt": "'Ope' sai ao esbarrar ou passar na frente de alguém."
+      },
+      {
+       "id": "us-s02",
+       "en": "Where's the bubbler?",
+       "pt": "Onde fica o bebedouro?",
+       "note_pt": "'Bubbler' = bebedouro (bem típico de Wisconsin)."
+      },
+      {
+       "id": "us-s03",
+       "en": "You betcha!",
+       "pt": "Claro! / Com certeza!",
+       "note_pt": "Simpático, mas usar demais soa forçado para quem é de fora."
+      },
+      {
+       "id": "us-s04",
+       "en": "Are you coming with?",
+       "pt": "Você vem junto?",
+       "note_pt": "No Upper Midwest a frase termina em 'with', sem 'us'."
+      },
+      {
+       "id": "us-s05",
+       "en": "Uff da, that's a lot of snow!",
+       "pt": "Nossa, quanta neve!",
+       "note_pt": "'Uff da' (de origem norueguesa) = 'nossa / eita'. Regional."
+      },
+      {
+       "id": "us-s06",
+       "en": "Let's grab some brats.",
+       "pt": "Vamos comer umas salsichas (bratwurst).",
+       "note_pt": "'Brat' aqui se diz 'bráht' e é a salsicha alemã."
+      },
+      {
+       "id": "us-s07",
+       "en": "We're going up north this weekend.",
+       "pt": "Vamos para o norte (lagos e cabanas) neste fim de semana.",
+       "note_pt": "'Up north' = a região de lagos e cabanas no norte do estado."
+      },
+      {
+       "id": "us-s08",
+       "en": "What's for supper?",
+       "pt": "O que tem para o jantar?",
+       "note_pt": "'Supper' é comum no Meio-Oeste para o jantar."
+      },
+      {
+       "id": "us-s09",
+       "en": "He's a total cheesehead.",
+       "pt": "Ele é um torcedor fanático dos Packers.",
+       "note_pt": "'Cheesehead' = apelido carinhoso de torcedor / pessoa de Wisconsin."
+      },
+      {
+       "id": "us-s10",
+       "en": "Turn left at the stop-and-go lights.",
+       "pt": "Vire à esquerda no semáforo.",
+       "note_pt": "Alguns locais dizem 'stop-and-go lights' para semáforo. Regional."
+      }
+     ]
+    },
+    {
+     "id": "style",
+     "icon": "people",
+     "title_pt": "Como eles conversam",
+     "intro_pt": "Estilo, etiqueta e o famoso 'Midwest nice'.",
+     "items": [
+      {
+       "id": "us-c01",
+       "en": "Hi, I'm Mike. Nice to meet you.",
+       "pt": "Oi, sou o Mike. Prazer.",
+       "note_pt": "Primeiro nome com todo mundo, inclusive chefes."
+      },
+      {
+       "id": "us-c02",
+       "en": "That's an interesting idea…",
+       "pt": "É uma ideia interessante…",
+       "note_pt": "No Meio-Oeste pode ser um 'não' educado. Pergunte o que precisaria mudar."
+      },
+      {
+       "id": "us-c03",
+       "en": "Thanks so much, I really appreciate it!",
+       "pt": "Muito obrigado, agradeço de verdade!",
+       "note_pt": "Muitos agradecimentos e elogios fazem parte do tom."
+      },
+      {
+       "id": "us-c04",
+       "en": "Do you have a minute?",
+       "pt": "Você tem um minuto?",
+       "note_pt": "Pergunte antes de interromper alguém."
+      },
+      {
+       "id": "us-c05",
+       "en": "Crazy weather, huh?",
+       "pt": "Que tempo maluco, né?",
+       "note_pt": "Assuntos seguros: clima, esportes, fim de semana. Evite política, religião e salário."
+      },
+      {
+       "id": "us-c06",
+       "en": "Sorry, I didn't catch that.",
+       "pt": "Desculpe, não entendi.",
+       "note_pt": "Pedir para repetir é normal; ninguém se incomoda."
+      },
+      {
+       "id": "us-c07",
+       "en": "Well, I should let you go.",
+       "pt": "Bom, vou te deixar ir.",
+       "note_pt": "Sinal de que a conversa está acabando (a 'despedida longa' do Meio-Oeste)."
+      },
+      {
+       "id": "us-c08",
+       "en": "Not bad at all!",
+       "pt": "Nada mal!",
+       "note_pt": "Elogio de verdade, mais contido."
+      },
+      {
+       "id": "us-c09",
+       "en": "I'm running five minutes late.",
+       "pt": "Vou atrasar cinco minutos.",
+       "note_pt": "Reuniões começam na hora; avise se for atrasar."
+      }
+     ]
+    }
+   ],
+   "accents": [
+    {
+     "title_pt": "Upper Midwest (Wisconsin, Minnesota)",
+     "text_pt": "'ô' e 'ê' puros (parecidos com o português), 'bag' como 'bêig' e um tom simpático e cantado."
+    },
+    {
+     "title_pt": "Milwaukee e Chicago",
+     "text_pt": "Vogais diferentes nas cidades grandes da região ('a' mais fechado). Fala rápida."
+    },
+    {
+     "title_pt": "'General American'",
+     "text_pt": "O sotaque da TV e de muitos colegas de outras regiões: 't' entre vogais como 'r' rápido e muitas reduções ('gonna', 'wanna')."
+    },
+    {
+     "title_pt": "Sul dos EUA",
+     "text_pt": "Se aparecer alguém do sul: fala mais arrastada e 'y'all' (vocês)."
+    }
+   ],
+   "listening_tips": [
+    "Aprenda as formas reduzidas (gonna, wanna, gotta, lemme, whaddaya): elas são a maior barreira para entender.",
+    "Preste atenção na sílaba forte: 'can' fraco = pode; 'can't' forte = não pode.",
+    "Em calls, peça para confirmar por escrito o que for importante: 'Could you drop that in the chat?'",
+    "Assistir séries com legenda em inglês ajuda a ligar o som rápido à palavra escrita."
+   ]
+  }
+ ],
  "speaking_check": {
   "prompts": [
    {

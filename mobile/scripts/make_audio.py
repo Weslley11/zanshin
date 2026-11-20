@@ -27,7 +27,7 @@ import wave
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-KEYS = {"en", "cue", "say", "model", "q", "text", "term", "example", "prompt"}
+KEYS = {"en", "cue", "say", "model", "q", "text", "term", "example", "prompt", "fast"}
 PT_HINT = re.compile(r"[ãõçáéíóúâêôà]|\b(você|não|para|com|uma|que|está|isso)\b", re.IGNORECASE)
 
 
