@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { router, useFocusEffect } from "expo-router";
+import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { View } from "react-native";
 import Animated, { FadeIn, FadeInRight } from "react-native-reanimated";
@@ -77,6 +77,7 @@ function Confidence({ value, onChange, question }: { value: number | null; onCha
 export default function Turbo() {
   const { c } = useTheme();
   const { profile, language } = useApp();
+  const { planDay, planActivity } = useLocalSearchParams<{ planDay?: string; planActivity?: string }>();
   const accent = profile?.preferred_accents?.[0] ?? "US";
   const [step, setStep] = useState<Step>("intro");
   const [history, setHistory] = useState<TurboLog[]>([]);
@@ -165,7 +166,8 @@ export default function Turbo() {
       if (i.card_id) api(`/vocab/cards/${i.card_id}/review`, { body: { rating: recallRating(rec.attempts[i.id]), mode: "turbo" } }).catch(() => {});
     }
     api("/activities", { body: { language, activity_type: "turbo", duration_seconds: Math.round((Date.now() - startedAt.current) / 1000),
-      score: recalled / Math.max(1, items.length), details: { conf_before: entry.before, conf_after: entry.after } } }).catch(() => {});
+      score: recalled / Math.max(1, items.length), details: { conf_before: entry.before, conf_after: entry.after },
+      ...(planDay && planActivity ? { plan_day: Number(planDay), plan_activity_id: planActivity } : {}) } }).catch(() => {});
     setStep("done");
   };
 

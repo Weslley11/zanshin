@@ -67,7 +67,7 @@ export default function Home() {
   const india = profile?.trip_destination === "IN";
   const done = today?.activities.filter((a) => a.done).length ?? 0;
   const next = today?.activities.find((a) => !a.done);
-  const modules = MODULES.filter((m) => (language === "en" || !m.enOnly) && !["documents", "missions", "turbo"].includes(m.id)).slice(0, 6);
+  const modules = MODULES.filter((m) => (language === "en" || !m.enOnly) && !["documents", "missions", "turbo", "maps", "wisconsin"].includes(m.id)).slice(0, 6);
 
   return (
     <Screen scrollY={scrollY}>

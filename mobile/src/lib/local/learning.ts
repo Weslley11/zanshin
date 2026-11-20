@@ -189,13 +189,20 @@ export function adjustments(db: DB, language: string): { multipliers: Record<str
     for (const [t, f] of Object.entries(dest.multipliers as Record<string, number>)) m[t] = Math.round((m[t] ?? 1) * f * 1000) / 1000;
     insights.unshift(dest.insight);
   }
+  if (language === "en") for (const code of extrasOf(p)) insights.splice(dest ? 1 : 0, 0, DESTINATIONS[code].insight);
   return { multipliers: m, insights };
 }
 
-function phasesFor(destination: string | null): Row {
+/** Destinos extras válidos (ex.: Índia + EUA). */
+export const extrasOf = (p: Row): string[] =>
+  ((p.extra_destinations ?? []) as string[]).filter((x) => DESTINATIONS[x] && x !== p.trip_destination);
+
+function phasesFor(destination: string | null, extras: string[] = []): Row {
   const phases = JSON.parse(JSON.stringify(PHASES));
-  const dest = DESTINATIONS[destination ?? ""];
-  if (dest) for (const [ph, goals] of Object.entries(dest.goals_pt as Record<string, string[]>)) phases[ph].measurable_goals_pt.push(...goals);
+  for (const code of [destination, ...extras]) {
+    const dest = DESTINATIONS[code ?? ""];
+    if (dest) for (const [ph, goals] of Object.entries(dest.goals_pt as Record<string, string[]>)) phases[ph].measurable_goals_pt.push(...goals);
+  }
   return phases;
 }
 
@@ -207,13 +214,14 @@ export function createPlan(db: DB, language: string): Row {
   const { multipliers, insights } = adjustments(db, language);
   const placementDone = Object.values(db.assessments).some((a) => a.language === language && a.completed_at);
   const days = generate({ start, total_days: total, daily_minutes: p.daily_minutes, learner_level: p.cefr_estimate ?? "B1", multipliers,
-                          focus_domains: p.focus_domains, placement_done: placementDone, destination: p.trip_destination });
+                          focus_domains: p.focus_domains, placement_done: placementDone, destination: p.trip_destination,
+                          extra_destinations: extrasOf(p), language });
   for (const pl of Object.values(db.plans)) if (pl.language === language) pl.status = "archived";
   const id = newId();
   db.plans[id] = { id, language, status: "active", created_at: nowIso(), last_adapted_at: null, start_date: start, end_date: days[days.length - 1].date,
                    total_days: total, daily_minutes: p.daily_minutes,
                    title: `Programa Intensivo de ${language === "en" ? "Inglês Profissional" : "Idioma"} — ${total} dias`,
-                   config: { phases: phasesFor(p.trip_destination), multipliers, insights, destination: p.trip_destination,
+                   config: { phases: phasesFor(p.trip_destination, extrasOf(p)), multipliers, insights, destination: p.trip_destination,
                              expected_outcomes: expectedOutcomes(total, p.daily_minutes, p.cefr_estimate) },
                    days: days.map((d) => ({ ...d, completed_at: null })) };
   return db.plans[id];
@@ -251,7 +259,8 @@ export function adaptPlan(db: DB, plan: Row) {
   const p = db.profiles[plan.language];
   const { multipliers, insights } = adjustments(db, plan.language);
   const regen = generate({ start: plan.start_date, total_days: plan.total_days, daily_minutes: p.daily_minutes, learner_level: p.cefr_estimate ?? "B1",
-                           multipliers, focus_domains: p.focus_domains, placement_done: true, destination: p.trip_destination });
+                           multipliers, focus_domains: p.focus_domains, placement_done: true, destination: p.trip_destination,
+                           extra_destinations: extrasOf(p), language: plan.language });
   const today = todayIso();
   let changed = 0;
   for (const d of plan.days) {
@@ -261,7 +270,7 @@ export function adaptPlan(db: DB, plan: Row) {
     d.is_assessment_day = n.is_assessment_day;
     changed++;
   }
-  plan.config = { ...plan.config, multipliers, insights, phases: phasesFor(p.trip_destination) };
+  plan.config = { ...plan.config, multipliers, insights, phases: phasesFor(p.trip_destination, extrasOf(p)) };
   plan.last_adapted_at = nowIso();
   return { changed_days: changed, insights, multipliers };
 }
@@ -327,7 +336,7 @@ export function dashboard(db: DB, language: string) {
   for (const l of logs) byDay[l.started_at.slice(0, 10)] = (byDay[l.started_at.slice(0, 10)] ?? 0) + l.duration_seconds / 60;
   // dia ativo: ≥ 1 min de estudo ou uma lição/missão concluída (lições curtas também mantêm a sequência)
   const active = new Set([...Object.entries(byDay).filter(([, m]) => m >= 1).map(([d]) => d),
-                          ...logs.filter((l) => ["lesson", "india_mission", "mind_map"].includes(l.activity_type)).map((l) => l.started_at.slice(0, 10))]);
+                          ...logs.filter((l) => ["lesson", "india_mission", "mind_map", "speaking_check", "real_conversation"].includes(l.activity_type)).map((l) => l.started_at.slice(0, 10))]);
   const dayOf = (offset: number) => new Date(Date.parse(today) - offset * 86_400_000).toISOString().slice(0, 10);
   let streak = 0;
   for (let o = active.has(today) ? 0 : 1; active.has(dayOf(o)); o++) streak++;

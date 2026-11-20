@@ -13815,6 +13815,129 @@
    ]
   }
  ],
+ "speaking_check": {
+  "prompts": [
+   {
+    "id": "sc01",
+    "en": "Introduce yourself and explain what you do at work.",
+    "pt": "Apresente-se e explique o que você faz no trabalho.",
+    "tip_pt": "Nome → empresa → função → um projeto atual."
+   },
+   {
+    "id": "sc02",
+    "en": "Describe a typical workday, from morning to evening.",
+    "pt": "Descreva um dia típico de trabalho, da manhã à noite.",
+    "tip_pt": "Use first, then, after that, finally."
+   },
+   {
+    "id": "sc03",
+    "en": "Explain a problem you solved at work: what happened, why, and what you did.",
+    "pt": "Explique um problema que você resolveu: o que houve, por quê e o que você fez.",
+    "tip_pt": "Sintoma → causa → ação → resultado."
+   },
+   {
+    "id": "sc04",
+    "en": "Tell me about your plans for your work trip.",
+    "pt": "Conte seus planos para a viagem de trabalho.",
+    "tip_pt": "Onde, quando, com quem você vai se reunir e o que precisa resolver."
+   },
+   {
+    "id": "sc05",
+    "en": "Explain how a machine or process you work with works.",
+    "pt": "Explique como funciona uma máquina ou processo do seu trabalho.",
+    "tip_pt": "Comece pelo objetivo, depois as etapas em ordem."
+   },
+   {
+    "id": "sc06",
+    "en": "Describe your city to someone who has never been there.",
+    "pt": "Descreva sua cidade para alguém que nunca foi lá.",
+    "tip_pt": "Tamanho, clima, comida, o que visitar."
+   },
+   {
+    "id": "sc07",
+    "en": "Describe a project you are proud of.",
+    "pt": "Descreva um projeto do qual você se orgulha.",
+    "tip_pt": "O desafio, o seu papel e o resultado (com um número, se puder)."
+   },
+   {
+    "id": "sc08",
+    "en": "Give your opinion: is it better to work from home or at the office? Why?",
+    "pt": "Dê sua opinião: é melhor trabalhar em casa ou no escritório? Por quê?",
+    "tip_pt": "Opinião → 2 motivos → exemplo → conclusão."
+   },
+   {
+    "id": "sc09",
+    "en": "Explain, step by step, how to do something you know well.",
+    "pt": "Explique, passo a passo, como fazer algo que você sabe bem.",
+    "tip_pt": "First… next… make sure you… finally…"
+   },
+   {
+    "id": "sc10",
+    "en": "Tell a story about a mistake you made and what you learned.",
+    "pt": "Conte um erro que você cometeu e o que aprendeu.",
+    "tip_pt": "Use o passado: I was…, I decided…, I learned…"
+   },
+   {
+    "id": "sc11",
+    "en": "Convince a colleague to try your idea to improve a process.",
+    "pt": "Convença um colega a testar sua ideia para melhorar um processo.",
+    "tip_pt": "Problema atual → sua ideia → benefício → próximo passo."
+   },
+   {
+    "id": "sc12",
+    "en": "Describe your last trip: where you went, what you did and what you liked.",
+    "pt": "Descreva sua última viagem: aonde foi, o que fez e do que gostou.",
+    "tip_pt": "Narre em ordem e termine com uma opinião."
+   }
+  ],
+  "seconds": 60,
+  "fillers": [
+   "ah",
+   "eh",
+   "er",
+   "erm",
+   "hmm",
+   "uh",
+   "uhm",
+   "um"
+  ],
+  "pt_words": [
+   "aqui",
+   "com",
+   "como",
+   "ela",
+   "ele",
+   "entao",
+   "então",
+   "estou",
+   "está",
+   "eu",
+   "isso",
+   "mas",
+   "muito",
+   "nao",
+   "não",
+   "né",
+   "para",
+   "porque",
+   "pra",
+   "que",
+   "ta",
+   "tambem",
+   "também",
+   "tipo",
+   "tá",
+   "uma",
+   "voce",
+   "você",
+   "é"
+  ],
+  "partners": {
+   "india": "Indianos",
+   "us": "Americanos",
+   "other": "Outros"
+  }
+ },
  "course": {
   "units": [
    {
@@ -18832,6 +18955,27 @@
     ],
     "mode": "eval"
    },
+   "turbo": {
+    "title_pt": "Turbo: lembrar e falar sem medo",
+    "min": 12,
+    "max": 15,
+    "skills": [
+     "vocabulary",
+     "fluency",
+     "speaking"
+    ],
+    "mode": "output"
+   },
+   "mind_map": {
+    "title_pt": "Mapa mental",
+    "min": 6,
+    "max": 10,
+    "skills": [
+     "vocabulary",
+     "speaking"
+    ],
+    "mode": "output"
+   },
    "india_mission": {
     "title_pt": "Missão Índia",
     "min": 10,
@@ -18842,6 +18986,27 @@
      "listening"
     ],
     "mode": "output"
+   },
+   "us_mission": {
+    "title_pt": "Missão Wisconsin (EUA)",
+    "min": 10,
+    "max": 15,
+    "skills": [
+     "vocabulary",
+     "speaking",
+     "listening"
+    ],
+    "mode": "output"
+   },
+   "speaking_check": {
+    "title_pt": "Medidor de fala (1 min)",
+    "min": 5,
+    "max": 5,
+    "skills": [
+     "speaking",
+     "fluency"
+    ],
+    "mode": "eval"
    }
   },
   "phase_weights": {
@@ -18854,7 +19019,9 @@
     "think_in_english": 0.06,
     "conversation": 0.11,
     "scenario": 0.07,
-    "error_review": 0.03
+    "error_review": 0.03,
+    "turbo": 0.1,
+    "mind_map": 0.07
    },
    "2": {
     "vocab_review": 0.11,
@@ -18865,7 +19032,9 @@
     "think_in_english": 0.05,
     "conversation": 0.17,
     "scenario": 0.22,
-    "error_review": 0.06
+    "error_review": 0.06,
+    "turbo": 0.08,
+    "mind_map": 0.05
    },
    "3": {
     "vocab_review": 0.08,
@@ -18876,7 +19045,9 @@
     "think_in_english": 0.05,
     "conversation": 0.26,
     "scenario": 0.29,
-    "error_review": 0.05
+    "error_review": 0.05,
+    "turbo": 0.06,
+    "mind_map": 0.04
    }
   },
   "phases": {
@@ -18982,7 +19153,47 @@
       "Concluir a visita técnica simulada à planta na Índia obtendo um 'sim/não' claro sobre prazos"
      ]
     }
+   },
+   "US": {
+    "name_pt": "EUA (Wisconsin)",
+    "accent": "US",
+    "multipliers": {
+     "listening": 1.1
+    },
+    "extra_weights": {
+     "1": {
+      "us_mission": 0.22
+     },
+     "2": {
+      "us_mission": 0.07
+     },
+     "3": {
+      "us_mission": 0.03
+     }
+    },
+    "insight": {
+     "signal": "destination_us",
+     "finding_pt": "Destino: EUA (Wisconsin). Imigração, inverno, unidades americanas (polegadas, °F, psi) e o jeito indireto do Meio-Oeste nas reuniões são prioridade.",
+     "action_pt": "O plano inclui as missões de Wisconsin, mapas de unidades americanas e listenings com sotaque americano."
+    },
+    "goals_pt": {
+     "1": [
+      "Concluir as 6 missões da Missão Wisconsin (≈60 frases para a viagem e o trabalho)"
+     ],
+     "2": [
+      "Converter na hora polegadas, °F, psi e datas mês/dia ditas em voz alta"
+     ],
+     "3": [
+      "Conduzir uma reunião simulada com americanos e confirmar um 'sim/não' claro"
+     ]
+    }
    }
-  }
+  },
+  "en_only": [
+   "india_mission",
+   "mind_map",
+   "us_mission"
+  ],
+  "extra_dest_factor": 0.6
  }
 }

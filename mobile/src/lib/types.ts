@@ -18,7 +18,7 @@ export type Profile = {
   trip_date: string | null;
   preferred_accents: string[];
   new_cards_per_day: number;
-  trip_destination: string | null;
+  trip_destination: string | null; extra_destinations?: string[];
 };
 
 export type Me = {

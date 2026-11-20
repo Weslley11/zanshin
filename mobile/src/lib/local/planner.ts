@@ -8,6 +8,8 @@ export const PHASE_WEIGHTS: Record<string, Record<string, number>> = P.phase_wei
 export const PHASES: Record<string, any> = P.phases;
 export const WEEK_THEMES: string[] = P.week_themes;
 export const DESTINATIONS: Record<string, any> = P.destinations;
+export const EN_ONLY = new Set<string>(P.en_only);
+export const EXTRA_DEST_FACTOR: number = P.extra_dest_factor;
 
 export type PlannedActivity = { id: string; type: string; title_pt: string; minutes: number; skills: string[]; params: Record<string, any>; done: boolean };
 export type PlannedDay = { day_index: number; date: string; phase: number; focus: string; is_assessment_day: boolean; activities: PlannedActivity[] };
@@ -61,12 +63,16 @@ function tupleCmp(a: (boolean | string)[], b: (boolean | string)[]): number {
 
 export function generate(opts: {
   start: string; total_days: number; daily_minutes: number; learner_level?: string; multipliers?: Record<string, number>;
-  focus_domains?: string[]; placement_done?: boolean; destination?: string | null;
+  focus_domains?: string[]; placement_done?: boolean; destination?: string | null; extra_destinations?: string[]; language?: string;
 }): PlannedDay[] {
   const multipliers = opts.multipliers ?? {};
   const focus = opts.focus_domains ?? [];
   const destination = opts.destination ?? null;
   const dest = destination ? DESTINATIONS[destination] : undefined;
+  const extraCodes = opts.extra_destinations ?? [];
+  const extras = extraCodes.filter((x) => DESTINATIONS[x] && x !== destination).map((x) => DESTINATIONS[x]);
+  const destCodes = new Set([destination, ...extraCodes].filter((c): c is string => !!c && !!DESTINATIONS[c]));
+  const language = opts.language ?? "en";
   const destAccent: string | null = dest ? dest.accent : null;
   const level = opts.learner_level && CEFR_LEVELS.includes(opts.learner_level) ? opts.learner_level : "B1";
   const total = opts.total_days;
@@ -81,6 +87,12 @@ export function generate(opts: {
     if (dest) {
       for (const [t, w] of Object.entries((dest.extra_weights?.[String(phase)] ?? {}) as Record<string, number>)) raw[t] = w * (multipliers[t] ?? 1);
     }
+    for (const x of extras) {
+      for (const [t, w] of Object.entries((x.extra_weights?.[String(phase)] ?? {}) as Record<string, number>)) {
+        raw[t] = (raw[t] ?? 0) + w * EXTRA_DEST_FACTOR * (multipliers[t] ?? 1);
+      }
+    }
+    if (language !== "en") for (const t of Object.keys(raw)) if (EN_ONLY.has(t)) delete raw[t];
     const tot = Object.values(raw).reduce((a, b) => a + b, 0);
     const weights = Object.fromEntries(Object.entries(raw).map(([t, w]) => [t, w / tot]));
     const week = Math.min(Math.floor(((day - 1) * 13) / total), 12);
@@ -95,6 +107,10 @@ export function generate(opts: {
       chosen.push(["assessment", block]);
       left -= block;
       dp.is_assessment_day = true;
+    }
+    if (weekly && left >= 15) {
+      chosen.push(["speaking_check", 5]);
+      left -= 5;
     }
     for (const [t, w] of Object.entries(weights)) credits[t] += w * left;
     if (weekly) {
@@ -142,7 +158,7 @@ export function generate(opts: {
         chosen[idx] = [chosen[idx][0], chosen[idx][1] + left];
       }
     }
-    const headOrder: Record<string, number> = { assessment: 0, vocab_review: 1 };
+    const headOrder: Record<string, number> = { assessment: 0, speaking_check: 1, vocab_review: 2 };
     const inputs = chosen.filter(([t]) => ACTIVITY_INFO[t].mode === "input" && !(t in headOrder));
     const outputs = chosen.filter(([t]) => ACTIVITY_INFO[t].mode === "output" && t !== "error_review");
     const head = chosen.filter(([t]) => t in headOrder).sort((a, b) => headOrder[a[0]] - headOrder[b[0]]);
@@ -197,6 +213,24 @@ export function generate(opts: {
         const m = missions[k % missions.length];
         params.mission_id = m.id;
         title = k < missions.length ? `Missão Índia ${m.order}: ${m.title_pt}` : `Revisar missão ${m.order}: ${m.title_pt}`;
+      } else if (t === "us_mission") {
+        const missions = CONTENT.us_missions as any[];
+        const k = rotation.us_mission_count ?? 0;
+        rotation.us_mission_count = k + 1;
+        const m = missions[k % missions.length];
+        params.mission_id = m.id;
+        title = k < missions.length ? `Missão Wisconsin ${m.order}: ${m.title_pt}` : `Revisar missão Wisconsin ${m.order}: ${m.title_pt}`;
+      } else if (t === "mind_map") {
+        const isGeneral = (m: any) => m.track === "work" || m.track === "travel";
+        const pool = (CONTENT.mind_maps as any[]).filter((m) => isGeneral(m) || (m.track === "india" && destCodes.has("IN")) || (m.track === "us" && destCodes.has("US")))
+          .sort((a, b) => Number(isGeneral(a)) - Number(isGeneral(b)) || a.order - b.order);
+        const k = rotation.map_count ?? 0;
+        rotation.map_count = k + 1;
+        const rebuild = k % 2 === 1;
+        const m = pool[Math.floor(k / 2) % pool.length];
+        params.map_id = m.id;
+        params.mode = rebuild ? "rebuild" : "learn";
+        title = rebuild ? `Reconstruir de memória: ${m.title_pt}` : `Mapa mental: ${m.title_pt}`;
       } else if (t === "assessment") {
         params.kind = day === 1 && !opts.placement_done ? "placement" : "checkpoint";
         title = params.kind === "placement" ? "Avaliação inicial" : `Avaliação de progresso (dia ${day})`;

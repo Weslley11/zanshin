@@ -40,6 +40,7 @@ export default function Onboarding() {
   const [minutes, setMinutes] = useState(profile?.daily_minutes ?? 45);
   const [trip, setTrip] = useState(profile?.trip_date ?? isoInDays(90));
   const [destination, setDestination] = useState<string | null>(profile?.trip_destination ?? null);
+  const [extras, setExtras] = useState<string[]>(profile?.extra_destinations ?? []);
   const [domains, setDomains] = useState<string[]>(profile?.focus_domains ?? ["engineering", "travel"]);
   const [diffs, setDiffs] = useState<string[]>(profile?.difficulties ?? ["Entender quem fala rápido", "Responder sem traduzir"]);
   const [level, setLevel] = useState(profile?.cefr_estimate ?? "B1");
@@ -58,7 +59,8 @@ export default function Onboarding() {
       await api(`/me/profiles/${language}`, {
         method: "PUT",
         body: { daily_minutes: minutes, goals: ["Viagem internacional a trabalho"], focus_domains: domains, difficulties: diffs, trip_date: trip,
-                self_level: level, trip_destination: en ? destination : null, preferred_accents: destination ? [] : ["US", "UK"] },
+                self_level: level, trip_destination: en ? destination : null,
+                extra_destinations: en && destination ? extras.filter((x) => x !== destination) : [], preferred_accents: destination ? [] : ["US", "UK"] },
       });
       await refreshMe();
       if (next === "assess" && en) router.replace({ pathname: "/assessment", params: { kind: "placement", thenPlan: "1" } });
@@ -100,6 +102,14 @@ export default function Onboarding() {
         <>
           <Text muted>Para onde você vai? O plano prioriza o sotaque e as situações do destino.</Text>
           <Row wrap>{DESTINATIONS.map(([k, l]) => <Chip key={l} label={l} selected={destination === k} onPress={() => setDestination(k)} />)}</Row>
+          {destination ? (
+            <>
+              <Text variant="label" muted>Também vai para outro país? (opcional)</Text>
+              <Row wrap>{DESTINATIONS.filter(([k]) => k && k !== destination).map(([k, l]) => (
+                <Chip key={`x-${l}`} label={l} selected={extras.includes(k!)} onPress={() => toggle(extras, setExtras, k!)} />
+              ))}</Row>
+            </>
+          ) : null}
           {destination === "IN" ? (
             <Card tone="warning" style={{ flexDirection: "row", gap: 10, alignItems: "center", padding: 10 }}>
               <Lottie source={globeAnim} style={{ width: 54, height: 54 }} />

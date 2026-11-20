@@ -57,6 +57,7 @@ function RootStack() {
         <Stack.Screen name="missao/[id]" options={{ title: "Missão" }} />
         <Stack.Screen name="frases" options={{ title: "Minhas frases" }} />
         <Stack.Screen name="turbo" options={{ title: "Turbo" }} />
+        <Stack.Screen name="fala" options={{ title: "Medidor de fala" }} />
         <Stack.Screen name="licao/[id]" options={{ headerShown: false, gestureEnabled: false, animation: "slide_from_bottom" }} />
         <Stack.Screen name="unlock" options={{ title: "Destravar a Fala" }} />
         <Stack.Screen name="welcome" options={{ headerShown: false }} />

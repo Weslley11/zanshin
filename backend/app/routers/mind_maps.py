@@ -34,6 +34,8 @@ class CompleteIn(BaseModel):
     mode: str = Field(pattern="^(study|recall|rebuild)$")
     results: list[LeafResult] = Field(max_length=40)
     duration_seconds: int = Field(ge=0, le=7_200)
+    plan_day: int | None = None
+    plan_activity_id: str | None = Field(default=None, max_length=40)
 
 
 @router.post("/{map_id}/complete")
@@ -42,6 +44,7 @@ async def complete_map(map_id: str, body: CompleteIn, user: CurrentUser, db: DB)
     if m is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Mapa não encontrado.")
     result = await map_service.complete(db, user, m, mode=body.mode, results=[r.model_dump() for r in body.results],
-                                        duration_seconds=body.duration_seconds)
+                                        duration_seconds=body.duration_seconds, plan_day=body.plan_day,
+                                        plan_activity_id=body.plan_activity_id)
     await db.commit()
     return result

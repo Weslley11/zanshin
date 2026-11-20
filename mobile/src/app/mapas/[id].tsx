@@ -32,7 +32,7 @@ function interleave(m: MindMap): string[] {
 }
 
 export default function MapPlayer() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id, mode: startMode, planDay, planActivity } = useLocalSearchParams<{ id: string; mode?: string; planDay?: string; planActivity?: string }>();
   const navigation = useNavigation();
   const { c } = useTheme();
   const [map, setMap] = useState<MindMap | null>(null);
@@ -62,6 +62,15 @@ export default function MapPlayer() {
     }).catch((e) => setError(e.message));
     return () => { stopSpeaking(); };
   }, [id]);
+
+  // Vindo do plano como "Reconstruir de memória": vai direto para a reconstrução (revisão espaçada do mapa).
+  const [autoStarted, setAutoStarted] = useState(false);
+  useEffect(() => {
+    if (map && startMode === "rebuild" && !autoStarted) {
+      setAutoStarted(true);
+      begin("rebuild");
+    }
+  }, [map]);
 
   if (!map) return <Screen><ErrorText error={error} />{!error ? <Loading /> : null}</Screen>;
   const leaves = map.branches.flatMap((b) => b.leaves);
@@ -102,7 +111,8 @@ export default function MapPlayer() {
     setStep("done");
     setSaving(true);
     try {
-      setResult(await api(`/maps/${map.id}/complete`, { body: { mode, results, duration_seconds: Math.round((Date.now() - startedAt.current) / 1000) } }));
+      setResult(await api(`/maps/${map.id}/complete`, { body: { mode, results, duration_seconds: Math.round((Date.now() - startedAt.current) / 1000),
+        ...(planDay && planActivity ? { plan_day: Number(planDay), plan_activity_id: planActivity } : {}) } }));
     } catch (e: any) {
       setError(e.message);
     } finally {

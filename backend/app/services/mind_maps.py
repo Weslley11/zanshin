@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.content.mind_maps import MAPS, leaves, map_summary
 from app.models import ActivityLog, User
+from app.services import plans as plan_service
 from app.services import vocab as vocab_service
 from app.services.missions import card_for_phrase
 
@@ -47,7 +48,8 @@ async def overview(db: AsyncSession, user: User) -> dict:
             "mastered": sum(1 for i in items if i["best_score"] >= 0.8 and i["rebuilt"])}
 
 
-async def complete(db: AsyncSession, user: User, m: dict, *, mode: str, results: list[dict], duration_seconds: int) -> dict:
+async def complete(db: AsyncSession, user: User, m: dict, *, mode: str, results: list[dict], duration_seconds: int,
+                   plan_day: int | None = None, plan_activity_id: str | None = None) -> dict:
     by_id = {leaf["id"]: leaf for leaf in leaves(m)}
     added = reviewed = 0
     for r in results:
@@ -62,5 +64,11 @@ async def complete(db: AsyncSession, user: User, m: dict, *, mode: str, results:
     score = round(good / reviewed, 3) if reviewed else 0.0
     db.add(ActivityLog(user_id=user.id, language=LANGUAGE, activity_type="mind_map", duration_seconds=duration_seconds,
                        score=score, skills=["vocabulary", "speaking"], details={"map_id": m["id"], "mode": mode}))
+    day = None
+    if plan_day and plan_activity_id:
+        plan = await plan_service.current_plan(db, user, LANGUAGE)
+        if plan:
+            d = await plan_service.complete_activity(db, plan, plan_day, plan_activity_id)
+            day = plan_service.day_view(d) if d else None
     await db.flush()
-    return {"reviewed": reviewed, "added": added, "score": score, "overview": await overview(db, user)}
+    return {"reviewed": reviewed, "added": added, "score": score, "plan_day": day, "overview": await overview(db, user)}

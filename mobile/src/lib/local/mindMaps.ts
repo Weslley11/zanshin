@@ -1,6 +1,7 @@
 /** Mapas mentais no modo local — espelha backend/app/services/mind_maps.py. */
 import { CONTENT } from "./content";
 import { newId, nowIso, type DB, type Row } from "./db";
+import { completeActivity, currentPlan, dayView } from "./learning";
 import { cardForPhrase } from "./missions";
 import { reviewCard } from "./vocab";
 
@@ -56,5 +57,11 @@ export function completeMap(db: DB, m: Row, body: Row) {
   db.activities.push({ id: newId(), started_at: nowIso(), language: LANGUAGE, activity_type: "mind_map",
                        duration_seconds: Math.max(0, Math.min(Number(body.duration_seconds) || 0, 7200)), score,
                        skills: ["vocabulary", "speaking"], details: { map_id: m.id, mode: body.mode } });
-  return { reviewed, added, score, overview: overview(db) };
+  let day = null;
+  if (body.plan_day && body.plan_activity_id) {
+    const plan = currentPlan(db, LANGUAGE);
+    const d = plan ? completeActivity(plan, body.plan_day, body.plan_activity_id) : null;
+    day = d ? dayView(d) : null;
+  }
+  return { reviewed, added, score, plan_day: day, overview: overview(db) };
 }

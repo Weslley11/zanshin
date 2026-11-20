@@ -9,6 +9,7 @@ export type Module = {
 /** Módulos do app (cada um com identidade visual própria). */
 export const MODULES: Module[] = [
   { id: "turbo", title: "Turbo: falar sem medo", subtitle: "15 min/dia com os métodos mais eficazes", icon: "rocket", gradient: "unlock", href: "/turbo" },
+  { id: "speaking", title: "Medidor de fala", subtitle: "1 min/semana: veja sua fala evoluir", icon: "speedometer", gradient: "speak", href: "/fala", enOnly: true },
   { id: "maps", title: "Mapas mentais", subtitle: "Reconstrua de memória e fixe de vez", icon: "git-network", gradient: "maps", href: "/mapas", enOnly: true },
   { id: "missions", title: "Missão Índia", subtitle: "Frases para falar e entender indianos", icon: "flag", gradient: "india", href: "/missao", enOnly: true },
   { id: "wisconsin", title: "Missão Wisconsin", subtitle: "EUA: imigração, inverno, unidades e reuniões", icon: "snow", gradient: "usa", href: { pathname: "/missao", params: { track: "us" } }, enOnly: true },

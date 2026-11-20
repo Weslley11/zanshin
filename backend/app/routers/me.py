@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from datetime import date
+from typing import Annotated
 
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel, Field
@@ -59,7 +60,7 @@ def profile_view(p: LearnerProfile) -> dict:
             "daily_minutes": p.daily_minutes, "goals": p.goals, "focus_domains": p.focus_domains,
             "difficulties": p.difficulties, "trip_date": p.trip_date.isoformat() if p.trip_date else None,
             "preferred_accents": p.preferred_accents, "new_cards_per_day": p.new_cards_per_day,
-            "trip_destination": p.trip_destination}
+            "trip_destination": p.trip_destination, "extra_destinations": p.extra_destinations or []}
 
 
 @router.get("", response_model=MeOut)
@@ -117,6 +118,7 @@ class ProfileIn(BaseModel):
     new_cards_per_day: int = Field(default=12, ge=0, le=50)
     self_level: str | None = Field(default=None, pattern="^(A1|A2|B1|B2|C1|C2)$")
     trip_destination: str | None = Field(default=None, pattern="^[A-Z]{2}$")
+    extra_destinations: list[Annotated[str, Field(pattern="^[A-Z]{2}$")]] = Field(default_factory=list, max_length=3)
 
 
 # Sotaques priorizados por destino (o primeiro vira o padrão do tutor e do listening)
@@ -138,6 +140,7 @@ async def upsert_profile(language: str, body: ProfileIn, user: CurrentUser, db: 
     p.new_cards_per_day = body.new_cards_per_day
     destination_changed = p.trip_destination != body.trip_destination
     p.trip_destination = body.trip_destination
+    p.extra_destinations = list(dict.fromkeys(x for x in body.extra_destinations if x != body.trip_destination))
     if body.trip_destination in DESTINATION_ACCENTS and (not body.preferred_accents or destination_changed):
         p.preferred_accents = DESTINATION_ACCENTS[body.trip_destination]
     if body.self_level and not p.cefr_estimate:
