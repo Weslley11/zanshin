@@ -21,7 +21,9 @@ depends_on: Union[str, Sequence[str], None] = None
 
 def upgrade() -> None:
     """Upgrade schema."""
-    op.add_column('learner_profiles', sa.Column('extra_destinations', sa.JSON().with_variant(postgresql.JSONB(astext_type=sa.Text()), 'postgresql'), nullable=True))
+    # NOT NULL como as demais listas do perfil; perfis existentes recebem lista vazia.
+    op.add_column('learner_profiles', sa.Column('extra_destinations', sa.JSON().with_variant(postgresql.JSONB(astext_type=sa.Text()), 'postgresql'),
+                                                nullable=False, server_default=sa.text("'[]'")))
 
 
 def downgrade() -> None:
