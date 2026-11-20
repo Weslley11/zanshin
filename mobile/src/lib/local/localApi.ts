@@ -12,6 +12,7 @@ import {
 import { completeLesson, lessonFor, overview as courseOverview } from "./course";
 import { completeMap, mapById, overview as mapsOverview } from "./mindMaps";
 import { logReal, saveCheck, speakingOverview } from "./speaking";
+import { completeGuideQuiz, guideFor, guidesOverview } from "./speechGuide";
 import { completeMission, missionFor, overview as missionOverview } from "./missions";
 import { shadowingFeedback } from "./speech";
 import { endSession, getScenario, postMessage, sessionView, startSession } from "./tutor";
@@ -291,6 +292,21 @@ async function route(db: DB, method: string, path: string, q: URLSearchParams, b
     if (seg[3] === "complete" && method === "POST") {
       try {
         return completeMission(db, m, body ?? {});
+      } catch (e: any) {
+        throw new ApiError(422, e.message);
+      }
+    }
+  }
+
+  // ------------------------------- Guia "Como eles falam" -------------------------------
+  if (seg[0] === "guides") {
+    if (!seg[1]) return guidesOverview(db);
+    const g = guideFor(seg[1]);
+    if (!g) throw notFound("Guia não encontrado.");
+    if (!seg[2]) return g;
+    if (seg[2] === "complete" && method === "POST") {
+      try {
+        return completeGuideQuiz(db, g, body ?? {});
       } catch (e: any) {
         throw new ApiError(422, e.message);
       }

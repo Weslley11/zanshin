@@ -27,6 +27,7 @@ from app.routers import (
     missions,
     speaking,
     speech,
+    speech_guide,
     tutor,
 )
 from app.services.vocab import seed_vocab
@@ -90,7 +91,7 @@ def create_app() -> FastAPI:
     async def health() -> dict:
         return {"status": "ok"}
 
-    for r in (auth.router, me.router, content.router, learning.router, missions.router, mind_maps.router, speaking.router, course.router, tutor.router, speech.router,
+    for r in (auth.router, me.router, content.router, learning.router, missions.router, mind_maps.router, speaking.router, speech_guide.router, course.router, tutor.router, speech.router,
               documents.router):
         app.include_router(r, prefix=settings.api_prefix)
     return app

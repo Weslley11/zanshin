@@ -135,6 +135,18 @@ export default function MissionMap() {
           <Icon name="chevron-forward" size={20} color={c.textMuted} />
         </Row>
       </Card>
+      <Card onPress={() => router.push({ pathname: "/guia", params: { country: track === "us" ? "US" : "IN" } })} style={{ gap: 4 }}>
+        <Row gap={12}>
+          <Gradient name="listening" style={{ width: 44, height: 44, borderRadius: radius.md, alignItems: "center", justifyContent: "center" }}>
+            <Icon name="ear" size={22} color="#fff" />
+          </Gradient>
+          <View style={{ flex: 1 }}>
+            <Text weight="800">Como eles falam</Text>
+            <Text variant="small" muted>{track === "us" ? "Fala rápida americana, gírias de Wisconsin, sotaques e estilo de conversa." : "Pronúncia, palavras do hindi no meio, sotaques regionais e estilo de conversa."}</Text>
+          </View>
+          <Icon name="chevron-forward" size={20} color={c.textMuted} />
+        </Row>
+      </Card>
       <Card onPress={() => router.push("/mapas")} style={{ gap: 4 }}>
         <Row gap={12}>
           <Gradient name="maps" style={{ width: 44, height: 44, borderRadius: radius.md, alignItems: "center", justifyContent: "center" }}>

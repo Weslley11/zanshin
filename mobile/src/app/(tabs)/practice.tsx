@@ -8,7 +8,7 @@ import { MODULES } from "../../lib/modules";
 
 const GROUPS: { title: string; ids: string[] }[] = [
   { title: "Falar", ids: ["turbo", "missions", "wisconsin", "tutor", "unlock", "scenarios"] },
-  { title: "Ouvir e pronunciar", ids: ["listening", "shadowing", "india"] },
+  { title: "Ouvir e pronunciar", ids: ["guide", "listening", "shadowing", "india"] },
   { title: "Memorizar e medir", ids: ["maps", "vocab", "speaking", "errors", "plan", "assessment", "documents"] },
 ];
 

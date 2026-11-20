@@ -77,6 +77,7 @@ em cartões. Detalhes em **[docs/09-missao-india.md](docs/09-missao-india.md)**.
 | **Plano de 90 dias** | 3 fases com metas mensuráveis, avaliações a cada 15 dias, motor adaptativo explicável, data e destino da viagem |
 | **Turbo** | Sessão diária de 15 min: lembrar em voz alta com intervalos crescentes, shadowing, fluência 4/3/2 e confiança antes/depois com desafio real |
 | **Mapas mentais** | 8 mapas (96 frases) com 3 modos — Explorar, Lembrar e Reconstruir de memória — e revisão espaçada do mapa inteiro |
+| **Como eles falam** | Guias da Índia e dos EUA (Wisconsin): pronúncia, fala rápida, gírias, estilo de conversa e sotaques, com áudio e treino de ouvido |
 | **Medidor de fala** | 1 min por semana com palavras/min, variedade e português no meio; registro de conversas com pessoas reais |
 | **Missão Wisconsin** | 6 missões para a viagem de trabalho aos EUA: imigração, inverno, unidades americanas, reuniões e small talk do Meio-Oeste |
 | **Trilha** | 97 lições curtas gamificadas (XP, meta diária, sequência, combo) com 7 tipos de exercício; erros voltam no fim; itens vão para o FSRS |
@@ -130,6 +131,7 @@ com sotaque (inclusive en-IN), configure os provedores — veja [docs/05-provedo
 12. [Turbo](docs/12-turbo.md) — sessão diária com os métodos mais eficazes para fixar e falar sem medo
 13. [Mapas mentais e Missão Wisconsin](docs/13-mapas-e-wisconsin.md) — fixação por reconstrução de memória e preparação para os EUA
 14. [O sistema integrado](docs/14-sistema-integrado.md) — plano diário com tudo junto, dois destinos e medidor de fala semanal
+15. [Como eles falam](docs/15-como-eles-falam.md) — pronúncia, gírias, sotaques e estilo de conversa na Índia e nos EUA
 
 ## Qualidade
 - Backend: 120 testes (SQLite) + suíte de API contra PostgreSQL, migrações verificadas, lint.
